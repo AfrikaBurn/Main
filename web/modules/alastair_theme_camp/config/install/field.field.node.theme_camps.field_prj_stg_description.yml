@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stg_description
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_stg_description
+field_name: field_prj_stg_description
+entity_type: node
+bundle: theme_camps
+label: 'Provide a description of the space and performers you are looking for'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

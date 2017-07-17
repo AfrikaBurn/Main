@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_saf_guide
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_saf_guide
+field_name: field_prj_saf_guide
+entity_type: node
+bundle: theme_camps
+label: 'Safety: Markings / Visibility'
+description: "One of the most common injures at Tankwa Town as a result of tent pegs not being well marked and covered, as well as people walking / cycling into guy ropes.<br>\r\nA safety officer will be in place to inspect your camp safety requirements. "
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

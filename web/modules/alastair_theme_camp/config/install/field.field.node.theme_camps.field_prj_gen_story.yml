@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_story
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_gen_story
+field_name: field_prj_gen_story
+entity_type: node
+bundle: theme_camps
+label: 'What motivates you to be involved in a Theme Camp?'
+description: 'What makes you want to go through all this trouble and pull this Theme Camp together?'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
