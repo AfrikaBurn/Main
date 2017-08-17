@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collectives
+  enforced:
+    config:
+      - user.role.mutant_vehicle_wrangler
+id: collectives-e84703432
+label: 'Mutant Vehicle Wrangler'
+weight: -2
+internal: true
+audience: outsider
+group_type: collectives
+permissions_ui: false
+permissions:
+  - 'administer members'
+  - 'view group_membership content'
+  - 'view group'
+  - 'access group_node overview'

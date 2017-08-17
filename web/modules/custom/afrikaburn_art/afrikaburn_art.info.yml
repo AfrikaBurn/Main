@@ -1,0 +1,34 @@
+name: Artwork
+description: 'Provides Artwork content type and related configuration. '
+type: module
+core: 8.x
+dependencies:
+  - afrikaburn_comment
+  - afrikaburn_core
+  - afrikaburn_mutant_vehicles
+  - afrikaburn_performances
+  - afrikaburn_site
+  - afrikaburn_theme_camps
+  - block
+  - block_content
+  - comment
+  - content_moderation
+  - cshs
+  - datetime
+  - field
+  - field_group
+  - field_permissions
+  - file
+  - gnode
+  - group
+  - image
+  - link
+  - markup
+  - menu_ui
+  - node
+  - page_manager
+  - panels
+  - path
+  - taxonomy
+  - user
+package: AfrikaBurn

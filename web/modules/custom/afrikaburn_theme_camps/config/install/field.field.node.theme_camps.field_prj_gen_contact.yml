@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_contact
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_gen_contact
+field_name: field_prj_gen_contact
+entity_type: node
+bundle: theme_camps
+label: 'Creative Lead'
+description: 'The camp lead is responsible for all correspondence, including Creative Crew tickets, Early Arrivals Passes and camp logistics. Please use the same email address that you used on your Burner Bio and make sure you check it regularly. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: user_select
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

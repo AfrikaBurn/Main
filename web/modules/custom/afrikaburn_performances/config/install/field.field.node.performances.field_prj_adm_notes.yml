@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_adm_notes
+    - node.type.performances
+id: node.performances.field_prj_adm_notes
+field_name: field_prj_adm_notes
+entity_type: node
+bundle: performances
+label: 'Project Comments'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

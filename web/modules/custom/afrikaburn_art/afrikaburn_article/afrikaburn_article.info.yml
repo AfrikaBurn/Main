@@ -1,0 +1,19 @@
+name: Article
+description: 'Provides Article content type and related configuration. Use <em>articles</em> for time-sensitive content like news, press releases or blog posts.'
+type: module
+core: 8.x
+dependencies:
+  - afrikaburn_comment
+  - afrikaburn_site
+  - comment
+  - content_moderation
+  - field
+  - file
+  - image
+  - node
+  - path
+  - rdf
+  - taxonomy
+  - text
+  - user
+package: AfrikaBurn

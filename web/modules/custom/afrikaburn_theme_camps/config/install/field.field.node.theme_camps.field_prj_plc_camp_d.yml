@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_camp_d
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_plc_camp_d
+field_name: field_prj_plc_camp_d
+entity_type: node
+bundle: theme_camps
+label: 'Camp Depth (in total)'
+description: 'The largest blocks are only 50 meters deep.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 3
+  max: 50
+  prefix: ''
+  suffix: ''
+field_type: integer

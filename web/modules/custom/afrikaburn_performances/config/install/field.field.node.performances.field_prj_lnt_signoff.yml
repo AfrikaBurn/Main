@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_signoff
+    - node.type.performances
+id: node.performances.field_prj_lnt_signoff
+field_name: field_prj_lnt_signoff
+entity_type: node
+bundle: performances
+label: 'Moop signed off by the Leave No Trace before leaving site'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

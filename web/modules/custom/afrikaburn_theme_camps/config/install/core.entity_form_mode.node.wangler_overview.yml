@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.wangler_overview
+label: 'Wangler Overview'
+targetEntityType: node
+cache: true

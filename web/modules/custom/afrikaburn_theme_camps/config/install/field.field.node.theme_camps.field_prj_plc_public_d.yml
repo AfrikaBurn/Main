@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_public_d
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_plc_public_d
+field_name: field_prj_plc_public_d
+entity_type: node
+bundle: theme_camps
+label: 'Public Engagement Space Depth'
+description: "'Public Engagement Space': Area needed for the public space part of your theme camp that will front onto the road.<br>\r\nPrivate camping and your parking, camper vans, kitchen, sleeping areas, etc., must be located in the rear of your theme camp."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 3
+  max: 50
+  prefix: ''
+  suffix: ''
+field_type: integer

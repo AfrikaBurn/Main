@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collectives
+  enforced:
+    config:
+      - user.role.theme_camp_wrangler
+id: collectives-5d7f2251c
+label: 'Theme Camp Wrangler'
+weight: 4
+internal: true
+audience: outsider
+group_type: collectives
+permissions_ui: false
+permissions:
+  - 'administer members'
+  - 'view group_membership content'
+  - 'view group'
+  - 'access group_node overview'

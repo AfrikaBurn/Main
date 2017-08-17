@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_profit
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_gen_profit
+field_name: field_prj_gen_profit
+entity_type: node
+bundle: theme_camps
+label: 'Agree to Plug play and profit policy'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

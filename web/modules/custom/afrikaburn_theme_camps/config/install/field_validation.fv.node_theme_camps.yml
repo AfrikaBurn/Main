@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: node_theme_camps
+label: 'node theme_camps validation'
+entity_type: node
+bundle: theme_camps
+field_validation_rules: {  }

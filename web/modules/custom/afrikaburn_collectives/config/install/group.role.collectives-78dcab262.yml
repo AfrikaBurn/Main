@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collectives
+  enforced:
+    config:
+      - user.role.outreach_admin
+id: collectives-78dcab262
+label: 'Outreach Admin'
+weight: 1
+internal: true
+audience: outsider
+group_type: collectives
+permissions_ui: false
+permissions: {  }

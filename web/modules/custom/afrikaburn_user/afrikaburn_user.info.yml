@@ -1,0 +1,12 @@
+name: User
+description: 'Provide User related configuration.'
+type: module
+core: 8.x
+dependencies:
+  - field
+  - file
+  - image
+  - telephone
+  - user
+  - views
+package: AfrikaBurn

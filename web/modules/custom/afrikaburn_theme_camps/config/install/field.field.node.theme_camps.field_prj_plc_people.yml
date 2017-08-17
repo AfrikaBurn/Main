@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_people
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_plc_people
+field_name: field_prj_plc_people
+entity_type: node
+bundle: theme_camps
+label: 'How many people are in your camp?'
+description: '(You can edit this again, an estimate will be fine for now)'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 200
+  prefix: ''
+  suffix: ''
+field_type: integer

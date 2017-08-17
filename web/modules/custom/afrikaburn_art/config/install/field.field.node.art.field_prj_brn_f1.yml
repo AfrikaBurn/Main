@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_f1
+    - node.type.art
+  module:
+    - markup
+id: node.art.field_prj_brn_f1
+field_name: field_prj_brn_f1
+entity_type: node
+bundle: art
+label: 'burn description'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p dir=\"ltr\"><span>Are you planning to burn your artwork? Remember: artworks don't need to be approved, but your burn does. If this is what you're planning to do this year, you'll have to motivate to burn your piece.</span></p>\r\n\r\n<p dir=\"ltr\"><span>You don't have to burn your piece. You might think that burning it is an easy way to get rid of it (and not transport it back) - it's not: you'd still have to clean up the burn site and remove all coals, rebar etc. </span><br />\r\n<span>So consider whether burning is important to the meaning of your piece carefully. </span></p>\r\n\r\n<p dir=\"ltr\"><span>We love works that can be used outside of the event again, whether as ‘permanent’ installations in an urban space or at Decompression, <a href=\"www.streetopia.co.za\" target=\"_blank\">Streetopia</a>, Maker Faire etc.</span><span> Also, please consider designing your project in such a way that it can be dismantled and re-purposed. You can donate your good materials to Outreach projects. (This just needs to be arranged in advance before the event.)</span></p>\r\n\r\n<p dir=\"ltr\"><span>If it's really important for your artwork to burn, consider that in your design - and remember you're building a fire and that has to be considered in your design. The Art Committee will assess your request to burn your piece based on your motivation and design.</span></p>\r\n\r\n<p dir=\"ltr\"><span>There will be a separate form later on about your burn plan.</span></p>\r\n"
+    format: full_html
+field_type: markup

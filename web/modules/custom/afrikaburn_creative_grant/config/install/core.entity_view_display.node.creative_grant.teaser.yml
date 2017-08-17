@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.creative_grant
+  module:
+    - user
+id: node.creative_grant.teaser
+targetEntityType: node
+bundle: creative_grant
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden: {  }

@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_department
+    - node.type.system_emails
+    - user.role.administrator
+    - user.role.communications_admin
+    - user.role.communications_wrangler
+id: node.system_emails.field_department
+field_name: field_department
+entity_type: node
+bundle: system_emails
+label: 'Department that recieve this mail'
+description: 'Be careful when updating these mails if they are related to other department.'
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 8adb6717-7479-4932-bfa9-fffd151b08b1
+  -
+    target_uuid: a5a1909f-dea5-41b3-bc7b-a25f14f81a89
+  -
+    target_uuid: ac0eefd5-7a28-462f-9c48-c493f7be32cf
+default_value_callback: ''
+settings:
+  handler: 'default:user_role'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

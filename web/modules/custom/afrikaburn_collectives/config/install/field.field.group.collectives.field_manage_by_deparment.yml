@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_manage_by_deparment
+    - group.type.collectives
+    - taxonomy.vocabulary.departments
+  content:
+    - 'taxonomy_term:departments:0c2b6598-b9fb-46ee-bc18-d6cfad4f510b'
+id: group.collectives.field_manage_by_deparment
+field_name: field_manage_by_deparment
+entity_type: group
+bundle: collectives
+label: 'Manage by Deparment'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 0c2b6598-b9fb-46ee-bc18-d6cfad4f510b
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      departments: departments
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

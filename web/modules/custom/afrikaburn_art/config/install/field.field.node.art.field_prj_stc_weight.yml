@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stc_weight
+    - node.type.art
+id: node.art.field_prj_stc_weight
+field_name: field_prj_stc_weight
+entity_type: node
+bundle: art
+label: 'Approx Weight in kg'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

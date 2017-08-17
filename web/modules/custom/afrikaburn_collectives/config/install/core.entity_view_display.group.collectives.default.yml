@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.collectives.field_collective_space
+    - field.field.group.collectives.field_comment
+    - field.field.group.collectives.field_ddt_eligible
+    - field.field.group.collectives.field_manage_by_deparment
+    - group.type.collectives
+  module:
+    - markup
+    - text
+id: group.collectives.default
+targetEntityType: group
+bundle: collectives
+mode: default
+content:
+  field_collective_space:
+    weight: -1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_comment:
+    weight: -2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_ddt_eligible:
+    weight: -3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_manage_by_deparment:
+    weight: -4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  label:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  changed: true
+  created: true
+  uid: true

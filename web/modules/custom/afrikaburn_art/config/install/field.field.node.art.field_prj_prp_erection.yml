@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_prp_erection
+    - node.type.art
+  module:
+    - datetime
+id: node.art.field_prj_prp_erection
+field_name: field_prj_prp_erection
+entity_type: node
+bundle: art
+label: 'When are you planning to start building on site?'
+description: 'Allow yourself enough time to build your artwork (do not underestimate the Tankwa weather).  Remember that the gates opens on the 23 April 2018. Please consider arriving early (you’ll need to have an Early Arrival Pass).'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collectives
+    - node.type.theme_camps
+  module:
+    - gnode
+    - node
+id: group_content_type_5bd3888d6d5d4
+label: 'Collectives: Group node (Theme Camps)'
+description: 'Adds <em class="placeholder">Theme Camps</em> content to groups both publicly and privately.'
+group_type: collectives
+content_plugin: 'group_node:theme_camps'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: true

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_handled
+    - node.type.performances
+id: node.performances.field_prj_lnt_handled
+field_name: field_prj_lnt_handled
+entity_type: node
+bundle: performances
+label: 'Performance site cleanup'
+description: 'It is your responsibility to clean up your performance site and ensure that no trace associated with your performance remains anywhere. Nothing. Nada. Zilch. Zip. Zero. Fokol.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

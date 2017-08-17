@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stg_stage
+    - node.type.art
+id: node.art.field_prj_stg_stage
+field_name: field_prj_stg_stage
+entity_type: node
+bundle: art
+label: 'Do you have a stage or performance area where you would welcome performers to?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

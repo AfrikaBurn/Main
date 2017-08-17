@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_helpers
+    - node.type.performances
+id: node.performances.field_prj_lnt_helpers
+field_name: field_prj_lnt_helpers
+entity_type: node
+bundle: performances
+label: 'How many people do you have to help you clean up your site after removal or burn of the performance'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: people
+field_type: integer

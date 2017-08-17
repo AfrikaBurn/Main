@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Artwork Size'
+vid: artwork_size
+description: ''
+hierarchy: 0
+weight: 0

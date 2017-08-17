@@ -1,0 +1,32 @@
+name: Core
+description: 'Provides core components required by other features.'
+type: module
+core: 8.x
+dependencies:
+  - afrikaburn_site
+  - block
+  - block_content
+  - comment
+  - contact
+  - content_moderation
+  - datetime
+  - field
+  - field_permissions
+  - file
+  - group
+  - help
+  - image
+  - link
+  - linkit
+  - markup
+  - menu_link_content
+  - node
+  - pfdp
+  - responsive_image
+  - search
+  - shortcut
+  - system
+  - taxonomy
+  - tour
+  - user
+package: AfrikaBurn

@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_saf_person
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_saf_person
+field_name: field_prj_saf_person
+entity_type: node
+bundle: theme_camps
+label: 'Do you have in your team someone specifically responsible for assuring that the camp is structurally safe'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: user_select
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

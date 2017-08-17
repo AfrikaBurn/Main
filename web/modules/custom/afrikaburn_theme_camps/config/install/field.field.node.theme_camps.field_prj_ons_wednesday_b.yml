@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_ons_wednesday_b
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_ons_wednesday_b
+field_name: field_prj_ons_wednesday_b
+entity_type: node
+bundle: theme_camps
+label: 'Wednesday 9:30 am – Fully setup and open'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,30 @@
+name: Performances
+description: 'Provides Performances content type and related configuration. '
+type: module
+core: 8.x
+dependencies:
+  - afrikaburn_art
+  - afrikaburn_collectives
+  - afrikaburn_comment
+  - afrikaburn_core
+  - afrikaburn_mutant_vehicles
+  - afrikaburn_site
+  - afrikaburn_theme_camps
+  - comment
+  - content_moderation
+  - cshs
+  - datetime
+  - field
+  - field_group
+  - field_permissions
+  - file
+  - gnode
+  - group
+  - image
+  - link
+  - markup
+  - menu_ui
+  - node
+  - path
+  - user
+package: AfrikaBurn

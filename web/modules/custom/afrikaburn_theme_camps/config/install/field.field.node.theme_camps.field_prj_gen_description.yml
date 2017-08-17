@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_description
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_gen_description
+field_name: field_prj_gen_description
+entity_type: node
+bundle: theme_camps
+label: 'Tell us about your camp'
+description: 'What are you planning to offer in your Theme Camp - and how, or when? Give us a good idea of what you have planned so we can assess it during the approval process, so give us as much info as you can. .'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

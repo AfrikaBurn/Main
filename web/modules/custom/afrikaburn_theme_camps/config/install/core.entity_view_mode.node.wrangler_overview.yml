@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.wrangler_overview
+label: 'Wrangler Overview'
+targetEntityType: node
+cache: true

@@ -1,0 +1,23 @@
+name: Collectives
+type: module
+core: 8.x
+dependencies:
+  - afrikaburn_art
+  - afrikaburn_comment
+  - afrikaburn_core
+  - afrikaburn_site
+  - block
+  - field
+  - field_permissions
+  - gnode
+  - group
+  - linkit
+  - markup
+  - node
+  - path
+  - pfdp
+  - taxonomy
+  - text
+  - user
+  - views
+package: AfrikaBurn

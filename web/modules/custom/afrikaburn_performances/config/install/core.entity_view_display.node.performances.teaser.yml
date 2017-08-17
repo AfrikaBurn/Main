@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.performances
+  module:
+    - user
+id: node.performances.teaser
+targetEntityType: node
+bundle: performances
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden: {  }

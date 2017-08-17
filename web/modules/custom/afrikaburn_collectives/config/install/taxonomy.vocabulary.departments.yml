@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: Departments
+vid: departments
+description: 'This is for project team management, so is limited to Art, MV, Theme Camps'
+hierarchy: 0
+weight: 0

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collectives
+  enforced:
+    config:
+      - user.role.art_wrangler
+id: collectives-7d5656e25
+label: 'Art Wrangler'
+weight: -8
+internal: true
+audience: outsider
+group_type: collectives
+permissions_ui: false
+permissions:
+  - 'administer members'
+  - 'view group_membership content'
+  - 'view group'
+  - 'access group_node overview'

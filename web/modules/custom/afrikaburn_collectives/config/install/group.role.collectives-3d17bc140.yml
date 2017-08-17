@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collectives
+  enforced:
+    config:
+      - user.role.theme
+id: collectives-3d17bc140
+label: 'Theme Camp Admin'
+weight: 5
+internal: true
+audience: outsider
+group_type: collectives
+permissions_ui: false
+permissions:
+  - 'administer group'
+  - 'administer members'
+  - 'view group_membership content'
+  - 'view group'
+  - 'access group_node overview'

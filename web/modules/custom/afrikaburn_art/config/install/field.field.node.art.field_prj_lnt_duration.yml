@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_duration
+    - node.type.art
+id: node.art.field_prj_lnt_duration
+field_name: field_prj_lnt_duration
+entity_type: node
+bundle: art
+label: 'How long do you estimate that it will take?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: hours
+field_type: integer

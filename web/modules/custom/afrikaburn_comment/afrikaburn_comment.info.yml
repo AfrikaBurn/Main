@@ -1,0 +1,18 @@
+name: 'Default comments'
+description: 'Provides Default comments comment type and related configuration. Allows commenting on content'
+type: module
+core: 8.x
+dependencies:
+  - afrikaburn_art
+  - afrikaburn_collectives
+  - afrikaburn_core
+  - afrikaburn_performances
+  - comment
+  - field
+  - field_permissions
+  - group
+  - markup
+  - node
+  - rdf
+  - text
+package: AfrikaBurn

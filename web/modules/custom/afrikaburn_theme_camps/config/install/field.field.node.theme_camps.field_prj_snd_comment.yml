@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_comment
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_snd_comment
+field_name: field_prj_snd_comment
+entity_type: node
+bundle: theme_camps
+label: 'Sound Comment'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: ".\r\n.\r\n.\r\n.\r\n."
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,19 @@
+name: Site
+description: 'Provides site components.'
+type: module
+core: 8.x
+dependencies:
+  - afrikaburn_article
+  - block_content
+  - ckeditor
+  - contact
+  - content_moderation
+  - editor
+  - field
+  - filter
+  - php
+  - rdf
+  - taxonomy
+  - text
+  - token_filter
+package: AfrikaBurn

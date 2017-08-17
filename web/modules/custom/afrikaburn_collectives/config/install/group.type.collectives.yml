@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+id: collectives
+label: Collectives
+description: "<p>Your collective is the group or team that organize and run projects at AfrikaBurn. Collectives help you register:</p>\r\n\r\n<ul>\r\n<li>Registration of Artwork, Mutant Vehicle, Performance and/or Theme Camp.</li>\r\n<li>Direct Distrubution Ticket Requests (if you are eligable)</li>\r\n<li>Early Access Tickets</li>\r\n<li>Outreach - Low Income Tickets (these differ from sub subsidised tickets)</li>\r\n<li>Your WTF Guide entries</li>\r\n<li>Supplier Registration</li>\r\n<li>Support Vehicle registration</li>\r\n<li>New members signups</li>\r\n</ul>"
+creator_membership: true
+creator_wizard: true
+creator_roles:
+  - collectives-admin

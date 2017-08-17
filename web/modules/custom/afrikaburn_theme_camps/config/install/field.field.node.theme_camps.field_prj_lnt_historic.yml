@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_historic
+    - node.type.theme_camps
+    - taxonomy.vocabulary.moop_score
+id: node.theme_camps.field_prj_lnt_historic
+field_name: field_prj_lnt_historic
+entity_type: node
+bundle: theme_camps
+label: 'Moop Map score in 2017'
+description: "If you were part of a Theme Camp in 2016 what was your MOOP map rating?<br>\r\nRed, Yellow, Green"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      moop_score: moop_score
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

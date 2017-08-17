@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collectives
+  enforced:
+    config:
+      - user.role.communications_wrangler
+id: collectives-c5ec0e415
+label: 'Communications Wrangler'
+weight: -6
+internal: true
+audience: outsider
+group_type: collectives
+permissions_ui: false
+permissions:
+  - 'edit group'
+  - 'view group_membership content'
+  - 'view group'
+  - 'access group_node overview'

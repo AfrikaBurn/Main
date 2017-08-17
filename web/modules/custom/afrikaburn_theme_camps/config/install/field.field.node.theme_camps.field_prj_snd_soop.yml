@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_soop
+    - node.type.theme_camps
+  module:
+    - markup
+id: node.theme_camps.field_prj_snd_soop
+field_name: field_prj_snd_soop
+entity_type: node
+bundle: theme_camps
+label: 'SOOP Map'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p><img alt=\"Sound map\" data-entity-type=\"file\" data-entity-uuid=\"93b619d1-0bfa-4dd0-815c-aed129e85960\" src=\"/sites/default/files/inline-images/Sound_Map.jpg\" /></p>\r\n"
+    format: basic_html
+field_type: markup

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_handled
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_lnt_handled
+field_name: field_prj_lnt_handled
+entity_type: node
+bundle: theme_camps
+label: 'How will MOOP be handled?'
+description: "Theme Camps famously attract other people's MOOP. So you may very well have more than your own waste to deal with - especially if you're creating a party space. Bring extra trash bags and make sure you have space to transport trash back to town.<br>\r\nCheck out our MOOP Guidelines here."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_representative
+    - node.type.art
+id: node.art.field_prj_lnt_representative
+field_name: field_prj_lnt_representative
+entity_type: node
+bundle: art
+label: 'Leave No Trace representative'
+description: "<p>Your LNT representative will be requested to read and accept the <a href=\"http://www.afrikaburn.com/wp-content/uploads/2017/08/2018-LNT-Info-for-Artworks.pdf\" target=\"blank\">LNT guidelines</a>, attend to workshops and briefs, fill in the MOOP form, and supply all details requested by our MOOP Squad.</p>\r\n<p>This person plays an active role in the 'education' of the whole team and will be the difference between a Red and a Green MOOP Score.</p>\r\n<p>Remember that the MOOP Score of your project this year will affect every member of the team (eg.: future funding and direct distribution of tickets). Choose wisely!</p>\r\n"
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: user_select
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

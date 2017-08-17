@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_images
+    - node.type.performances
+  module:
+    - image
+id: node.performances.field_prj_lnt_images
+field_name: field_prj_lnt_images
+entity_type: node
+bundle: performances
+label: 'Moop Images'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: moop
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '3 MB'
+  max_resolution: ''
+  min_resolution: 250x250
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: 72dde6a6-8477-4a2d-a3ca-d3db923abcf7
+    alt: ''
+    title: ''
+    width: 100
+    height: 100
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

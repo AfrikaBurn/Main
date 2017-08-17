@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: theme
+label: 'Theme Camp Admin'
+weight: 5
+is_admin: null

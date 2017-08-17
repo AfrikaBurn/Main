@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_eml_adm_desc
+    - node.type.system_emails
+  module:
+    - text
+id: node.system_emails.field_eml_adm_desc
+field_name: field_eml_adm_desc
+entity_type: node
+bundle: system_emails
+label: 'Technical Desciption'
+description: 'Guide for editors to reference on content required. This is not displayed to the general community.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

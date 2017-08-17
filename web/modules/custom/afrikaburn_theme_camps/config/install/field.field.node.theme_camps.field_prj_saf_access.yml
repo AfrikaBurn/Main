@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_saf_access
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_saf_access
+field_name: field_prj_saf_access
+entity_type: node
+bundle: theme_camps
+label: 'Please describe your fire safety plan'
+description: "Describe how you plan to raise your campfire/s off the ground.<br>\r\nBe aware that fires leave a burn scar, so open fires (i.e: fires on the ground) are not permitted. Please make a plan to raise your fire off the ground with a brazier, a burn barrel, an old wheel, etc. Don't have one? - Make one!"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

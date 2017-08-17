@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_commodification
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_gen_commodification
+field_name: field_prj_gen_commodification
+entity_type: node
+bundle: theme_camps
+label: 'Is your Theme Camp an extension of the default world?'
+description: 'Is your camp as a platform for a marketing or branding exercise? Sorry, but that can''t happen in Tankwa Town, as it''s a decommodified space. Please read up on the guiding principles of AfrikaBurn to find out why.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

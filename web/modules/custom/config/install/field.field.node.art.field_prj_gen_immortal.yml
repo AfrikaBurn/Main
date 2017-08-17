@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_immortal
+    - node.type.art
+id: node.art.field_prj_gen_immortal
+field_name: field_prj_gen_immortal
+entity_type: node
+bundle: art
+label: 'Do you think your artwork could live in the default world after the event?'
+description: "We strongly suggest you plan to not burn your piece, but rather repurpose it in the default world.<br>\r\nIf you apply for a Creative Grant, planning to repurpose your piece will see your piece considered favourably.<br>\r\nIf yes, give us an idea of what when and where, as you are envisioning it happening.<br>"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

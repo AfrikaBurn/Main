@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_external
+    - node.type.performances
+id: node.performances.field_prj_gen_external
+field_name: field_prj_gen_external
+entity_type: node
+bundle: performances
+label: 'Other projects'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

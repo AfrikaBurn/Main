@@ -1,0 +1,58 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.system_emails.body
+    - field.field.node.system_emails.field_department
+    - field.field.node.system_emails.field_eml_adm_desc
+    - field.field.node.system_emails.field_eml_adm_title
+    - node.type.system_emails
+  module:
+    - text
+    - user
+id: node.system_emails.default
+targetEntityType: node
+bundle: system_emails
+mode: default
+content:
+  body:
+    label: above
+    type: text_default
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_department:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_eml_adm_desc:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_eml_adm_title:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

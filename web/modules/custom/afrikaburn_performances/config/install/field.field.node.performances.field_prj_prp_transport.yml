@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_prp_transport
+    - node.type.performances
+id: node.performances.field_prj_prp_transport
+field_name: field_prj_prp_transport
+entity_type: node
+bundle: performances
+label: Transport
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

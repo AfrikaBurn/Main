@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collectives
+  enforced:
+    config:
+      - user.role.administrator
+id: collectives-a416e6833
+label: Administrator
+weight: 6
+internal: true
+audience: outsider
+group_type: collectives
+permissions_ui: false
+permissions:
+  - 'access content overview'
+  - 'administer group'
+  - 'delete group'
+  - 'edit group'
+  - 'administer members'
+  - 'join group'
+  - 'view group_membership content'
+  - 'view group'
+  - 'access group_node overview'

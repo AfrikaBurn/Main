@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collectives
+  enforced:
+    config:
+      - user.role.mutant_vehicle_admin
+id: collectives-3f31ffb42
+label: 'Mutant Vehicle Admin'
+weight: -1
+internal: true
+audience: outsider
+group_type: collectives
+permissions_ui: false
+permissions:
+  - 'administer group'
+  - 'administer members'
+  - 'view group_membership content'
+  - 'view group'
+  - 'access group_node overview'

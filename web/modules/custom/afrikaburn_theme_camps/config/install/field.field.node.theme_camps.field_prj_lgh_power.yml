@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lgh_power
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_lgh_power
+field_name: field_prj_lgh_power
+entity_type: node
+bundle: theme_camps
+label: 'Camp power'
+description: "How will you be powering your camp? <br>\r\nIf you're bringing a generator, please list the specs and a rough idea of how long you intend to run it daily. <br>\r\nLet us know if you're willing to share with a neighbour. <br>\r\nSolar and wind powered camps will receive favourable placement."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

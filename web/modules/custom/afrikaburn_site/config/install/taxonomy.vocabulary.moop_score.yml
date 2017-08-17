@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Moop Score'
+vid: moop_score
+description: ''
+hierarchy: 0
+weight: 0

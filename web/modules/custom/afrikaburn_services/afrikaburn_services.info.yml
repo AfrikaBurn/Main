@@ -1,0 +1,13 @@
+name: Services
+type: module
+core: 8.x
+dependencies:
+  - block
+  - block_content
+  - ctools
+  - linkit
+  - page_manager
+  - panels
+  - pfdp
+  - user
+package: AfrikaBurn

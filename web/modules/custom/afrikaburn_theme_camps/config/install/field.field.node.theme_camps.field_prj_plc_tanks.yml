@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_tanks
+    - node.type.theme_camps
+id: node.theme_camps.field_prj_plc_tanks
+field_name: field_prj_plc_tanks
+entity_type: node
+bundle: theme_camps
+label: 'Number of Water Tanks'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 20
+  prefix: ''
+  suffix: ''
+field_type: integer

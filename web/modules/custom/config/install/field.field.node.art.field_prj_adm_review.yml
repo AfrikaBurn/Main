@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_adm_review
+    - node.type.art
+    - taxonomy.vocabulary.wrangler_review
+id: node.art.field_prj_adm_review
+field_name: field_prj_adm_review
+entity_type: node
+bundle: art
+label: Review
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      wrangler_review: wrangler_review
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

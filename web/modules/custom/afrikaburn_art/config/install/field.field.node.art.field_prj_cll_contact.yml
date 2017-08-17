@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_cll_contact
+    - node.type.art
+id: node.art.field_prj_cll_contact
+field_name: field_prj_cll_contact
+entity_type: node
+bundle: art
+label: 'Team contact person to be alerted to member requests'
+description: 'Interested collaborators will contact you directly.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: user_select
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference
