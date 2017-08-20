@@ -3,33 +3,4 @@ description: 'Provides Theme Camps content type and related configuration. '
 type: module
 core: 8.x
 dependencies:
-  - afrikaburn_collectives
-  - afrikaburn_comment
-  - afrikaburn_core
-  - afrikaburn_site
-  - block
-  - block_content
-  - comment
-  - conditional_fields
-  - content_moderation
-  - cshs
-  - field
-  - field_group
-  - field_permissions
-  - field_validation
-  - file
-  - gnode
-  - group
-  - image
-  - link
-  - markup
-  - menu_ui
-  - node
-  - page_manager
-  - panels
-  - path
-  - pfdp
-  - taxonomy
-  - user
-  - views
 package: AfrikaBurn

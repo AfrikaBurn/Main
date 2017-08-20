@@ -5,14 +5,3 @@ use \Drupal\Core\Form\FormStateInterface;
 function afrikaburn_core_form_alter(&$form, $form_state, $form_id){
   $form['#attached']['library'][] = 'afrikaburn_core/form';
 }
-
-function afrikaburn_core_entity_insert($entity, $type) {
-  if ($type === 'node' && $entity->bundle === 'update') {
-    \Drupal::logger('content_entity_example')->debug('@type: added %title.',
-      array(
-        '@type' => $entity->bundle(),
-        '%title' => $entity->label(),
-      )
-    );
-  }
-}

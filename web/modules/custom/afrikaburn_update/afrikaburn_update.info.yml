@@ -3,14 +3,4 @@ description: 'Provides Update content type and related configuration. '
 type: module
 core: 8.x
 dependencies:
-  - afrikaburn_collectives
-  - content_moderation
-  - field
-  - gnode
-  - group
-  - menu_ui
-  - node
-  - path
-  - text
-  - user
 package: AfrikaBurn

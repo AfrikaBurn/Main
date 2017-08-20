@@ -2,10 +2,4 @@ name: 'Creative Grant'
 description: 'Provides Creative Grant content type and related configuration. '
 type: module
 core: 8.x
-dependencies:
-  - content_moderation
-  - menu_ui
-  - node
-  - path
-  - user
 package: AfrikaBurn

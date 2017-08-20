@@ -3,14 +3,5 @@ description: 'Provides System Emails content type and related configuration. '
 type: module
 core: 8.x
 dependencies:
-  - afrikaburn_core
-  - content_moderation
-  - field
-  - field_permissions
-  - group
-  - menu_ui
-  - node
-  - path
-  - text
-  - user
 package: AfrikaBurn
+configure: afrikaburn_system_emails.admin_settings

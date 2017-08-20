@@ -3,16 +3,4 @@ description: 'Provides Default comments comment type and related configuration. 
 type: module
 core: 8.x
 dependencies:
-  - afrikaburn_art
-  - afrikaburn_collectives
-  - afrikaburn_core
-  - afrikaburn_performances
-  - comment
-  - field
-  - field_permissions
-  - group
-  - markup
-  - node
-  - rdf
-  - text
 package: AfrikaBurn

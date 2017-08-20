@@ -3,14 +3,4 @@ description: 'Provides Mutant Vehicles content type and related configuration. '
 type: module
 core: 8.x
 dependencies:
-  - afrikaburn_collectives
-  - block
-  - block_content
-  - content_moderation
-  - gnode
-  - group
-  - menu_ui
-  - node
-  - path
-  - user
 package: AfrikaBurn
