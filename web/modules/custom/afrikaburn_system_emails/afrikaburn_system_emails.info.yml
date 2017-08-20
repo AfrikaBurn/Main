@@ -1,7 +1,0 @@
-name: 'System Emails'
-description: 'Provides System Emails content type and related configuration. '
-type: module
-core: 8.x
-dependencies:
-package: AfrikaBurn
-configure: afrikaburn_system_emails.admin_settings

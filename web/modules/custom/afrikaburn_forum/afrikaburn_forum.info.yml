@@ -1,5 +1,0 @@
-name: 'Forum topic'
-description: 'Provides Forum topic content type and related configuration. A <em>forum topic</em> starts a new discussion thread within a forum.'
-type: module
-core: 8.x
-package: AfrikaBurn

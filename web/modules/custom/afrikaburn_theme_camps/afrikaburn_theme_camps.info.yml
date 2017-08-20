@@ -1,6 +1,0 @@
-name: 'Theme Camps'
-description: 'Provides Theme Camps content type and related configuration. '
-type: module
-core: 8.x
-dependencies:
-package: AfrikaBurn

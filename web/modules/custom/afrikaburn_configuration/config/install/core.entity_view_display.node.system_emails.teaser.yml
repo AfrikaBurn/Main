@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.system_emails.body
+    - field.field.node.system_emails.field_department
+    - field.field.node.system_emails.field_eml_adm_desc
+    - field.field.node.system_emails.field_eml_adm_title
+    - node.type.system_emails
+  module:
+    - text
+    - user
+id: node.system_emails.teaser
+targetEntityType: node
+bundle: system_emails
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_department: true
+  field_eml_adm_desc: true
+  field_eml_adm_title: true

@@ -1,0 +1,56 @@
+name: 'Afrikaburn Configuration'
+type: module
+core: 8.x
+dependencies:
+  - basic_auth
+  - block
+  - block_content
+  - ckeditor
+  - comment
+  - conditional_fields
+  - contact
+  - content_moderation
+  - cshs
+  - ctools
+  - datetime
+  - editor
+  - features
+  - field
+  - field_group
+  - field_permissions
+  - field_validation
+  - file
+  - filter
+  - gnode
+  - group
+  - hal
+  - help
+  - image
+  - link
+  - linkit
+  - markup
+  - menu_link_content
+  - menu_ui
+  - node
+  - page_manager
+  - panels
+  - path
+  - pfdp
+  - php
+  - rdf
+  - responsive_image
+  - rest
+  - search
+  - shortcut
+  - system
+  - taxonomy
+  - telephone
+  - text
+  - tour
+  - user
+  - views
+  - views_ui
+  - workflows
+description: 'All of it, I shit you not. If you can navigate dependency hell better, by all means :)'
+version: 8.x-0.0
+package: AfrikaBurn

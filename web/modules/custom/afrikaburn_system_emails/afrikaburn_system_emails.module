@@ -1,4 +1,0 @@
-<?php
-
-use \Drupal\Core\Form\FormStateInterface;
-

@@ -1,0 +1,7 @@
+name: 'Emails'
+description: 'Provides Email logic. '
+type: module
+core: 8.x
+dependencies:
+package: AfrikaBurn
+configure: afrikaburn_emails.admin_settings

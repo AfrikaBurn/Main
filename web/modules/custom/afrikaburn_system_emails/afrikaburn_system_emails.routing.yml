@@ -1,7 +1,0 @@
-afrikaburn_system_emails.admin_settings:
-  path: '/admin/config/afrikaburn/emails'
-  defaults:
-    _form: '\Drupal\afrikaburn_system_emails\Form\SettingsForm'
-    _title: 'Email configuration'
-  requirements:
-   _permission: 'administer site configuration'

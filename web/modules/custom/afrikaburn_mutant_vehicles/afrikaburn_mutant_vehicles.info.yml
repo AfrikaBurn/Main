@@ -1,6 +1,0 @@
-name: 'Mutant Vehicles'
-description: 'Provides Mutant Vehicles content type and related configuration. '
-type: module
-core: 8.x
-dependencies:
-package: AfrikaBurn

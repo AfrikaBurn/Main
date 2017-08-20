@@ -1,6 +1,0 @@
-name: Update
-description: 'Provides Update content type and related configuration. '
-type: module
-core: 8.x
-dependencies:
-package: AfrikaBurn

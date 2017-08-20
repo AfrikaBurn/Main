@@ -1,0 +1,15 @@
+smtp_on: true
+smtp_host: email-smtp.us-west-2.amazonaws.com
+smtp_hostbackup: ''
+smtp_port: '25'
+smtp_protocol: tls
+smtp_username: AKIAJHEAP275GDZSMBSA
+smtp_password: Ahwohw78dQfouVwretfKNIU+nZ7HsMHCigI1jOZgHoe/
+smtp_from: noreply@afrikaburn.com
+smtp_fromname: 'AfrikaBurn No Reply'
+smtp_client_hostname: ''
+smtp_client_helo: ''
+smtp_allowhtml: '1'
+smtp_test_address: ''
+smtp_debugging: false
+prev_mail_system: php_mail
