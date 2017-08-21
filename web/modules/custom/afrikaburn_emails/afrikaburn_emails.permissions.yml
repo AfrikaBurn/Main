@@ -1,4 +1,6 @@
 edit theme camp email:
-  title: 'Edit Theme Camp Email'
-  description: 'Bypass access control when accessing views.'
+  title: 'define email messages'
+  description: 'Define what email messages exist.'
   restrict access: TRUE
+permission_callbacks:
+  - Drupal\afrikaburn_emails\Permissions::permissions

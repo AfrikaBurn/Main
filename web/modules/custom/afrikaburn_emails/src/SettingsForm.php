@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\afrikaburn_emails\Form;
+namespace Drupal\afrikaburn_emails;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,9 @@ class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state, Request $request = NULL) {
+  
     $config = $this->config('afrikaburn_emails.settings');
+    $user = \Drupal::currentUser();
 
     $message_definition = $config->get('message_definition');
     $form['message_definition'] = [
@@ -41,18 +43,25 @@ class SettingsForm extends ConfigFormBase {
       '#default_value' => $message_definition,
     ];
 
-    $definition_pairs = explode("\n", $message_definition);
-    if (is_array($definition_pairs)){
-      foreach($definition_pairs as $key_label){
-        list($key, $label) = explode('|', $key_label);
-        $form[$key] = [
-          '#type' => 'textarea',
-          '#title' => $label,
-          '#default_value' => $config->get($key),
-          '#attributes' => [ 
-            'rows' => 20,
-          ],
-        ];
+    $form[] = [
+      '#markup' => '<h3>Message templates</h3>',
+    ];
+
+    if (strlen($message_definition)){
+      $definition_pairs = explode("\n", $message_definition);
+      if (is_array($definition_pairs)){
+        foreach($definition_pairs as $key_label){
+          list($key, $label) = explode('|', $key_label);
+          $form[$key] = [
+            '#type' => 'textarea',
+            '#title' => $label,
+            '#default_value' => $config->get($key),
+            '#attributes' => [
+              'rows' => 20,
+            ],
+            '#access' => $user->hasPermission('edit ' . $key . ' template'),
+          ];
+        }
       }
     }
 
