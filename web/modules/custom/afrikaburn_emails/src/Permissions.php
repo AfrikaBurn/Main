@@ -30,8 +30,6 @@ class Permissions {
       }
     }
 
-    dpm($permissions);
-
     return $permissions;
   }
 }
