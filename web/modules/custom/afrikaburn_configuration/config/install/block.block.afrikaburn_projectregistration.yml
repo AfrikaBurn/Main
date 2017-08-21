@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:086f3a9d-e7a7-41af-84f1-f4b2cf3d5694'
+  module:
+    - block_content
+    - ctools
+  theme:
+    - afrikaburn
+id: afrikaburn_projectregistration
+theme: afrikaburn
+region: status_messages
+weight: -13
+provider: null
+plugin: 'block_content:086f3a9d-e7a7-41af-84f1-f4b2cf3d5694'
+settings:
+  id: 'block_content:086f3a9d-e7a7-41af-84f1-f4b2cf3d5694'
+  label: 'Project Registration'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:group':
+    id: 'entity_bundle:group'
+    bundles:
+      collectives: collectives
+    negate: false
+    context_mapping:
+      group: '@group.group_route_context:group'

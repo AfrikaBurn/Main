@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.node.project_overview
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
@@ -116,11 +117,14 @@ third_party_settings:
         - group_overview
         - group_the_project
         - group_the_structure
+        - group_placement
         - group_lighting
         - group_sound
+        - group_burn
         - group_moop
         - group_wtf_guide_and_community
         - group_other
+        - group_admin
       parent_name: ''
       weight: 5
       format_type: tabs
@@ -171,9 +175,9 @@ third_party_settings:
       label: 'The Project'
     group_the_structure:
       children:
-        - group_admin
         - group_dimensions
         - group_building_transport_install
+        - field_prj_saf_comment
       parent_name: group_project_registration
       weight: 8
       format_type: tab
@@ -208,7 +212,7 @@ third_party_settings:
         - group_offsite_building
         - group_onsite_building
       parent_name: group_the_structure
-      weight: 82
+      weight: 81
       format_type: fieldset
       format_settings:
         id: ''
@@ -246,8 +250,14 @@ third_party_settings:
     group_lighting:
       children:
         - field_prj_lgh_f1
+        - field_prj_lgh_description
+        - field_prj_lgh_power
+        - field_prj_lgh_projection
+        - field_prj_lgh_lighter
+        - field_prj_lgh_policy
+        - field_prj_lgh_agree
       parent_name: group_project_registration
-      weight: 9
+      weight: 10
       format_type: tab
       format_settings:
         id: ''
@@ -261,8 +271,12 @@ third_party_settings:
         - field_prj_snd_f1
         - field_prj_snd_sound
         - field_prj_snd_level
+        - field_prj_snd_description
+        - field_prj_snd_agree
+        - field_prj_snd_person
+        - field_prj_snd_comment
       parent_name: group_project_registration
-      weight: 10
+      weight: 11
       format_type: tab
       format_settings:
         id: ''
@@ -271,11 +285,42 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Sound
-    group_moop:
+    group_burn:
       children:
-        - field_prj_lnt_historic
+        - field_prj_brn_f1
+        - field_prj_brn_burning
+        - field_prj_brn_plan
+        - field_prj_brn_person
+        - field_prj_brn_perimeter
+        - field_prj_brn_time
+        - field_prj_brn_time_adm
+        - field_prj_brn_desc
+        - field_prj_brn_agree
       parent_name: group_project_registration
       weight: 12
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Burn
+    group_moop:
+      children:
+        - field_prj_lnt_helpers
+        - field_prj_lnt_duration
+        - field_prj_lnt_historic
+        - field_prj_lnt_representative
+        - field_prj_lnt_signoff
+        - field_prj_lnt_handled
+        - field_prj_lnt_score
+        - field_prj_lnt_comments
+        - field_prj_lnt_images
+        - field_prj_lnt_type
+        - field_prj_lnt_publish
+      parent_name: group_project_registration
+      weight: 13
       format_type: tab
       format_settings:
         label: 'Leave No Trace'
@@ -287,8 +332,12 @@ third_party_settings:
       label: 'Leave No Trace'
     group_wtf_guide_and_community:
       children:
+        - field_prj_wtf_short
+        - field_prj_wtf_short_copy
+        - field_prj_wtf_long
         - field_prj_wtf_image
         - field_prj_wtf_planned
+        - field_prj_wtf_categories
         - field_prj_wtf_website
         - field_prj_cll_collaborate
         - field_prj_cll_description
@@ -300,7 +349,7 @@ third_party_settings:
         - field_prj_stg_contact
         - field_prj_stg_tread
       parent_name: group_project_registration
-      weight: 13
+      weight: 14
       format_type: tab
       format_settings:
         id: ''
@@ -317,7 +366,7 @@ third_party_settings:
         - field_prj_oth_relationship
         - field_prj_oth_grant
       parent_name: group_project_registration
-      weight: 14
+      weight: 15
       format_type: tab
       format_settings:
         id: ''
@@ -326,10 +375,45 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Other
-id: node.art.default
+    group_admin:
+      children:
+        - field_prj_adm_notes
+        - field_prj_adm_review
+        - field_prj_adm_latitude
+        - field_prj_adm_longitude
+        - field_prj_adm_wrangler
+        - field_prj_adm_ranger_comment
+        - field_prj_adm_comms
+        - field_prj_adm_form_2
+        - field_prj_adm_form_wtf
+      parent_name: group_project_registration
+      weight: 16
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Admin
+    group_placement:
+      children:
+        - field_prj_plc_location_extra
+        - field_prj_plc_f1
+      parent_name: group_project_registration
+      weight: 9
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Placement
+id: node.art.project_overview
 targetEntityType: node
 bundle: art
-mode: default
+mode: project_overview
 content:
   created:
     type: datetime_timestamp
@@ -352,20 +436,152 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_adm_comms:
+    weight: 23
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_prj_adm_form_2:
+    weight: 24
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_prj_adm_form_wtf:
+    weight: 25
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_prj_adm_latitude:
+    weight: 19
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_prj_adm_longitude:
+    weight: 20
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_prj_adm_notes:
+    weight: 17
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_prj_adm_ranger_comment:
+    weight: 22
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_prj_adm_review:
+    weight: 18
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_prj_adm_wrangler:
+    weight: 21
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_prj_brn_agree:
+    weight: 95
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_prj_brn_burning:
+    weight: 88
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_prj_brn_desc:
+    weight: 94
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_prj_brn_f1:
+    weight: 87
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_brn_head:
     weight: 49
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_brn_perimeter:
+    weight: 91
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_prj_brn_person:
+    weight: 90
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_prj_brn_plan:
+    weight: 89
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_prj_brn_time:
+    weight: 92
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_prj_brn_time_adm:
+    weight: 93
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_prj_cll_collaborate:
-    weight: 47
+    weight: 32
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_prj_cll_contact:
-    weight: 49
+    weight: 34
     settings:
       match_operator: CONTAINS
       size: 60
@@ -374,7 +590,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_prj_cll_description:
-    weight: 48
+    weight: 33
     settings:
       rows: 5
       placeholder: ''
@@ -382,7 +598,7 @@ content:
     type: string_textarea
     region: content
   field_prj_cll_thread:
-    weight: 50
+    weight: 35
     settings: {  }
     third_party_settings: {  }
     type: comment_default
@@ -508,11 +724,26 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_lgh_agree:
+    weight: 88
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_prj_lgh_area:
     weight: 37
     settings: {  }
     third_party_settings: {  }
     type: markup
+    region: content
+  field_prj_lgh_description:
+    weight: 83
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
   field_prj_lgh_f1:
     weight: 80
@@ -520,17 +751,122 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_lgh_lighter:
+    weight: 86
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_prj_lgh_policy:
+    weight: 87
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_lgh_power:
+    weight: 84
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_prj_lgh_projection:
+    weight: 85
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_prj_lnt_area:
     weight: 57
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_lnt_comments:
+    weight: 13
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_prj_lnt_duration:
+    weight: 7
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_prj_lnt_handled:
+    weight: 11
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_prj_lnt_helpers:
+    weight: 6
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_prj_lnt_historic:
-    weight: 98
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_prj_lnt_images:
+    weight: 14
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_prj_lnt_publish:
+    weight: 16
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_prj_lnt_representative:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_prj_lnt_score:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_prj_lnt_signoff:
+    weight: 10
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_prj_lnt_type:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
     region: content
   field_prj_oth_area:
     weight: 74
@@ -584,6 +920,20 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_plc_f1:
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_plc_location_extra:
+    weight: 20
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_prj_prp_area:
     weight: 27
     settings: {  }
@@ -622,18 +972,49 @@ content:
     type: datetime_default
     region: content
   field_prj_prp_transport:
-    weight: 14
+    weight: 15
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_prj_saf_comment:
+    weight: 82
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_prj_snd_agree:
+    weight: 35
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_prj_snd_area:
     weight: 43
     settings: {  }
     third_party_settings: {  }
     type: markup
+    region: content
+  field_prj_snd_comment:
+    weight: 37
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_prj_snd_description:
+    weight: 34
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
   field_prj_snd_f1:
     weight: 31
@@ -646,6 +1027,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_prj_snd_person:
+    weight: 36
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_prj_snd_sound:
     weight: 32
@@ -727,7 +1117,7 @@ content:
     type: number
     region: content
   field_prj_stg_contact:
-    weight: 54
+    weight: 39
     settings:
       match_operator: CONTAINS
       size: 60
@@ -736,7 +1126,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_prj_stg_description:
-    weight: 53
+    weight: 38
     settings:
       rows: 5
       placeholder: ''
@@ -744,19 +1134,19 @@ content:
     type: string_textarea
     region: content
   field_prj_stg_stage:
-    weight: 51
+    weight: 36
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_prj_stg_tread:
-    weight: 55
+    weight: 41
     settings: {  }
     third_party_settings: {  }
     type: comment_default
     region: content
   field_prj_stg_type:
-    weight: 52
+    weight: 37
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -767,22 +1157,52 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_wtf_categories:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   field_prj_wtf_image:
-    weight: 43
+    weight: 28
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
     region: content
+  field_prj_wtf_long:
+    weight: 27
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_prj_wtf_planned:
-    weight: 44
+    weight: 29
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_prj_wtf_short:
+    weight: 25
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_prj_wtf_short_copy:
+    weight: 26
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_prj_wtf_website:
-    weight: 46
+    weight: 31
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -826,49 +1246,4 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden:
-  field_prj_adm_comms: true
-  field_prj_adm_form_2: true
-  field_prj_adm_form_wtf: true
-  field_prj_adm_latitude: true
-  field_prj_adm_longitude: true
-  field_prj_adm_notes: true
-  field_prj_adm_ranger_comment: true
-  field_prj_adm_review: true
-  field_prj_adm_wrangler: true
-  field_prj_brn_agree: true
-  field_prj_brn_burning: true
-  field_prj_brn_desc: true
-  field_prj_brn_f1: true
-  field_prj_brn_perimeter: true
-  field_prj_brn_person: true
-  field_prj_brn_plan: true
-  field_prj_brn_time: true
-  field_prj_brn_time_adm: true
-  field_prj_lgh_agree: true
-  field_prj_lgh_description: true
-  field_prj_lgh_lighter: true
-  field_prj_lgh_policy: true
-  field_prj_lgh_power: true
-  field_prj_lgh_projection: true
-  field_prj_lnt_comments: true
-  field_prj_lnt_duration: true
-  field_prj_lnt_handled: true
-  field_prj_lnt_helpers: true
-  field_prj_lnt_images: true
-  field_prj_lnt_publish: true
-  field_prj_lnt_representative: true
-  field_prj_lnt_score: true
-  field_prj_lnt_signoff: true
-  field_prj_lnt_type: true
-  field_prj_plc_f1: true
-  field_prj_plc_location_extra: true
-  field_prj_saf_comment: true
-  field_prj_snd_agree: true
-  field_prj_snd_comment: true
-  field_prj_snd_description: true
-  field_prj_snd_person: true
-  field_prj_wtf_categories: true
-  field_prj_wtf_long: true
-  field_prj_wtf_short: true
-  field_prj_wtf_short_copy: true
+hidden: {  }
