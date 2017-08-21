@@ -32,11 +32,30 @@ class SettingsForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, Request $request = NULL) {
     $config = $this->config('afrikaburn_emails.settings');
-    $form['your_message'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Your message'),
-      '#default_value' => $config->get('your_message'),
-    );
+
+    $message_definition = $config->get('message_definition');
+    $form['message_definition'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Message definition'),
+      '#description' => $this->t('List one Key|Label pair per line'),
+      '#default_value' => $message_definition,
+    ];
+
+    $definition_pairs = explode("\n", $message_definition);
+    if (is_array($definition_pairs)){
+      foreach($definition_pairs as $key_label){
+        list($key, $label) = explode('|', $key_label);
+        $form[$key] = [
+          '#type' => 'textarea',
+          '#title' => $label,
+          '#default_value' => $config->get($key),
+          '#attributes' => [ 
+            'rows' => 20,
+          ],
+        ];
+      }
+    }
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -46,8 +65,17 @@ class SettingsForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
     $this->config('afrikaburn_emails.settings')
-      ->set('your_message', $values['your_message'])
+      ->set('message_definition', $values['message_definition'])
       ->save();
+    $definition_pairs = explode("\n", $values['message_definition']);
+    if (is_array($definition_pairs)){
+      foreach($definition_pairs as $key_label){
+        list($key, $label) = explode('|', $key_label);
+        $this->config('afrikaburn_emails.settings')
+          ->set($key, $values[$key])
+          ->save();
+      }
+    }
   }
 
 }
