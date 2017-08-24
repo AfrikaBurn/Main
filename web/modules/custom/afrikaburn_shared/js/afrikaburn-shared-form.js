@@ -18,7 +18,7 @@
       );
 
       // You're a wizard Harry
-      $('.js-wizard', context).each(
+      $('.js-wizard:not(.js-wizard-processed)', context).each(
         function(){
           new Wizard(this);
         }
@@ -33,6 +33,7 @@
     constructor(element){
 
       this.root = $(element);
+      this.root.addClass('js-wizard-processed');
       this.tabs = $('.vertical-tabs__menu, .horizontal-tabs-list', this.root).children();
       this.panels = $('.field-group-tab > .details-wrapper', this.root);
 
