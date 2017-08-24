@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.mutant_vehicles.field_collective
     - node.type.mutant_vehicles
   module:
     - content_moderation
@@ -17,6 +18,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_collective:
+    weight: 31
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   path:
     type: path
     weight: 30

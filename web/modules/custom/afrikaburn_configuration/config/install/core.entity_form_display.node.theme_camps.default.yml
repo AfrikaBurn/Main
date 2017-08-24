@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_prj_adm_comms
     - field.field.node.theme_camps.field_prj_adm_form_2
     - field.field.node.theme_camps.field_prj_adm_form_wtf
@@ -392,6 +393,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_collective:
+    weight: 83
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_prj_adm_comms:
     weight: 28
     settings: {  }

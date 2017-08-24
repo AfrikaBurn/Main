@@ -1,6 +1,5 @@
 edit theme camp email:
-  title: 'define email messages'
+  title: 'Define email messages'
   description: 'Define what email messages exist.'
-  restrict access: TRUE
 permission_callbacks:
   - Drupal\afrikaburn_emails\Permissions::permissions

@@ -34,12 +34,21 @@ class SettingsForm extends ConfigFormBase {
   
     $config = $this->config('afrikaburn_emails.settings');
     $user = \Drupal::currentUser();
-
     $message_definition = $config->get('message_definition');
+
     $form['message_definition'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Message definition'),
-      '#description' => $this->t('List one Key|Label pair per line'),
+      '#description' => "List one definition per line in the format:<br />
+        operation:entity_type[:bundle]|Subject|recipient,recipient,...<br />
+        Where:<br />
+        operation = [create|update|delete]<br />
+        entity_type = [node|user|...]<br />
+        bundle = [theme_camp|mutant_vehicle|...]<br />
+        recipients = [author|group|wrangler|...]<br />
+        Eg.<br />
+        update:user|Your account has been changed|author<br />
+        create:node:page|A new page has been created|group",
       '#default_value' => $message_definition,
     ];
 
@@ -51,7 +60,8 @@ class SettingsForm extends ConfigFormBase {
       $definition_pairs = explode("\n", $message_definition);
       if (is_array($definition_pairs)){
         foreach($definition_pairs as $key_label){
-          list($key, $label) = explode('|', $key_label);
+          list($key, $label, $recipient) = explode('|', $key_label);
+          $parts = explode(':', $key);
           $form[$key] = [
             '#type' => 'textarea',
             '#title' => $label,
@@ -60,6 +70,7 @@ class SettingsForm extends ConfigFormBase {
               'rows' => 20,
             ],
             '#access' => $user->hasPermission('edit ' . $key . ' template'),
+            '#description' => 'Available tokens: [' . $parts[1] . ':...]',
           ];
         }
       }

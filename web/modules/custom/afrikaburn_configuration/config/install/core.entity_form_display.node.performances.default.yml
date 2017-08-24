@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.performances.field_collective
     - field.field.node.performances.field_muncipal_district
     - field.field.node.performances.field_prj_adm_comms
     - field.field.node.performances.field_prj_adm_notes
@@ -360,6 +361,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_collective:
+    weight: 75
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_muncipal_district:
     weight: 38
     settings:

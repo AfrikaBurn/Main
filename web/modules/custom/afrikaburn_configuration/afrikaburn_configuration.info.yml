@@ -52,5 +52,5 @@ dependencies:
   - views_ui
   - workflows
 description: 'All of it, I shit you not. If you can navigate dependency hell better, by all means :)'
-version: 8.x-0.0
+version: 8.x-0.1
 package: AfrikaBurn

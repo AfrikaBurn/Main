@@ -5,6 +5,3 @@ afrikaburn_emails.admin:
   route_name: afrikaburn_emails.admin_settings
   weight: -100
   menu_name: afrikaburn 
-  options: 
-    attributes:
-      target: _blank

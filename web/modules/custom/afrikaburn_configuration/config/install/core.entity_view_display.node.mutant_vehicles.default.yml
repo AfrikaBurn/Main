@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.mutant_vehicles.field_collective
     - node.type.mutant_vehicles
   module:
     - user
@@ -10,6 +11,14 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: default
 content:
+  field_collective:
+    weight: 101
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   links:
     weight: 100
     region: content
