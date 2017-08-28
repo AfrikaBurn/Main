@@ -3,6 +3,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.collective.field_col_admins
+    - field.field.node.collective.field_col_description
+    - field.field.node.collective.field_col_members
     - node.type.collective
   module:
     - user
@@ -14,4 +17,7 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_col_admins: true
+  field_col_description: true
+  field_col_members: true

@@ -8,7 +8,7 @@ dependencies:
 id: afrikaburn_search
 theme: afrikaburn
 region: status_messages
-weight: -1
+weight: -12
 provider: null
 plugin: search_form_block
 settings:

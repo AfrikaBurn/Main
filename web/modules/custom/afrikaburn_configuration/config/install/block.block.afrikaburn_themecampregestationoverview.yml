@@ -10,7 +10,7 @@ dependencies:
 id: afrikaburn_themecampregestationoverview
 theme: afrikaburn
 region: status_messages
-weight: 0
+weight: -5
 provider: null
 plugin: 'block_content:ccc13d9d-fc4f-4f7a-b7d7-9264195cd850'
 settings:

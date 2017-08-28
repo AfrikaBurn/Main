@@ -10,7 +10,7 @@ dependencies:
 id: afrikaburn_tickets
 theme: afrikaburn
 region: status_messages
-weight: 0
+weight: -4
 provider: null
 plugin: 'block_content:e5fca3be-ebdc-4c07-9457-e0cee7b5af40'
 settings:
