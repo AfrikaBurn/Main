@@ -158,13 +158,15 @@ function _afrikaburn_emails_get_config($entity, $action){
 
   $configs = FALSE;
   foreach($matches[0] as $match){
-    list($key, $subject, $recipient) = explode('|', trim($match));
-    $configs[] = [
-      'key' => explode(':', $key),
-      'subject' => $subject,
-      'template' => $config->get($key),
-      'recipients' => $recipient,
-    ];
+    if (substr_count($match, '|')) {
+      list($key, $subject, $recipient) = explode('|', trim($match));
+      $configs[] = [
+        'key' => explode(':', $key),
+        'subject' => $subject,
+        'template' => $config->get($key),
+        'recipients' => $recipient,
+      ];      
+    }
   }
 
   return $configs;
