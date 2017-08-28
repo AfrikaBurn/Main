@@ -47,32 +47,34 @@ function _afrikaburn_emails_notify($entity, $action){
   $token_service = \Drupal::token();  
   $configs = _afrikaburn_emails_get_config($entity, $action);
 
-  foreach($configs as $config){
-    $recipients = _afrikaburn_emails_addresses($entity, $config['recipients']);
-    $recipients = implode(', ', $recipients);
-    $message = \Drupal::token()->replace(
-      $config['template'], 
-      [
-        $config['key'][1] => $entity
-      ]
-    );
+  if ($configs) {
+    foreach($configs as $config){
+      $recipients = _afrikaburn_emails_addresses($entity, $config['recipients']);
+      $recipients = implode(', ', $recipients);
+      $message = \Drupal::token()->replace(
+        $config['template'], 
+        [
+          $config['key'][1] => $entity
+        ]
+      );
 
-    $result = \Drupal::service('plugin.manager.mail')->mail(
-      'afrikaburn_emails', 
-      'notification', 
-      $recipients,
-      \Drupal::currentUser()->getPreferredLangcode(),
-      [
-        'subject' => $config['subject'],
-        'message' => $message,
-      ],
-      NULL, 
-      TRUE
-    );
+      $result = \Drupal::service('plugin.manager.mail')->mail(
+        'afrikaburn_emails', 
+        'notification', 
+        $recipients,
+        \Drupal::currentUser()->getPreferredLangcode(),
+        [
+          'subject' => $config['subject'],
+          'message' => $message,
+        ],
+        NULL, 
+        TRUE
+      );
 
-    $result['result']
-      ? \Drupal::logger('mail-log')->notice('Mail sent to ' . $recipients)     
-      : \Drupal::logger('mail-log')->notice('Mail send fail');
+      $result['result']
+        ? \Drupal::logger('mail-log')->notice('Mail sent to ' . $recipients)     
+        : \Drupal::logger('mail-log')->notice('Mail send fail');
+    }
   }
 }
 
