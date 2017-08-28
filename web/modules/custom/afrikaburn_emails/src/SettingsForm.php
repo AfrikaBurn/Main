@@ -56,24 +56,28 @@ class SettingsForm extends ConfigFormBase {
       '#markup' => '<h3>Message templates</h3>',
     ];
 
-    if (strlen($message_definition)){
-      $definition_pairs = explode("\n", $message_definition);
-      if (is_array($definition_pairs)){
-        foreach($definition_pairs as $key_label){
-          list($key, $label, $recipient) = explode('|', $key_label);
-          $parts = explode(':', $key);
-          $form[$key] = [
-            '#type' => 'textarea',
-            '#title' => $label,
-            '#default_value' => $config->get($key),
-            '#attributes' => [
-              'rows' => 20,
-            ],
-            '#access' => $user->hasPermission('edit ' . $key . ' template'),
-            '#description' => 'Available tokens: [' . $parts[1] . ':...]',
-          ];
+    try{
+      if (strlen($message_definition)){
+        $definition_pairs = explode("\n", $message_definition);
+        if (is_array($definition_pairs)){
+          foreach($definition_pairs as $key_label){
+            list($key, $label, $recipient) = explode('|', $key_label);
+            $parts = explode(':', $key);
+            $form[$key] = [
+              '#type' => 'textarea',
+              '#title' => $label,
+              '#default_value' => $config->get($key),
+              '#attributes' => [
+                'rows' => 20,
+              ],
+              '#access' => $user->hasPermission('edit ' . $key . ' template'),
+              '#description' => 'Available tokens: [' . $parts[1] . ':...]',
+            ];
+          }
         }
       }
+    } catch (Exception $e) {
+      dsm('Error in message definition, please check the configuration.');
     }
 
     return parent::buildForm($form, $form_state);
