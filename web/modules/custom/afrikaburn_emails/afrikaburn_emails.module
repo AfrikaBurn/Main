@@ -28,7 +28,7 @@ function afrikaburn_emails_entity_update(EntityInterface $entity){
  * Implements hook_mail().
  */
 function afrikaburn_emails_mail($key, &$message, $params) {
-  if ($key === 'afrikaburn_emails') {
+  if ($key === 'ab_notification') {
     $message['from'] = \Drupal::config('system.site')->get('mail');
     $message['subject'] = $params['subject'];
     $message['body'][] = Html::escape($params['message']);
@@ -60,7 +60,7 @@ function _afrikaburn_emails_notify($entity, $action){
 
       $result = \Drupal::service('plugin.manager.mail')->mail(
         'afrikaburn_emails', 
-        'notification', 
+        'ab_notification', 
         $recipients,
         \Drupal::currentUser()->getPreferredLangcode(),
         [
