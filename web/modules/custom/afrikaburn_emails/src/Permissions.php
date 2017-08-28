@@ -23,7 +23,7 @@ class Permissions {
     $permissions = [];
     if (is_array($definition_pairs)){
       foreach($definition_pairs as $key_label){
-        list($key, $label) = explode('|', $key_label);
+        list($key, $label, $recipient) = explode('|', $key_label);
         $permissions['edit ' . $key . ' template'] = [
           'title' => 'Edit the ' . $label . ' email template',
         ];
