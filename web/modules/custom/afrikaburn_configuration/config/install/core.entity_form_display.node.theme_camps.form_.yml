@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.form_
+    - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_prj_adm_comms
     - field.field.node.theme_camps.field_prj_adm_form_2
     - field.field.node.theme_camps.field_prj_adm_form_wtf
@@ -130,14 +131,14 @@ third_party_settings:
         - group_sound
         - group_moop
         - group_wtf
-        - group_almost_done_
       parent_name: ''
-      weight: 9
+      weight: 8
       format_type: tabs
       format_settings:
+        label: 'Overview registration'
+        direction: vertical
         id: ''
         classes: ''
-        direction: horizontal
       label: 'Overview registration'
     group_the_project:
       children:
@@ -282,11 +283,11 @@ third_party_settings:
     group_almost_done_:
       children:
         - field_prj_oth_associated
-        - field_prj_oth_unregistered
         - field_prj_oth_move
         - field_prj_oth_mv
-      parent_name: group_overview_registration
-      weight: 23
+        - field_prj_oth_unregistered
+      parent_name: ''
+      weight: 11
       format_type: tab
       format_settings:
         id: ''
@@ -305,7 +306,7 @@ third_party_settings:
         - field_prj_adm_review
         - field_prj_adm_wrangler
       parent_name: ''
-      weight: 12
+      weight: 10
       format_type: tab
       format_settings:
         id: ''
@@ -327,7 +328,7 @@ third_party_settings:
         - field_prj_ons_wednesay_d
         - field_prj_ons_wednesday_b
       parent_name: ''
-      weight: 10
+      weight: 9
       format_type: tab
       format_settings:
         id: ''
@@ -356,13 +357,13 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
   field_prj_gen_header1:
-    weight: 7
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_prj_gen_profit:
-    weight: 8
+    weight: 7
     settings:
       display_label: true
     third_party_settings: {  }
@@ -423,38 +424,6 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_prj_oth_associated:
-    weight: 18
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_prj_oth_move:
-    weight: 20
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_prj_oth_mv:
-    weight: 21
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content
-  field_prj_oth_unregistered:
-    type: string_textfield
-    weight: 19
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_prj_plc_artwork_d:
     weight: 28
     settings:
@@ -946,7 +915,7 @@ content:
     region: content
   path:
     type: path
-    weight: 6
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -982,6 +951,7 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_collective: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
   field_prj_adm_form_wtf: true
@@ -1021,6 +991,10 @@ hidden:
   field_prj_ons_tuesday_d: true
   field_prj_ons_wednesay_d: true
   field_prj_ons_wednesday_b: true
+  field_prj_oth_associated: true
+  field_prj_oth_move: true
+  field_prj_oth_mv: true
+  field_prj_oth_unregistered: true
   field_prj_saf_comment: true
   field_prj_snd_comment: true
   field_prj_stg_contact: true

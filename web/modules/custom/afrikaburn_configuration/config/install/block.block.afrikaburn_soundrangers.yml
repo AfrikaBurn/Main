@@ -10,7 +10,7 @@ dependencies:
 id: afrikaburn_soundrangers
 theme: afrikaburn
 region: status_messages
-weight: -7
+weight: -14
 provider: null
 plugin: 'block_content:dbf2871f-1170-4f06-85de-ba2e720d1132'
 settings:

@@ -10,7 +10,7 @@ dependencies:
 id: afrikaburn_artcom
 theme: afrikaburn
 region: status_messages
-weight: -9
+weight: -16
 provider: null
 plugin: 'block_content:11e9454e-0a14-486d-b9f7-08358cdf4a31'
 settings:

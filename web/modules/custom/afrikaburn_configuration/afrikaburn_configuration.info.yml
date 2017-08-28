@@ -21,8 +21,6 @@ dependencies:
   - field_validation
   - file
   - filter
-  - gnode
-  - group
   - hal
   - help
   - image
@@ -46,6 +44,7 @@ dependencies:
   - taxonomy
   - telephone
   - text
+  - token_filter
   - tour
   - user
   - views

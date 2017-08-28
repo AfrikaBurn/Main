@@ -10,7 +10,7 @@ dependencies:
 id: afrikaburn_firerangers
 theme: afrikaburn
 region: status_messages
-weight: 0
+weight: -9
 provider: null
 plugin: 'block_content:63b8ad28-7540-40b9-bb2c-a4bd486b33af'
 settings:

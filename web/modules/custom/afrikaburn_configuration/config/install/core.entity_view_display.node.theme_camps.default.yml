@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
-    - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_prj_adm_comms
     - field.field.node.theme_camps.field_prj_adm_form_2
     - field.field.node.theme_camps.field_prj_adm_form_wtf
@@ -123,14 +122,6 @@ targetEntityType: node
 bundle: theme_camps
 mode: default
 content:
-  field_collective:
-    weight: 111
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_prj_adm_comms:
     weight: 88
     label: above
