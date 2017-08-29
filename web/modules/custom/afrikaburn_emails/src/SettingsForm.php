@@ -67,12 +67,12 @@ class SettingsForm extends ConfigFormBase {
             $parts = explode(':', $key);
             $form[implode('_', $parts)] = [
               '#type' => 'textarea',
-              '#title' => $label,
-              '#default_value' => $config->get($key),
+              '#title' => $label . ' [message to ' . trim($recipient) . ']',
+              '#default_value' => $config->get(str_replace(':', '_', $key)),
               '#attributes' => [
                 'rows' => 20,
               ],
-              '#access' => $user->hasPermission('edit ' . $key . ' template'),
+              '#access' => $user->hasPermission('edit ' . str_replace(':', ' ', $key) . ' template'),
               '#description' => 'Available tokens: [' . $parts[2] . ':...]',
             ];
           }
