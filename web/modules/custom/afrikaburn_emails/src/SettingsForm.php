@@ -40,15 +40,17 @@ class SettingsForm extends ConfigFormBase {
       '#type' => 'textarea',
       '#title' => $this->t('Message definition'),
       '#description' => "List one definition per line in the format:<br />
-        operation:entity_type[:bundle]|Subject|recipient,recipient,...<br />
+        name:operation:entity_type[:bundle:index]|Subject|recipient,recipient,...<br />
         Where:<br />
+        name = unique name of this mail<br />
         operation = [create|update|delete]<br />
         entity_type = [node|user|...]<br />
         bundle = [theme_camp|mutant_vehicle|...]<br />
         recipients = [author|group|wrangler|...]<br />
         Eg.<br />
-        update:user|Your account has been changed|author<br />
-        create:node:page|A new page has been created|group",
+        up_0:update:user|Your account has been changed|author<br />
+        cr_0:create:node:page|Your new page has been created|author<br />
+        cr_1:create:node:page|A new page has been created|group",
       '#default_value' => $message_definition,
     ];
 
@@ -63,7 +65,7 @@ class SettingsForm extends ConfigFormBase {
           foreach($definition_pairs as $key_label){
             list($key, $label, $recipient) = explode('|', $key_label);
             $parts = explode(':', $key);
-            $form[$key] = [
+            $form[implode('_', $parts)] = [
               '#type' => 'textarea',
               '#title' => $label,
               '#default_value' => $config->get($key),
@@ -71,7 +73,7 @@ class SettingsForm extends ConfigFormBase {
                 'rows' => 20,
               ],
               '#access' => $user->hasPermission('edit ' . $key . ' template'),
-              '#description' => 'Available tokens: [' . $parts[1] . ':...]',
+              '#description' => 'Available tokens: [' . $parts[2] . ':...]',
             ];
           }
         }
@@ -94,7 +96,8 @@ class SettingsForm extends ConfigFormBase {
     $definition_pairs = explode("\n", $values['message_definition']);
     if (is_array($definition_pairs)){
       foreach($definition_pairs as $key_label){
-        list($key, $label) = explode('|', $key_label);
+        list($key, $label, $recipient) = explode('|', $key_label);
+        $key = str_replace(':', '_', $key);
         $this->config('afrikaburn_emails.settings')
           ->set($key, $values[$key])
           ->save();

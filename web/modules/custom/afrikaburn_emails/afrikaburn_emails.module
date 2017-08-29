@@ -54,13 +54,13 @@ function _afrikaburn_emails_notify($entity, $action){
       $message = \Drupal::token()->replace(
         $config['template'], 
         [
-          $config['key'][1] => $entity
+          $config['key'][2] => $entity
         ]
       );
 
       $result = \Drupal::service('plugin.manager.mail')->mail(
-        'afrikaburn_emails', 
-        'ab_notification', 
+        'afrikaburn_emails',
+        'ab_notification',
         $recipients,
         \Drupal::currentUser()->getPreferredLangcode(),
         [
@@ -154,7 +154,7 @@ function _afrikaburn_emails_get_config($entity, $action){
   $target_key = _afrikaburn_emails_message_key($entity, $action);
   $matches = [];
 
-  preg_match_all("/^" . $target_key . "\|.*$/m", $message_definition, $matches);
+  preg_match_all("/^[^\:]*\:" . $target_key . "\|.*$/m", $message_definition, $matches);
 
   $configs = FALSE;
   foreach($matches[0] as $match){

@@ -1,0 +1,34 @@
+id: custom_user
+label: AfrikaBurn D7 to D8 Users
+migration_group: AfrikaBurn
+
+dependencies:
+  enforced:
+    module:
+      - migrate_custom
+
+source:
+  plugin: custom_user
+  target: source_database
+
+destination:
+  plugin: entity:user
+
+process:
+  uid: uid
+  name: name
+  pass: pass
+  mail: mail
+  status: status
+  created: created
+  changed: changed
+  access: access
+  login: login
+  timezone: timezone
+  langcode: language
+  preferred_langcode: language
+  preferred_admin_langcode: language
+  init: init
+  field_first_name: first_name
+  field_last_name: last_name
+  field_id_number: field_sa_id_or_passport_number

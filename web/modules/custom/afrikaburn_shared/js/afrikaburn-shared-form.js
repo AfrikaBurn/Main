@@ -13,7 +13,7 @@
       // Form validation
       $(toValidate, context).blur(
         function(){
-          $(this).valid();
+          $(this).valid ? $(this).valid() : false;
         }
       );
 
