@@ -40,17 +40,20 @@ class SettingsForm extends ConfigFormBase {
       '#type' => 'textarea',
       '#title' => $this->t('Message definition'),
       '#description' => "List one definition per line in the format:<br />
-        name:operation:entity_type[:bundle:index]|Subject|recipient,recipient,...<br />
+        name:operation:entity_type[:bundle[:field]]|Subject|recipient,recipient,...<br />
         Where:<br />
         name = unique name of this mail<br />
         operation = [create|update|delete]<br />
         entity_type = [node|user|...]<br />
         bundle = [theme_camp|mutant_vehicle|...]<br />
+        field = List of & delimited fields that must have a value (prepend with ! to negate)<br />
         recipients = [author|group|wrangler|...]<br />
         Eg.<br />
         up_0:update:user|Your account has been changed|author<br />
         cr_0:create:node:page|Your new page has been created|author<br />
-        cr_1:create:node:page|A new page has been created|group",
+        cr_1:create:node:page|A new page has been created|group<br />
+        cr_2:create:node:page:field_name|A new page with a field_name field value has been created|group<br />
+        cr_2:create:node:page:field_name&!field_name2|A new page with a field_name and not a field_name2 field value has been created|group",
       '#default_value' => $message_definition,
     ];
 
