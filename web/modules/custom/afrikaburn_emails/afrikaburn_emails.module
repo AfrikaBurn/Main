@@ -49,6 +49,7 @@ function _afrikaburn_emails_notify($entity, $action){
 
   if ($configs) {
     foreach($configs as $config){
+
       $recipients = _afrikaburn_emails_addresses($entity, $config['recipients']);
       $recipients = implode(', ', $recipients);
       $message = \Drupal::token()->replace(
@@ -154,18 +155,29 @@ function _afrikaburn_emails_get_config($entity, $action){
   $target_key = _afrikaburn_emails_message_key($entity, $action);
   $matches = [];
 
-  preg_match_all("/^[^\:]*\:" . $target_key . "\|.*$/m", $message_definition, $matches);
+  preg_match_all("/^[^\:]*\:" . $target_key . "(\:[^\|]*)?\|.*$/m", $message_definition, $matches);
 
   $configs = FALSE;
   foreach($matches[0] as $match){
     if (substr_count($match, '|') == 2) {
       list($key, $subject, $recipient) = explode('|', trim($match));
-      $configs[] = [
-        'key' => explode(':', $key),
-        'subject' => $subject,
-        'template' => $config->get($key),
-        'recipients' => $recipient,
-      ];      
+      $key_parts = explode(':', $key);
+      $fields = TRUE;
+      if (isset($key_parts[4])){
+        foreach(explode('&', $key_parts[4]) as $field_name){
+          $fields &= $field_name[0] == '!'
+            ? !($entity->get(str_replace('!', '', $field_name))->getValue()[0]['value'])
+            : $entity->get($field_name)->getValue()[0]['value'];
+        }
+      }
+      if ($fields){
+        $configs[] = [
+          'key' => $key_parts,
+          'subject' => $subject,
+          'template' => $config->get($key),
+          'recipients' => $recipient,
+        ];
+      }
     }
   }
 
