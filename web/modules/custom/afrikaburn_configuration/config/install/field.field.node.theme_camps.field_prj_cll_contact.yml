@@ -9,7 +9,7 @@ field_name: field_prj_cll_contact
 entity_type: node
 bundle: theme_camps
 label: 'Team Contact person to be alerted to member requests'
-description: 'Interested collaborators will contact you directly.'
+description: "<p>Interested collaborators will contact you directly.<p>\r\n<p>Please select the individual by typing their name into the above field and selecting it once loaded.<br>\r\nThis list will only show people you have already added to your collective.</p>"
 required: false
 translatable: false
 default_value: {  }

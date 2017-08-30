@@ -3,6 +3,9 @@ status: true
 dependencies:
   config:
     - field.field.node.update.body
+    - field.field.node.update.field_collective
+    - field.field.node.update.field_form_1_done
+    - field.field.node.update.field_form_2_done
     - node.type.update
   module:
     - content_moderation
@@ -28,6 +31,29 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_collective:
+    weight: 32
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_form_1_done:
+    weight: 33
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_form_2_done:
+    weight: 34
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   path:
     type: path
     weight: 30

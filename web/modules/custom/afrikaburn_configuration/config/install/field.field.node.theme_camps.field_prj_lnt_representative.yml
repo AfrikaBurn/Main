@@ -9,7 +9,7 @@ field_name: field_prj_lnt_representative
 entity_type: node
 bundle: theme_camps
 label: 'MOOP representative'
-description: ''
+description: "<p>Please select the individual by typing their name into the above field and selecting it once loaded.<br>\r\nThis list will only show people you have already added to your collective.</p>"
 required: true
 translatable: false
 default_value: {  }

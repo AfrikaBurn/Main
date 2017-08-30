@@ -1,3 +1,30 @@
-message_definition: "artwork_registration|Artwork Registration\r\ntheme_camp_registration|Theme Camp Registration"
+message_definition: "tc_create_0:create:node:update|Update created|author\r\ntc_update_0:update:node:update|Update updated|author\r\ntc_update_1:update:node:update:field_form_1_done|Update updated: Form 1|author\r\ntc_update_2:update:node:update:field_form_2_done|Update updated: Form 2|author"
 artwork_registration: ''
 theme_camp_registration: "Dear wonderful theme camp applicants, you brave hearts you,\r\n\r\nThank you for your Theme Camp application.  Your theme camp wrangler will be in contact soon! This application means that you will be added to the Theme Camp Newsletter which you will receive with all the important information we have to share with you. There is key information in these newsletters so please do take the time to read them. \r\n\r\nSometimes the newsletter ends up in the spam folder so please check your spam folders because form 2 and 3 will be sent in a link on the newsletters.\r\n\r\nTheme Camp Approvals will happen every two weeks from the opening of applications.\r\nDDT's will be open from: 13 November 2017 (WRONG DATES, missing sales dates)\r\nTheme camp applications will close on: 19 February 2018\r\n\r\nYou can edit your forms from the home page on the website once you are logged in. Scroll to the bottom of the page and you will find the form there. Click https://new.afrikaburn.com/ to edit your form.\r\n\r\nThank you for  making Tankwa Town happen and remember we are here if you have any questions, concerns, suggestions or you just want to check in with us...\r\n\r\nAnd lastly but not leastly, the first rule of theme camp club is to always put the name of your theme camp in the title of your email! ALWAYS! PLEASE!\r\n\r\nDusty hugs,\r\nYour loving theme camp committee."
+'':
+  message_definition: "tc_create_0:create:node:update|Update created|author\r\ntc_update_0:update:node:update|Update updated|author\r\ntc_update_1:update:node:update:field_form_1_done|Update updated: Form 1|author\r\ntc_update_2:update:node:update:field_form_2_done|Update updated: Form 2|author\r\n"
+  artwork_registration: ''
+  theme_camp_registration: "Dear wonderful theme camp applicants, you brave hearts you,\r\n\r\nThank you for your Theme Camp application.  Your theme camp wrangler will be in contact soon! This application means that you will be added to the Theme Camp Newsletter which you will receive with all the important information we have to share with you. There is key information in these newsletters so please do take the time to read them. \r\n\r\nSometimes the newsletter ends up in the spam folder so please check your spam folders because form 2 and 3 will be sent in a link on the newsletters.\r\n\r\nTheme Camp Approvals will happen every two weeks from the opening of applications.\r\nDDT's will be open from: 13 November 2017 (WRONG DATES, missing sales dates)\r\nTheme camp applications will close on: 19 February 2018\r\n\r\nYou can edit your forms from the home page on the website once you are logged in. Scroll to the bottom of the page and you will find the form there. Click https://new.afrikaburn.com/ to edit your form.\r\n\r\nThank you for  making Tankwa Town happen and remember we are here if you have any questions, concerns, suggestions or you just want to check in with us...\r\n\r\nAnd lastly but not leastly, the first rule of theme camp club is to always put the name of your theme camp in the title of your email! ALWAYS! PLEASE!\r\n\r\nDusty hugs,\r\nYour loving theme camp committee."
+  '': null
+  'create:node:theme_camp': ''
+  'create:node:update': "YAYAYA!\r\n\r\nFokken [node:title] created!author"
+  'update:node:update': "YAYAYA!\r\n\r\nFokken [node:title] updated!"
+  'create:node:delete': null
+  tc_create_0_create_node_update: 'Yaya! Update [node:title] created.'
+  tc_create_1_create_node_update: 'Yaya! Update [node:title] created.'
+  tc_update_update_node_update: ''
+  tc_update_1_update_node_update: 'Yaya! Update [node:title] updated.'
+  tc_update_0_update_node_update: 'Yaya! Update [node:title] updated.'
+  tc_update_1_update_node_update_field_form_1_done: null
+  tc_update_2_update_node_update_field_form_2_done: null
+'create:node:theme_camp': ''
+'create:node:update': "YAYAYA!\r\n\r\nFokken [node:title] created!author"
+'update:node:update': "YAYAYA!\r\n\r\nFokken [node:title] updated!"
+'create:node:delete': null
+tc_create_0_create_node_update: 'Yaya! Update [node:title] created.'
+tc_create_1_create_node_update: 'Yaya! Update [node:title] created.'
+tc_update_update_node_update: ''
+tc_update_1_update_node_update: 'Yaya! Update [node:title] updated.'
+tc_update_0_update_node_update: 'Yaya! Update [node:title] updated.'
+tc_update_1_update_node_update_field_form_1_done: 'Yaya! Update [node:title] Form 1 updated.'
+tc_update_2_update_node_update_field_form_2_done: 'Yaya! Update [node:title] Form 2 updated.'

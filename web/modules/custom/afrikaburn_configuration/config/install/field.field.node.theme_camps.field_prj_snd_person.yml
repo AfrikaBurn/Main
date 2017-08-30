@@ -9,7 +9,7 @@ field_name: field_prj_snd_person
 entity_type: node
 bundle: theme_camps
 label: 'Who is the sound co-ordinator in your team? (This can be you.)'
-description: ''
+description: "<p>Please select the individual by typing their name into the above field and selecting it once loaded.<br>\r\nThis list will only show people you have already added to your collective.</p>"
 required: false
 translatable: false
 default_value: {  }

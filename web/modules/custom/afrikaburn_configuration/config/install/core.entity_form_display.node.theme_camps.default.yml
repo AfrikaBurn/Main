@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_prj_adm_comms
     - field.field.node.theme_camps.field_prj_adm_form_2
     - field.field.node.theme_camps.field_prj_adm_form_wtf
@@ -123,6 +124,16 @@ dependencies:
     - path
 third_party_settings:
   field_group:
+    group_overview_registration1:
+      children: {  }
+      parent_name: ''
+      weight: 20
+      format_type: accordion
+      format_settings:
+        id: ''
+        classes: js-wizard
+        effect: none
+      label: 'Overview registration1'
     group_overview_registration:
       children:
         - group_overview
@@ -133,12 +144,11 @@ third_party_settings:
         - group_almost_done_
       parent_name: ''
       weight: 9
-      format_type: tabs
+      format_type: accordion
       format_settings:
-        label: 'Overview registration'
-        direction: vertical
         id: ''
         classes: js-wizard
+        effect: none
       label: 'Overview registration'
     group_overview:
       children:
@@ -159,7 +169,7 @@ third_party_settings:
         - field_prj_stg_tread
       parent_name: group_overview_registration
       weight: 20
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -175,7 +185,7 @@ third_party_settings:
         - field_prj_gen_concept
       parent_name: group_overview_registration
       weight: 21
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -189,7 +199,7 @@ third_party_settings:
         - field_prj_snd_level
       parent_name: group_overview_registration
       weight: 25
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -203,7 +213,7 @@ third_party_settings:
         - field_prj_lnt_historic
       parent_name: group_overview_registration
       weight: 26
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         label: 'Leave No Trace'
         formatter: closed
@@ -218,7 +228,7 @@ third_party_settings:
         - field_prj_wtf_website
       parent_name: group_overview_registration
       weight: 27
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         label: 'WTF Guide and Community'
         formatter: closed
@@ -235,14 +245,26 @@ third_party_settings:
         - field_prj_oth_mv
       parent_name: group_overview_registration
       weight: 28
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
         formatter: closed
-        description: ''
         required_fields: true
+        description: ''
       label: 'Almost done!'
+    group_overview1:
+      children: {  }
+      parent_name: ''
+      weight: 20
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        required_fields: true
+        description: ''
+      label: Overview1
 id: node.theme_camps.default
 targetEntityType: node
 bundle: theme_camps
@@ -644,6 +666,7 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_collective: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
   field_prj_adm_form_wtf: true
