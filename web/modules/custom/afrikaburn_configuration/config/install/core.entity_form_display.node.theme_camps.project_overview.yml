@@ -130,7 +130,7 @@ third_party_settings:
         - field_prj_gen_concept
       parent_name: group_project_registration
       weight: 21
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -149,7 +149,7 @@ third_party_settings:
         - field_prj_gen_history
       parent_name: group_project_registration
       weight: 20
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -172,7 +172,7 @@ third_party_settings:
         - field_prj_stg_tread
       parent_name: group_project_registration
       weight: 24
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -189,7 +189,7 @@ third_party_settings:
         - group_wtf_guide_and_community
       parent_name: ''
       weight: 7
-      format_type: tabs
+      format_type: accordion
       format_settings:
         id: ''
         classes: ''
@@ -201,7 +201,7 @@ third_party_settings:
         - field_prj_lnt_historic
       parent_name: group_project_registration
       weight: 23
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -215,7 +215,7 @@ third_party_settings:
         - field_prj_snd_level
       parent_name: group_project_registration
       weight: 22
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''

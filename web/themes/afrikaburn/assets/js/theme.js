@@ -102,31 +102,29 @@ jQuery(document).ready(function() {
 
 	jQuery("div.messages").prepend("<span class='icon'></span>");
 
-	//Add scroll top behaviour when accordion item is opened. Must add class 'open' in addition to the classes added by jQuery ui, because of the order in which the code is run.
-	jQuery(".ui-accordion .ui-accordion-header.ui-state-active").addClass("open");
-	jQuery(".ui-accordion .ui-accordion-header.ui-state-default").on('click', function(){
-		if (!jQuery(this).hasClass("open")) {
-			var scrollBarPosition = jQuery(this).offset().top - 15;
-        	jQuery('html,body').animate({scrollTop: scrollBarPosition}, 300);
-		}
-		jQuery(this).toggleClass("open");
-
+    //Initialise jQuery UI accordion on the accordion field group.
+  if (jQuery(".field-group-accordion-wrapper")[0]) {
+    jQuery( ".field-group-accordion-wrapper" ).accordion({
+      collapsible: true,
+      active: false,
+      animate: 200,
+      activate: function(event, ui) {
+        if (jQuery(ui.newHeader).offset()) {
+          var scrollBarPosition = jQuery(ui.newHeader).offset().top - 15;
+            jQuery('html,body').animate({scrollTop: scrollBarPosition}, 100);
+          }
+        }
     });
+  }
 
-    // var heading = jQuery('.page-theme-camps-form-1-registered .views-row h1.field-content').text();
-    // console.log(heading);
-    // jQuery('.page-theme-camps-form-1-registered .views-field-field-creative-lead label.views-label-field-creative-lead').text(jQuery(this).parent().parent()));
+	// jQuery('.page-community .views-field-field-creative-lead > .field-content,' +
+	// 	'.page-community .views-field-field-new-members-email > .field-content').addClass('hidden');
 
-
-
-	jQuery('.page-community .views-field-field-creative-lead > .field-content,' +
-		'.page-community .views-field-field-new-members-email > .field-content').addClass('hidden');
-
-    jQuery('.page-community .views-field-field-creative-lead label.views-label-field-creative-lead,' +
-    	'.page-community .views-field-field-new-members-email label.views-label-field-new-members-email').click(function(e) {
-    		var clickedElement = jQuery(this);
-    		toggleContactForm(clickedElement);
-    });
+ //  jQuery('.page-community .views-field-field-creative-lead label.views-label-field-creative-lead,' +
+ //  	'.page-community .views-field-field-new-members-email label.views-label-field-new-members-email').click(function(e) {
+ //  		var clickedElement = jQuery(this);
+ //  		toggleContactForm(clickedElement);
+ //  });
 
     //jQuery('div.field-type-multifield.field-name-field-creative-lead').after("<div class='description'>we encourage you to have a team, but under stand some small vehicles may not need the support.</div><button id='copy-contact-person'>*Use above details</button>");
 
@@ -152,11 +150,11 @@ jQuery(document).ready(function() {
     //jQuery(".field-group-div").not(":has(.field)").remove();
 
     jQuery('body.page-user-login form#user-login').after("<a href='/user/password?'>Forgot Password</a>");
+
+jQuery(".js input.form-autocomplete").attr('placeholder', 'Type to search' );
+
 });
 
-
-
-//Toggle visibility of the contact forms on the
 
 
 

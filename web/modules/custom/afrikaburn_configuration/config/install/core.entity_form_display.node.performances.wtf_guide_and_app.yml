@@ -95,7 +95,7 @@ third_party_settings:
         - group_wtf
       parent_name: ''
       weight: 6
-      format_type: tabs
+      format_type: accordion
       format_settings:
         label: 'Project Registration'
         direction: horizontal
@@ -125,7 +125,7 @@ third_party_settings:
         - field_prj_wtf_short_copy
       parent_name: ''
       weight: 0
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         label: Overview
         formatter: open
@@ -142,7 +142,7 @@ third_party_settings:
         - field_prj_gen_doc
       parent_name: group_overview
       weight: 10
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -157,7 +157,7 @@ third_party_settings:
         - field_prj_saf_comment
       parent_name: group_overview
       weight: 11
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -175,7 +175,7 @@ third_party_settings:
         - field_prj_snd_agree
       parent_name: group_overview
       weight: 13
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -197,7 +197,7 @@ third_party_settings:
         - field_prj_cll_thread
       parent_name: group_project
       weight: 21
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -215,7 +215,7 @@ third_party_settings:
         - field_prj_lgh_agree
       parent_name: group_overview
       weight: 12
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''

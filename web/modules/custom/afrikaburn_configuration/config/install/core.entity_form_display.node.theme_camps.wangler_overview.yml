@@ -138,7 +138,7 @@ third_party_settings:
         - group_on_si
       parent_name: ''
       weight: 8
-      format_type: tabs
+      format_type: accordion
       format_settings:
         id: ''
         classes: ''
@@ -154,7 +154,7 @@ third_party_settings:
         - field_prj_gen_fundraiser
       parent_name: group_overview_registration
       weight: 20
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -170,7 +170,7 @@ third_party_settings:
         - field_prj_gen_concept
       parent_name: group_overview_registration
       weight: 21
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -190,7 +190,7 @@ third_party_settings:
         - field_prj_saf_comment
       parent_name: group_overview_registration
       weight: 22
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -230,7 +230,7 @@ third_party_settings:
         - field_prj_plc_layout
       parent_name: group_overview_registration
       weight: 23
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -244,7 +244,7 @@ third_party_settings:
         - field_prj_lgh_power
       parent_name: group_overview_registration
       weight: 24
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -264,7 +264,7 @@ third_party_settings:
         - field_prj_snd_comment
       parent_name: group_overview_registration
       weight: 25
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -285,7 +285,7 @@ third_party_settings:
         - field_prj_lnt_publish
       parent_name: group_overview_registration
       weight: 26
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -313,7 +313,7 @@ third_party_settings:
         - field_prj_stg_contact
       parent_name: group_overview_registration
       weight: 27
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         label: 'WTF Guide and Community'
         formatter: closed
@@ -330,7 +330,7 @@ third_party_settings:
         - field_prj_oth_mv
       parent_name: group_overview_registration
       weight: 28
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -349,7 +349,7 @@ third_party_settings:
         - field_prj_adm_ranger_comment
       parent_name: group_overview_registration
       weight: 29
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -371,7 +371,7 @@ third_party_settings:
         - field_prj_ons_issues
       parent_name: group_overview_registration
       weight: 30
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''

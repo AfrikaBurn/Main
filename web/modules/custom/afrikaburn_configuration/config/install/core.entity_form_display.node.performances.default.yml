@@ -104,7 +104,7 @@ third_party_settings:
         - group_other
       parent_name: ''
       weight: 6
-      format_type: tabs
+      format_type: accordion
       format_settings:
         label: 'Project Registration'
         direction: horizontal
@@ -125,7 +125,7 @@ third_party_settings:
         - field_prj_gen_external
       parent_name: group_project
       weight: 20
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         label: Overview
         formatter: open
@@ -142,7 +142,7 @@ third_party_settings:
         - field_prj_gen_doc
       parent_name: group_project
       weight: 21
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -156,7 +156,7 @@ third_party_settings:
         - group_dimensions
       parent_name: group_project
       weight: 22
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -170,7 +170,7 @@ third_party_settings:
         - field_prj_snd_level
       parent_name: group_project
       weight: 24
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -184,7 +184,7 @@ third_party_settings:
         - field_prj_lnt_representative
       parent_name: group_project
       weight: 26
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -203,7 +203,7 @@ third_party_settings:
         - field_prj_cll_thread
       parent_name: group_project
       weight: 27
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -221,7 +221,7 @@ third_party_settings:
         - field_prj_oth_grant
       parent_name: group_project
       weight: 28
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -269,7 +269,7 @@ third_party_settings:
         - field_prj_prp_transport
       parent_name: group_dimensions
       weight: 38
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         label: 'Offsite building'
         formatter: open
