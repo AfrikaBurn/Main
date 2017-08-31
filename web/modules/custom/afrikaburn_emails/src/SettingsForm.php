@@ -53,7 +53,7 @@ class SettingsForm extends ConfigFormBase {
         cr_0:create:node:page|Your new page has been created|author<br />
         cr_1:create:node:page|A new page has been created|group<br />
         cr_2:create:node:page:field_name|A new page with a field_name field value has been created|group<br />
-        cr_2:create:node:page:field_name&!field_name2|A new page with a field_name and not a field_name2 field value has been created|group",
+        cr_3:create:node:page:field_name&!field_name2|A new page with a field_name and not a field_name2 field value has been created|group",
       '#default_value' => $message_definition,
     ];
 
