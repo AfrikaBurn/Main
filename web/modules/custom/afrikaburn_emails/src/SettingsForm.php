@@ -94,7 +94,7 @@ class SettingsForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
     $this->config('afrikaburn_emails.settings')
-      ->set('message_definition', $values['message_definition'])
+      ->set('message_definition', trim($values['message_definition']))
       ->save();
     $definition_pairs = explode("\n", $values['message_definition']);
     if (is_array($definition_pairs)){

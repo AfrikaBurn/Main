@@ -79,7 +79,7 @@ function _afrikaburn_emails_notify($entity, $action){
       );
 
       $result['result']
-        ? \Drupal::logger('mail-log')->notice('Mail sent to ' . $recipients)     
+        ? \Drupal::logger('mail-log')->notice('Mail sent to ' . $recipients . "\n" . $subject . "\n" .$message)
         : \Drupal::logger('mail-log')->notice('Mail send fail');
     }
   }
