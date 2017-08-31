@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.form_
+    - field.field.node.art.field_collective
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
@@ -582,6 +583,7 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_collective: true
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true

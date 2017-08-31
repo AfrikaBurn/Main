@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.field.node.update.body
     - field.field.node.update.field_collective
-    - field.field.node.update.field_form_1_done
-    - field.field.node.update.field_form_2_done
     - node.type.update
   module:
     - text
@@ -29,26 +27,6 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_form_1_done:
-    weight: 103
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_form_2_done:
-    weight: 104
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
     region: content
   links:
     weight: 100

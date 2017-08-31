@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.wangler_overview
+    - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_prj_adm_comms
     - field.field.node.theme_camps.field_prj_adm_form_2
     - field.field.node.theme_camps.field_prj_adm_form_wtf
@@ -1219,4 +1220,5 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_collective: true
   field_prj_gen_year: true

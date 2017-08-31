@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.wtf_guide_and_app
+    - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_prj_adm_comms
     - field.field.node.theme_camps.field_prj_adm_form_2
     - field.field.node.theme_camps.field_prj_adm_form_wtf
@@ -252,6 +253,7 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_collective: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
   field_prj_adm_form_wtf: true

@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.performances.field_collective
     - field.field.node.performances.field_muncipal_district
     - field.field.node.performances.field_prj_adm_comms
     - field.field.node.performances.field_prj_adm_notes
@@ -662,6 +663,7 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_collective: true
   field_prj_adm_comms: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
