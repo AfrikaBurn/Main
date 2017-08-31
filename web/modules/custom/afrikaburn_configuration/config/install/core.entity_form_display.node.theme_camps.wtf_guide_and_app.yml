@@ -125,7 +125,7 @@ third_party_settings:
       children: {  }
       parent_name: ''
       weight: 20
-      format_type: fieldset
+      format_type: accordion
       format_settings:
         id: ''
         classes: ''
@@ -142,7 +142,7 @@ third_party_settings:
         - field_prj_wtf_long
       parent_name: group_wtf_guide_and_community_up
       weight: 20
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
