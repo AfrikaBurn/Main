@@ -58,6 +58,12 @@ function _afrikaburn_emails_notify($entity, $action){
           $config['key'][2] => $entity
         ]
       );
+      $subject = \Drupal::token()->replace(
+        $config['subject'], 
+        [
+          $config['key'][2] => $entity
+        ]
+      );
 
       $result = \Drupal::service('plugin.manager.mail')->mail(
         'afrikaburn_emails',
@@ -65,7 +71,7 @@ function _afrikaburn_emails_notify($entity, $action){
         $recipients,
         \Drupal::currentUser()->getPreferredLangcode(),
         [
-          'subject' => $config['subject'],
+          'subject' => $subject,
           'message' => $message,
         ],
         NULL, 
