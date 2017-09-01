@@ -33,6 +33,7 @@ dependencies:
     - field.field.node.performances.field_prj_lgh_agree
     - field.field.node.performances.field_prj_lgh_description
     - field.field.node.performances.field_prj_lgh_f1
+    - field.field.node.performances.field_prj_lgh_f2
     - field.field.node.performances.field_prj_lgh_lighter
     - field.field.node.performances.field_prj_lgh_night
     - field.field.node.performances.field_prj_lgh_policy
@@ -90,6 +91,7 @@ dependencies:
     - file
     - image
     - link
+    - markup
     - path
 third_party_settings:
   field_group:
@@ -435,6 +437,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
+  field_prj_lgh_f2:
+    weight: 67
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_prj_lnt_historic:
     weight: 53

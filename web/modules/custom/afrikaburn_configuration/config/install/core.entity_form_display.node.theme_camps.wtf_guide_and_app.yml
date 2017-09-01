@@ -141,7 +141,7 @@ third_party_settings:
         - field_prj_wtf_planned
         - field_prj_wtf_short
         - field_prj_wtf_long
-      parent_name: group_wtf_guide_and_community_up
+      parent_name: ''
       weight: 20
       format_type: accordion_item
       format_settings:
@@ -191,13 +191,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_wtf_planned:
-    type: entity_reference_autocomplete
+    type: options_buttons
     weight: 24
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_prj_wtf_short:
     type: string_textarea

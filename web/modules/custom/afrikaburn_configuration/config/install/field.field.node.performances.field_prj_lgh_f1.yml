@@ -19,6 +19,6 @@ default_value:
 default_value_callback: ''
 settings:
   markup:
-    value: "<p><span>As an aesthetic element, as part of the design of your performance (and for safety reasons), it's mandatory to light your performance if it takes place at night. Lighting protects your performance space from accidental damage, and from accidentally damaging someone or something in the dark. You can go all out with parcans and a generator, or go green with solar power, go low-tech with candles in jars, or anything in between. We do, of course, love renewables more and they are good investments. </span></p>\r\n"
+    value: "<p><strong>This will be part of Form 2 that we will send you later to complete</strong></p>\r\n"
     format: basic_html
 field_type: markup
