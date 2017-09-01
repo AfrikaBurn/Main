@@ -2,14 +2,17 @@ langcode: en
 status: true
 dependencies:
   module:
-    - telephone
+    - field_permissions
     - user
-id: user.field_telephone
-field_name: field_telephone
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: user.field_secondary_mail
+field_name: field_secondary_mail
 entity_type: user
-type: telephone
+type: email
 settings: {  }
-module: telephone
+module: core
 locked: false
 cardinality: 1
 translatable: true

@@ -4,7 +4,6 @@ dependencies:
   config:
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
-    - field.storage.user.field_telephone
   module:
     - user
 id: user_select
@@ -427,7 +426,6 @@ display:
       tags:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
-        - 'config:field.storage.user.field_telephone'
   entity_reference_1:
     display_plugin: entity_reference
     id: entity_reference_1
@@ -460,4 +458,3 @@ display:
       tags:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
-        - 'config:field.storage.user.field_telephone'

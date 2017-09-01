@@ -4,12 +4,10 @@ dependencies:
   config:
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
-    - field.storage.user.field_telephone
     - field.storage.user.user_picture
     - image.style.medium
   module:
     - image
-    - telephone
     - user
 id: wrangler_members
 label: 'Wrangler Members'
@@ -472,7 +470,6 @@ display:
       tags:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
-        - 'config:field.storage.user.field_telephone'
         - 'config:field.storage.user.user_picture'
   block_1:
     display_plugin: block
@@ -491,5 +488,4 @@ display:
       tags:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
-        - 'config:field.storage.user.field_telephone'
         - 'config:field.storage.user.user_picture'
