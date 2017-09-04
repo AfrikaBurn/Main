@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.performances.field_collective
     - field.field.node.performances.field_muncipal_district
     - field.field.node.performances.field_prj_adm_comms
     - field.field.node.performances.field_prj_adm_notes
@@ -33,6 +34,7 @@ dependencies:
     - field.field.node.performances.field_prj_lgh_agree
     - field.field.node.performances.field_prj_lgh_description
     - field.field.node.performances.field_prj_lgh_f1
+    - field.field.node.performances.field_prj_lgh_f2
     - field.field.node.performances.field_prj_lgh_lighter
     - field.field.node.performances.field_prj_lgh_night
     - field.field.node.performances.field_prj_lgh_policy
@@ -52,7 +54,6 @@ dependencies:
     - field.field.node.performances.field_prj_oth_mv
     - field.field.node.performances.field_prj_oth_other
     - field.field.node.performances.field_prj_oth_relationship
-    - field.field.node.performances.field_prj_oth_unregistered
     - field.field.node.performances.field_prj_prp_duration
     - field.field.node.performances.field_prj_prp_erection
     - field.field.node.performances.field_prj_prp_start
@@ -75,6 +76,7 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_categories
     - field.field.node.performances.field_prj_wtf_image
     - field.field.node.performances.field_prj_wtf_long
+    - field.field.node.performances.field_prj_wtf_plan
     - field.field.node.performances.field_prj_wtf_planned
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
@@ -91,6 +93,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_collective: true
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_notes: true
@@ -121,6 +124,7 @@ hidden:
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
   field_prj_lgh_f1: true
+  field_prj_lgh_f2: true
   field_prj_lgh_lighter: true
   field_prj_lgh_night: true
   field_prj_lgh_policy: true
@@ -140,7 +144,6 @@ hidden:
   field_prj_oth_mv: true
   field_prj_oth_other: true
   field_prj_oth_relationship: true
-  field_prj_oth_unregistered: true
   field_prj_prp_duration: true
   field_prj_prp_erection: true
   field_prj_prp_start: true
@@ -163,6 +166,7 @@ hidden:
   field_prj_wtf_categories: true
   field_prj_wtf_image: true
   field_prj_wtf_long: true
+  field_prj_wtf_plan: true
   field_prj_wtf_planned: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true

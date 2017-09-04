@@ -3,13 +3,16 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_prj_oth_associated
+    - node.type.art
+    - node.type.mutant_vehicles
+    - node.type.performances
     - node.type.theme_camps
 id: node.theme_camps.field_prj_oth_associated
 field_name: field_prj_oth_associated
 entity_type: node
 bundle: theme_camps
-label: 'Is there an Artwork or Mutant Vehicle associated with your camp?'
-description: "<p>Please select the individual by typing their name into the above field and selecting it once loaded.<br>\r\nThis list will only show people you have already added to your collective.</p>"
+label: 'Are there any other projects associated with your Theme Camp? (If they not registered yet, please add below)'
+description: "You only need to list them if they are not registered as part of your collective.<br>\r\nIf yes, don't forget that all MVs must be registered with the Department of Mutant Vehicles before the event."
 required: false
 translatable: false
 default_value: {  }
@@ -18,10 +21,13 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
+      art: art
+      mutant_vehicles: mutant_vehicles
+      performances: performances
       theme_camps: theme_camps
     sort:
       field: title
       direction: ASC
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: mutant_vehicles
 field_type: entity_reference

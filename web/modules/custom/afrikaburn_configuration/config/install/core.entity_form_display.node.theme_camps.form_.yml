@@ -25,6 +25,8 @@ dependencies:
     - field.field.node.theme_camps.field_prj_gen_fundraiser
     - field.field.node.theme_camps.field_prj_gen_fundraising
     - field.field.node.theme_camps.field_prj_gen_header1
+    - field.field.node.theme_camps.field_prj_gen_header2
+    - field.field.node.theme_camps.field_prj_gen_header3
     - field.field.node.theme_camps.field_prj_gen_history
     - field.field.node.theme_camps.field_prj_gen_location
     - field.field.node.theme_camps.field_prj_gen_profit
@@ -56,7 +58,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_oth_associated
     - field.field.node.theme_camps.field_prj_oth_move
     - field.field.node.theme_camps.field_prj_oth_mv
-    - field.field.node.theme_camps.field_prj_oth_unregistered
     - field.field.node.theme_camps.field_prj_plc_artwork_d
     - field.field.node.theme_camps.field_prj_plc_artwork_w
     - field.field.node.theme_camps.field_prj_plc_binnekring
@@ -132,7 +133,7 @@ third_party_settings:
         - group_moop
         - group_wtf
       parent_name: ''
-      weight: 8
+      weight: 9
       format_type: tabs
       format_settings:
         label: 'Overview registration'
@@ -252,8 +253,8 @@ third_party_settings:
     group_moop:
       children:
         - field_prj_lnt_handled
-        - field_prj_lnt_representative
         - field_prj_lnt_historic
+        - field_prj_lnt_representative
       parent_name: group_overview_registration
       weight: 20
       format_type: tab
@@ -280,63 +281,6 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'WTF Guide and Community'
-    group_almost_done_:
-      children:
-        - field_prj_oth_associated
-        - field_prj_oth_move
-        - field_prj_oth_mv
-        - field_prj_oth_unregistered
-      parent_name: ''
-      weight: 11
-      format_type: tab
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: 'Almost done!'
-    group_admin:
-      children:
-        - field_prj_adm_comms
-        - field_prj_adm_latitude
-        - field_prj_adm_longitude
-        - field_prj_adm_notes
-        - field_prj_adm_ranger_comment
-        - field_prj_adm_review
-        - field_prj_adm_wrangler
-      parent_name: ''
-      weight: 10
-      format_type: tab
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: Admin
-    group_on_site_checkoff:
-      children:
-        - field_prj_ons_issues
-        - field_prj_ons_monday_b
-        - field_prj_ons_monday_d
-        - field_prj_ons_rating
-        - field_prj_ons_rest_b
-        - field_prj_ons_rest_d
-        - field_prj_ons_tuesday_b
-        - field_prj_ons_tuesday_d
-        - field_prj_ons_wednesay_d
-        - field_prj_ons_wednesday_b
-      parent_name: ''
-      weight: 9
-      format_type: tab
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: 'On site checkoff'
 id: node.theme_camps.form_
 targetEntityType: node
 bundle: theme_camps
@@ -356,14 +300,20 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-  field_prj_gen_header1:
+  field_prj_gen_header2:
+    type: markup
     weight: 6
+    region: content
     settings: {  }
     third_party_settings: {  }
+  field_prj_gen_header3:
     type: markup
-    region: content
-  field_prj_gen_profit:
     weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_gen_profit:
+    weight: 8
     settings:
       display_label: true
     third_party_settings: {  }
@@ -407,7 +357,7 @@ content:
     type: string_textarea
     region: content
   field_prj_lnt_historic:
-    weight: 18
+    weight: 17
     settings:
       match_operator: CONTAINS
       size: 60
@@ -416,7 +366,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_prj_lnt_representative:
-    weight: 17
+    weight: 18
     settings:
       match_operator: CONTAINS
       size: 60
@@ -971,6 +921,7 @@ hidden:
   field_prj_gen_description: true
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
+  field_prj_gen_header1: true
   field_prj_gen_history: true
   field_prj_gen_location: true
   field_prj_gen_story: true
@@ -994,7 +945,6 @@ hidden:
   field_prj_oth_associated: true
   field_prj_oth_move: true
   field_prj_oth_mv: true
-  field_prj_oth_unregistered: true
   field_prj_saf_comment: true
   field_prj_snd_comment: true
   field_prj_stg_contact: true

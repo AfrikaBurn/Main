@@ -44,6 +44,7 @@ dependencies:
     - field.field.node.art.field_prj_lgh_agree
     - field.field.node.art.field_prj_lgh_description
     - field.field.node.art.field_prj_lgh_f1
+    - field.field.node.art.field_prj_lgh_f2
     - field.field.node.art.field_prj_lgh_lighter
     - field.field.node.art.field_prj_lgh_policy
     - field.field.node.art.field_prj_lgh_power
@@ -63,7 +64,6 @@ dependencies:
     - field.field.node.art.field_prj_oth_grant
     - field.field.node.art.field_prj_oth_other
     - field.field.node.art.field_prj_oth_relationship
-    - field.field.node.art.field_prj_oth_unregistered
     - field.field.node.art.field_prj_plc_f1
     - field.field.node.art.field_prj_plc_location_extra
     - field.field.node.art.field_prj_prp_duration
@@ -143,11 +143,11 @@ third_party_settings:
       weight: 11
       format_type: accordion_item
       format_settings:
+        label: 'WTF Guide and Community'
+        formatter: open
+        required_fields: true
         id: ''
         classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
       label: 'WTF Guide and Community'
 id: node.art.wtf_guide_and_app
 targetEntityType: node
@@ -427,6 +427,7 @@ hidden:
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
   field_prj_lgh_f1: true
+  field_prj_lgh_f2: true
   field_prj_lgh_lighter: true
   field_prj_lgh_policy: true
   field_prj_lgh_power: true
@@ -446,7 +447,6 @@ hidden:
   field_prj_oth_grant: true
   field_prj_oth_other: true
   field_prj_oth_relationship: true
-  field_prj_oth_unregistered: true
   field_prj_plc_f1: true
   field_prj_plc_location_extra: true
   field_prj_prp_duration: true

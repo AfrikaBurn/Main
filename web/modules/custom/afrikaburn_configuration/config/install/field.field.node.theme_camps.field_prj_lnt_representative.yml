@@ -8,8 +8,8 @@ id: node.theme_camps.field_prj_lnt_representative
 field_name: field_prj_lnt_representative
 entity_type: node
 bundle: theme_camps
-label: 'MOOP representative'
-description: "<p>Please select the individual by typing their name into the above field and selecting it once loaded.<br>\r\nThis list will only show people you have already added to your collective.</p>"
+label: 'Your LNT (MOOP) Representative'
+description: "<p>It is highly recommended that you have a dedicated representative to fulfil this role of handling your camp waste.</p>\r\n<p>Please select the individual by typing their name into the above field and selecting it once loaded.<br>\r\nThis list will only show people you have already added to your collective.<br>\r\nIf you're unsure of who your representative will be, please select yourself in the meantime, you can change this later.</p>"
 required: true
 translatable: false
 default_value: {  }

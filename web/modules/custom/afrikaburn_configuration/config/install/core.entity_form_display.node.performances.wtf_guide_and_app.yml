@@ -54,7 +54,6 @@ dependencies:
     - field.field.node.performances.field_prj_oth_mv
     - field.field.node.performances.field_prj_oth_other
     - field.field.node.performances.field_prj_oth_relationship
-    - field.field.node.performances.field_prj_oth_unregistered
     - field.field.node.performances.field_prj_prp_duration
     - field.field.node.performances.field_prj_prp_erection
     - field.field.node.performances.field_prj_prp_start
@@ -77,6 +76,7 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_categories
     - field.field.node.performances.field_prj_wtf_image
     - field.field.node.performances.field_prj_wtf_long
+    - field.field.node.performances.field_prj_wtf_plan
     - field.field.node.performances.field_prj_wtf_planned
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
@@ -104,91 +104,11 @@ third_party_settings:
         id: ''
         classes: js-wizard
       label: 'Project Registration'
-    group_overview:
-      children:
-        - group_the_
-        - group_the_st
-        - group_lighting
-        - group_sound
-        - group_burn
-        - group_moop
-        - group_other
-        - group_admin
-        - title
-        - field_prj_gen_contact
-        - field_prj_gen_lead
-        - field_prj_gen_manager
-        - field_prj_gen_fundraising
-        - field_prj_gen_fundraiser
-        - field_prj_gen_location
-        - field_prj_gen_bio
-        - field_prj_gen_history
-        - field_prj_gen_external
-        - field_prj_wtf_short_copy
-      parent_name: ''
-      weight: 0
-      format_type: accordion_item
-      format_settings:
-        label: Overview
-        formatter: open
-        description: ''
-        required_fields: true
-        id: ''
-        classes: ''
-      label: Overview
-    group_the_:
-      children:
-        - field_prj_gen_description
-        - field_prj_gen_story
-        - field_prj_gen_concept
-        - field_prj_gen_doc
-      parent_name: group_overview
-      weight: 10
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: 'The Project'
-    group_the_st:
-      children:
-        - group_dimensions
-        - field_prj_stc_physical
-        - field_prj_saf_comment
-      parent_name: group_overview
-      weight: 11
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: 'The Structure'
-    group_sound:
-      children:
-        - field_prj_snd_sound
-        - field_prj_snd_level
-        - field_prj_snd_description
-        - field_prj_snd_person
-        - field_prj_snd_comment
-        - field_prj_snd_agree
-      parent_name: group_overview
-      weight: 13
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: Sound
     group_wtf:
       children:
         - field_prj_wtf_short
         - field_prj_wtf_long
+        - field_prj_wtf_plan
         - field_prj_wtf_image
         - field_prj_wtf_planned
         - field_prj_wtf_categories
@@ -207,24 +127,6 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'WTF Guide and Community'
-    group_lighting:
-      children:
-        - field_prj_lgh_f1
-        - field_prj_lgh_night
-        - field_prj_lgh_description
-        - field_prj_lgh_lighter
-        - field_prj_lgh_policy
-        - field_prj_lgh_agree
-      parent_name: group_overview
-      weight: 12
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: Lighting
 id: node.performances.wtf_guide_and_app
 targetEntityType: node
 bundle: performances
@@ -281,13 +183,21 @@ content:
     type: image_image
     region: content
   field_prj_wtf_long:
-    weight: 8
+    weight: 7
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_prj_wtf_plan:
+    type: string_textarea
+    weight: 8
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_wtf_planned:
     weight: 10
     settings: {  }
@@ -387,7 +297,6 @@ hidden:
   field_prj_oth_mv: true
   field_prj_oth_other: true
   field_prj_oth_relationship: true
-  field_prj_oth_unregistered: true
   field_prj_prp_duration: true
   field_prj_prp_erection: true
   field_prj_prp_start: true

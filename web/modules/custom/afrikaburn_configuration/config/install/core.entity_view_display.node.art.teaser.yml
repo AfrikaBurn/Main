@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.art.field_collective
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
@@ -43,6 +44,7 @@ dependencies:
     - field.field.node.art.field_prj_lgh_agree
     - field.field.node.art.field_prj_lgh_description
     - field.field.node.art.field_prj_lgh_f1
+    - field.field.node.art.field_prj_lgh_f2
     - field.field.node.art.field_prj_lgh_lighter
     - field.field.node.art.field_prj_lgh_policy
     - field.field.node.art.field_prj_lgh_power
@@ -62,7 +64,6 @@ dependencies:
     - field.field.node.art.field_prj_oth_grant
     - field.field.node.art.field_prj_oth_other
     - field.field.node.art.field_prj_oth_relationship
-    - field.field.node.art.field_prj_oth_unregistered
     - field.field.node.art.field_prj_plc_f1
     - field.field.node.art.field_prj_plc_location_extra
     - field.field.node.art.field_prj_prp_duration
@@ -109,6 +110,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_collective: true
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
@@ -149,6 +151,7 @@ hidden:
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
   field_prj_lgh_f1: true
+  field_prj_lgh_f2: true
   field_prj_lgh_lighter: true
   field_prj_lgh_policy: true
   field_prj_lgh_power: true
@@ -168,7 +171,6 @@ hidden:
   field_prj_oth_grant: true
   field_prj_oth_other: true
   field_prj_oth_relationship: true
-  field_prj_oth_unregistered: true
   field_prj_plc_f1: true
   field_prj_plc_location_extra: true
   field_prj_prp_duration: true

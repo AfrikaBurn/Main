@@ -10,8 +10,8 @@ field_name: field_prj_snd_level
 entity_type: node
 bundle: theme_camps
 label: 'Please select the level of your sound component'
-description: "<b>Level 1</b> - Normal car stereo without sub woofers. This level permits you to play in most areas unless it's a silent zone near the Temple or other artworks. <br> <br> \r\n\r\n<b>Level 2</b> - Loud amplified sound. This can only be played in special areas within the Binnekring and deep Tankwa. Be very aware of quiet zones and artworks and which way your speakers point. <br> <br> \r\n\r\n<b>Level 3</b>  - Large club or stadium size sound. These system can only be played at full volume in Sound Zones with speakers pointing away from the Binnekring. "
-required: false
+description: "<p><b>Level 1</b><br>\r\nNon-amplified sound: it includes instrumental music, as well as sound at the level of a normal (domestic hi-fi) stereo without sub woofers etc. This level permits you to play sound in most areas during the day unless it's a silent zone near the temple or other artworks.</p>\r\n\r\n<p><b>Level 2</b><br>\r\nAmplified sound: system with sub woofers. This can only be played in specified areas within the Binnekring during the day, and in Sound Zones at night. Please be very aware of Quiet Zones and where artworks require low sound in their surrounds, as well as which way your speakers point.</p>\r\n\r\n<p><b>Level 3</b><br>\r\nVery large club or stadium-size sound. These systems can only be played at full volume in Sound Zones with speakers orientated away from the Binnekring and camping areas.</p>"
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

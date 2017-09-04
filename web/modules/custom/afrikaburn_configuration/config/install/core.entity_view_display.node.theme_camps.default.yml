@@ -25,6 +25,8 @@ dependencies:
     - field.field.node.theme_camps.field_prj_gen_fundraiser
     - field.field.node.theme_camps.field_prj_gen_fundraising
     - field.field.node.theme_camps.field_prj_gen_header1
+    - field.field.node.theme_camps.field_prj_gen_header2
+    - field.field.node.theme_camps.field_prj_gen_header3
     - field.field.node.theme_camps.field_prj_gen_history
     - field.field.node.theme_camps.field_prj_gen_location
     - field.field.node.theme_camps.field_prj_gen_profit
@@ -56,7 +58,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_oth_associated
     - field.field.node.theme_camps.field_prj_oth_move
     - field.field.node.theme_camps.field_prj_oth_mv
-    - field.field.node.theme_camps.field_prj_oth_unregistered
     - field.field.node.theme_camps.field_prj_plc_artwork_d
     - field.field.node.theme_camps.field_prj_plc_artwork_w
     - field.field.node.theme_camps.field_prj_plc_binnekring
@@ -304,6 +305,20 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_gen_header2:
+    weight: 111
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_gen_header3:
+    weight: 112
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_gen_history:
     weight: 8
     label: above
@@ -545,14 +560,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-    region: content
-  field_prj_oth_unregistered:
-    weight: 109
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
     region: content
   field_prj_plc_artwork_d:
     weight: 35

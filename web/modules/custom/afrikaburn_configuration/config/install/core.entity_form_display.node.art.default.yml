@@ -43,6 +43,7 @@ dependencies:
     - field.field.node.art.field_prj_lgh_agree
     - field.field.node.art.field_prj_lgh_description
     - field.field.node.art.field_prj_lgh_f1
+    - field.field.node.art.field_prj_lgh_f2
     - field.field.node.art.field_prj_lgh_lighter
     - field.field.node.art.field_prj_lgh_policy
     - field.field.node.art.field_prj_lgh_power
@@ -62,7 +63,6 @@ dependencies:
     - field.field.node.art.field_prj_oth_grant
     - field.field.node.art.field_prj_oth_other
     - field.field.node.art.field_prj_oth_relationship
-    - field.field.node.art.field_prj_oth_unregistered
     - field.field.node.art.field_prj_plc_f1
     - field.field.node.art.field_prj_plc_location_extra
     - field.field.node.art.field_prj_prp_duration
@@ -118,6 +118,7 @@ third_party_settings:
         - group_the_project
         - group_the_structure
         - group_lighting
+        - group_burn
         - group_sound
         - group_moop
         - group_wtf_guide_and_community
@@ -134,6 +135,7 @@ third_party_settings:
     group_overview:
       children:
         - title
+        - field_collective
         - field_prj_gen_contact
         - field_prj_gen_lead
         - field_prj_gen_manager
@@ -172,7 +174,6 @@ third_party_settings:
       label: 'The Project'
     group_the_structure:
       children:
-        - group_admin
         - group_dimensions
         - group_building_transport_install
       parent_name: group_project_registration
@@ -247,6 +248,7 @@ third_party_settings:
     group_lighting:
       children:
         - field_prj_lgh_f1
+        - field_prj_lgh_f2
       parent_name: group_project_registration
       weight: 9
       format_type: accordion_item
@@ -263,7 +265,7 @@ third_party_settings:
         - field_prj_snd_sound
         - field_prj_snd_level
       parent_name: group_project_registration
-      weight: 10
+      weight: 11
       format_type: accordion_item
       format_settings:
         id: ''
@@ -274,7 +276,11 @@ third_party_settings:
       label: Sound
     group_moop:
       children:
+        - field_prj_lnt_handled
+        - field_prj_lnt_helpers
+        - field_prj_lnt_duration
         - field_prj_lnt_historic
+        - field_prj_lnt_representative
       parent_name: group_project_registration
       weight: 12
       format_type: accordion_item
@@ -327,6 +333,19 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Other
+    group_burn:
+      children:
+        - field_prj_brn_f1
+      parent_name: group_project_registration
+      weight: 10
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Burn
 id: node.art.default
 targetEntityType: node
 bundle: art
@@ -337,6 +356,15 @@ content:
     weight: 1
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_collective:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_muncipal_district:
     weight: 12
@@ -353,129 +381,17 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_brn_desc:
-    third_party_settings:
-      conditional_fields:
-        19210e51-5725-45e3-a369-17f76fc04132:
-          dependee: field_prj_brn_burning
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
-    weight: 101
-    settings:
-      rows: 5
-      placeholder: ''
-    type: string_textarea
+  field_prj_brn_f1:
+    type: markup
+    weight: 0
     region: content
+    settings: {  }
+    third_party_settings: {  }
   field_prj_brn_head:
     weight: 49
     settings: {  }
     third_party_settings: {  }
     type: markup
-    region: content
-  field_prj_brn_perimeter:
-    third_party_settings:
-      conditional_fields:
-        651def2e-6561-49c2-9c68-4619d2de9e16:
-          dependee: field_prj_brn_burning
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
-    weight: 103
-    settings:
-      placeholder: ''
-    type: number
-    region: content
-  field_prj_brn_person:
-    third_party_settings:
-      conditional_fields:
-        4a069545-4665-4d95-81f9-3572c593913c:
-          dependee: field_prj_brn_burning
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
-    weight: 104
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    type: entity_reference_autocomplete
-    region: content
-  field_prj_brn_plan:
-    third_party_settings:
-      conditional_fields:
-        b398354e-84fc-47ce-9585-4a90dc71b5b5:
-          dependee: field_prj_brn_burning
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
-    weight: 106
-    settings:
-      rows: 5
-      placeholder: ''
-    type: string_textarea
-    region: content
-  field_prj_brn_time:
-    third_party_settings:
-      conditional_fields:
-        cbeead4d-96e2-4cb0-85f2-666414fa42c6:
-          dependee: field_prj_brn_burning
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
-    weight: 105
-    settings: {  }
-    type: datetime_default
     region: content
   field_prj_cll_collaborate:
     weight: 47
@@ -543,7 +459,7 @@ content:
     type: comment_default
     region: content
   field_prj_gen_bio:
-    weight: 7
+    weight: 8
     settings:
       rows: 5
       placeholder: ''
@@ -559,7 +475,7 @@ content:
     type: image_image
     region: content
   field_prj_gen_contact:
-    weight: 1
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
@@ -583,7 +499,7 @@ content:
     type: file_generic
     region: content
   field_prj_gen_external:
-    weight: 9
+    weight: 10
     settings:
       rows: 5
       placeholder: ''
@@ -591,7 +507,7 @@ content:
     type: string_textarea
     region: content
   field_prj_gen_fundraiser:
-    weight: 5
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
@@ -617,14 +533,14 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_prj_gen_fundraising:
-    weight: 4
+    weight: 5
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_gen_history:
-    weight: 8
+    weight: 9
     settings:
       rows: 5
       placeholder: ''
@@ -640,7 +556,7 @@ content:
     type: string_textarea
     region: content
   field_prj_gen_lead:
-    weight: 2
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
@@ -649,7 +565,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_prj_gen_location:
-    weight: 6
+    weight: 7
     settings:
       force_deepest: '1'
       parent: '0'
@@ -658,7 +574,7 @@ content:
     type: cshs
     region: content
   field_prj_gen_manager:
-    weight: 3
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
@@ -692,18 +608,55 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_lgh_f2:
+    weight: 81
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_lnt_area:
     weight: 57
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_lnt_duration:
+    type: number
+    weight: 101
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_lnt_handled:
+    type: string_textarea
+    weight: 99
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_lnt_helpers:
+    type: number
+    weight: 100
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_lnt_historic:
-    weight: 98
+    weight: 102
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
+  field_prj_lnt_representative:
+    type: entity_reference_autocomplete
+    weight: 103
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_oth_area:
     weight: 74
     settings: {  }
@@ -741,14 +694,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
-    region: content
-  field_prj_oth_unregistered:
-    weight: 16
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   field_prj_plc_area:
     weight: 35
@@ -801,58 +746,11 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_prj_snd_agree:
-    third_party_settings:
-      conditional_fields:
-        54adb4f0-7bc4-4e81-8385-a22fc2c01901:
-          dependee: field_prj_brn_burning
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
-    weight: 102
-    settings:
-      display_label: true
-    type: boolean_checkbox
-    region: content
   field_prj_snd_area:
     weight: 43
     settings: {  }
     third_party_settings: {  }
     type: markup
-    region: content
-  field_prj_snd_description:
-    third_party_settings:
-      conditional_fields:
-        79a82427-838e-4ae8-98fb-0bbecbe3d3a0:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
-    weight: 99
-    settings:
-      rows: 5
-      placeholder: ''
-    type: string_textarea
     region: content
   field_prj_snd_f1:
     weight: 31
@@ -881,31 +779,6 @@ content:
           entity_type: node
           bundle: art
     type: options_select
-    region: content
-  field_prj_snd_person:
-    third_party_settings:
-      conditional_fields:
-        d3e81f27-4c5c-445f-8c34-7ac20cd95db6:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
-    weight: 100
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    type: entity_reference_autocomplete
     region: content
   field_prj_snd_sound:
     weight: 32
@@ -1141,7 +1014,6 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
-  field_collective: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
   field_prj_adm_form_wtf: true
@@ -1153,7 +1025,11 @@ hidden:
   field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
-  field_prj_brn_f1: true
+  field_prj_brn_desc: true
+  field_prj_brn_perimeter: true
+  field_prj_brn_person: true
+  field_prj_brn_plan: true
+  field_prj_brn_time: true
   field_prj_brn_time_adm: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
@@ -1162,19 +1038,18 @@ hidden:
   field_prj_lgh_power: true
   field_prj_lgh_projection: true
   field_prj_lnt_comments: true
-  field_prj_lnt_duration: true
-  field_prj_lnt_handled: true
-  field_prj_lnt_helpers: true
   field_prj_lnt_images: true
   field_prj_lnt_publish: true
-  field_prj_lnt_representative: true
   field_prj_lnt_score: true
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
   field_prj_plc_f1: true
   field_prj_plc_location_extra: true
   field_prj_saf_comment: true
+  field_prj_snd_agree: true
   field_prj_snd_comment: true
+  field_prj_snd_description: true
+  field_prj_snd_person: true
   field_prj_wtf_categories: true
   field_prj_wtf_long: true
   field_prj_wtf_short: true

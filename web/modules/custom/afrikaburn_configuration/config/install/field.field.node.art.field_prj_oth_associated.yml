@@ -11,8 +11,8 @@ id: node.art.field_prj_oth_associated
 field_name: field_prj_oth_associated
 entity_type: node
 bundle: art
-label: 'Are there any other projects associated with your artwork?'
-description: "You only need to list them if they are not registered as part of your collective.<br>\r\nIf yes, don't forget that all MVs must be registered with the Department of Mutant Vehicles."
+label: 'Are there any other projects associated with your artwork? (If they not registered yet, please add below)'
+description: "You only need to list them if they are not registered as part of your collective.<br>\r\nIf yes, don't forget that all MVs must be registered with the Department of Mutant Vehicles before the event."
 required: false
 translatable: true
 default_value: {  }

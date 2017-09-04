@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_header3
+    - node.type.theme_camps
+  module:
+    - markup
+id: node.theme_camps.field_prj_gen_header3
+field_name: field_prj_gen_header3
+entity_type: node
+bundle: theme_camps
+label: prj_gen_header3
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p><a href=\"http://www.afrikaburn.com/wp-content/uploads/2016/09/AB-Theme-Camp-Handbook.pdf\">Theme Camp Handbook</a></p>\r\n\r\n<p><a href=\"http://www.afrikaburn.com/wp-content/uploads/2016/09/Theme-Camp-Safety-Bullet-Points_Feb-2016.pdf\">Theme Camp Safety</a></p>\r\n\r\n<p><a href=\"http://afrikaburn.com/wp-content/uploads/2014/11/Theme-Camp-Placement-Guidelines-2015.pdf\">Theme Camp Placement</a></p>\r\n\r\n<p><a href=\"http://afrikaburn.com/wp-content/uploads/2014/03/Sound-Guidelines-AfrikaBurn-2015.pdf\">Sound Policy</a></p>\r\n\r\n<p><a href=\"http://www.afrikaburn.com/wp-content/uploads/2016/09/MOOP-Info-for-Theme-Camps.pdf\">Moop Guidelines</a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>Plug play and profit policy</h2>\r\n\r\n<p>Read the plug play and profit policy <a href=\"http://www.afrikaburn.com/the-event/participation/theme-camps/plug-play-profit-camps\">here.</a></p>\r\n"
+    format: basic_html
+field_type: markup

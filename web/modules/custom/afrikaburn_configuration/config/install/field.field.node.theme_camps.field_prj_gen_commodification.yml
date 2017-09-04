@@ -8,8 +8,8 @@ id: node.theme_camps.field_prj_gen_commodification
 field_name: field_prj_gen_commodification
 entity_type: node
 bundle: theme_camps
-label: 'Is your Theme Camp an extension of the default world?'
-description: 'Remember, your camp can''t be used as a platform for a marketing or branding exercise, not in Tankwa Town, as it''s a decommodified space. Please read up on the guiding principles of AfrikaBurn to find out why.'
+label: 'I confirm that my Theme Camp is not an extension of the default world.'
+description: "Decommodification is important,<br>\r\nTankwa Town, as it's a decommodified space.This means that neither your camp, nor any aspect of the gifts your camp gives can be used as a platform for marketing a product or any branding exercise of any kind. Please read up on the guiding principles of Afrikaburn to find out why."
 required: false
 translatable: false
 default_value:

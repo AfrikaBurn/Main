@@ -44,6 +44,7 @@ dependencies:
     - field.field.node.art.field_prj_lgh_agree
     - field.field.node.art.field_prj_lgh_description
     - field.field.node.art.field_prj_lgh_f1
+    - field.field.node.art.field_prj_lgh_f2
     - field.field.node.art.field_prj_lgh_lighter
     - field.field.node.art.field_prj_lgh_policy
     - field.field.node.art.field_prj_lgh_power
@@ -63,7 +64,6 @@ dependencies:
     - field.field.node.art.field_prj_oth_grant
     - field.field.node.art.field_prj_oth_other
     - field.field.node.art.field_prj_oth_relationship
-    - field.field.node.art.field_prj_oth_unregistered
     - field.field.node.art.field_prj_plc_f1
     - field.field.node.art.field_prj_plc_location_extra
     - field.field.node.art.field_prj_prp_duration
@@ -126,7 +126,7 @@ third_party_settings:
       label: 'Project Registration'
     group_lighting:
       children:
-        - field_prj_lgh_f1
+        - field_prj_lgh_f2
         - field_prj_lgh_description
         - field_prj_lgh_power
         - field_prj_lgh_projection
@@ -184,7 +184,9 @@ third_party_settings:
     group_moop:
       children:
         - field_prj_lnt_helpers
+        - field_prj_lnt_handled
         - field_prj_lnt_duration
+        - field_prj_lnt_historic
         - field_prj_lnt_representative
       parent_name: group_project_registration
       weight: 10
@@ -222,11 +224,11 @@ third_party_settings:
       weight: 6
       format_type: accordion_item
       format_settings:
+        label: Placement
+        formatter: open
+        required_fields: true
         id: ''
         classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
       label: Placement
 id: node.art.form_
 targetEntityType: node
@@ -317,7 +319,7 @@ content:
     region: content
   field_prj_lgh_agree:
     type: boolean_checkbox
-    weight: 88
+    weight: 61
     region: content
     settings:
       display_label: true
@@ -330,21 +332,21 @@ content:
     region: content
   field_prj_lgh_description:
     type: string_textarea
-    weight: 83
+    weight: 56
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_prj_lgh_f1:
-    weight: 80
+  field_prj_lgh_f2:
+    type: markup
+    weight: 55
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: markup
-    region: content
   field_prj_lgh_lighter:
     type: entity_reference_autocomplete
-    weight: 86
+    weight: 59
     region: content
     settings:
       match_operator: CONTAINS
@@ -353,13 +355,13 @@ content:
     third_party_settings: {  }
   field_prj_lgh_policy:
     type: markup
-    weight: 87
+    weight: 60
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_lgh_power:
     type: string_textarea
-    weight: 84
+    weight: 57
     region: content
     settings:
       rows: 5
@@ -367,7 +369,7 @@ content:
     third_party_settings: {  }
   field_prj_lgh_projection:
     type: string_textarea
-    weight: 85
+    weight: 58
     region: content
     settings:
       rows: 5
@@ -380,12 +382,20 @@ content:
     type: markup
     region: content
   field_prj_lnt_duration:
-    weight: 7
+    weight: 8
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
+  field_prj_lnt_handled:
+    type: string_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_lnt_helpers:
     weight: 6
     settings:
@@ -393,6 +403,15 @@ content:
     third_party_settings: {  }
     type: number
     region: content
+  field_prj_lnt_historic:
+    type: entity_reference_autocomplete
+    weight: 9
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_lnt_representative:
     weight: 10
     settings:
@@ -439,14 +458,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
-    region: content
-  field_prj_oth_unregistered:
-    weight: 16
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   field_prj_plc_area:
     weight: 35
@@ -613,9 +624,8 @@ hidden:
   field_prj_gen_location: true
   field_prj_gen_manager: true
   field_prj_gen_story: true
+  field_prj_lgh_f1: true
   field_prj_lnt_comments: true
-  field_prj_lnt_handled: true
-  field_prj_lnt_historic: true
   field_prj_lnt_images: true
   field_prj_lnt_publish: true
   field_prj_lnt_score: true

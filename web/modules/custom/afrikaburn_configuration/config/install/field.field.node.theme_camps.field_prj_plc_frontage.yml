@@ -8,7 +8,7 @@ id: node.theme_camps.field_prj_plc_frontage
 field_name: field_prj_plc_frontage
 entity_type: node
 bundle: theme_camps
-label: 'Frontage Length'
+label: 'Public Engagement Frontage Length'
 description: "<b>(Use numbers only - we measure in meters only - max is 30m)</b><br>\r\n<i>(extra length requires a special request)</i>"
 required: true
 translatable: false

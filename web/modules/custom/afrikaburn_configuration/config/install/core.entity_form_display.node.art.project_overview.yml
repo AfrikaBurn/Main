@@ -44,6 +44,7 @@ dependencies:
     - field.field.node.art.field_prj_lgh_agree
     - field.field.node.art.field_prj_lgh_description
     - field.field.node.art.field_prj_lgh_f1
+    - field.field.node.art.field_prj_lgh_f2
     - field.field.node.art.field_prj_lgh_lighter
     - field.field.node.art.field_prj_lgh_policy
     - field.field.node.art.field_prj_lgh_power
@@ -63,7 +64,6 @@ dependencies:
     - field.field.node.art.field_prj_oth_grant
     - field.field.node.art.field_prj_oth_other
     - field.field.node.art.field_prj_oth_relationship
-    - field.field.node.art.field_prj_oth_unregistered
     - field.field.node.art.field_prj_plc_f1
     - field.field.node.art.field_prj_plc_location_extra
     - field.field.node.art.field_prj_prp_duration
@@ -907,14 +907,6 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_prj_oth_unregistered:
-    weight: 16
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_prj_plc_area:
     weight: 35
     settings: {  }
@@ -1249,3 +1241,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_collective: true
+  field_prj_lgh_f2: true

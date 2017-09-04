@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.mutant_vehicles.field_collective
     - node.type.mutant_vehicles
   module:
     - user
@@ -14,5 +13,4 @@ content:
   links:
     weight: 100
     region: content
-hidden:
-  field_collective: true
+hidden: {  }

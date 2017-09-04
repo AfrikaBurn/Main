@@ -24,6 +24,8 @@ dependencies:
     - field.field.node.theme_camps.field_prj_gen_fundraiser
     - field.field.node.theme_camps.field_prj_gen_fundraising
     - field.field.node.theme_camps.field_prj_gen_header1
+    - field.field.node.theme_camps.field_prj_gen_header2
+    - field.field.node.theme_camps.field_prj_gen_header3
     - field.field.node.theme_camps.field_prj_gen_history
     - field.field.node.theme_camps.field_prj_gen_location
     - field.field.node.theme_camps.field_prj_gen_profit
@@ -55,7 +57,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_oth_associated
     - field.field.node.theme_camps.field_prj_oth_move
     - field.field.node.theme_camps.field_prj_oth_mv
-    - field.field.node.theme_camps.field_prj_oth_unregistered
     - field.field.node.theme_camps.field_prj_plc_artwork_d
     - field.field.node.theme_camps.field_prj_plc_artwork_w
     - field.field.node.theme_camps.field_prj_plc_binnekring
@@ -124,16 +125,6 @@ dependencies:
     - path
 third_party_settings:
   field_group:
-    group_overview_registration1:
-      children: {  }
-      parent_name: ''
-      weight: 20
-      format_type: accordion
-      format_settings:
-        id: ''
-        classes: js-wizard
-        effect: none
-      label: 'Overview registration1'
     group_overview_registration:
       children:
         - group_overview
@@ -152,6 +143,7 @@ third_party_settings:
       label: 'Overview registration'
     group_overview:
       children:
+        - field_collective
         - field_prj_gen_contact
         - field_prj_gen_location
         - field_prj_gen_bio
@@ -209,6 +201,7 @@ third_party_settings:
       label: Sound
     group_moop:
       children:
+        - field_prj_lnt_handled
         - field_prj_lnt_representative
         - field_prj_lnt_historic
       parent_name: group_overview_registration
@@ -240,7 +233,6 @@ third_party_settings:
     group_almost_done_:
       children:
         - field_prj_oth_associated
-        - field_prj_oth_unregistered
         - field_prj_oth_move
         - field_prj_oth_mv
       parent_name: group_overview_registration
@@ -253,18 +245,6 @@ third_party_settings:
         required_fields: true
         description: ''
       label: 'Almost done!'
-    group_overview1:
-      children: {  }
-      parent_name: ''
-      weight: 20
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: open
-        required_fields: true
-        description: ''
-      label: Overview1
 id: node.theme_camps.default
 targetEntityType: node
 bundle: theme_camps
@@ -272,19 +252,28 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_collective:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_cll_collaborate:
-    weight: 35
+    weight: 7
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_cll_contact:
-    weight: 37
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60
@@ -309,7 +298,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_prj_cll_description:
-    weight: 36
+    weight: 8
     settings:
       rows: 5
       placeholder: ''
@@ -333,13 +322,13 @@ content:
     type: string_textarea
     region: content
   field_prj_cll_thread:
-    weight: 39
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: comment_default
     region: content
   field_prj_gen_bio:
-    weight: 30
+    weight: 3
     settings:
       rows: 5
       placeholder: ''
@@ -362,7 +351,7 @@ content:
     type: image_image
     region: content
   field_prj_gen_contact:
-    weight: 28
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60
@@ -379,7 +368,7 @@ content:
     type: string_textarea
     region: content
   field_prj_gen_fundraiser:
-    weight: 34
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
@@ -405,20 +394,26 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_prj_gen_fundraising:
-    weight: 33
+    weight: 5
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_gen_header1:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_gen_header3:
     weight: 7
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_prj_gen_history:
-    weight: 31
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
@@ -426,7 +421,7 @@ content:
     type: string_textarea
     region: content
   field_prj_gen_location:
-    weight: 29
+    weight: 2
     settings:
       force_deepest: '1'
       parent: '0'
@@ -449,8 +444,16 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_prj_lnt_handled:
+    type: string_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_lnt_historic:
-    weight: 19
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
@@ -459,7 +462,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_prj_lnt_representative:
-    weight: 18
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60
@@ -491,14 +494,6 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_prj_oth_unregistered:
-    weight: 19
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_prj_snd_level:
     weight: 15
     settings: {  }
@@ -529,7 +524,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_stg_contact:
-    weight: 43
+    weight: 14
     settings:
       match_operator: CONTAINS
       size: 60
@@ -554,7 +549,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_prj_stg_description:
-    weight: 42
+    weight: 13
     settings:
       rows: 5
       placeholder: ''
@@ -578,20 +573,20 @@ content:
     type: string_textarea
     region: content
   field_prj_stg_stage:
-    weight: 38
+    weight: 10
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_stg_tread:
-    weight: 44
+    weight: 15
     settings: {  }
     third_party_settings: {  }
     type: comment_default
     region: content
   field_prj_stg_type:
-    weight: 40
+    weight: 12
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -630,7 +625,7 @@ content:
     region: content
   path:
     type: path
-    weight: 6
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -638,14 +633,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 3
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 4
     region: content
     third_party_settings: {  }
   title:
@@ -658,7 +653,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60
@@ -666,7 +661,6 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
-  field_collective: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
   field_prj_adm_form_wtf: true
@@ -676,13 +670,13 @@ hidden:
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
   field_prj_adm_wrangler: true
+  field_prj_gen_header2: true
   field_prj_gen_year: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
   field_prj_lgh_policy: true
   field_prj_lgh_power: true
   field_prj_lnt_comments: true
-  field_prj_lnt_handled: true
   field_prj_lnt_images: true
   field_prj_lnt_publish: true
   field_prj_lnt_score: true

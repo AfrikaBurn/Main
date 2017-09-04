@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.field.node.update.body
     - field.field.node.update.field_collective
-    - field.field.node.update.field_form_1_done
-    - field.field.node.update.field_form_2_done
     - node.type.update
   module:
     - content_moderation
@@ -77,6 +75,4 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden:
-  field_form_1_done: true
-  field_form_2_done: true
+hidden: {  }

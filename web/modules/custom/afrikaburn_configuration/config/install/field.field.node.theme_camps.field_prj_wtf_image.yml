@@ -11,7 +11,7 @@ field_name: field_prj_wtf_image
 entity_type: node
 bundle: theme_camps
 label: 'Public Project image, used on the website and app'
-description: 'This is only required if you get awarded a grant. <br> It will also appear on looking for team members or stage / stage for people to share page.'
+description: 'It will also appear on looking for team members or stage / stage for people to share page.'
 required: false
 translatable: false
 default_value: {  }

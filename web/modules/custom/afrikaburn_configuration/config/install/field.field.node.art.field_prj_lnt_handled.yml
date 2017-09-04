@@ -9,7 +9,7 @@ field_name: field_prj_lnt_handled
 entity_type: node
 bundle: art
 label: 'Artwork removal & burn site cleanup'
-description: "It’s your responsibility to remove your piece once the event is over, and ensure that no trace remains. Nothing. Nada. Zilch. Zip. Zero. Fokol.<br>\r\nIf you're burning it, it's also your responsibility to remove all burn debris left on your site (including ash, charcoal, nails, screws, wire and staples etc). "
+description: "</p>It’s your responsibility to remove your piece once the event is over, and ensure that no trace remains. Nothing. Nada. Zilch. Zip. Zero. Fokol.<br>\r\nIf you're burning it, it's also your responsibility to remove all burn debris left on your site (including ash, charcoal, nails, screws, wire and staples etc). </p>\r\n<p>D-E-A-R is our newest department that deals with Leave No Trace and Matter Out of Place (MOOP).<br>\r\nPlease read up more on D-E-A-R and MOOP here: <a href=\"https://www.afrikaburn.com/community/d-e-a-r\">https://www.afrikaburn.com/community/d-e-a-r</a>.</p>\r\n<p>Artworks famously attract other people's MOOP (matter out of place). So you may very well have more than your own waste to deal with - especially if you're creating a party space. Bring extra trash bags (Preferably stronger bags than the usual plastic one’s) and make sure you have space to transport trash back to town. </p>"
 required: true
 translatable: true
 default_value: {  }

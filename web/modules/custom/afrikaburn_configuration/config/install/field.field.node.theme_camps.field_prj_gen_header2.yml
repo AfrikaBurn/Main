@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_prj_gen_header1
+    - field.storage.node.field_prj_gen_header2
     - node.type.theme_camps
   module:
     - markup
-id: node.theme_camps.field_prj_gen_header1
-field_name: field_prj_gen_header1
+id: node.theme_camps.field_prj_gen_header2
+field_name: field_prj_gen_header2
 entity_type: node
 bundle: theme_camps
-label: 'Recommended Reading'
+label: prj_gen_header2
 description: ''
 required: false
 translatable: false
@@ -19,6 +19,6 @@ default_value:
 default_value_callback: ''
 settings:
   markup:
-    value: "<p>Before you register your Theme Camp, please read through these important docs:</p>\r\n"
-    format: full_html
+    value: "<p>For your convenience find all the important documents here:</p>\r\n"
+    format: basic_html
 field_type: markup

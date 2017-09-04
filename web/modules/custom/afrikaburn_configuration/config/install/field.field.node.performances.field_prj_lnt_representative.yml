@@ -8,8 +8,8 @@ id: node.performances.field_prj_lnt_representative
 field_name: field_prj_lnt_representative
 entity_type: node
 bundle: performances
-label: 'Leave No Trace representative'
-description: "<p>Your LNT representative will be requested to read and accept the <a href=\"http://www.afrikaburn.com/wp-content/uploads/2017/08/2018-LNT-Info-for-Artworks.pdf\" target=\"blank\">LNT guidelines</a>, and check in with our LNT team on site to ensure the performance location is signed off.</p>\r\n\r\n"
+label: 'Your LNT (MOOP) Representative'
+description: "<p>It is highly recommended that you have a dedicated representative to fulfil this role of handling your performances waste.</p>\r\n<p>Please select the individual by typing their name into the above field and selecting it once loaded.<br>\r\nThis list will only show people you have already added to your collective.<br>\r\nIf you're unsure of who your representative will be, please select yourself in the meantime, you can change this later.</p>"
 required: true
 translatable: true
 default_value: {  }

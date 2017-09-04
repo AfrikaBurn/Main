@@ -11,7 +11,7 @@ id: node.performances.field_prj_oth_associated
 field_name: field_prj_oth_associated
 entity_type: node
 bundle: performances
-label: 'Are there any other projects associated with your performance?'
+label: 'Are there any other projects associated with your performances? (If they not registered yet, please add below)'
 description: ''
 required: false
 translatable: true
