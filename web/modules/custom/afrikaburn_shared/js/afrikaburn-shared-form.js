@@ -73,7 +73,7 @@
     // Validate the current tab
     validate(){
       var activePanel = this.getActivePanel();
-      activePanel.find(toValidate).valid();
+      if ($.fn.valid) activePanel.find(toValidate).valid();
       return this.getVisibleErrors().length < 1;
     }
 
