@@ -24,17 +24,16 @@ function afrikaburn_emails_entity_update(EntityInterface $entity){
   _afrikaburn_emails_notify($entity, 'update');
 }
 
-// /**
-//  * Implements hook_mail().
-//  */
-// function afrikaburn_emails_mail($key, &$message, $params) {
-//   if ($key === 'ab_notification') {
-//     $message['from'] = \Drupal::config('system.site')->get('mail');
-//     $message['subject'] = $params['subject'];
-//     $message['body'][] = Html::escape($params['message']);
-//   }
-//   dpm($message);
-// }
+/**
+ * Implements hook_mail().
+ */
+function afrikaburn_emails_mail($key, &$message, $params) {
+  if ($key === 'ab_notification') {
+    $message['from'] = \Drupal::config('system.site')->get('mail');
+    $message['subject'] = $params['subject'];
+    $message['body'][] = Html::escape($params['message']);
+  }
+}
 
 // --- Message utilities
 
@@ -66,22 +65,20 @@ function _afrikaburn_emails_notify($entity, $action){
         ]
       );
 
-      $result = mail($recipients, $subject, $message);
+      $result = \Drupal::service('plugin.manager.mail')->mail(
+        'afrikaburn_emails',
+        'ab_notification',
+        $recipients,
+        \Drupal::currentUser()->getPreferredLangcode(),
+        [
+          'subject' => $subject,
+          'message' => $message,
+        ],
+        NULL, 
+        TRUE
+      );
 
-      // $result = \Drupal::service('plugin.manager.mail')->mail(
-      //   'afrikaburn_emails',
-      //   'ab_notification',
-      //   $recipients,
-      //   \Drupal::currentUser()->getPreferredLangcode(),
-      //   [
-      //     'subject' => $subject,
-      //     'message' => $message,
-      //   ],
-      //   NULL, 
-      //   TRUE
-      // );
-
-      $result //['result']
+      $result['result']
         ? \Drupal::logger('mail-log')->notice('Mail sent to ' . $recipients . "\n" . $subject . "\n" .$message)
         : \Drupal::logger('mail-log')->notice('Mail send fail');
     }
