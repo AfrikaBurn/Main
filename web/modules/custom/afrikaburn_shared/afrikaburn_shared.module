@@ -5,8 +5,6 @@ use \Drupal\Core\Form\FormStateInterface;
 function afrikaburn_shared_form_alter(&$form, $form_state, $form_id){
   $form['#attached']['library'][] = 'afrikaburn_shared/form';
 
-  dpm($form_id);
-
   foreach(['node_art', 'node_performances', 'node_mutant_vehicles', 'node_theme_camps'] as $parent) {
     if (substr($form_id, 0, strlen($parent)) === $parent) {
       $form['revision_log']['#access'] = false;
