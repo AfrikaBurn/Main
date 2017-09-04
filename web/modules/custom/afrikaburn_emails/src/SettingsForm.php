@@ -67,16 +67,16 @@ class SettingsForm extends ConfigFormBase {
         if (is_array($definition_pairs)){
           foreach($definition_pairs as $key_label){
             list($key, $label, $recipient) = explode('|', $key_label);
-            $parts = explode(':', $key);
-            $form[implode('_', $parts)] = [
+            $key_parts = explode(':', $key);
+            $form[$key_parts[0]] = [
               '#type' => 'textarea',
               '#title' => $label . ' [message to ' . trim($recipient) . ']',
-              '#default_value' => $config->get(str_replace(':', '_', $key)),
+              '#default_value' => $config->get($key_parts[0]),
               '#attributes' => [
                 'rows' => 20,
               ],
               '#access' => $user->hasPermission('edit ' . str_replace(':', ' ', $key) . ' template'),
-              '#description' => 'Available tokens: [' . $parts[2] . ':...]',
+              '#description' => 'Available tokens: [' . $key_parts[2] . ':...]',
             ];
           }
         }
@@ -100,7 +100,7 @@ class SettingsForm extends ConfigFormBase {
     if (is_array($definition_pairs)){
       foreach($definition_pairs as $key_label){
         list($key, $label, $recipient) = explode('|', $key_label);
-        $key = str_replace(':', '_', $key);
+        $key = explode(':', $key)[0];
         $this->config('afrikaburn_emails.settings')
           ->set($key, $values[$key])
           ->save();

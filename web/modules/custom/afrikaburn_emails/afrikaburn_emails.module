@@ -50,6 +50,8 @@ function _afrikaburn_emails_notify($entity, $action){
   if ($configs) {
     foreach($configs as $config){
 
+      dpm($config);
+
       $recipients = _afrikaburn_emails_addresses($entity, $config['recipients']);
       $recipients = implode(', ', $recipients);
       $message = \Drupal::token()->replace(
@@ -79,7 +81,7 @@ function _afrikaburn_emails_notify($entity, $action){
       );
 
       $result['result']
-        ? \Drupal::logger('mail-log')->notice('Mail sent to ' . $recipients . "\n" . $subject . "\n" .$message)
+        ? \Drupal::logger('mail-log')->notice('Mail sent to ' . $recipients . "\n" . $subject . "\n:" . $message)
         : \Drupal::logger('mail-log')->notice('Mail send fail');
     }
   }
@@ -184,7 +186,7 @@ function _afrikaburn_emails_get_config($entity, $action){
         $configs[] = [
           'key' => $key_parts,
           'subject' => $subject,
-          'template' => $config->get($key),
+          'template' => $config->get($key_parts[0]),
           'recipients' => $recipient,
         ];
       }
