@@ -2,22 +2,22 @@
 
 /**
  * @file
- * Contains \Drupal\afrikaburn_migration\Plugin\migrate\source\User.
+ * Contains \Drupal\afrikaburn_migration\Plugin\migrate\source\AbUser.
  */
  
 namespace Drupal\afrikaburn_migration\Plugin\migrate\source;
  
 use Drupal\migrate\Row;
-use Drupal\migrate_drupal\Plugin\migrate\source\SqlBase;
+use Drupal\migrate\Plugin\migrate\source\SqlBase;
  
 /**
  * Extract users from Drupal 7 database.
  *
  * @MigrateSource(
- *   id = "custom_user"
+ *   id = "afrikaburn_user"
  * )
  */
-class User extends DrupalSqlBase implements SqlBase {
+class AbUser extends SqlBase {
 
   /**
    * {@inheritdoc}
@@ -32,10 +32,18 @@ class User extends DrupalSqlBase implements SqlBase {
    * {@inheritdoc}
    */
   public function fields() {
+
     $fields = $this->baseFields();
-    $fields['first_name'] = $this->t('First Name');
-    $fields['last_name'] = $this->t('Last Name');
+
+    $fields['first_name'] = $this->t('First name');
+    $fields['last_name'] = $this->t('Last name');    
+    $fields['gender'] = $this->t('Gender');
+    $fields['date_of_birth'] = $this->t('Date of birth');
     $fields['sa_id_or_passport_number'] = $this->t('ID or Passport number');
+    $fields['drivers_licence_number'] = $this->t('Drivers licence number');
+    $fields['mobile_number'] = $this->t('Mobile');
+    $fields['secondary_email_address'] = $this->t('Alternate email address');
+
     return $fields;
   }
  
@@ -43,27 +51,44 @@ class User extends DrupalSqlBase implements SqlBase {
    * {@inheritdoc}
    */
   public function prepareRow(Row $row) {
+
     $uid = $row->getSourceProperty('uid');
  
-    $this->prepField($row, 'first_name');
-    $this->prepField($row, 'last_name');
-    $this->prepField($row, 'sa_id_or_passport_number');
+    $this->prepField($uid, $row, 'first_name');
+    $this->prepField($uid, $row, 'last_name');
+    $this->prepField($uid, $row, 'gender');
+    $this->prepField($uid, $row, 'date_of_birth');
+    $this->prepField($uid, $row, 'sa_id_or_passport_number');
+    $this->prepField($uid, $row, 'drivers_licence_number');
+    $this->prepField($uid, $row, 'mobile_number');
+    $this->prepField($uid, $row, 'secondary_email_address', '_email');
+
+    print "\n";
    
     return parent::prepareRow($row);
   }
  
+/**
+ * Prepares a field
+ * @param  [Row] $row        [description]
+ * @param  [string] $field_name [description]
+ */
+  public function prepField($uid, &$row, $field_name, $suffix = '_value'){
 
-  public function prepField($row, $field_name){
     $result = $this->getDatabase()->query('
       SELECT
-        fld.field_' . $field_name . '_value
+        fld.field_' . $field_name . $suffix .'
       FROM
         {field_data_field_' . $field_name . '} fld
       WHERE
-        fld.entity_id = :uid
-    ', array(':uid' => $uid));
+        fld.entity_id = :uid', 
+      array(':uid' => $uid)
+    );
+
     foreach ($result as $record) {
-      $row->setSourceProperty($field_name, $record['field_' . $field_name . '_value'] );
+      $record = (array)$record;
+      $row->setSourceProperty($field_name, $record['field_' . $field_name . $suffix]);
+      print $field_name . ': ' . $record['field_' . $field_name . $suffix] . "\n";
     }    
   }
 
@@ -86,6 +111,7 @@ class User extends DrupalSqlBase implements SqlBase {
    *   Associative array having field name as key and description as value.
    */
   protected function baseFields() {
+
     $fields = array(
       'uid' => $this->t('User ID'),
       'name' => $this->t('Username'),
@@ -100,9 +126,9 @@ class User extends DrupalSqlBase implements SqlBase {
       'picture' => $this->t('Picture'),
       'init' => $this->t('Init'),
     );
-    return $fields;
- 
-}
+
+    return $fields; 
+  }
  
   /**
    * {@inheritdoc}

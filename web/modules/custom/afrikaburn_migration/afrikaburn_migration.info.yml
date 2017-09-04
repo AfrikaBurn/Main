@@ -6,3 +6,4 @@ package: AfrikaBurn
 dependencies:
   - migrate
   - migrate_drupal
+  - migrate_plus

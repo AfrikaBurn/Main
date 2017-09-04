@@ -1,15 +1,15 @@
-id: custom_user
+id: afrikaburn_user
 label: AfrikaBurn D7 to D8 Users
 migration_group: AfrikaBurn
 
 dependencies:
   enforced:
     module:
-      - migrate_custom
+      - afrikaburn_migration
 
 source:
-  plugin: custom_user
-  target: source_database
+  plugin: afrikaburn_user
+  target: migrate
 
 destination:
   plugin: entity:user
@@ -29,6 +29,13 @@ process:
   preferred_langcode: language
   preferred_admin_langcode: language
   init: init
-  field_first_name: first_name
+  field_first_name: 
+    plugin: get
+    source: first_name
   field_last_name: last_name
-  field_id_number: field_sa_id_or_passport_number
+  field_gender: gender
+  field_date_of_birth: date_of_birth
+  field_id_number: sa_id_or_passport_number
+  field_drivers_licence: drivers_licence_number
+  field_mobile: mobile_number
+  field_secondary_mail: secondary_email_address
