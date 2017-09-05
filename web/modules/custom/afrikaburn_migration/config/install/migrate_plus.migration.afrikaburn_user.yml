@@ -25,13 +25,11 @@ process:
   access: access
   login: login
   timezone: timezone
-  langcode: language
-  preferred_langcode: language
-  preferred_admin_langcode: language
+  langcode: lancode
+  preferred_langcode: preferred_langcode
+  preferred_admin_langcode: preferred_admin_langcode
   init: init
-  field_first_name: 
-    plugin: get
-    source: first_name
+  field_first_name: first_name
   field_last_name: last_name
   field_gender: gender
   field_date_of_birth: date_of_birth

@@ -8,7 +8,7 @@
 namespace Drupal\afrikaburn_migration\Plugin\migrate\source;
  
 use Drupal\migrate\Row;
-use Drupal\migrate\Plugin\migrate\source\SqlBase;
+use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
  
 /**
  * Extract users from Drupal 7 database.
@@ -17,7 +17,7 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
  *   id = "afrikaburn_user"
  * )
  */
-class AbUser extends SqlBase {
+class AbUser extends DrupalSqlBase {
 
   /**
    * {@inheritdoc}
@@ -62,17 +62,19 @@ class AbUser extends SqlBase {
     $this->prepField($uid, $row, 'drivers_licence_number');
     $this->prepField($uid, $row, 'mobile_number');
     $this->prepField($uid, $row, 'secondary_email_address', '_email');
-
-    print "\n";
    
+    $row->setSourceProperty('langcode', 'en');
+    $row->setSourceProperty('preferred_langcode', 'en');
+    $row->setSourceProperty('admin_langcode', NULL);
+
     return parent::prepareRow($row);
   }
  
-/**
- * Prepares a field
- * @param  [Row] $row        [description]
- * @param  [string] $field_name [description]
- */
+  /**
+   * Prepares a field
+   * @param  [Row] $row        [description]
+   * @param  [string] $field_name [description]
+   */
   public function prepField($uid, &$row, $field_name, $suffix = '_value'){
 
     $result = $this->getDatabase()->query('
@@ -88,7 +90,6 @@ class AbUser extends SqlBase {
     foreach ($result as $record) {
       $record = (array)$record;
       $row->setSourceProperty($field_name, $record['field_' . $field_name . $suffix]);
-      print $field_name . ': ' . $record['field_' . $field_name . $suffix] . "\n";
     }    
   }
 

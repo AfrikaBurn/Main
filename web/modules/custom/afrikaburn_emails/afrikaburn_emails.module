@@ -50,8 +50,6 @@ function _afrikaburn_emails_notify($entity, $action){
   if ($configs) {
     foreach($configs as $config){
 
-      dpm($config);
-
       $recipients = _afrikaburn_emails_addresses($entity, $config['recipients']);
       $recipients = implode(', ', $recipients);
       $message = \Drupal::token()->replace(
