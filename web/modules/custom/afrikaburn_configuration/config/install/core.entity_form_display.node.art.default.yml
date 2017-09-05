@@ -3,23 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.node.art.field_collective
-    - field.field.node.art.field_grt_art_apply
-    - field.field.node.art.field_grt_art_comment
-    - field.field.node.art.field_grt_art_reason
-    - field.field.node.art.field_grt_art_total
-    - field.field.node.art.field_grt_breakdown
-    - field.field.node.art.field_grt_contribution
-    - field.field.node.art.field_grt_f1
-    - field.field.node.art.field_grt_more
-    - field.field.node.art.field_grt_other
-    - field.field.node.art.field_grt_other_description
-    - field.field.node.art.field_grt_short
-    - field.field.node.art.field_grt_short_desc
-    - field.field.node.art.field_grt_tec_apply
-    - field.field.node.art.field_grt_tec_comment
-    - field.field.node.art.field_grt_tec_reason
-    - field.field.node.art.field_grt_tec_total
-    - field.field.node.art.field_grt_total
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
@@ -115,7 +98,6 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
-    - field.field.node.art.field_this_is_the_amount_of_mone
     - image.style.thumbnail
     - node.type.art
   module:
@@ -339,9 +321,9 @@ third_party_settings:
       children:
         - field_prj_oth_other
         - field_prj_oth_associated
+        - field_prj_oth_unregistered
         - field_prj_oth_relationship
         - field_prj_oth_grant
-        - field_prj_oth_unregistered
       parent_name: group_project_registration
       weight: 14
       format_type: accordion_item
@@ -1033,23 +1015,6 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
-  field_grt_art_apply: true
-  field_grt_art_comment: true
-  field_grt_art_reason: true
-  field_grt_art_total: true
-  field_grt_breakdown: true
-  field_grt_contribution: true
-  field_grt_f1: true
-  field_grt_more: true
-  field_grt_other: true
-  field_grt_other_description: true
-  field_grt_short: true
-  field_grt_short_desc: true
-  field_grt_tec_apply: true
-  field_grt_tec_comment: true
-  field_grt_tec_reason: true
-  field_grt_tec_total: true
-  field_grt_total: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
   field_prj_adm_form_wtf: true
@@ -1091,4 +1056,3 @@ hidden:
   field_prj_wtf_long: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
-  field_this_is_the_amount_of_mone: true

@@ -1,10 +1,6 @@
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:f6bbd3ef-9b64-460b-bc52-64c88c5327cf'
-  module:
-    - block_content
   theme:
     - afrikaburn
 id: findyourway

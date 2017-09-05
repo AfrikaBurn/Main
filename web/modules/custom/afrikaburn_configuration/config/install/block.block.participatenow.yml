@@ -1,10 +1,6 @@
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:1260ebfa-59e7-4d86-b191-edabb15a0f9c'
-  module:
-    - block_content
   theme:
     - afrikaburn
 id: participatenow
