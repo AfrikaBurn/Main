@@ -12,8 +12,9 @@ use Drupal\Core\Controller\ControllerBase;
 
 class AfrikaburnUserRebuilder extends ControllerBase {
 
-  public static function rebuildUser($user, &$context) {
+  public static function rebuildUser($uid, &$context) {
 
+    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);;
     $user->langcode = 'en';
     $user->preferred_langcode = 'en';
     $user->admin_langcode = NULL;
@@ -36,5 +37,4 @@ class AfrikaburnUserRebuilder extends ControllerBase {
 
     drupal_set_message($message);
   }
-
 }

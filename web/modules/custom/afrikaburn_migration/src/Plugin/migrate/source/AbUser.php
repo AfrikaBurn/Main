@@ -62,9 +62,11 @@ class AbUser extends DrupalSqlBase {
     $this->prepField($uid, $row, 'drivers_licence_number');
     $this->prepField($uid, $row, 'mobile_number');
     $this->prepField($uid, $row, 'secondary_email_address', '_email');
-
-    print "\n";
    
+    $row->setSourceProperty('langcode', 'en');
+    $row->setSourceProperty('preferred_langcode', 'en');
+    $row->setSourceProperty('admin_langcode', NULL);
+
     return parent::prepareRow($row);
   }
  
@@ -88,7 +90,6 @@ class AbUser extends DrupalSqlBase {
     foreach ($result as $record) {
       $record = (array)$record;
       $row->setSourceProperty($field_name, $record['field_' . $field_name . $suffix]);
-      print $field_name . ': ' . $record['field_' . $field_name . $suffix] . "\n";
     }    
   }
 
