@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Class RebuildUsersForm.
  *
- * @package Drupal\batch_example\Form
+ * @package Drupal\afrikaburn_migrate\Form
  */
 class RebuildUsersForm extends FormBase {
 
