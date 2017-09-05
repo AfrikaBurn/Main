@@ -1,16 +1,16 @@
 <?php
 /**
  * @file
- * Contains \Drupal\hello\PostMigrationController.
+ * Contains \Drupal\afrikaburn_migration\AfrikaburnUserRebuilder.
  */
 
-namespace Drupal\hello;
+namespace Drupal\afrikaburn_migration;
 
 
 use Drupal\Core\Controller\ControllerBase;
 
 
-class PostMigrationController extends ControllerBase {
+class AfrikaburnUserRebuilder extends ControllerBase {
   public function rebuildUsers() {
 
     set_time_limit(0);
