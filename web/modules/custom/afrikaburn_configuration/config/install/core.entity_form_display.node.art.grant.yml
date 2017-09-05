@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.art.field_grt_art_comment
     - field.field.node.art.field_grt_art_reason
     - field.field.node.art.field_grt_art_total
-    - field.field.node.art.field_grt_breakdown
     - field.field.node.art.field_grt_contribution
     - field.field.node.art.field_grt_f1
     - field.field.node.art.field_grt_more
@@ -122,7 +121,6 @@ dependencies:
     - content_moderation
     - field_group
     - markup
-    - paragraphs
     - path
 third_party_settings:
   field_group:

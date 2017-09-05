@@ -57,6 +57,7 @@ dependencies:
     - field.field.node.theme_camps.field_prj_oth_associated
     - field.field.node.theme_camps.field_prj_oth_move
     - field.field.node.theme_camps.field_prj_oth_mv
+    - field.field.node.theme_camps.field_prj_oth_unregistered
     - field.field.node.theme_camps.field_prj_plc_artwork_d
     - field.field.node.theme_camps.field_prj_plc_artwork_w
     - field.field.node.theme_camps.field_prj_plc_binnekring
@@ -692,6 +693,7 @@ hidden:
   field_prj_ons_tuesday_d: true
   field_prj_ons_wednesay_d: true
   field_prj_ons_wednesday_b: true
+  field_prj_oth_unregistered: true
   field_prj_plc_artwork_d: true
   field_prj_plc_artwork_w: true
   field_prj_plc_binnekring: true

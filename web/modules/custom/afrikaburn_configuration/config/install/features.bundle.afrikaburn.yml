@@ -3,7 +3,7 @@ status: true
 dependencies: {  }
 name: AfrikaBurn
 machine_name: afrikaburn
-description: ''
+description: 'Auto-generated bundle from package AfrikaBurn'
 assignments:
   alter:
     core: true
@@ -93,5 +93,5 @@ assignments:
         filter_format: filter_format
     enabled: true
     weight: 7
-profile_name: ''
+profile_name: standard
 is_profile: false

@@ -25,9 +25,19 @@ process:
   access: access
   login: login
   timezone: timezone
-  langcode: lancode
-  preferred_langcode: preferred_langcode
-  preferred_admin_langcode: preferred_admin_langcode
+  langcode: 
+    -
+      plugin: default_value
+      default_value: en
+  preferred_langcode:  
+    -
+      plugin: default_value
+      default_value: en
+  preferred_admin_langcode:  
+    -
+      plugin: default_value
+      default_value: NULL
+
   init: init
   field_first_name: first_name
   field_last_name: last_name
