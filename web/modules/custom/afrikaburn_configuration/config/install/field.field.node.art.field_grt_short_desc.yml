@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_short_desc
+    - node.type.art
+id: node.art.field_grt_short_desc
+field_name: field_grt_short_desc
+entity_type: node
+bundle: art
+label: 'Please give us an idea of your plan is to make up the shortfall'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

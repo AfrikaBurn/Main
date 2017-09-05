@@ -5,6 +5,7 @@ dependencies:
   - basic_auth
   - block
   - block_content
+  - block_place
   - ckeditor
   - comment
   - conditional_fields
@@ -14,6 +15,7 @@ dependencies:
   - ctools
   - datetime
   - editor
+  - entity_reference_revisions
   - features
   - field
   - field_group
@@ -33,6 +35,7 @@ dependencies:
   - options
   - page_manager
   - panels
+  - paragraphs
   - path
   - pfdp
   - php

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_other_description
+    - node.type.art
+id: node.art.field_grt_other_description
+field_name: field_grt_other_description
+entity_type: node
+bundle: art
+label: 'Please give us details of other funding'
+description: 'eg. From who? How much are you applying for? Was it approved? How much did you get?'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

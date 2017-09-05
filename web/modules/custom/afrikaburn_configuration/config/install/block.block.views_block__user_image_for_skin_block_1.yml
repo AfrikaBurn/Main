@@ -4,6 +4,7 @@ dependencies:
   config:
     - views.view.user_image_for_skin
   module:
+    - system
     - views
   theme:
     - afrikaburn
@@ -21,4 +22,9 @@ settings:
   views_label: ''
   items_per_page: none
   context_mapping: {  }
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: /collective
+    negate: true
+    context_mapping: {  }

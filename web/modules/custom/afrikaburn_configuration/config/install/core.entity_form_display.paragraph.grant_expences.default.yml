@@ -1,0 +1,50 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.grant_expences.field_field_quantity
+    - field.field.paragraph.grant_expences.field_field_specifications
+    - field.field.paragraph.grant_expences.field_grt_brk_description
+    - field.field.paragraph.grant_expences.field_price_total_
+    - paragraphs.paragraphs_type.grant_expences
+  module:
+    - content_moderation
+id: paragraph.grant_expences.default
+targetEntityType: paragraph
+bundle: grant_expences
+mode: default
+content:
+  field_field_quantity:
+    weight: 8
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_field_specifications:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_grt_brk_description:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_price_total_:
+    weight: 9
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

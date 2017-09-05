@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_grt_brk_description
+    - paragraphs.paragraphs_type.grant_expences
+id: paragraph.grant_expences.field_grt_brk_description
+field_name: field_grt_brk_description
+entity_type: paragraph
+bundle: grant_expences
+label: Description
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_total
+    - node.type.art
+id: node.art.field_grt_total
+field_name: field_grt_total
+entity_type: node
+bundle: art
+label: 'This is the total price of your project'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: R
+  suffix: 'ZAR (South African Rands)'
+field_type: integer

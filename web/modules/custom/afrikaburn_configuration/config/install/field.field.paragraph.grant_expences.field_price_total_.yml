@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_price_total_
+    - paragraphs.paragraphs_type.grant_expences
+id: paragraph.grant_expences.field_price_total_
+field_name: field_price_total_
+entity_type: paragraph
+bundle: grant_expences
+label: 'Price (Total)'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: R
+  suffix: ''
+field_type: integer
