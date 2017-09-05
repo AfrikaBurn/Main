@@ -27,7 +27,11 @@ function radioCheckBoxWrapper() {
 }
 
 function inputTypeFile() {
-    jQuery("input:file").not(".input-file-wrapper input:file").wrap("<div class='input-file-wrapper'>Select file</div>").parent().after("<div class='clr'></div><p class='selected-file'>Selected file: None selected</p>");
+    var selectFileInputs = jQuery("input:file").not(".input-file-wrapper input:file");
+    jQuery.each(selectFileInputs, function(i, selectFileInput) {
+        var inputText  = jQuery(selectFileInput).attr("multiple") == "multiple" ? "Select Files" : "Select File";
+        jQuery(selectFileInput).wrap("<div class='input-file-wrapper'>" + inputText + "</div>").parent().after("<div class='clr'></div><ul class='selected-files-list'></ul>");
+    })
 }
 
 function rotateImages() {
@@ -73,11 +77,15 @@ jQuery(document).ready(function() {
     radioCheckBoxWrapper();
     inputTypeFile();
 
-    // Display file name underneath iunput type file element when file is selected.
+    // Display file name underneath input type file element when file is selected.
     jQuery("input:file").change(function() {
-        var selectedFile = jQuery(this).val().split('\\').pop();
-        console.log(selectedFile);
-        jQuery(this).parent().siblings('p.selected-file').html("Selected file: <span class='file-name'>" + selectedFile + "</span>");
+        var self = this;
+        var selectedFiles = jQuery(this)[0].files;
+        var headerText = (jQuery(this)[0].files).length > 1 ? "Selected Files:" : "Selected file:";
+        jQuery(self).parent().siblings("ul.selected-files-list").append("<li class='header'>" + headerText + "</li>");
+        jQuery.each(selectedFiles, function(i, file) {
+            jQuery(self).parent().siblings("ul.selected-files-list").append("<li>" + file.name + "</li>");
+        })
         jQuery(this).parent().addClass('file-selected');
     });
 

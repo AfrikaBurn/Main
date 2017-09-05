@@ -674,6 +674,12 @@ div.input-file-wrapper input {
 div.input-file-wrapper input:hover {
   cursor: pointer;
 }
+ul.selected-files-list li {
+  list-style: none;
+}
+ul.selected-files-list li.header {
+  font-weight: 600;
+}
 span.icon {
   width: 24px;
   height: 20px;
