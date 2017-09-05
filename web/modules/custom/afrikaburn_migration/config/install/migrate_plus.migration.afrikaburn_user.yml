@@ -29,9 +29,7 @@ process:
   preferred_langcode: language
   preferred_admin_langcode: language
   init: init
-  field_first_name: 
-    plugin: get
-    source: first_name
+  field_first_name: first_name
   field_last_name: last_name
   field_gender: gender
   field_date_of_birth: date_of_birth

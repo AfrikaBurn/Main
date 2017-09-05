@@ -8,7 +8,7 @@
 namespace Drupal\afrikaburn_migration\Plugin\migrate\source;
  
 use Drupal\migrate\Row;
-use Drupal\migrate\Plugin\migrate\source\SqlBase;
+use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
  
 /**
  * Extract users from Drupal 7 database.
@@ -17,7 +17,7 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
  *   id = "afrikaburn_user"
  * )
  */
-class AbUser extends SqlBase {
+class AbUser extends DrupalSqlBase {
 
   /**
    * {@inheritdoc}
@@ -68,11 +68,11 @@ class AbUser extends SqlBase {
     return parent::prepareRow($row);
   }
  
-/**
- * Prepares a field
- * @param  [Row] $row        [description]
- * @param  [string] $field_name [description]
- */
+  /**
+   * Prepares a field
+   * @param  [Row] $row        [description]
+   * @param  [string] $field_name [description]
+   */
   public function prepField($uid, &$row, $field_name, $suffix = '_value'){
 
     $result = $this->getDatabase()->query('
