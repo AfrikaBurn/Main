@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: collective
+label: collective
+description: 'Collective''s page overview'
+use_admin_theme: false
+path: /collective
+access_logic: and
+access_conditions: {  }
+parameters: {  }
