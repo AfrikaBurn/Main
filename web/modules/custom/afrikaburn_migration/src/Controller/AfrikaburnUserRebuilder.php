@@ -12,20 +12,15 @@ use Drupal\Core\Controller\ControllerBase;
 
 class AfrikaburnUserRebuilder extends ControllerBase {
 
-  public function rebuildUser($uid, &$context) {
+  public static function rebuildUser($user, &$context) {
 
-    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);;
     $user->langcode = 'en';
     $user->preferred_langcode = 'en';
     $user->admin_langcode = NULL;
 
-    try{
-      $context['results'][] = $user->save();
-    } catch (Exception $e) {
-      $context['message'] = 'Oops';
-    }
-
+    $context['results'][] = $user->save();
     $context['message'] = 'Rebuilding Users';
+
   }
 
   public static function finished($success, $results, $operations) {
@@ -41,4 +36,5 @@ class AfrikaburnUserRebuilder extends ControllerBase {
 
     drupal_set_message($message);
   }
+
 }

@@ -36,6 +36,7 @@ class RebuildUsersForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
     $uids = db_query('SELECT uid FROM {users} WHERE uid != 0')->fetchCol();
+    $users = \Drupal\user\Entity\User::loadMultiple($uids);
 
     $batch = array(
       'title' => t('Rebuilding Users...'),
@@ -43,10 +44,10 @@ class RebuildUsersForm extends FormBase {
       'finished' => '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::finished',
     );
 
-    foreach($uids as $uid){
+    foreach($users as $user){
       $batch['operations'][] = [
         '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::rebuildUser',
-        [$uid]
+        [$user]
       ];
     }
 
