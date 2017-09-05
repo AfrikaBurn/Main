@@ -1,14 +1,14 @@
 <?php
 
-namespace Drupal\afrikaburn_migrate\Form;
+namespace Drupal\afrikaburn_migration\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Class RebuildUsersForm.
+ * Class DeleteNodeForm.
  *
- * @package Drupal\batch_example\Form
+ * @package Drupal\afrikaburn_migration\Form
  */
 class RebuildUsersForm extends FormBase {
 
@@ -35,21 +35,20 @@ class RebuildUsersForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
-    $nids = \Drupal::entityQuery('node')
-      ->condition('type', 'article')
-      ->sort('created', 'ASC')
-      ->execute();
+    $uids = db_query('SELECT uid FROM {users} WHERE uid != 0')->fetchCol();
 
     $batch = array(
-      'title' => t('Deleting Node...'),
-      'operations' => array(
-        array(
-          '\Drupal\batch_example\DeleteNode::deleteNodeExample',
-          array($nids)
-        ),
-      ),
-      'finished' => '\Drupal\batch_example\DeleteNode::deleteNodeExampleFinishedCallback',
+      'title' => t('Rebuilding Users...'),
+      'operations' => [],
+      'finished' => '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::finished',
     );
+
+    foreach($uids as $uid){
+      $batch['operations'][] = [
+        '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::rebuildUser',
+        [$uid]
+      ];
+    }
 
     batch_set($batch);
   }
