@@ -17,7 +17,7 @@ class AfrikaburnUserRebuilder extends ControllerBase {
     $uids = db_query('SELECT uid FROM {users} WHERE uid != 0')->fetchCol();
     $users = user_load_multiple($uids);
     foreach ($users as $user) {
-      user_save($user);
+      $user->save();
     }
 
     return array(
