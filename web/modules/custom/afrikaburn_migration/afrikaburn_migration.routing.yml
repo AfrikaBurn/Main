@@ -1,7 +1,7 @@
 afrikaburn_migration.resave_users:
   path: '/admin/config/afrikaburn/rebuild-users'
   defaults:
-    _title: 'Rebuilding users'
-    _controller: '\Drupal\afrikaburn_migration\AfrikaburnUserRebuilder::rebuildUsers'
+    _title: 'Rebuild users'
+    _form: '\Drupal\afrikaburn_migrate\Form\AfrikaburnUserRebuilder'
   requirements:
    _permission: 'administer site configuration'

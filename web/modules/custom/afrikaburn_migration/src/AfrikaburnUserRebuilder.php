@@ -11,17 +11,32 @@ use Drupal\Core\Controller\ControllerBase;
 
 
 class AfrikaburnUserRebuilder extends ControllerBase {
-  public function rebuildUsers() {
 
-    set_time_limit(0);
-    $uids = db_query('SELECT uid FROM {users} WHERE uid != 0')->fetchCol();
-    $users = user_load_multiple($uids);
-    foreach ($users as $user) {
-      $user->save();
+  public function rebuildUser($uids, &$context) {
+
+    $message = 'Rebuilding Users...';
+    $results = array();
+
+    foreach ($uids as $uid) {
+      $node = user_load($uid);
+      $results[] = $user->save();
     }
 
-    return array(
-      '#markup' => count($users) . ' users rebuilt',
-    );
+    $context['message'] = $message;
+    $context['results'] = $results;
+  }
+
+  public function finished($success, $results, $operations) {
+
+    if ($success) {
+      $message = \Drupal::translation()->formatPlural(
+        count($results),
+        'One User processed.', '@count users processed.'
+      );
+    } else {
+      $message = t('Finished with an error.');
+    }
+
+    drupal_set_message($message);
   }
 }
