@@ -16,7 +16,7 @@ settings:
   page: true
   page_submit_path: ''
   page_confirm_path: ''
-  form_submit_label: 'And done!'
+  form_submit_label: 'And you''re done!'
   form_submit_once: true
   form_submit_attributes: {  }
   form_exception_message: ''
@@ -35,9 +35,9 @@ settings:
   form_autofocus: false
   form_details_toggle: false
   submission_log: false
-  wizard_progress_bar: false
+  wizard_progress_bar: true
   wizard_progress_pages: false
-  wizard_progress_percentage: true
+  wizard_progress_percentage: false
   wizard_next_button_label: ''
   wizard_next_button_attributes: {  }
   wizard_prev_button_label: ''
@@ -57,13 +57,13 @@ settings:
   draft_button_attributes: {  }
   draft_saved_message: ''
   draft_loaded_message: ''
-  confirmation_type: page
+  confirmation_type: url_message
   confirmation_title: ''
-  confirmation_message: ''
-  confirmation_url: ''
+  confirmation_message: 'Awesome! You&#39;ve completed the introductory rite of passage!'
+  confirmation_url: /user
   confirmation_attributes: {  }
   confirmation_back: true
-  confirmation_back_label: ''
+  confirmation_back_label: 'WTF did I agree to?'
   confirmation_back_attributes: {  }
   limit_total: null
   limit_total_message: ''

@@ -38,6 +38,7 @@ dependencies:
   - panels
   - paragraphs
   - path
+  - pathauto
   - pfdp
   - php
   - rdf
