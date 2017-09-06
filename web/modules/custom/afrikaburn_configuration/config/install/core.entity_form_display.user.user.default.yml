@@ -13,6 +13,7 @@ dependencies:
     - field.field.user.user.field_links
     - field.field.user.user.field_mobile
     - field.field.user.user.field_newsletter
+    - field.field.user.user.field_other_burns
     - field.field.user.user.field_participation
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.user_picture
@@ -136,13 +137,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_country:
-    weight: 6
+    weight: 26
     settings:
-      match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: string_textfield
     region: content
   field_date_of_birth:
     weight: 14
@@ -217,6 +217,14 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
+  field_other_burns:
+    weight: 25
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
   field_participation:
     weight: 7
