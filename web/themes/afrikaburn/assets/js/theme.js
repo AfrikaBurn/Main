@@ -133,6 +133,7 @@ jQuery(document).ready(function() {
     // Add placeholder text to inputs that initiate a drop down list.
     jQuery(".js input.form-autocomplete").attr('placeholder', 'Type to search');
 
+
 });
 
 // Run various functions above when AJAX operations complete.
