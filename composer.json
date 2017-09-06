@@ -41,6 +41,7 @@
         "drupal/migrate_source_csv": "^2.0",
         "drupal/migrate_tools": "^2.0",
         "drupal/multiple_fields_remove_button": "^1.0@alpha",
+        "drupal/panelizer": "^4.0",
         "drupal/panels": "^4.1",
         "drupal/paragraphs": "^1.1",
         "drupal/php": "^1.0@beta",

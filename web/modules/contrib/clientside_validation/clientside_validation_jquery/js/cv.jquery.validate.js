@@ -13,9 +13,7 @@
    */
   Drupal.behaviors.cvJqueryValidate = {
     attach: function (context) {
-      $(context).find('form').each(function() {
-        $(this).validate();
-      });
+      $(context).find('form').validate();
     }
   };
 })(jQuery, Drupal);

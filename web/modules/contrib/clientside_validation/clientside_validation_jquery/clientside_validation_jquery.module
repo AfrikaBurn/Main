@@ -5,39 +5,11 @@
  */
 
 /**
- * Implements hook_js_alter().
- */
-function clientside_validation_jquery_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
-  if (\Drupal::moduleHandler()->moduleExists('ckeditor')) {
-    $library_discovery = \Drupal::service('library.discovery');
-    $ckeditor = $library_discovery->getLibraryByName('ckeditor', 'drupal.ckeditor');
-    foreach ($ckeditor['js'] as $ckeditor_file) {
-      if (strpos($ckeditor_file['data'], 'ckeditor.js') !== FALSE) {
-        break;
-      }
-    }
-    $cv_jquery = $library_discovery->getLibraryByName('clientside_validation_jquery', 'cv.jquery.ckeditor');
-    foreach ($cv_jquery['js'] as $cv_jquery_file) {
-      if (strpos($cv_jquery_file['data'], 'cv.jquery.ckeditor.js') !== FALSE) {
-        break;
-      }
-    }
-    // Add our scripts after ckeditor.
-    if (isset($javascript[$ckeditor_file['data']]) && isset($javascript[$cv_jquery_file['data']])) {
-      $javascript[$cv_jquery_file['data']]['weight'] = $javascript[$ckeditor_file['data']]['weight'] + 0.001;
-    }
-  }
-}
-
-/**
  * Implements hook_clientside_validation_validator_info_alter().
  */
 function clientside_validation_jquery_clientside_validation_validator_info_alter(&$validators) {
   foreach ($validators as &$validator) {
     $validator['attachments']['library'][] = 'clientside_validation_jquery/cv.jquery.validate';
-    if (\Drupal::moduleHandler()->moduleExists('ckeditor')) {
-      $validator['attachments']['library'][] = 'clientside_validation_jquery/cv.jquery.ckeditor';
-    }
   }
 }
 
