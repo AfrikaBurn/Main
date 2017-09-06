@@ -1,19 +1,19 @@
-id: afrikaburn_user
-label: AfrikaBurn D7 to D8 Users
-migration_group: AfrikaBurn
-
+langcode: en
+status: true
 dependencies:
   enforced:
     module:
       - afrikaburn_migration
-
+id: afrikaburn_user
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: AfrikaBurn
+label: 'AfrikaBurn D7 to D8 Users'
 source:
   plugin: afrikaburn_user
   target: migrate
-
-destination:
-  plugin: entity:user
-
 process:
   uid: uid
   name: name
@@ -25,9 +25,9 @@ process:
   access: access
   login: login
   timezone: timezone
-  langcode: langcode
-  preferred_langcode: preferred_langcode
-  preferred_admin_langcode: preferred_admin_langcode
+  langcode: language
+  preferred_langcode: language
+  preferred_admin_langcode: language
   init: init
   field_first_name: first_name
   field_last_name: last_name
@@ -37,3 +37,6 @@ process:
   field_drivers_licence: drivers_licence_number
   field_mobile: mobile_number
   field_secondary_mail: secondary_email_address
+destination:
+  plugin: 'entity:user'
+migration_dependencies: null
