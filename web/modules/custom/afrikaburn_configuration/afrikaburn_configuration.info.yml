@@ -31,6 +31,7 @@ dependencies:
   - markup
   - menu_link_content
   - menu_ui
+  - migrate_plus
   - node
   - options
   - page_manager

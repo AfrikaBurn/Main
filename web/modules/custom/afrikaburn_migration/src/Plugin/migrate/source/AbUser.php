@@ -62,6 +62,10 @@ class AbUser extends DrupalSqlBase {
     $this->prepField($uid, $row, 'drivers_licence_number');
     $this->prepField($uid, $row, 'mobile_number');
     $this->prepField($uid, $row, 'secondary_email_address', '_email');
+   
+    $row->setSourceProperty('langcode', 'en');
+    $row->setSourceProperty('preferred_langcode', 'en');
+    $row->setSourceProperty('preferred_admin_langcode', NULL);
 
     return parent::prepareRow($row);
   }

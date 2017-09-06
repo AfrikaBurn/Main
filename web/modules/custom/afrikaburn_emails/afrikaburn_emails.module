@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\afrikaburn_emails\AfrikaBurnEmailPermissions.
+ * Contains Afrikaburn Emails module.
  */
 
 use Drupal\Core\Entity\EntityInterface;
@@ -51,36 +51,41 @@ function _afrikaburn_emails_notify($entity, $action){
     foreach($configs as $config){
 
       $recipients = _afrikaburn_emails_addresses($entity, $config['recipients']);
-      $recipients = implode(', ', $recipients);
-      $message = \Drupal::token()->replace(
-        $config['template'], 
-        [
-          $config['key'][2] => $entity
-        ]
-      );
-      $subject = \Drupal::token()->replace(
-        $config['subject'], 
-        [
-          $config['key'][2] => $entity
-        ]
-      );
+      if (count($recipients)) {
 
-      $result = \Drupal::service('plugin.manager.mail')->mail(
-        'afrikaburn_emails',
-        'ab_notification',
-        $recipients,
-        \Drupal::currentUser()->getPreferredLangcode(),
-        [
-          'subject' => $subject,
-          'message' => $message,
-        ],
-        NULL, 
-        TRUE
-      );
+        $recipient_string = implode(', ', $recipients);
+        $message = \Drupal::token()->replace(
+          $config['template'], 
+          [
+            $config['key'][2] => $entity
+          ]
+        );
+        $subject = \Drupal::token()->replace(
+          $config['subject'], 
+          [
+            $config['key'][2] => $entity
+          ]
+        );
 
-      $result['result']
-        ? \Drupal::logger('mail-log')->notice('Mail sent to ' . $recipients . "\n" . $subject . "\n:" . $message)
-        : \Drupal::logger('mail-log')->notice('Mail send fail');
+        $result = \Drupal::service('plugin.manager.mail')->mail(
+          'afrikaburn_emails',
+          'ab_notification',
+          $recipient_string,
+          \Drupal::currentUser()->getPreferredLangcode(),
+          [
+            'subject' => $subject,
+            'message' => $message,
+          ],
+          NULL, 
+          TRUE
+        );
+
+        $result['result']
+          ? \Drupal::logger('mail-log')->notice('Mail sent to ' . $recipient_string . "\n" . $subject . "\n:" . $message)
+          : \Drupal::logger('mail-log')->notice('Mail send FAILED to ' . $recipient_string . "\n" . $subject . "\n:" . $message);
+      } else {
+        \Drupal::logger('mail-log')->notice('No recipients to send "' . $config['subject'] . '" email to');        
+      }
     }
   }
 }
