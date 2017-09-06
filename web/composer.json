@@ -1,5 +1,6 @@
 {
     "require": {
-        "drush/drush": "dev-master"
+        "drush/drush": "~8",
+        "symfony/console": "^3.3"
     }
 }
