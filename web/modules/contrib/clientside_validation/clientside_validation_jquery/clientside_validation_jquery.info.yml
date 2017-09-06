@@ -6,8 +6,8 @@ package: Clientside Validation
 dependencies:
   - clientside_validation
 
-# Information added by Drupal.org packaging script on 2016-10-18
-version: '8.x-1.0-rc3+3-dev'
+# Information added by Drupal.org packaging script on 2016-08-02
+version: '8.x-1.0-rc3'
 core: '8.x'
 project: 'clientside_validation'
-datestamp: 1476780327
+datestamp: 1470130450

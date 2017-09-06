@@ -9,10 +9,10 @@
             "type": "package",
             "package": {
                 "name": "jqueryvalidate",
-                "version": "1.15.0",
+                "version": "1.14.0",
                 "type": "drupal-library",
                 "dist": {
-                    "url": "https://jqueryvalidation.org/files/jquery-validation-1.15.0.zip",
+                    "url": "https://jqueryvalidation.org/files/jquery-validation-1.14.0.zip",
                     "type": "zip"
                 }
             }
@@ -27,6 +27,6 @@
     },
     "require": {
         "composer/installers": "^1.0.20",
-        "jqueryvalidate": "1.15.0"
+        "jqueryvalidate": "1.14.0"
     }
 }
