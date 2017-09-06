@@ -3940,51 +3940,6 @@
         }
     },
     {
-        "name": "drupal/group",
-        "version": "1.0.0-rc1",
-        "version_normalized": "1.0.0.0-RC1",
-        "source": {
-            "type": "git",
-            "url": "https://git.drupal.org/project/group",
-            "reference": "8.x-1.0-rc1"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/group-8.x-1.0-rc1.zip",
-            "reference": "8.x-1.0-rc1",
-            "shasum": "6991939b310fbc5ac19151eb0d70e9b30f340354"
-        },
-        "require": {
-            "drupal/core": "*"
-        },
-        "type": "drupal-module",
-        "extra": {
-            "branch-alias": {
-                "dev-1.x": "1.x-dev"
-            },
-            "drupal": {
-                "version": "8.x-1.0-rc1",
-                "datestamp": "1496752442"
-            }
-        },
-        "installation-source": "dist",
-        "notification-url": "https://packages.drupal.org/8/downloads",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "authors": [
-            {
-                "name": "kristiaanvandeneynde",
-                "homepage": "https://www.drupal.org/user/1345130"
-            }
-        ],
-        "description": "This module allows you to group users, content and other entities",
-        "homepage": "https://www.drupal.org/project/group",
-        "support": {
-            "source": "http://cgit.drupalcode.org/group"
-        }
-    },
-    {
         "name": "drupal/cshs",
         "version": "1.0.0-beta4",
         "version_normalized": "1.0.0.0-beta4",
@@ -8446,6 +8401,55 @@
             "source": "http://git.drupal.org/project/panelizer.git",
             "issues": "https://www.drupal.org/project/issues/panelizer",
             "irc": "irc://irc.freenode.org/drupal-scotch"
+        }
+    },
+    {
+        "name": "drupal/custom_add_another",
+        "version": "1.0.0-beta1",
+        "version_normalized": "1.0.0.0-beta1",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/custom_add_another",
+            "reference": "8.x-1.0-beta1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/custom_add_another-8.x-1.0-beta1.zip",
+            "reference": "8.x-1.0-beta1",
+            "shasum": "698c9e7520e45f92afaf12f7f27e83ac66286262"
+        },
+        "require": {
+            "drupal/core": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.0-beta1",
+                "datestamp": "1455199739",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Beta releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Steven Jones",
+                "homepage": "https://www.drupal.org/user/99644"
+            }
+        ],
+        "description": "Allows modification of the 'Add another item' button on fields",
+        "homepage": "https://www.drupal.org/project/custom_add_another",
+        "support": {
+            "source": "http://cgit.drupalcode.org/custom_add_another"
         }
     }
 ]
