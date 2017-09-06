@@ -1,8 +1,14 @@
 <?php
 
+/**
+ * @file
+ * Contains Afrikaburn Shared module.
+ */
+
 use \Drupal\Core\Form\FormStateInterface;
 
 function afrikaburn_shared_form_alter(&$form, $form_state, $form_id){
+
   $form['#attached']['library'][] = 'afrikaburn_shared/form';
 
   foreach(['node_art', 'node_performances', 'node_mutant_vehicles', 'node_theme_camps'] as $parent) {
@@ -10,4 +16,5 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id){
       $form['revision_log']['#access'] = false;
     }
   }
+
 }

@@ -36,7 +36,6 @@ class RebuildUsersForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
     $uids = db_query('SELECT uid FROM {users} WHERE uid != 0')->fetchCol();
-
     $batch = array(
       'title' => t('Rebuilding Users...'),
       'operations' => [],
@@ -46,7 +45,7 @@ class RebuildUsersForm extends FormBase {
     foreach($uids as $uid){
       $batch['operations'][] = [
         '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::rebuildUser',
-        [$user]
+        [$uid]
       ];
     }
 

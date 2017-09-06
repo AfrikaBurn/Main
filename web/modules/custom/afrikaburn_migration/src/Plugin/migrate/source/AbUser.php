@@ -43,6 +43,12 @@ class AbUser extends DrupalSqlBase {
     $fields['drivers_licence_number'] = $this->t('Drivers licence number');
     $fields['mobile_number'] = $this->t('Mobile');
     $fields['secondary_email_address'] = $this->t('Alternate email address');
+    $fields['where_are_you_based'] = $this->t('Country');
+    $fields['munciple_district'] = $this->t('Municipal district');
+    $fields['previous_envolvement'] = $this->t('Participation');
+    $fields['other_burns'] = $this->t('Other burns');
+    // $fields['newsletter'] = $this->t('Receive newsletter');
+    $fields['website'] = $this->t('Social media links');
 
     return $fields;
   }
@@ -62,10 +68,12 @@ class AbUser extends DrupalSqlBase {
     $this->prepField($uid, $row, 'drivers_licence_number');
     $this->prepField($uid, $row, 'mobile_number');
     $this->prepField($uid, $row, 'secondary_email_address', '_email');
-   
-    $row->setSourceProperty('langcode', 'en');
-    $row->setSourceProperty('preferred_langcode', 'en');
-    $row->setSourceProperty('preferred_admin_langcode', NULL);
+    $this->prepField($uid, $row, 'where_are_you_based', '_iso2');
+    $this->prepTaxField($uid, $row, 'munciple_district', '_tid');
+    $this->prepComField($uid, $row);
+    $this->prepField($uid, $row, 'other_burns');
+    // $this->prepField($uid, $row, 'newsletter');
+    $this->prepField($uid, $row, 'website', '_url');
 
     return parent::prepareRow($row);
   }
@@ -90,6 +98,57 @@ class AbUser extends DrupalSqlBase {
     foreach ($result as $record) {
       $record = (array)$record;
       $row->setSourceProperty($field_name, $record['field_' . $field_name . $suffix]);
+    }    
+  }
+
+  /**
+   * Prepares a field
+   * @param  [Row] $row        [description]
+   * @param  [string] $field_name [description]
+   */
+  public function prepTaxField($uid, &$row, $field_name, $suffix = '_value'){
+
+    $result = $this->getDatabase()->query('
+      SELECT
+        ttd.name as term_name
+      FROM
+        {field_data_field_' . $field_name . '} fld,
+        {taxonomy_term_data} ttd
+      WHERE
+        ttd.tid = fld.field_' . $field_name . $suffix .' AND
+        fld.entity_id = :uid', 
+      array(':uid' => $uid)
+    );
+
+    foreach ($result as $record) {
+      $record = (array)$record;
+      $row->setSourceProperty($field_name, $record['term_name']);
+    }    
+  }
+
+  /**
+   * Prepares a field
+   * @param  [Row] $row        [description]
+   * @param  [string] $field_name [description]
+   */
+  public function prepComField($uid, &$row){
+
+    $result = $this->getDatabase()->query("
+      SELECT
+        ttd.name as name,
+        field_previous_envolvement_field_previous_participation_value as value
+      FROM
+        {field_data_field_previous_envolvement} fld,
+        {taxonomy_term_data} ttd
+      WHERE
+        ttd.tid = field_previous_envolvement_field_year_and_event_name_tid AND
+        fld.entity_id = :uid", 
+      array(':uid' => $uid)
+    );
+
+    foreach ($result as $record) {
+      $record = (array)$record;
+      $row->setSourceProperty('previous_envolvement', $record['name'] . ': ' . $record['value']);
     }    
   }
 
