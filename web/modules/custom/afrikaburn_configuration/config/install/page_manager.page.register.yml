@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: register
+label: register
+description: ''
+use_admin_theme: false
+path: /register
+access_logic: and
+access_conditions: {  }
+parameters: {  }
