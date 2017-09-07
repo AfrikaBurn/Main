@@ -101,7 +101,7 @@ class SettingsForm extends ConfigFormBase {
     $this->config('afrikaburn_emails.settings')
       ->set('message_definition', trim($values['message_definition']))
       ->save();
-    $definition_pairs = explode("\n", $values['message_definition']);
+    $definition_pairs = explode("\n", trim($values['message_definition']));
     if (is_array($definition_pairs)){
       foreach($definition_pairs as $key_label){
         list($key, $label, $recipient) = explode('|', $key_label);
