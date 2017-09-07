@@ -5,12 +5,7 @@ dependencies:
     - field.storage.node.field_prj_lgh_f2
     - node.type.performances
   module:
-    - custom_add_another
     - markup
-third_party_settings:
-  custom_add_another:
-    custom_add_another: ''
-    custom_remove: ''
 id: node.performances.field_prj_lgh_f2
 field_name: field_prj_lgh_f2
 entity_type: node

@@ -2,13 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.grant_expences.field_cost_type
     - field.field.paragraph.grant_expences.field_field_quantity
     - field.field.paragraph.grant_expences.field_field_specifications
     - field.field.paragraph.grant_expences.field_grt_brk_description
-    - field.field.paragraph.grant_expences.field_other
     - field.field.paragraph.grant_expences.field_price_total_
-    - field.field.paragraph.grant_expences.field_type_of_expence
     - paragraphs.paragraphs_type.grant_expences
   module:
     - content_moderation
@@ -17,12 +14,6 @@ targetEntityType: paragraph
 bundle: grant_expences
 mode: default
 content:
-  field_cost_type:
-    weight: 10
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
   field_field_quantity:
     weight: 8
     settings:
@@ -46,26 +37,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_other:
-    weight: 12
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_price_total_:
     weight: 9
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
-    region: content
-  field_type_of_expence:
-    weight: 11
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
     region: content
 hidden:
   created: true

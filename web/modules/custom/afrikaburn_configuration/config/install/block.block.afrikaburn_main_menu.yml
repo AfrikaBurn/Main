@@ -20,9 +20,4 @@ settings:
   label_display: '0'
   level: 1
   depth: 2
-visibility:
-  request_path:
-    id: request_path
-    pages: '/collective/*'
-    negate: true
-    context_mapping: {  }
+visibility: {  }

@@ -54,6 +54,7 @@ dependencies:
     - field.field.node.performances.field_prj_oth_mv
     - field.field.node.performances.field_prj_oth_other
     - field.field.node.performances.field_prj_oth_relationship
+    - field.field.node.performances.field_prj_oth_unregistered
     - field.field.node.performances.field_prj_prp_duration
     - field.field.node.performances.field_prj_prp_erection
     - field.field.node.performances.field_prj_prp_start
@@ -144,6 +145,7 @@ hidden:
   field_prj_oth_mv: true
   field_prj_oth_other: true
   field_prj_oth_relationship: true
+  field_prj_oth_unregistered: true
   field_prj_prp_duration: true
   field_prj_prp_erection: true
   field_prj_prp_start: true

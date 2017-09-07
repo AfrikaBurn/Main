@@ -157,7 +157,7 @@ content:
     type: string_textfield
     region: content
   field_date_of_birth:
-    weight: 14
+    weight: 31
     settings: {  }
     third_party_settings: {  }
     type: datetime_default

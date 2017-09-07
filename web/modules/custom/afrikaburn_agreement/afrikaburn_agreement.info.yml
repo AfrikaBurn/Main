@@ -1,8 +1,6 @@
 name: 'AfrikaBurn Agreement'
 type: module
 core: 8.x
-dependencies:
-  - afrikaburn_configuration
 description: 'Agreements made between participants'
 version: 8.x-0.0
 package: AfrikaBurn

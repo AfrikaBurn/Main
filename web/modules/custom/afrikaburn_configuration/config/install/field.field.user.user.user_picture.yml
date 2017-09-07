@@ -4,13 +4,8 @@ dependencies:
   config:
     - field.storage.user.user_picture
   module:
-    - custom_add_another
     - image
     - user
-third_party_settings:
-  custom_add_another:
-    custom_add_another: ''
-    custom_remove: ''
 id: user.user.user_picture
 field_name: user_picture
 entity_type: user

@@ -4,13 +4,8 @@ dependencies:
   config:
     - field.storage.user.field_date_of_birth
   module:
-    - custom_add_another
     - datetime
     - user
-third_party_settings:
-  custom_add_another:
-    custom_add_another: ''
-    custom_remove: ''
 id: user.user.field_date_of_birth
 field_name: field_date_of_birth
 entity_type: user
