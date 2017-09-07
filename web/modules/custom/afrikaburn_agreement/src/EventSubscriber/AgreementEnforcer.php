@@ -19,25 +19,27 @@ class AgreementEnforcer implements EventSubscriberInterface {
     $uid = \Drupal::currentUser()->id();
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
 
-    foreach($user->field_agreements->referencedEntities() as $agreement){
+    if (count($user->field_agreements)) {
+      foreach($user->field_agreements->referencedEntities() as $agreement){
 
-      $aid = $agreement->id();
+        $aid = $agreement->id();
 
-      foreach($agreement->field_agreement_terms->referencedEntities() as $webform){
+        foreach($agreement->field_agreement_terms->referencedEntities() as $webform){
 
-        $done = db_select('webform_submission')
-          ->condition('uid', $uid)
-          ->condition('entity_id', $aid)
-          ->condition('webform_id', $webform->id())
-          ->countQuery()
-            ->execute()
-            ->fetchField();
+          $done = db_select('webform_submission')
+            ->condition('uid', $uid)
+            ->condition('entity_id', $aid)
+            ->condition('webform_id', $webform->id())
+            ->countQuery()
+              ->execute()
+              ->fetchField();
 
-        $node = \Drupal::routeMatch()->getParameter('node');
-        $nid = $node ? $node->id() : FALSE;
+          $node = \Drupal::routeMatch()->getParameter('node');
+          $nid = $node ? $node->id() : FALSE;
 
-        if (!$done && $nid != $aid) {
-          $event->setResponse(new RedirectResponse('/node/' . $aid));
+          if (!$done && $nid != $aid) {
+            $event->setResponse(new RedirectResponse('/node/' . $aid));
+          }
         }
       }
     }
