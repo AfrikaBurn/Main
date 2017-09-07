@@ -4,6 +4,12 @@ dependencies:
   config:
     - field.storage.node.field_prj_gen_contact
     - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
 id: node.theme_camps.field_prj_gen_contact
 field_name: field_prj_gen_contact
 entity_type: node
@@ -15,10 +21,13 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: views
+  handler: 'default:user'
   handler_settings:
-    view:
-      view_name: user_select
-      display_name: entity_reference_1
-      arguments: {  }
+    include_anonymous: false
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
 field_type: entity_reference

@@ -11,6 +11,8 @@ dependencies:
     - field.field.node.performances.field_prj_adm_review
     - field.field.node.performances.field_prj_brn_agree
     - field.field.node.performances.field_prj_brn_burning
+    - field.field.node.performances.field_prj_brn_f2
+    - field.field.node.performances.field_prj_brn_motivation
     - field.field.node.performances.field_prj_brn_person
     - field.field.node.performances.field_prj_brn_plan
     - field.field.node.performances.field_prj_cll_collaborate
@@ -362,6 +364,20 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
+  field_prj_brn_f2:
+    weight: 68
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_brn_motivation:
+    weight: 69
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   field_prj_cll_collaborate:
     weight: 54

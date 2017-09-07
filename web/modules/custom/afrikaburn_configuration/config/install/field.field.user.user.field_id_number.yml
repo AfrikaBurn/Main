@@ -4,14 +4,19 @@ dependencies:
   config:
     - field.storage.user.field_id_number
   module:
+    - custom_add_another
     - user
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
 id: user.user.field_id_number
 field_name: field_id_number
 entity_type: user
 bundle: user
 label: 'ID or Passport number'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

@@ -135,12 +135,12 @@ third_party_settings:
         - group_wtf
       parent_name: ''
       weight: 9
-      format_type: tabs
+      format_type: accordion
       format_settings:
         label: 'Overview registration'
-        direction: vertical
+        effect: none
         id: ''
-        classes: ''
+        classes: js-wizard
       label: 'Overview registration'
     group_the_project:
       children:
@@ -150,7 +150,7 @@ third_party_settings:
         - field_prj_gen_story
       parent_name: group_overview_registration
       weight: 15
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -168,7 +168,7 @@ third_party_settings:
         - field_prj_saf_comment
       parent_name: group_overview_registration
       weight: 16
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -208,7 +208,7 @@ third_party_settings:
         - field_prj_plc_layout
       parent_name: group_overview_registration
       weight: 17
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -224,7 +224,7 @@ third_party_settings:
         - field_prj_lgh_agree
       parent_name: group_overview_registration
       weight: 18
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -243,7 +243,7 @@ third_party_settings:
         - field_prj_snd_person
       parent_name: group_overview_registration
       weight: 19
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
@@ -258,7 +258,7 @@ third_party_settings:
         - field_prj_lnt_representative
       parent_name: group_overview_registration
       weight: 20
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         label: 'Leave No Trace'
         formatter: closed
@@ -273,7 +273,7 @@ third_party_settings:
         - field_prj_wtf_image
       parent_name: group_overview_registration
       weight: 21
-      format_type: tab
+      format_type: accordion_item
       format_settings:
         label: 'WTF Guide and Community'
         formatter: closed

@@ -5,7 +5,12 @@ dependencies:
     - field.storage.user.field_agreements
     - node.type.agreement
   module:
+    - custom_add_another
     - user
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
 id: user.user.field_agreements
 field_name: field_agreements
 entity_type: user

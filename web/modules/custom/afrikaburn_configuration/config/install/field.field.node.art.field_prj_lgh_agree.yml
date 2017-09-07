@@ -4,6 +4,12 @@ dependencies:
   config:
     - field.storage.node.field_prj_lgh_agree
     - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
 id: node.art.field_prj_lgh_agree
 field_name: field_prj_lgh_agree
 entity_type: node

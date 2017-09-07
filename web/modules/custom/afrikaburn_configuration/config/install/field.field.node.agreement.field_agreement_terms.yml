@@ -5,7 +5,12 @@ dependencies:
     - field.storage.node.field_agreement_terms
     - node.type.agreement
   module:
+    - custom_add_another
     - webform
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
 id: node.agreement.field_agreement_terms
 field_name: field_agreement_terms
 entity_type: node

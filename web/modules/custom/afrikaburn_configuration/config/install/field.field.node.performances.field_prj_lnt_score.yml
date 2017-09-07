@@ -5,6 +5,12 @@ dependencies:
     - field.storage.node.field_prj_lnt_score
     - node.type.performances
     - taxonomy.vocabulary.moop_score
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
 id: node.performances.field_prj_lnt_score
 field_name: field_prj_lnt_score
 entity_type: node

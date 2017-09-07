@@ -4,6 +4,12 @@ dependencies:
   config:
     - field.storage.node.field_prj_saf_comment
     - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
 id: node.performances.field_prj_saf_comment
 field_name: field_prj_saf_comment
 entity_type: node
