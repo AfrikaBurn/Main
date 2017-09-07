@@ -12,14 +12,30 @@ use Drupal\Core\Controller\ControllerBase;
 
 class AfrikaburnUserRebuilder extends ControllerBase {
 
-  public static function rebuildUser($uid, &$context) {
+  public static function rebuildUser($uid, $agreements, &$context) {
 
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
     $user->langcode = 'en';
     $user->preferred_langcode = 'en';
     $user->admin_langcode = NULL;
+    $user->field_agreements = array_keys($agreements);
 
-    // $user->field_agreements[0] = 
+    $insert = \Drupal::database()
+      ->insert('webform_submission')
+      ->fields(['uuid', 'webform_id', 'uid', 'entity_id']);
+    foreach($agreements as $agreement){
+      foreach($agreement->field_agreement_terms->referencedEntities() as $webform){
+        $insert->values(
+          [
+            \Drupal::service('uuid')->generate(), 
+            $webform->id(), 
+            $user->id(), 
+            $agreement->id()
+          ]
+        );
+      }
+    }
+    $insert->execute();
 
     $context['results'][] = $user->save();
     $context['message'] = 'Rebuilding Users';

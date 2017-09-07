@@ -7,17 +7,18 @@ uid: 22
 template: false
 id: introduction
 title: Introduction
-description: ''
+description: 'Introduction and gauntlet questionaire to be completed by virgins.'
 category: Agreement
-elements: "welcome_page:\n  '#type': webform_wizard_page\n  '#title': welcome\n  welcome:\n    '#type': webform_markup\n    '#markup': \"<strong>Welcome!</strong><br />\\n<br />\\nAs this is your first time registering a Burner Bio, you&rsquo;ll need fill out this questionnaire. It&rsquo;s designed to put you in the picture about what AfrikaBurn is, and is not.<br />\\n<br />\\nYou won&rsquo;t be scored on your answers &ndash; but you do need to go through with it, in order to register your Burner Bio so you can buy tickets.<br />\\n<br />\\nReady? Hit it. One last thing: please don&rsquo;t get someone else to create your Bio &ndash; there&rsquo;s important info you need to read that&rsquo;s really helpful in preparing you for the experience.<br />\\n<br />\\nIt&rsquo;s your journey: nobody else can walk it for you.\"\n  did_you_know_that_afrikaburn_s_not_a_party_or_music_festival___y:\n    '#type': radios\n    '#title': 'Did you know that AfrikaBurn''s not a party or music festival?'\n    '#options':\n      'Yes': 'Yes'\n      'I do now': 'I do now'\n    '#options_randomize': true\npage_1:\n  '#type': webform_wizard_page\n  '#title': page_1\n  afrikaburn_s_history_is_rooted_in_:\n    '#type': radios\n    '#title': 'And that AfrikaBurn''s history is rooted in:'\n    '#description': \"<a href=\\\"https://en.wikipedia.org/wiki/Temporary_Autonomous_Zone\\\" target=\\\"_blank\\\">Find out more about a Temporary Autonomous Zone</a><br />\\n<a href=\\\"http://www.suicideclub.com/\\\" target=\\\"_blank\\\">Find out about Suicide Club</a>\"\n    '#options':\n      taz: 'The concept of the Temporary Autonomous Zone'\n      cssc: 'Cacophony Society & Suicide Club'\n      counterculture: Counterculture\n      anarchism: Anarchism\n      all: 'All of the above - with an African twist'\n  headed_for_experiment:\n    '#type': radios\n    '#title': 'Are you aware that by participating, you''re headed into a radical experiment in community and creativity?'\n    '#options':\n      '?': 'Say what? I thought it was just a party in the desert?'\n      '!': 'Radical''s my middle name. Bring it!'\npage_2:\n  '#type': webform_wizard_page\n  '#title': page_2\n  the_theme_for_afrikaburn_2018_is_:\n    '#type': radios\n    '#title': 'The theme for AfrikaBurn 2018 is...?'\n    '#options':\n      0: 'Bonfire of the Majesties'\n      1: 'Make The Circle Bigger'\n      2: '‘Working Title____________________’'\n      all: 'All of the above, and whatever you want it to be.'\n  did_you_know_afrikaburn_s_informed_by_a_set_of_guidelines_known_:\n    '#type': radios\n    '#title': 'Did you know AfrikaBurn’s informed by a set of guidelines known as the 11 Principles?'\n    '#description': '(Tip: They aren&#39;t rules, or commandments. <a href=\"http://www.afrikaburn.com/about/guiding-principles\">Read all about the 11 Principles here</a>).'\n    '#options':\n      '?': 'The 11 what?'\n      10: 'I thought it was 10?'\n      yep: 'Yep, I know all about them.'\npage_3:\n  '#type': webform_wizard_page\n  '#title': page_3\n  this_ain_t_no_party_and_it_ain_t_no_disco_it_s_an_experiment_in_:\n    '#type': radios\n    '#title': 'This ain''t no party, and it ain''t no disco - it''s an experiment in community, and a blank canvas where you’re free to express yo'\n    '#options':\n      'no': 'Hell no. There’s music, but it’s so much more than just a jol.'\n      'Damn, so it''s not a music festival? Looks like I need to do more reading.': 'Damn, so it''s not a music festival? Looks like I need to do more reading.'\n      'So...it’s not actually a party? Screw this, I’m outta here.': 'So...it’s not actually a party? Screw this, I’m outta here.'\n  have_you_read_the_survival_guide_:\n    '#type': radios\n    '#title': 'Have you read the Survival Guide?'\n    '#description': 'No? Seriously, read our <a href=\"http://www.afrikaburn.com/the-event/preparation/survival-guide\">Survival Guide</a> before you hit the road.'\n    '#options':\n      'no': 'No. What the hell''s a Survival Guide?'\n      'yes': 'Yep, and it''s pretty damn helpful.'\n      'You need a SURVIVAL GUIDE?!? I want my mummy.': 'You need a SURVIVAL GUIDE?!? I want my mummy.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'And done!'\n"
+elements: "welcome_page:\n  '#type': webform_wizard_page\n  '#title': welcome\n  welcome:\n    '#type': webform_markup\n    '#markup': \"<strong>Welcome!</strong><br />\\n<br />\\nAs this is your first time registering a Burner Bio, you&rsquo;ll need fill out this questionnaire. It&rsquo;s designed to put you in the picture about what AfrikaBurn is, and is not.<br />\\n<br />\\nYou won&rsquo;t be scored on your answers &ndash; but you do need to go through with it, in order to register your Burner Bio so you can buy tickets.<br />\\n<br />\\nReady? Hit it. One last thing: please don&rsquo;t get someone else to create your Bio &ndash; there&rsquo;s important info you need to read that&rsquo;s really helpful in preparing you for the experience.<br />\\n<br />\\nIt&rsquo;s your journey: nobody else can walk it for you.\"\n  did_you_know_that_afrikaburn_s_not_a_party_or_music_festival___y:\n    '#type': radios\n    '#title': 'Did you know that AfrikaBurn''s not a party or music festival?'\n    '#options':\n      'Yes': 'Yes'\n      'I do now': 'I do now'\n    '#options_randomize': true\npage_1:\n  '#type': webform_wizard_page\n  '#title': page_1\n  afrikaburn_s_history_is_rooted_in_:\n    '#type': radios\n    '#title': 'And that AfrikaBurn''s history is rooted in:'\n    '#description': \"<a href=\\\"https://en.wikipedia.org/wiki/Temporary_Autonomous_Zone\\\" target=\\\"_blank\\\">Find out more about a Temporary Autonomous Zone</a><br />\\n<a href=\\\"http://www.suicideclub.com/\\\" target=\\\"_blank\\\">Find out about Suicide Club</a>\"\n    '#options':\n      taz: 'The concept of the Temporary Autonomous Zone'\n      cssc: 'Cacophony Society & Suicide Club'\n      counterculture: Counterculture\n      anarchism: Anarchism\n      all: 'All of the above - with an African twist'\n  headed_for_experiment:\n    '#type': radios\n    '#title': 'Are you aware that by participating, you''re headed into a radical experiment in community and creativity?'\n    '#options':\n      '?': 'Say what? I thought it was just a party in the desert?'\n      '!': 'Radical''s my middle name. Bring it!'\npage_2:\n  '#type': webform_wizard_page\n  '#title': page_2\n  the_theme_for_afrikaburn_2018_is_:\n    '#type': radios\n    '#title': 'The theme for AfrikaBurn 2018 is...?'\n    '#options':\n      0: 'Bonfire of the Majesties'\n      1: 'Make The Circle Bigger'\n      2: '‘Working Title____________________’'\n      all: 'All of the above, and whatever you want it to be.'\n  did_you_know_afrikaburn_s_informed_by_a_set_of_guidelines_known_:\n    '#type': radios\n    '#title': 'Did you know AfrikaBurn’s informed by a set of guidelines known as the 11 Principles?'\n    '#description': '(Tip: They aren&#39;t rules, or commandments. <a href=\"http://www.afrikaburn.com/about/guiding-principles\">Read all about the 11 Principles here</a>).'\n    '#options':\n      '?': 'The 11 what?'\n      10: 'I thought it was 10?'\n      yep: 'Yep, I know all about them.'\npage_3:\n  '#type': webform_wizard_page\n  '#title': page_3\n  this_ain_t_no_party_and_it_ain_t_no_disco_it_s_an_experiment_in_:\n    '#type': radios\n    '#title': 'This ain''t no party, and it ain''t no disco - it''s an experiment in community, and a blank canvas where you’re free to express yo'\n    '#options':\n      'no': 'Hell no. There’s music, but it’s so much more than just a jol.'\n      'Damn, so it''s not a music festival? Looks like I need to do more reading.': 'Damn, so it''s not a music festival? Looks like I need to do more reading.'\n      'So...it’s not actually a party? Screw this, I’m outta here.': 'So...it’s not actually a party? Screw this, I’m outta here.'\n  have_you_read_the_survival_guide_:\n    '#type': radios\n    '#title': 'Have you read the Survival Guide?'\n    '#description': 'No? Seriously, read our <a href=\"http://www.afrikaburn.com/the-event/preparation/survival-guide\">Survival Guide</a> before you hit the road.'\n    '#options':\n      'no': 'No. What the hell''s a Survival Guide?'\n      'yes': 'Yep, and it''s pretty damn helpful.'\n      'You need a SURVIVAL GUIDE?!? I want my mummy.': 'You need a SURVIVAL GUIDE?!? I want my mummy.'\n"
 css: ''
 javascript: ''
 settings:
-  ajax: false
   page: true
   page_submit_path: ''
   page_confirm_path: ''
+  form_submit_label: 'And you''re done!'
   form_submit_once: true
+  form_submit_attributes: {  }
   form_exception_message: ''
   form_open_message: ''
   form_close_message: ''
@@ -27,43 +28,42 @@ settings:
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
-  form_prepopulate_source_entity_required: false
-  form_prepopulate_source_entity_type: false
-  form_reset: false
   form_disable_autocomplete: false
   form_novalidate: false
   form_unsaved: false
   form_disable_back: false
   form_autofocus: false
   form_details_toggle: false
-  submission_label: ''
   submission_log: false
-  submission_user_columns: {  }
-  wizard_progress_bar: false
+  wizard_progress_bar: true
   wizard_progress_pages: false
-  wizard_progress_percentage: true
+  wizard_progress_percentage: false
+  wizard_next_button_label: ''
+  wizard_next_button_attributes: {  }
+  wizard_prev_button_label: ''
+  wizard_prev_button_attributes: {  }
   wizard_start_label: ''
   wizard_complete: false
   wizard_complete_label: ''
   preview: 0
-  preview_label: ''
-  preview_title: ''
+  preview_next_button_label: ''
+  preview_next_button_attributes: {  }
+  preview_prev_button_label: ''
+  preview_prev_button_attributes: {  }
   preview_message: ''
-  preview_attributes: {  }
-  preview_excluded_elements: {  }
-  preview_exclude_empty: true
   draft: none
-  draft_multiple: false
   draft_auto_save: false
+  draft_button_label: ''
+  draft_button_attributes: {  }
   draft_saved_message: ''
   draft_loaded_message: ''
-  confirmation_type: page
+  confirmation_type: url_message
   confirmation_title: ''
-  confirmation_message: ''
-  confirmation_url: ''
+  confirmation_message: 'Awesome! You&#39;ve completed the introductory rite of passage!'
+  confirmation_url: /user
   confirmation_attributes: {  }
   confirmation_back: true
-  confirmation_back_label: ''
+  confirmation_back_label: 'WTF did I agree to?'
   confirmation_back_attributes: {  }
   limit_total: null
   limit_total_message: ''
@@ -82,33 +82,25 @@ access:
       - anonymous
       - authenticated
     users: {  }
-    permissions: {  }
   view_any:
     roles: {  }
     users: {  }
-    permissions: {  }
   update_any:
     roles: {  }
     users: {  }
-    permissions: {  }
   delete_any:
     roles: {  }
     users: {  }
-    permissions: {  }
   purge_any:
     roles: {  }
     users: {  }
-    permissions: {  }
   view_own:
     roles: {  }
     users: {  }
-    permissions: {  }
   update_own:
     roles: {  }
     users: {  }
-    permissions: {  }
   delete_own:
     roles: {  }
     users: {  }
-    permissions: {  }
 handlers: {  }
