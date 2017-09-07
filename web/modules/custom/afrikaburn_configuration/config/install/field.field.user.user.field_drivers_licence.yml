@@ -4,7 +4,12 @@ dependencies:
   config:
     - field.storage.user.field_drivers_licence
   module:
+    - custom_add_another
     - user
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
 id: user.user.field_drivers_licence
 field_name: field_drivers_licence
 entity_type: user

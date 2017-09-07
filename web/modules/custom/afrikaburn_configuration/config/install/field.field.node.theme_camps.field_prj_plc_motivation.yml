@@ -4,12 +4,18 @@ dependencies:
   config:
     - field.storage.node.field_prj_plc_motivation
     - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
 id: node.theme_camps.field_prj_plc_motivation
 field_name: field_prj_plc_motivation
 entity_type: node
 bundle: theme_camps
 label: 'Binnekring & 10ish Public Engagement Space motivation.'
-description: "Space on Binnekring Road and 10ish Boulevarde is in great demand - and it comes with the obligation of being a Public Engagement Space. Please give us a brief motivation as to why your camp would benefit the community by being placed in theses areas of frontage. <br>\r\nNote: your camp does not get Binnekring placement automatically by filling in this form. <br>\r\nTheme Camps must be visually stimulating and interactive, and should include activities, events or services to the community in general. <br>\r\nCheck out our <a href=\"/wp-content/uploads/2014/11/Theme-Camp-Placement-Guidelines-2015.pdf\" target=\"_blank\">Theme Camp Placement Guidelines</a> here."
+description: "Space on Binnekring Road and 10ish Boulevarde is in great demand - and it comes with the obligation of being a Public Engagement Space. Please give us a brief motivation as to why your camp would benefit the community by being placed in theses areas of frontage. <br>\r\nNote: your camp does not get Binnekring placement automatically by filling in this form. <br>\r\nTheme Camps must be visually stimulating and interactive, and should include activities, events or services to the community in general. <br>\r\nCheck out our <a href=\"https://www.afrikaburn.com/the-event/participation/theme-camp-criteria-2017\" target=\"_blank\">Theme Camp Placement Guidelines</a> here."
 required: false
 translatable: false
 default_value: {  }

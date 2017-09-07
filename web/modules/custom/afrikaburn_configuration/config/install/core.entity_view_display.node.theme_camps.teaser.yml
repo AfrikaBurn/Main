@@ -25,8 +25,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_gen_fundraiser
     - field.field.node.theme_camps.field_prj_gen_fundraising
     - field.field.node.theme_camps.field_prj_gen_header1
-    - field.field.node.theme_camps.field_prj_gen_header2
-    - field.field.node.theme_camps.field_prj_gen_header3
     - field.field.node.theme_camps.field_prj_gen_history
     - field.field.node.theme_camps.field_prj_gen_location
     - field.field.node.theme_camps.field_prj_gen_profit
@@ -58,7 +56,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_oth_associated
     - field.field.node.theme_camps.field_prj_oth_move
     - field.field.node.theme_camps.field_prj_oth_mv
-    - field.field.node.theme_camps.field_prj_oth_unregistered
     - field.field.node.theme_camps.field_prj_plc_artwork_d
     - field.field.node.theme_camps.field_prj_plc_artwork_w
     - field.field.node.theme_camps.field_prj_plc_binnekring
@@ -147,8 +144,6 @@ hidden:
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
   field_prj_gen_header1: true
-  field_prj_gen_header2: true
-  field_prj_gen_header3: true
   field_prj_gen_history: true
   field_prj_gen_location: true
   field_prj_gen_profit: true
@@ -180,7 +175,6 @@ hidden:
   field_prj_oth_associated: true
   field_prj_oth_move: true
   field_prj_oth_mv: true
-  field_prj_oth_unregistered: true
   field_prj_plc_artwork_d: true
   field_prj_plc_artwork_w: true
   field_prj_plc_binnekring: true

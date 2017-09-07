@@ -2,7 +2,25 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
+    - field.field.node.art.field_grt_art_apply
+    - field.field.node.art.field_grt_art_comment
+    - field.field.node.art.field_grt_art_reason
+    - field.field.node.art.field_grt_art_total
+    - field.field.node.art.field_grt_breakdown
+    - field.field.node.art.field_grt_contribution
+    - field.field.node.art.field_grt_f1
+    - field.field.node.art.field_grt_more
+    - field.field.node.art.field_grt_other
+    - field.field.node.art.field_grt_other_description
+    - field.field.node.art.field_grt_short
+    - field.field.node.art.field_grt_short_desc
+    - field.field.node.art.field_grt_tec_apply
+    - field.field.node.art.field_grt_tec_comment
+    - field.field.node.art.field_grt_tec_reason
+    - field.field.node.art.field_grt_tec_total
+    - field.field.node.art.field_grt_total
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
@@ -17,6 +35,8 @@ dependencies:
     - field.field.node.art.field_prj_brn_burning
     - field.field.node.art.field_prj_brn_desc
     - field.field.node.art.field_prj_brn_f1
+    - field.field.node.art.field_prj_brn_f2
+    - field.field.node.art.field_prj_brn_motivation
     - field.field.node.art.field_prj_brn_perimeter
     - field.field.node.art.field_prj_brn_person
     - field.field.node.art.field_prj_brn_plan
@@ -98,6 +118,7 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
+    - field.field.node.art.field_this_is_the_amount_of_mone
     - image.style.thumbnail
     - node.type.art
   module:
@@ -321,9 +342,9 @@ third_party_settings:
       children:
         - field_prj_oth_other
         - field_prj_oth_associated
-        - field_prj_oth_unregistered
         - field_prj_oth_relationship
         - field_prj_oth_grant
+        - field_prj_oth_unregistered
       parent_name: group_project_registration
       weight: 14
       format_type: accordion_item
@@ -336,7 +357,10 @@ third_party_settings:
       label: Other
     group_burn:
       children:
+        - field_prj_brn_f2
         - field_prj_brn_f1
+        - field_prj_brn_burning
+        - field_prj_brn_motivation
       parent_name: group_project_registration
       weight: 10
       format_type: accordion_item
@@ -358,6 +382,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_col_members:
+    weight: 108
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_collective:
     type: entity_reference_autocomplete
     weight: 1
@@ -382,17 +415,55 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_brn_burning:
+    type: boolean_checkbox
+    weight: 106
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_prj_brn_f1:
     type: markup
-    weight: 0
+    weight: 105
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_prj_brn_f2:
+    weight: 104
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_brn_head:
     weight: 49
     settings: {  }
     third_party_settings: {  }
     type: markup
+    region: content
+  field_prj_brn_motivation:
+    weight: 107
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        f0810d67-ef12-4797-84e7-c30a1bf98b4d:
+          dependee: field_prj_brn_burning
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    type: string_textarea
     region: content
   field_prj_cll_collaborate:
     weight: 47
@@ -1015,6 +1086,23 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_grt_art_apply: true
+  field_grt_art_comment: true
+  field_grt_art_reason: true
+  field_grt_art_total: true
+  field_grt_breakdown: true
+  field_grt_contribution: true
+  field_grt_f1: true
+  field_grt_more: true
+  field_grt_other: true
+  field_grt_other_description: true
+  field_grt_short: true
+  field_grt_short_desc: true
+  field_grt_tec_apply: true
+  field_grt_tec_comment: true
+  field_grt_tec_reason: true
+  field_grt_tec_total: true
+  field_grt_total: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
   field_prj_adm_form_wtf: true
@@ -1025,7 +1113,6 @@ hidden:
   field_prj_adm_review: true
   field_prj_adm_wrangler: true
   field_prj_brn_agree: true
-  field_prj_brn_burning: true
   field_prj_brn_desc: true
   field_prj_brn_perimeter: true
   field_prj_brn_person: true
@@ -1056,3 +1143,4 @@ hidden:
   field_prj_wtf_long: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
+  field_this_is_the_amount_of_mone: true

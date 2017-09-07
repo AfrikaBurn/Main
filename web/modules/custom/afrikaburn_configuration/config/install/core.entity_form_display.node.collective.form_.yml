@@ -2,42 +2,43 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.system_emails.body
-    - field.field.node.system_emails.field_department
-    - field.field.node.system_emails.field_eml_adm_desc
-    - field.field.node.system_emails.field_eml_adm_title
-    - node.type.system_emails
+    - core.entity_form_mode.node.form_
+    - field.field.node.collective.field_col_admins
+    - field.field.node.collective.field_col_description
+    - field.field.node.collective.field_col_members
+    - node.type.collective
   module:
     - content_moderation
+    - field_group
     - path
     - text
-id: node.system_emails.default
+third_party_settings:
+  field_group:
+    group_test2:
+      children:
+        - field_col_members
+      parent_name: ''
+      weight: 20
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: test2
+id: node.collective.form_
 targetEntityType: node
-bundle: system_emails
-mode: default
+bundle: collective
+mode: form_
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 8
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-    third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_department:
-    weight: 5
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
-  field_eml_adm_desc:
+  field_col_description:
     weight: 6
     settings:
       rows: 5
@@ -45,17 +46,18 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
-  field_eml_adm_title:
-    weight: 9
+  field_col_members:
+    weight: 7
     settings:
+      match_operator: STARTS_WITH
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: entity_reference_autocomplete
     region: content
   path:
     type: path
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -63,19 +65,19 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 2
+    weight: 3
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 3
+    weight: 4
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 7
+    weight: 0
     region: content
     settings:
       size: 60
@@ -83,11 +85,12 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 0
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_col_admins: true

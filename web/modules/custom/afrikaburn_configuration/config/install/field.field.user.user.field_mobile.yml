@@ -4,8 +4,13 @@ dependencies:
   config:
     - field.storage.user.field_mobile
   module:
+    - custom_add_another
     - telephone
     - user
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
 id: user.user.field_mobile
 field_name: field_mobile
 entity_type: user

@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.mutant_vehicles.field_collective
     - node.type.mutant_vehicles
   module:
     - content_moderation
@@ -55,5 +54,4 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden:
-  field_collective: true
+hidden: {  }

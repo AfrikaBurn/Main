@@ -1,6 +1,11 @@
 langcode: en
 status: true
 dependencies:
+  content:
+    - 'block_content:basic:c43a52f9-3fed-4002-938f-abbb3239cecb'
+  module:
+    - block_content
+    - system
   theme:
     - afrikaburn
 id: copyrighttext
@@ -17,4 +22,9 @@ settings:
   status: true
   info: ''
   view_mode: full
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: "/collective/*\r\n/collective"
+    negate: true
+    context_mapping: {  }

@@ -13,6 +13,7 @@ dependencies:
   - content_moderation
   - cshs
   - ctools
+  - custom_add_another
   - datetime
   - editor
   - entity_reference_revisions
@@ -35,6 +36,7 @@ dependencies:
   - node
   - options
   - page_manager
+  - panelizer
   - panels
   - paragraphs
   - path

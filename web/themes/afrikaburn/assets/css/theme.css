@@ -1591,6 +1591,9 @@ DESKTOP MAIN-NAV LEVEL 2 (ANIMATED DROPDOWN MENU)
   .nav-collapse.collapse {
     overflow: hidden;
   }
+  .open .nav-collapse {
+    height: auto;
+  }
   .nav-collapse {
     clear: both;
     height: 0;
