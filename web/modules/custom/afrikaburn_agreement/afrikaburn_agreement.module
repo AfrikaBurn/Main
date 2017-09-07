@@ -1,2 +1,15 @@
 <?php
+/**
+ * @file
+ * Module file for afrikaburn agreements.
+ */
 
+function afrikaburn_agreement_form_user_register_alter(&$form, &$form_state, $form_id) {
+
+  dpm($form);
+
+  $form['account']['field_MYFIELD'][LANGUAGE_NONE][0] = array(
+    '#type' => 'value',
+    '#value' => 0,
+  );
+}

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\afrikaburn_emails\SettingsForm.
+ */
+
 namespace Drupal\afrikaburn_emails;
 
 use Drupal\Core\Form\ConfigFormBase;
