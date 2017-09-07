@@ -34,6 +34,7 @@
         "drupal/field_validation": "^1.0@alpha",
         "drupal/form_mode_control": "^2.0@RC",
         "drupal/form_mode_manager": "^1.1",
+        "drupal/formblock": "^1.0@beta",
         "drupal/linkit": "^4.3",
         "drupal/login_emailusername": "^1.1",
         "drupal/markup": "^1.0@beta",
