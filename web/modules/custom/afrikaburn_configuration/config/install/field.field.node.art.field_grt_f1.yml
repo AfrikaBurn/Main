@@ -5,17 +5,12 @@ dependencies:
     - field.storage.node.field_grt_f1
     - node.type.art
   module:
-    - custom_add_another
     - markup
-third_party_settings:
-  custom_add_another:
-    custom_add_another: ''
-    custom_remove: ''
 id: node.art.field_grt_f1
 field_name: field_grt_f1
 entity_type: node
 bundle: art
-label: 'Grants Header'
+label: Header
 description: ''
 required: false
 translatable: false
@@ -24,6 +19,6 @@ default_value:
 default_value_callback: ''
 settings:
   markup:
-    value: "<p>This Grant Application is locked to this project. If you would like to apply for a different project, please register that project first.</p>\r\n\r\n<p dir=\"ltr\"><span>Every year we get loads of grant applications, requesting funding totaling many times the value of the AfrikaBurn creative grant pot. Experience has shown that it is important not to spread the grant pot too thin, but rather to make a meaningful contribution to a smaller amount of projects. </span><strong>This means that many grant applications will not get funding. </strong></p>\r\n\r\n<p dir=\"ltr\"><span>Please think about how else you could secure assistance or support for your project. </span></p>\r\n\r\n<p dir=\"ltr\"><span>Creative Grants are intended to help enable creative expression in Tankwa Town. They are intended to support projects by alleviating </span><strong>some</strong><span> of the financial responsibility. All applicants should expect to carry some of the financial responsibility for their project themselves.</span></p>\r\n\r\n<p dir=\"ltr\"><span>It is very important to </span><strong>BE RESOURCEFUL</strong><span> – recycle, upcycle, use scrap and waste material. You’re a bright spark, be inventive, make more with less. </span></p>\r\n\r\n<p dir=\"ltr\"><span>We ask that you do not apply for a grant unless you really do need funding support and your project is unlikely to happen without it.</span></p>\r\n\r\n<p><span>Before you carry on, please read the following documents:</span><br />\r\n<span>Creative Grants Policy </span><span>[Insert link]</span><br />\r\n<span>How do we assess Creative Grants </span><span>[Insert link]</span></p>\r\n"
+    value: "<p>This Grant Application is locked to this project. If you would like to apply for a different project, please register that project first.</p>\r\n"
     format: basic_html
 field_type: markup

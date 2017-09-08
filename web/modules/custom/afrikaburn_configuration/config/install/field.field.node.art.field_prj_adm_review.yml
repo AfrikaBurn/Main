@@ -5,12 +5,6 @@ dependencies:
     - field.storage.node.field_prj_adm_review
     - node.type.art
     - taxonomy.vocabulary.wrangler_review
-  module:
-    - custom_add_another
-third_party_settings:
-  custom_add_another:
-    custom_add_another: ''
-    custom_remove: ''
 id: node.art.field_prj_adm_review
 field_name: field_prj_adm_review
 entity_type: node

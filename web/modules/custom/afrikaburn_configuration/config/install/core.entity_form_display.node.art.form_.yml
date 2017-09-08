@@ -4,23 +4,6 @@ dependencies:
   config:
     - core.entity_form_mode.node.form_
     - field.field.node.art.field_collective
-    - field.field.node.art.field_grt_art_apply
-    - field.field.node.art.field_grt_art_comment
-    - field.field.node.art.field_grt_art_reason
-    - field.field.node.art.field_grt_art_total
-    - field.field.node.art.field_grt_breakdown
-    - field.field.node.art.field_grt_contribution
-    - field.field.node.art.field_grt_f1
-    - field.field.node.art.field_grt_more
-    - field.field.node.art.field_grt_other
-    - field.field.node.art.field_grt_other_description
-    - field.field.node.art.field_grt_short
-    - field.field.node.art.field_grt_short_desc
-    - field.field.node.art.field_grt_tec_apply
-    - field.field.node.art.field_grt_tec_comment
-    - field.field.node.art.field_grt_tec_reason
-    - field.field.node.art.field_grt_tec_total
-    - field.field.node.art.field_grt_total
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
@@ -35,8 +18,6 @@ dependencies:
     - field.field.node.art.field_prj_brn_burning
     - field.field.node.art.field_prj_brn_desc
     - field.field.node.art.field_prj_brn_f1
-    - field.field.node.art.field_prj_brn_f2
-    - field.field.node.art.field_prj_brn_motivation
     - field.field.node.art.field_prj_brn_perimeter
     - field.field.node.art.field_prj_brn_person
     - field.field.node.art.field_prj_brn_plan
@@ -118,7 +99,6 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
-    - field.field.node.art.field_this_is_the_amount_of_mone
     - node.type.art
   module:
     - content_moderation
@@ -184,9 +164,8 @@ third_party_settings:
       label: Sound
     group_burn:
       children:
-        - field_prj_brn_f2
+        - field_prj_brn_f1
         - field_prj_brn_burning
-        - field_prj_brn_motivation
         - field_prj_brn_plan
         - field_prj_brn_person
         - field_prj_brn_perimeter
@@ -225,9 +204,9 @@ third_party_settings:
       children:
         - field_prj_oth_other
         - field_prj_oth_associated
+        - field_prj_oth_unregistered
         - field_prj_oth_relationship
         - field_prj_oth_grant
-        - field_prj_oth_unregistered
       parent_name: group_project_registration
       weight: 11
       format_type: accordion_item
@@ -271,29 +250,29 @@ content:
     region: content
   field_prj_brn_agree:
     type: boolean_checkbox
-    weight: 9
+    weight: 96
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_prj_brn_burning:
     type: boolean_checkbox
-    weight: 2
+    weight: 88
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_prj_brn_desc:
     type: string_textarea
-    weight: 8
+    weight: 95
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_prj_brn_f2:
+  field_prj_brn_f1:
     type: markup
-    weight: 0
+    weight: 87
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -303,24 +282,16 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_brn_motivation:
-    type: string_textarea
-    weight: 3
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   field_prj_brn_perimeter:
     type: number
-    weight: 6
+    weight: 91
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_prj_brn_person:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 90
     region: content
     settings:
       match_operator: CONTAINS
@@ -329,7 +300,7 @@ content:
     third_party_settings: {  }
   field_prj_brn_plan:
     type: string_textarea
-    weight: 4
+    weight: 89
     region: content
     settings:
       rows: 5
@@ -337,7 +308,7 @@ content:
     third_party_settings: {  }
   field_prj_brn_time:
     type: datetime_default
-    weight: 7
+    weight: 92
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -625,23 +596,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_collective: true
-  field_grt_art_apply: true
-  field_grt_art_comment: true
-  field_grt_art_reason: true
-  field_grt_art_total: true
-  field_grt_breakdown: true
-  field_grt_contribution: true
-  field_grt_f1: true
-  field_grt_more: true
-  field_grt_other: true
-  field_grt_other_description: true
-  field_grt_short: true
-  field_grt_short_desc: true
-  field_grt_tec_apply: true
-  field_grt_tec_comment: true
-  field_grt_tec_reason: true
-  field_grt_tec_total: true
-  field_grt_total: true
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
@@ -652,7 +606,6 @@ hidden:
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
   field_prj_adm_wrangler: true
-  field_prj_brn_f1: true
   field_prj_brn_time_adm: true
   field_prj_cll_collaborate: true
   field_prj_cll_contact: true
@@ -706,5 +659,4 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
-  field_this_is_the_amount_of_mone: true
   title: true

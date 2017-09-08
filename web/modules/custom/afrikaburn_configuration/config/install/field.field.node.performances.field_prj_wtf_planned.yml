@@ -5,18 +5,12 @@ dependencies:
     - field.storage.node.field_prj_wtf_planned
     - node.type.performances
     - taxonomy.vocabulary.planned_activities
-  module:
-    - custom_add_another
-third_party_settings:
-  custom_add_another:
-    custom_add_another: ''
-    custom_remove: ''
 id: node.performances.field_prj_wtf_planned
 field_name: field_prj_wtf_planned
 entity_type: node
 bundle: performances
 label: 'Planned activities'
-description: "\r\n"
+description: "Don't worry if you haven't yet worked out your performance down to the minute. How many appearances are you planning during the event? What is the duration of your performance/s? Does your performance require a set-up time? Please describe.\r\n"
 required: true
 translatable: true
 default_value: {  }

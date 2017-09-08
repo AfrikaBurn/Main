@@ -13,14 +13,14 @@ use Drupal\Component\Utility\Html;
 /**
  * Implements hook_entity_insert().
  */
-function afrikaburn_emails_entity_insert(EntityInterface $entity){
+function afrikaburn_emails_entity_insert($entity){
   _afrikaburn_emails_notify($entity, 'create');
 }
 
 /**
  * Implements hook_entity_update().
  */
-function afrikaburn_emails_entity_update(EntityInterface $entity){
+function afrikaburn_emails_entity_update($entity){
   _afrikaburn_emails_notify($entity, 'update');
 }
 

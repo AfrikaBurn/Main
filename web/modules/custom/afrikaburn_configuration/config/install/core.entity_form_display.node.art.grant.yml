@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.art.field_grt_art_comment
     - field.field.node.art.field_grt_art_reason
     - field.field.node.art.field_grt_art_total
-    - field.field.node.art.field_grt_breakdown
     - field.field.node.art.field_grt_contribution
     - field.field.node.art.field_grt_f1
     - field.field.node.art.field_grt_more
@@ -35,8 +34,6 @@ dependencies:
     - field.field.node.art.field_prj_brn_burning
     - field.field.node.art.field_prj_brn_desc
     - field.field.node.art.field_prj_brn_f1
-    - field.field.node.art.field_prj_brn_f2
-    - field.field.node.art.field_prj_brn_motivation
     - field.field.node.art.field_prj_brn_perimeter
     - field.field.node.art.field_prj_brn_person
     - field.field.node.art.field_prj_brn_plan
@@ -124,7 +121,6 @@ dependencies:
     - content_moderation
     - field_group
     - markup
-    - paragraphs
     - path
 third_party_settings:
   field_group:
@@ -132,7 +128,7 @@ third_party_settings:
       children:
         - group_grant
       parent_name: ''
-      weight: 5
+      weight: 6
       format_type: accordion
       format_settings:
         label: 'Project Registration'
@@ -144,15 +140,23 @@ third_party_settings:
       children:
         - title
         - field_grt_f1
-        - field_grt_breakdown
         - field_grt_total
+        - field_grt_breakdown
         - field_grt_contribution
         - field_this_is_the_amount_of_mone
+        - field_grt_art_apply
+        - field_grt_art_reason
         - field_grt_art_total
         - field_grt_tec_apply
+        - field_grt_tec_reason
+        - field_grt_tec_total
+        - field_grt_other
+        - field_grt_other_description
         - field_grt_short
         - field_grt_short_desc
         - field_grt_more
+        - field_grt_art_comment
+        - field_grt_tec_comment
       parent_name: group_project_registration
       weight: 6
       format_type: accordion_item
@@ -170,12 +174,35 @@ mode: grant
 content:
   created:
     type: datetime_timestamp
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_grt_art_total:
+  field_grt_art_apply:
     weight: 6
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_grt_art_comment:
+    weight: 17
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_grt_art_reason:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_grt_art_total:
+    weight: 8
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -183,7 +210,7 @@ content:
     region: content
   field_grt_breakdown:
     type: entity_reference_paragraphs
-    weight: 2
+    weight: 3
     region: content
     settings:
       title: Paragraph
@@ -207,7 +234,21 @@ content:
     type: markup
     region: content
   field_grt_more:
-    weight: 10
+    weight: 16
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_grt_other:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_grt_other_description:
+    weight: 13
     settings:
       rows: 5
       placeholder: ''
@@ -215,13 +256,13 @@ content:
     type: string_textarea
     region: content
   field_grt_short:
-    weight: 8
+    weight: 14
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_grt_short_desc:
-    weight: 9
+    weight: 15
     settings:
       rows: 5
       placeholder: ''
@@ -229,14 +270,37 @@ content:
     type: string_textarea
     region: content
   field_grt_tec_apply:
-    weight: 7
+    weight: 9
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_grt_tec_comment:
+    weight: 18
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_grt_tec_reason:
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_grt_tec_total:
+    weight: 11
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_grt_total:
-    weight: 3
+    weight: 2
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -336,7 +400,7 @@ content:
     region: content
   path:
     type: path
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -344,14 +408,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 2
+    weight: 3
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 3
+    weight: 4
     region: content
     third_party_settings: {  }
   title:
@@ -364,7 +428,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 0
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60
@@ -373,14 +437,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_collective: true
-  field_grt_art_apply: true
-  field_grt_art_comment: true
-  field_grt_art_reason: true
-  field_grt_other: true
-  field_grt_other_description: true
-  field_grt_tec_comment: true
-  field_grt_tec_reason: true
-  field_grt_tec_total: true
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
@@ -395,8 +451,6 @@ hidden:
   field_prj_brn_burning: true
   field_prj_brn_desc: true
   field_prj_brn_f1: true
-  field_prj_brn_f2: true
-  field_prj_brn_motivation: true
   field_prj_brn_perimeter: true
   field_prj_brn_person: true
   field_prj_brn_plan: true

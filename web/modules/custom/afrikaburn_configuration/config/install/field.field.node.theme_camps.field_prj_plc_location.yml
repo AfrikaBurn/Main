@@ -5,12 +5,6 @@ dependencies:
     - field.storage.node.field_prj_plc_location
     - node.type.theme_camps
     - taxonomy.vocabulary.theme_camp_location
-  module:
-    - custom_add_another
-third_party_settings:
-  custom_add_another:
-    custom_add_another: ''
-    custom_remove: ''
 id: node.theme_camps.field_prj_plc_location
 field_name: field_prj_plc_location
 entity_type: node

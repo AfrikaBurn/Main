@@ -1,16 +1,33 @@
 <?php
+
 /**
  * @file
  * Module file for afrikaburn agreements.
  */
 
-function afrikaburn_agreement_form_user_register_alter(&$form, &$form_state, $form_id) {
+use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\HttpFoundation\Request;
 
-  dpm($form_id);
+/**
+ * Implements hook_form_alter().
+ * Hooked to add default agreements to users.
+ */
+function afrikaburn_agreement_form_user_form_alter(&$form, $form_state, $form_id){
+  if ($form_id === 'user_register_form') {
 
-  // $form['account']['field_MYFIELD'][LANGUAGE_NONE][0] = array(
-  //   '#type' => 'value',
-  //   '#value' => 0,
-  // );
+    $aids = array_values(
+      \Drupal::entityQuery('node')
+        ->condition('status', 1)
+        ->condition('type', 'agreement')
+        ->condition('title', ['Introduction', 'Terms & Conditions'], 'IN')
+        ->execute()
+    );
+
+    $form['field_agreements']['widget'][] = $form['field_agreements']['widget'][0];
+    foreach($aids as $index=>$aid){
+      \Drupal::entityTypeManager()->getStorage('node')->load($aid);
+      $form['field_agreements']['widget'][$index]['target_id']['#default_value'] = \Drupal::entityTypeManager()->getStorage('node')->load($aid);
+    }
+
+  }
 }
-
