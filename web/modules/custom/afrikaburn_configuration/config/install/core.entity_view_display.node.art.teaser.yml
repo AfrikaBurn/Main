@@ -3,7 +3,25 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
+    - field.field.node.art.field_grt_art_apply
+    - field.field.node.art.field_grt_art_comment
+    - field.field.node.art.field_grt_art_reason
+    - field.field.node.art.field_grt_art_total
+    - field.field.node.art.field_grt_breakdown
+    - field.field.node.art.field_grt_contribution
+    - field.field.node.art.field_grt_f1
+    - field.field.node.art.field_grt_more
+    - field.field.node.art.field_grt_other
+    - field.field.node.art.field_grt_other_description
+    - field.field.node.art.field_grt_short
+    - field.field.node.art.field_grt_short_desc
+    - field.field.node.art.field_grt_tec_apply
+    - field.field.node.art.field_grt_tec_comment
+    - field.field.node.art.field_grt_tec_reason
+    - field.field.node.art.field_grt_tec_total
+    - field.field.node.art.field_grt_total
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
@@ -18,6 +36,8 @@ dependencies:
     - field.field.node.art.field_prj_brn_burning
     - field.field.node.art.field_prj_brn_desc
     - field.field.node.art.field_prj_brn_f1
+    - field.field.node.art.field_prj_brn_f2
+    - field.field.node.art.field_prj_brn_motivation
     - field.field.node.art.field_prj_brn_perimeter
     - field.field.node.art.field_prj_brn_person
     - field.field.node.art.field_prj_brn_plan
@@ -64,6 +84,7 @@ dependencies:
     - field.field.node.art.field_prj_oth_grant
     - field.field.node.art.field_prj_oth_other
     - field.field.node.art.field_prj_oth_relationship
+    - field.field.node.art.field_prj_oth_unregistered
     - field.field.node.art.field_prj_plc_f1
     - field.field.node.art.field_prj_plc_location_extra
     - field.field.node.art.field_prj_prp_duration
@@ -98,6 +119,7 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
+    - field.field.node.art.field_this_is_the_amount_of_mone
     - node.type.art
   module:
     - user
@@ -110,7 +132,25 @@ content:
     weight: 100
     region: content
 hidden:
+  field_col_members: true
   field_collective: true
+  field_grt_art_apply: true
+  field_grt_art_comment: true
+  field_grt_art_reason: true
+  field_grt_art_total: true
+  field_grt_breakdown: true
+  field_grt_contribution: true
+  field_grt_f1: true
+  field_grt_more: true
+  field_grt_other: true
+  field_grt_other_description: true
+  field_grt_short: true
+  field_grt_short_desc: true
+  field_grt_tec_apply: true
+  field_grt_tec_comment: true
+  field_grt_tec_reason: true
+  field_grt_tec_total: true
+  field_grt_total: true
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
@@ -125,6 +165,8 @@ hidden:
   field_prj_brn_burning: true
   field_prj_brn_desc: true
   field_prj_brn_f1: true
+  field_prj_brn_f2: true
+  field_prj_brn_motivation: true
   field_prj_brn_perimeter: true
   field_prj_brn_person: true
   field_prj_brn_plan: true
@@ -171,6 +213,7 @@ hidden:
   field_prj_oth_grant: true
   field_prj_oth_other: true
   field_prj_oth_relationship: true
+  field_prj_oth_unregistered: true
   field_prj_plc_f1: true
   field_prj_plc_location_extra: true
   field_prj_prp_duration: true
@@ -205,3 +248,4 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_this_is_the_amount_of_mone: true

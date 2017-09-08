@@ -3,8 +3,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.collective.field_col_admin
+    - field.field.node.collective.field_col_admins
     - field.field.node.collective.field_col_description
     - field.field.node.collective.field_col_invitee
+    - field.field.node.collective.field_col_mem_writeup
     - field.field.node.collective.field_col_members
     - node.type.collective
   module:
@@ -18,6 +21,9 @@ content:
     weight: 100
     region: content
 hidden:
+  field_col_admin: true
+  field_col_admins: true
   field_col_description: true
   field_col_invitee: true
+  field_col_mem_writeup: true
   field_col_members: true

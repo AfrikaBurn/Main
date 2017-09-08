@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.form_
+    - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_grt_art_apply
     - field.field.node.art.field_grt_art_comment
@@ -624,6 +625,7 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_col_members: true
   field_collective: true
   field_grt_art_apply: true
   field_grt_art_comment: true

@@ -8,8 +8,10 @@ dependencies:
     - field.field.node.collective.field_col_invitee
     - field.field.node.collective.field_col_mem_writeup
     - field.field.node.collective.field_col_members
+    - field.field.node.collective.field_col_posts
     - node.type.collective
   module:
+    - comment
     - content_moderation
     - markup
     - path
@@ -46,6 +48,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: markup
+    region: content
+  field_col_posts:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
     region: content
   path:
     type: path

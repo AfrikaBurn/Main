@@ -5,7 +5,6 @@ dependencies:
     - page_manager.page.register
   module:
     - panels
-    - user
 id: register-panels_variant-0
 label: Panels
 variant: panels_variant

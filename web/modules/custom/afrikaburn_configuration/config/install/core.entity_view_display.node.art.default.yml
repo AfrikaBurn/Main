@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
+    - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_grt_art_apply
     - field.field.node.art.field_grt_art_comment
@@ -1065,5 +1066,6 @@ content:
     weight: 100
     region: content
 hidden:
+  field_col_members: true
   field_collective: true
   field_prj_oth_unregistered: true

@@ -1,10 +1,6 @@
 langcode: en
 status: false
 dependencies:
-  content:
-    - 'block_content:basic:7171e6af-8d3c-4413-a495-894fa39c939b'
-  module:
-    - block_content
   theme:
     - afrikaburn
 id: howzit

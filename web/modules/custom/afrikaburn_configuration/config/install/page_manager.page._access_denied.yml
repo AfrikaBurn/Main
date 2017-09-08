@@ -1,20 +1,11 @@
 langcode: en
 status: true
-dependencies:
-  module:
-    - user
+dependencies: {  }
 id: _access_denied
 label: ' Access denied'
 description: ''
 use_admin_theme: false
 path: /access_denied
 access_logic: and
-access_conditions:
-  -
-    id: user_role
-    roles:
-      anonymous: anonymous
-    negate: false
-    context_mapping:
-      user: current_user
+access_conditions: {  }
 parameters: {  }

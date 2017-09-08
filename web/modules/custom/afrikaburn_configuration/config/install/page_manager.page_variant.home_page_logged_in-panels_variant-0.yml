@@ -4,10 +4,7 @@ dependencies:
   config:
     - page_manager.page.home_page_logged_in
     - views.view.collectives
-  content:
-    - 'block_content:basic:7171e6af-8d3c-4413-a495-894fa39c939b'
   module:
-    - block_content
     - panels
     - views
 id: home_page_logged_in-panels_variant-0
