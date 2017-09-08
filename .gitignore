@@ -3,6 +3,8 @@ vendor
 vendor/*
 /web/vendor
 /web/vendor/*
+vendor
+vendor/*
 
 # Ignore sensitive information
 /web/sites/*/settings.php
