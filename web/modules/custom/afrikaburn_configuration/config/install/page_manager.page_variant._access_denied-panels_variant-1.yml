@@ -3,10 +3,7 @@ status: true
 dependencies:
   config:
     - page_manager.page._access_denied
-  content:
-    - 'block_content:basic:fd18d3d2-1803-4bb0-b68c-c91761b20f65'
   module:
-    - block_content
     - panels
     - user
 id: _access_denied-panels_variant-1

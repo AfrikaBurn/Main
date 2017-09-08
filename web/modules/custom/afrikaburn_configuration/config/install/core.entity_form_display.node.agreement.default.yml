@@ -3,11 +3,13 @@ status: true
 dependencies:
   config:
     - field.field.node.agreement.field_agreement_introduction
+    - field.field.node.agreement.field_agreement_terms
     - node.type.agreement
   module:
     - content_moderation
     - path
     - text
+    - webform
 id: node.agreement.default
 targetEntityType: node
 bundle: agreement

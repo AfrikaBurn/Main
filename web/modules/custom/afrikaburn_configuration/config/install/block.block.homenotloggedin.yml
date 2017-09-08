@@ -1,10 +1,7 @@
 langcode: en
 status: false
 dependencies:
-  content:
-    - 'block_content:basic:5589dd1b-4b03-44ca-aa4a-486d73ff15cd'
   module:
-    - block_content
     - php
   theme:
     - bartik

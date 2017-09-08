@@ -1,0 +1,370 @@
+diff --git a/config/install/features.bundle.default.yml b/config/install/features.bundle.default.yml
+index 5620809..ea4bb88 100644
+--- a/config/install/features.bundle.default.yml
++++ b/config/install/features.bundle.default.yml
+@@ -5,6 +5,12 @@ name: Default
+ machine_name: default
+ description: ''
+ assignments:
++  alter:
++    core: true
++    uuid: true
++    user_permissions: true
++    enabled: true
++    weight: 0
+   base:
+     types:
+       config:
+diff --git a/features.install b/features.install
+index 42546d6..5bb46f0 100644
+--- a/features.install
++++ b/features.install
+@@ -11,3 +11,21 @@
+ function features_update_8300() {
+   // Empty update to cause a cache rebuild so that the container is rebuilt.
+ }
++
++/**
++ * Update existing feature bundles with new alter plugin configuration.
++ */
++function features_update_8301() {
++  foreach (\Drupal::service('entity_type.manager')->getStorage('features_bundle')->loadMultiple() as $bundle) {
++    $bundle = \Drupal::configFactory()->getEditable('features.bundle.' . $bundle->id());
++    $assignments = $bundle->get('assignments');
++    $assignments['alter'] = [
++      'core' => TRUE,
++      'uuid' => TRUE,
++      'user_permissions' => TRUE,
++      'enabled' => TRUE,
++      'weight' => 0,
++    ];
++    $bundle->set('assignments', $assignments)->save();
++  }
++}
+diff --git a/modules/features_ui/features_ui.routing.yml b/modules/features_ui/features_ui.routing.yml
+index 5515677..9343aee 100644
+--- a/modules/features_ui/features_ui.routing.yml
++++ b/modules/features_ui/features_ui.routing.yml
+@@ -15,6 +15,15 @@ features.assignment:
+   requirements:
+     _permission: 'administer site configuration'
+ 
++features.assignment_alter:
++  path: '/admin/config/development/features/bundle/_alter/{bundle_name}'
++  defaults:
++    _form: '\Drupal\features_ui\Form\AssignmentAlterForm'
++    _title: 'Configure package configuration altering'
++    bundle_name: NULL
++  requirements:
++    _permission: 'administer site configuration'
++
+ features.assignment_base:
+   path: '/admin/config/development/features/bundle/_base/{bundle_name}'
+   defaults:
+diff --git a/modules/features_ui/src/Form/AssignmentAlterForm.php b/modules/features_ui/src/Form/AssignmentAlterForm.php
+new file mode 100644
+index 0000000..a299633
+--- /dev/null
++++ b/modules/features_ui/src/Form/AssignmentAlterForm.php
+@@ -0,0 +1,76 @@
++<?php
++
++namespace Drupal\features_ui\Form;
++
++use Drupal\Core\Form\FormStateInterface;
++
++/**
++ * Configures the selected configuration assignment method for this site.
++ */
++class AssignmentAlterForm extends AssignmentFormBase {
++
++  const METHOD_ID = 'alter';
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getFormId() {
++    return 'features_assignment_alter_form';
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function buildForm(array $form, FormStateInterface $form_state, $bundle_name = NULL) {
++    $this->currentBundle = $this->assigner->loadBundle($bundle_name);
++
++    $settings = $this->currentBundle->getAssignmentSettings(self::METHOD_ID);
++    $core_setting = $settings['core'];
++    $uuid_setting = $settings['uuid'];
++    $user_permissions_setting = $settings['user_permissions'];
++
++    $form['core'] = array(
++      '#type' => 'checkbox',
++      '#title' => $this->t('Strip out <em>_core</em> property.'),
++      '#default_value' => $core_setting,
++      '#description' => $this->t('Select this option to remove the <em>_core</em> configuration property on export. This property is added by Drupal core when configuration is installed.'),
++    );
++
++    $form['uuid'] = array(
++      '#type' => 'checkbox',
++      '#title' => $this->t('Strip out <em>uuid</em> property.'),
++      '#default_value' => $uuid_setting,
++      '#description' => $this->t('Select this option to remove the <em>uuid</em> configuration property on export. This property is added by Drupal core when configuration is installed.'),
++    );
++
++    $form['user_permissions'] = array(
++      '#type' => 'checkbox',
++      '#title' => $this->t('Strip out user permissions.'),
++      '#default_value' => $user_permissions_setting,
++      '#description' => $this->t('Select this option to remove permissions from user roles on export.'),
++    );
++
++    $this->setActions($form, self::METHOD_ID);
++
++    return $form;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function submitForm(array &$form, FormStateInterface $form_state) {
++    // Merge in selections.
++    $settings = $this->currentBundle->getAssignmentSettings(self::METHOD_ID);
++    $settings = array_merge($settings, [
++      'core' => $form_state->getValue('core'),
++      'uuid' => $form_state->getValue('uuid'),
++      'user_permissions' => $form_state->getValue('user_permissions'),
++    ]);
++
++    $this->currentBundle->setAssignmentSettings(self::METHOD_ID, $settings)->save();
++
++    $this->setRedirect($form_state);
++    drupal_set_message($this->t('Package assignment configuration saved.'));
++  }
++
++}
+diff --git a/src/FeaturesManager.php b/src/FeaturesManager.php
+index 2d0c81c..1dc64f0 100644
+--- a/src/FeaturesManager.php
++++ b/src/FeaturesManager.php
+@@ -978,23 +978,7 @@ class FeaturesManager implements FeaturesManagerInterface {
+       // Add configuration files.
+       foreach ($package->getConfig() as $name) {
+         $config = $config_collection[$name];
+-        $data = $config->getData();
+-        // The _core is site-specific, so don't export it.
+-        unset($data['_core']);
+-        // The UUID is site-specfic, so don't export it.
+-        if ($entity_type_id = $this->configManager->getEntityTypeIdByName($name)) {
+-          unset($data['uuid']);
+-        }
+-        $config->setData($data);
+-        // User roles include all permissions currently assigned to them. To
+-        // avoid extraneous additions, reset permissions.
+-        if ($config->getType() == 'user_role') {
+-          $data = $config->getData();
+-          // Unset and not empty permissions data to prevent loss of configured
+-          // role permissions in the event of a feature revert.
+-          unset($data['permissions']);
+-          $config->setData($data);
+-        }
++
+         $package->appendFile([
+           'filename' => $config->getName() . '.yml',
+           'subdirectory' => $config->getSubdirectory(),
+diff --git a/src/Plugin/FeaturesAssignment/FeaturesAssignmentAlter.php b/src/Plugin/FeaturesAssignment/FeaturesAssignmentAlter.php
+new file mode 100644
+index 0000000..538c72c
+--- /dev/null
++++ b/src/Plugin/FeaturesAssignment/FeaturesAssignmentAlter.php
+@@ -0,0 +1,60 @@
++<?php
++
++namespace Drupal\features\Plugin\FeaturesAssignment;
++
++use Drupal\features\FeaturesAssignmentMethodBase;
++use Drupal\features\FeaturesManagerInterface;
++
++/**
++ * Class for excluding configuration from packages.
++ *
++ * @Plugin(
++ *   id = "alter",
++ *   weight = 0,
++ *   name = @Translation("Alter"),
++ *   description = @Translation("Alter configuration items before they are exported. Altering includes options such as removing permissions from roles."),
++ *   config_route_name = "features.assignment_alter",
++ *   default_settings = {
++ *     "core" = TRUE,
++ *     "uuid" = TRUE,
++ *     "user_permissions" = TRUE,
++ *   }
++ * )
++ */
++class FeaturesAssignmentAlter extends FeaturesAssignmentMethodBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function assignPackages($force = FALSE) {
++    $current_bundle = $this->assigner->getBundle();
++    $settings = $current_bundle->getAssignmentSettings($this->getPluginId());
++
++    // Alter configuration items.
++    if ($settings['core'] || $settings['uuid'] || $settings['user_permissions']) {
++      $config_collection = $this->featuresManager->getConfigCollection();
++      foreach ($config_collection as &$config) {
++        $data = $config->getData();
++        if ($settings['core']) {
++          unset($data['_core']);
++        }
++        // Unset UUID for configuration entities.
++        if ($settings['uuid'] && $config->getType() !== FeaturesManagerInterface::SYSTEM_SIMPLE_CONFIG) {
++          unset($data['uuid']);
++        }
++        // Unset permissions for user roles. Doing so facilitates packaging
++        // roles that may have permissions that relate to multiple packages.
++        if ($settings['user_permissions'] && $config->getType() == 'user_role') {
++          // Unset and not empty permissions data to prevent loss of configured
++          // role permissions in the event of a feature revert.
++          unset($data['permissions']);
++        }
++        $config->setData($data);
++      }
++      // Register the updated data.
++      $this->featuresManager->setConfigCollection($config_collection);
++    }
++
++  }
++
++}
+diff --git a/tests/src/Kernel/FeaturesAssignTest.php b/tests/src/Kernel/FeaturesAssignTest.php
+index 6d66877..6111c21 100644
+--- a/tests/src/Kernel/FeaturesAssignTest.php
++++ b/tests/src/Kernel/FeaturesAssignTest.php
+@@ -4,6 +4,7 @@ namespace Drupal\Tests\features\Kernel;
+ 
+ use Drupal\KernelTests\KernelTestBase;
+ use Drupal\features\ConfigurationItem;
++use Drupal\features\FeaturesManagerInterface;
+ use Drupal\Core\Config\InstallStorage;
+ 
+ /**
+@@ -63,6 +64,117 @@ class FeaturesAssignTest extends KernelTestBase {
+   }
+ 
+   /**
++   * @covers Drupal\features\Plugin\FeaturesAssignment\FeaturesAssignmentAlter
++   */
++  public function testAssignAlter() {
++    $method_id = 'alter';
++
++    // Enable the method.
++    $this->enableAssignmentMethod($method_id);
++
++    // Add some configuration.
++    $this->addConfigurationItem('example.settings', [
++      '_core' => ['something'],
++      'uuid' => 'something',
++    ],
++    [
++      'type' => FeaturesManagerInterface::SYSTEM_SIMPLE_CONFIG,
++    ]);
++    $this->addConfigurationItem('node.type.article', [
++      '_core' => ['something'],
++      'uuid' => 'something',
++      'permissions' => [
++        'first',
++        'second',
++      ],
++    ],
++    [
++      'type' => 'node_type',
++    ]);
++    $this->addConfigurationItem('user.role.test', [
++      '_core' => ['something'],
++      'uuid' => 'something',
++      'permissions' => [
++        'first',
++        'second',
++      ],
++    ],
++    [
++      'type' => 'user_role',
++    ]);
++
++    // Set all settings to FALSE.
++    $settings = [
++      'core' => FALSE,
++      'uuid' => FALSE,
++      'user_permissions' => FALSE,
++    ];
++    $this->bundle->setAssignmentSettings($method_id, $settings);
++
++    $this->assigner->applyAssignmentMethod($method_id);
++
++    $config = $this->featuresManager->getConfigCollection();
++    $this->assertNotEmpty($config['example.settings'], 'Expected config not created.');
++    $this->assertNotEmpty($config['node.type.article'], 'Expected config not created.');
++    $this->assertNotEmpty($config['user.role.test'], 'Expected config not created.');
++
++    $example_settings_data = $config['example.settings']->getData();
++    $this->assertEquals($example_settings_data['_core'], ['something'], 'Expected _core value missing.');
++    $this->assertEquals($example_settings_data['uuid'], 'something', 'Expected uuid value missing.');
++
++    $node_type_data = $config['node.type.article']->getData();
++    $this->assertEquals($node_type_data['_core'], ['something'], 'Expected _core value missing.');
++    $this->assertEquals($node_type_data['uuid'], 'something', 'Expected uuid value missing.');
++    $this->assertEquals($node_type_data['permissions'], [
++      'first',
++      'second',
++    ], 'Expected permissions value missing.');
++
++    $user_role_data = $config['user.role.test']->getData();
++    $this->assertEquals($user_role_data['_core'], ['something'], 'Expected _core value missing.');
++    $this->assertEquals($user_role_data['uuid'], 'something', 'Expected uuid value missing.');
++    $this->assertEquals($user_role_data['permissions'], [
++      'first',
++      'second',
++    ], 'Expected permissions value missing.');
++
++    // Set all settings to TRUE.
++    $settings = [
++      'core' => TRUE,
++      'uuid' => TRUE,
++      'user_permissions' => TRUE,
++    ];
++    $this->bundle->setAssignmentSettings($method_id, $settings);
++
++    $this->assigner->applyAssignmentMethod($method_id);
++
++    $config = $this->featuresManager->getConfigCollection();
++    $this->assertNotEmpty($config['example.settings'], 'Expected config not created.');
++    $this->assertNotEmpty($config['node.type.article'], 'Expected config not created.');
++    $this->assertNotEmpty($config['user.role.test'], 'Expected config not created.');
++
++    $example_settings_data = $config['example.settings']->getData();
++    $this->assertTrue(!isset($example_settings_data['_core']), 'Unexpected _core value present.');
++    // uuid should be retained for simple configuration.
++    $this->assertEquals($example_settings_data['uuid'], 'something', 'Expected uuid value missing.');
++
++    $node_type_data = $config['node.type.article']->getData();
++    $this->assertTrue(!isset($node_type_data['_core']), 'Unexpected _core value present.');
++    $this->assertTrue(!isset($node_type_data['uuid']), 'Unexpected uuid value present.');
++    // permissions should be stripped only for user_role configuration.
++    $this->assertEquals($node_type_data['permissions'], [
++      'first',
++      'second',
++    ], 'Expected permissions value missing.');
++
++    $user_role_data = $config['user.role.test']->getData();
++    $this->assertTrue(!isset($user_role_data['_core']), 'Unexpected _core value present.');
++    $this->assertTrue(!isset($user_role_data['uuid']), 'Unexpected uuid value present.');
++    $this->assertTrue(!isset($user_role_data['permissions']), 'Unexpected permissions value present.');
++
++  }
++
++  /**
+    * @covers Drupal\features\Plugin\FeaturesAssignment\FeaturesAssignmentBaseType
+    */
+   public function testAssignBase() {

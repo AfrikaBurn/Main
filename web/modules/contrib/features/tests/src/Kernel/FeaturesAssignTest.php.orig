@@ -4,6 +4,7 @@ namespace Drupal\Tests\features\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\features\ConfigurationItem;
+use Drupal\features\FeaturesManagerInterface;
 use Drupal\Core\Config\InstallStorage;
 
 /**
