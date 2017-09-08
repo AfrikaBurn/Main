@@ -51,7 +51,7 @@ function _afrikaburn_emails_notify($entity, $action){
     foreach($configs as $config){
 
       $recipients = _afrikaburn_emails_addresses($entity, $config['recipients']);
-      dpm($recipients);
+      // dpm($recipients);
       if (count($recipients)) {
 
         $recipient_string = implode(', ', $recipients);
