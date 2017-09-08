@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.home_page_logged_in
+    - views.view.collectives
+  content:
+    - 'block_content:basic:7171e6af-8d3c-4413-a495-894fa39c939b'
+  module:
+    - block_content
+    - panels
+    - views
+id: home_page_logged_in-panels_variant-0
+label: Home
+variant: panels_variant
+variant_settings:
+  blocks:
+    967d6bad-27f1-4085-b056-3ac565fad25e:
+      id: 'block_content:7171e6af-8d3c-4413-a495-894fa39c939b'
+      label: Howzit!
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: content
+      weight: 0
+      uuid: 967d6bad-27f1-4085-b056-3ac565fad25e
+      context_mapping: {  }
+    9e5a2dc9-4448-4f9d-a798-add9c5599e1b:
+      id: 'views_block:collectives-my_collectives'
+      label: 'My Collective'
+      provider: views
+      label_display: visible
+      views_label: 'My Collective'
+      items_per_page: none
+      region: content
+      weight: 1
+      uuid: 9e5a2dc9-4448-4f9d-a798-add9c5599e1b
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 0675148d-30b7-4c21-9732-04195a991461
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: home_page_logged_in-panels_variant-0
+  builder: standard
+page: home_page_logged_in
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

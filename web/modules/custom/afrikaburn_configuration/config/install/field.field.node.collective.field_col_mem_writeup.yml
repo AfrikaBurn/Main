@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_col_mem_writeup
+    - node.type.collective
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.collective.field_col_mem_writeup
+field_name: field_col_mem_writeup
+entity_type: node
+bundle: collective
+label: 'Collective member write up'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>Please find out the email address your team mates have associated with their Burner Bio, and fill it in here.</p>\r\n\r\n<p>Your team mates will receive an email invitation to join your collective, as well as a notification on the homepage of this site. They need to accept this invite in order for you to assign roles, tickets, or early access passes.</p>\r\n\r\n<p>You will be able to edit your team/collective at any point.</p>\r\n"
+    format: basic_html
+field_type: markup

@@ -8,7 +8,7 @@ dependencies:
 id: bartik_help
 theme: bartik
 region: content
-weight: -13
+weight: -30
 provider: null
 plugin: help_block
 settings:

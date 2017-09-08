@@ -4,6 +4,12 @@ dependencies:
   config:
     - field.storage.node.field_col_admins
     - node.type.collective
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
 id: node.collective.field_col_admins
 field_name: field_col_admins
 entity_type: node

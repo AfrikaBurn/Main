@@ -5,8 +5,8 @@ dependencies:
     - core.entity_view_mode.user.contact_view
     - field.field.user.user.field_agreements
     - field.field.user.user.field_country
+    - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_district
-    - field.field.user.user.field_drivers_licence
     - field.field.user.user.field_first_name
     - field.field.user.user.field_gender
     - field.field.user.user.field_id_number
@@ -55,8 +55,8 @@ content:
 hidden:
   field_agreements: true
   field_country: true
+  field_date_of_birth: true
   field_district: true
-  field_drivers_licence: true
   field_gender: true
   field_id_number: true
   field_links: true

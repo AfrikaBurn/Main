@@ -1,5 +1,2 @@
 bundle: afrikaburn
-excluded:
-  - field.field.user.user.field_drivers_licence
-  - field.storage.user.field_drivers_licence
 required: true

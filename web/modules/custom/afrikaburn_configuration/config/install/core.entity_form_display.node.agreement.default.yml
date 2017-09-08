@@ -3,13 +3,11 @@ status: true
 dependencies:
   config:
     - field.field.node.agreement.field_agreement_introduction
-    - field.field.node.agreement.field_agreement_terms
     - node.type.agreement
   module:
     - content_moderation
     - path
     - text
-    - webform
 id: node.agreement.default
 targetEntityType: node
 bundle: agreement
@@ -17,12 +15,12 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   field_agreement_introduction:
-    weight: 1
+    weight: 32
     settings:
       rows: 9
       summary_rows: 3
@@ -31,14 +29,14 @@ content:
     type: text_textarea_with_summary
     region: content
   field_agreement_terms:
-    weight: 2
+    weight: 31
     settings: {  }
     third_party_settings: {  }
     type: webform_entity_reference_select
     region: content
   path:
     type: path
-    weight: 7
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -46,19 +44,19 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 15
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 16
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: -5
     region: content
     settings:
       size: 60
@@ -66,7 +64,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60

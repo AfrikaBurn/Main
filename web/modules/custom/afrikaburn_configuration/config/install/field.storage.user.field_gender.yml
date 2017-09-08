@@ -21,11 +21,11 @@ settings:
       value: m
       label: Male
     -
+      value: 'n'
+      label: Non-binary
+    -
       value: o
       label: Other
-    -
-      value: 'n'
-      label: 'Prefer not to say'
   allowed_values_function: ''
 module: options
 locked: false

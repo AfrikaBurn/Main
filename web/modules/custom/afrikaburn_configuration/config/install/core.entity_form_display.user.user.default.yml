@@ -6,7 +6,6 @@ dependencies:
     - field.field.user.user.field_country
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_district
-    - field.field.user.user.field_drivers_licence
     - field.field.user.user.field_first_name
     - field.field.user.user.field_gender
     - field.field.user.user.field_id_number
@@ -165,14 +164,6 @@ content:
     region: content
   field_district:
     weight: 7
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_drivers_licence:
-    weight: 16
     settings:
       size: 60
       placeholder: ''

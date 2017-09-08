@@ -64,7 +64,6 @@ dependencies:
     - field.field.node.art.field_prj_oth_grant
     - field.field.node.art.field_prj_oth_other
     - field.field.node.art.field_prj_oth_relationship
-    - field.field.node.art.field_prj_oth_unregistered
     - field.field.node.art.field_prj_plc_f1
     - field.field.node.art.field_prj_plc_location_extra
     - field.field.node.art.field_prj_prp_duration
@@ -1243,4 +1242,3 @@ content:
 hidden:
   field_collective: true
   field_prj_lgh_f2: true
-  field_prj_oth_unregistered: true
