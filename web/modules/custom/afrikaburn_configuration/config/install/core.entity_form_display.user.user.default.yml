@@ -24,6 +24,7 @@ dependencies:
     - field_group
     - image
     - link
+    - path
     - telephone
     - user
 third_party_settings:
@@ -64,9 +65,9 @@ third_party_settings:
         - field_first_name
         - field_last_name
         - field_gender
-        - field_date_of_birth
         - field_id_number
         - field_drivers_licence
+        - field_date_of_birth
       parent_name: group_root
       weight: 20
       format_type: accordion_item
@@ -256,6 +257,12 @@ content:
     region: content
   language:
     weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
