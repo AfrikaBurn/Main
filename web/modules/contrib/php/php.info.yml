@@ -6,8 +6,8 @@ package: 'Filters'
 configure: filter.admin_overview
 dependencies:
   - filter
-# Information added by Drupal.org packaging script on 2015-11-14
-version: '8.x-1.0-beta1'
+# Information added by Drupal.org packaging script on 2016-02-01
+version: '8.x-1.0-beta2'
 core: '8.x'
 project: 'php'
-datestamp: 1447500840
+datestamp: 1454285041
