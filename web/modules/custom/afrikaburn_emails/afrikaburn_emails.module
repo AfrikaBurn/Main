@@ -204,7 +204,7 @@ function _afrikaburn_emails_recipient_new_invitees($entity){
             ->get('field_col_invitee')
             ->getValue(),
           'value'
-        )
+        );
       }
     }
   }
