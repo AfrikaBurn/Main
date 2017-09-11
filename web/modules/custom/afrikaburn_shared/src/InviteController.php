@@ -19,6 +19,13 @@ class InviteController extends ControllerBase {
    */
   public static function accept() {
 
+    if (\Drupal::currentUser()->isAnonymous()){
+      $redirect = new RedirectResponse(
+        '/user/login?destination=' . 
+        \Drupal::service('path.current')->getPath());
+      $redirect->send();
+    }
+
     $nid = \Drupal::routeMatch()->getParameter('nid');
     $group = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
 
@@ -55,6 +62,13 @@ class InviteController extends ControllerBase {
    * Ignore a group invitation
    */
   public static function ignore() {
+
+    if (\Drupal::currentUser()->isAnonymous()){
+      $redirect = new RedirectResponse(
+        '/user/login?destination=' . 
+        \Drupal::service('path.current')->getPath());
+      $redirect->send();
+    }
 
     $nid = \Drupal::routeMatch()->getParameter('nid');
     $group = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
