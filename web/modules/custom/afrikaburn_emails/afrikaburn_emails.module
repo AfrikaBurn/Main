@@ -167,15 +167,20 @@ function _afrikaburn_emails_recipient_group($entity){
 function _afrikaburn_emails_recipient_invitees($entity){
 
   $invitees = [];
+  $addresses = [];
+  $field_col_invitee = $entity->get('field_col_invitee');
 
-  $invitees = array_column(
-    $entity
-      ->get('field_col_invitee')
-      ->getValue(),
-    'value'
-  );
+  if ($field_col_invitee){
+    $invitees = array_column(
+      $field_col_invitee->getValue(),
+      'value'
+    );
+    if (is_array($invitees)){
+      $addresses = array_combine($invitees, $invitees);
+    }
+  }
 
-  return array_combine($invitees, $invitees);
+  return $addresses;
 }
 
 /**
@@ -185,29 +190,37 @@ function _afrikaburn_emails_recipient_invitees($entity){
  */
 function _afrikaburn_emails_recipient_new_invitees($entity){
 
-  $originals = $entity->original
-      ->get('field_col_invitee')
-      ->getValue()
-      ? array_column(
+  $originals = [];
+  $new = [];
+
+  $original = $entity->original;
+  if ($original) {
+    $field_col_invitee = $original->get('field_col_invitee');
+    if ($field_col_invitee) {
+      $value = $field_col_invitee->getValue();
+      if ($value) {
+        $originals = array_column(
           $entity->original
             ->get('field_col_invitee')
             ->getValue(),
           'value'
         )
-      : [];
+      }
+    }
+  }
 
-  $invitees = $entity
-      ->get('field_col_invitee')
-      ->getValue()
-      ? array_column(
-          $entity
-            ->get('field_col_invitee')
-            ->getValue(),
-          'value'
-        )
-      : [];
+  $field_col_invitee = $entity->get('field_col_invitee');
+  if ($field_col_invitee) {
+    $value = $field_col_invitee->getValue();
+    if ($value) {
+      $news = array_column(
+        $value->getValue(),
+        'value'
+      )
+    }
+  }
 
-  return array_diff($invitees, $originals);
+  return array_diff($new, $originals);
 }
 
 // --- Config Utilities
