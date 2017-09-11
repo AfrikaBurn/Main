@@ -16,6 +16,8 @@ function afrikaburn_agreement_form_user_form_alter(&$form, $form_state, $form_id
 
   if ($form_id === 'user_register_form') {
 
+    $form['field_agreements']['#access'] = FALSE;
+
     $aids = array_values(
       \Drupal::entityQuery('node')
         ->condition('status', 1)
@@ -28,8 +30,12 @@ function afrikaburn_agreement_form_user_form_alter(&$form, $form_state, $form_id
     foreach($aids as $index=>$aid){
       \Drupal::entityTypeManager()->getStorage('node')->load($aid);
       $form['field_agreements']['widget'][$index]['target_id']['#default_value'] = \Drupal::entityTypeManager()->getStorage('node')->load($aid);
-      $form['field_agreements']['#access'] = FALSE;
     }
 
+  }
+
+  if ($form_id === 'user_form') {
+    $user = \Drupal::currentUser();
+    $form['field_agreements']['#access'] = $user->hasPermission('administer users');
   }
 }

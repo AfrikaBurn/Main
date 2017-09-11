@@ -32,10 +32,11 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
 }
 
 function afrikaburn_shared_show_project_links(){
-  // preg_match('/^\/node\/', \Drupal::service('path.current')->getPath())
-  // $node = \Drupal::routeMatch()->getParameter('node');
-  // if ($node && $node->bundle() == 'collective'){
-  //   $user = User::load(\Drupal::currentUser()->id());
-    
-  // }
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node && $node->bundle() == 'collective'){
+    foreach($node->field_col_admins as $admin){
+      dpm($admin);      
+    }
+    // $user = User::load(\Drupal::currentUser()->id());
+  }
 }
