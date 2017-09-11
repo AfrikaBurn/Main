@@ -45,7 +45,7 @@ CodeMirror.defineMode("julia", function(config, parserConf) {
 
   var macro = /^@[_A-Za-z][\w]*/;
   var symbol = /^:[_A-Za-z\u00A1-\uFFFF][\w\u00A1-\uFFFF]*!*/;
-  var stringPrefixes = /^(`|"{3}|([_A-Za-z\u00A1-\uFFFF]*"))/;
+  var stringPrefixes = /^(`|([_A-Za-z\u00A1-\uFFFF]*"("")?))/;
 
   function inArray(state) {
     return inGenerator(state, '[')
@@ -288,7 +288,7 @@ CodeMirror.defineMode("julia", function(config, parserConf) {
       state.nestedLevels--;
     }
     if (state.nestedLevels > 0) {
-      stream.match(/.*?(?={|})/);
+      stream.match(/.*?(?={|})/) || stream.next();
     } else if (state.nestedLevels == 0) {
       state.tokenize = tokenBase;
     }
@@ -338,7 +338,11 @@ CodeMirror.defineMode("julia", function(config, parserConf) {
   }
 
   function tokenStringFactory(delimiter) {
-    delimiter = (delimiter === '`' || delimiter === '"""') ? delimiter : '"';
+    if (delimiter.substr(-3) === '"""') {
+      delimiter = '"""';
+    } else if (delimiter.substr(-1) === '"') {
+      delimiter = '"';
+    }
     function tokenString(stream, state) {
       if (stream.eat('\\')) {
         stream.next();
@@ -388,7 +392,7 @@ CodeMirror.defineMode("julia", function(config, parserConf) {
     indent: function(state, textAfter) {
       var delta = 0;
       if ( textAfter === ']' || textAfter === ')' || textAfter === "end" ||
-           textAfter === "else" || textAfter === "catch" ||
+           textAfter === "else" || textAfter === "catch" || textAfter === "elseif" ||
            textAfter === "finally" ) {
         delta = -1;
       }

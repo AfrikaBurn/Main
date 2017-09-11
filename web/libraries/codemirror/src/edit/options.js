@@ -68,7 +68,7 @@ export function defineOptions(CodeMirror) {
     for (let i = newBreaks.length - 1; i >= 0; i--)
       replaceRange(cm.doc, val, newBreaks[i], Pos(newBreaks[i].line, newBreaks[i].ch + val.length))
   })
-  option("specialChars", /[\u0000-\u001f\u007f\u00ad\u200b-\u200f\u2028\u2029\ufeff]/g, (cm, val, old) => {
+  option("specialChars", /[\u0000-\u001f\u007f-\u009f\u00ad\u061c\u200b-\u200f\u2028\u2029\ufeff]/g, (cm, val, old) => {
     cm.state.specialChars = new RegExp(val.source + (val.test("\t") ? "" : "|\t"), "g")
     if (old != Init) cm.refresh()
   })
@@ -92,6 +92,7 @@ export function defineOptions(CodeMirror) {
     if (next.attach) next.attach(cm, prev || null)
   })
   option("extraKeys", null)
+  option("configureMouse", null)
 
   option("lineWrapping", false, wrappingChanged, true)
   option("gutters", [], cm => {
@@ -119,14 +120,12 @@ export function defineOptions(CodeMirror) {
 
   option("resetSelectionOnContextMenu", true)
   option("lineWiseCopyCut", true)
+  option("pasteLinesPerSelection", true)
 
   option("readOnly", false, (cm, val) => {
     if (val == "nocursor") {
       onBlur(cm)
       cm.display.input.blur()
-      cm.display.disabled = true
-    } else {
-      cm.display.disabled = false
     }
     cm.display.input.readOnlyChanged(val)
   })
@@ -153,12 +152,13 @@ export function defineOptions(CodeMirror) {
 
   option("tabindex", null, (cm, val) => cm.display.input.getField().tabIndex = val || "")
   option("autofocus", null)
+  option("direction", "ltr", (cm, val) => cm.doc.setDirection(val), true)
 }
 
 function guttersChanged(cm) {
   updateGutters(cm)
   regChange(cm)
-  setTimeout(() => alignHorizontally(cm), 20)
+  alignHorizontally(cm)
 }
 
 function dragDropChanged(cm, value, old) {

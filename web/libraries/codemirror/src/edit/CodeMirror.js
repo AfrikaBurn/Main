@@ -4,7 +4,8 @@ import { setGuttersForLineNumbers, updateGutters } from "../display/gutters"
 import { maybeUpdateLineNumberWidth } from "../display/line_numbers"
 import { endOperation, operation, startOperation } from "../display/operations"
 import { initScrollbars } from "../display/scrollbars"
-import { onScrollWheel, setScrollLeft, setScrollTop } from "../display/scroll_events"
+import { onScrollWheel } from "../display/scroll_events"
+import { setScrollLeft, updateScrollTop } from "../display/scrolling"
 import { clipPos, Pos } from "../line/pos"
 import { posFromMouse } from "../measurement/position_measurement"
 import { eventInWidget } from "../measurement/widgets"
@@ -35,7 +36,7 @@ export function CodeMirror(place, options) {
   setGuttersForLineNumbers(options)
 
   let doc = options.value
-  if (typeof doc == "string") doc = new Doc(doc, options.mode, null, options.lineSeparator)
+  if (typeof doc == "string") doc = new Doc(doc, options.mode, null, options.lineSeparator, options.direction)
   this.doc = doc
 
   let input = new CodeMirror.inputStyles[options.inputStyle](this)
@@ -45,7 +46,6 @@ export function CodeMirror(place, options) {
   themeChanged(this)
   if (options.lineWrapping)
     this.display.wrapper.className += " CodeMirror-wrap"
-  if (options.autofocus && !mobile) display.input.focus()
   initScrollbars(this)
 
   this.state = {
@@ -63,6 +63,8 @@ export function CodeMirror(place, options) {
     keySeq: null,  // Unfinished key sequence
     specialChars: null
   }
+
+  if (options.autofocus && !mobile) display.input.focus()
 
   // Override magic textarea content restore that IE sometimes does
   // on our hidden textarea on reload
@@ -179,7 +181,7 @@ function registerEventHandlers(cm) {
   // area, ensure viewport is updated when scrolling.
   on(d.scroller, "scroll", () => {
     if (d.scroller.clientHeight) {
-      setScrollTop(cm, d.scroller.scrollTop)
+      updateScrollTop(cm, d.scroller.scrollTop)
       setScrollLeft(cm, d.scroller.scrollLeft, true)
       signal(cm, "scroll", cm)
     }
