@@ -16,31 +16,35 @@ class AgreementEnforcer implements EventSubscriberInterface {
 
   public function checkForRedirection(GetResponseEvent $event) {
 
-    if (preg_match('/^\/user', \Drupal::service('path.current')->getPath())) return;
+    $path = \Drupal::service('path.current')->getPath();
+    $enforce = preg_match('/^\/user', $path);
 
-    $uid = \Drupal::currentUser()->id();
-    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
+    if ($enforce) {    
 
-    if (count($user->field_agreements)) {
-      foreach($user->field_agreements->referencedEntities() as $agreement){
+      $uid = \Drupal::currentUser()->id();
+      $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
 
-        $aid = $agreement->id();
+      if (count($user->field_agreements)) {
+        foreach($user->field_agreements->referencedEntities() as $agreement){
 
-        foreach($agreement->field_agreement_terms->referencedEntities() as $webform){
+          $aid = $agreement->id();
 
-          $done = db_select('webform_submission')
-            ->condition('uid', $uid)
-            ->condition('entity_id', $aid)
-            ->condition('webform_id', $webform->id())
-            ->countQuery()
-              ->execute()
-              ->fetchField();
+          foreach($agreement->field_agreement_terms->referencedEntities() as $webform){
 
-          $node = \Drupal::routeMatch()->getParameter('node');
-          $nid = $node ? $node->id() : FALSE;
+            $done = db_select('webform_submission')
+              ->condition('uid', $uid)
+              ->condition('entity_id', $aid)
+              ->condition('webform_id', $webform->id())
+              ->countQuery()
+                ->execute()
+                ->fetchField();
 
-          if (!$done && $nid != $aid) {
-            $event->setResponse(new RedirectResponse('/node/' . $aid));
+            $node = \Drupal::routeMatch()->getParameter('node');
+            $nid = $node ? $node->id() : FALSE;
+
+            if (!$done && $nid != $aid) {
+              $event->setResponse(new RedirectResponse('/node/' . $aid));
+            }
           }
         }
       }
