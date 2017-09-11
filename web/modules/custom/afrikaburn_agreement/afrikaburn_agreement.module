@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
  * Hooked to add default agreements to users.
  */
 function afrikaburn_agreement_form_user_form_alter(&$form, $form_state, $form_id){
+
   if ($form_id === 'user_register_form') {
 
     $aids = array_values(
