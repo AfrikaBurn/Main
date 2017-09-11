@@ -32,11 +32,16 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
 }
 
 function afrikaburn_shared_show_project_links(){
+
   $node = \Drupal::routeMatch()->getParameter('node');
+  $stuff = '';
+
   if ($node && $node->bundle() == 'collective'){
+    $uid = \Drupal::currentUser()->id();
     foreach($node->field_col_admins as $admin){
-      dpm($admin);      
+      if ($admin->getValue()['target_id'] == $uid) return TRUE;
     }
-    // $user = User::load(\Drupal::currentUser()->id());
   }
+
+  return FALSE;
 }
