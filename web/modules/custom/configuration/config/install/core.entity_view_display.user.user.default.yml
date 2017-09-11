@@ -38,6 +38,7 @@ third_party_settings:
         - group_contact
         - group_identity
         - group_account
+        - group_history
       parent_name: ''
       weight: 0
       format_type: accordion
@@ -47,11 +48,9 @@ third_party_settings:
         effect: none
       label: Root
     group_identity:
-      children:
-        - field_date_of_birth
-        - field_id_number
+      children: {  }
       parent_name: group_root
-      weight: 5
+      weight: 2
       format_type: accordion_item
       format_settings:
         id: ''
@@ -63,7 +62,7 @@ third_party_settings:
       children:
         - user_picture
       parent_name: group_root
-      weight: 6
+      weight: 3
       format_type: accordion_item
       format_settings:
         id: ''
@@ -72,21 +71,9 @@ third_party_settings:
         description: ''
       label: Account
     group_location:
-      children:
-        - field_country
-        - field_district
-        - field_gender
-        - field_first_name
-        - field_last_name
-        - field_emr_name
-        - field_emr_relationship
-        - field_emr_telephone
-        - field_emr_email
-        - field_emr_medical_aid
-        - field_emr_company
-        - field_emr_med_telephone
+      children: {  }
       parent_name: ''
-      weight: 2
+      weight: 1
       format_type: accordion_item
       format_settings:
         id: ''
@@ -96,12 +83,11 @@ third_party_settings:
       label: Location
     group_history:
       children:
-        - field_agreements
-        - field_other_burns
-        - field_participation
         - member_for
-      parent_name: ''
-      weight: 1
+        - field_other_burns
+        - field_agreements
+      parent_name: group_root
+      weight: 4
       format_type: accordion_item
       format_settings:
         id: ''
@@ -110,11 +96,7 @@ third_party_settings:
         description: ''
       label: History
     group_contact:
-      children:
-        - field_links
-        - field_mobile
-        - field_newsletter
-        - field_secondary_mail
+      children: {  }
       parent_name: group_root
       weight: 1
       format_type: accordion_item
@@ -134,6 +116,26 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_agreements:
+    type: entity_reference_label
+    weight: 6
+    region: content
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_other_burns:
+    type: basic_string
+    weight: 5
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  member_for:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   user_picture:
     type: image
     weight: 5
@@ -144,7 +146,6 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
-  field_agreements: true
   field_country: true
   field_date_of_birth: true
   field_district: true
@@ -163,7 +164,5 @@ hidden:
   field_location: true
   field_mobile: true
   field_newsletter: true
-  field_other_burns: true
   field_participation: true
   field_secondary_mail: true
-  member_for: true
