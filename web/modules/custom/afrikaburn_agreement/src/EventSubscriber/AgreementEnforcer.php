@@ -40,9 +40,8 @@ class AgreementEnforcer implements EventSubscriberInterface {
                 ->fetchField();
 
             $node = \Drupal::routeMatch()->getParameter('node');
-            $nid = $node ? $node->id() : FALSE;
 
-            if (!$done && $nid != $aid) {
+            if (!($done || $node->bundle() == 'agreement')) {
               $event->setResponse(new RedirectResponse('/node/' . $aid));
             }
           }
