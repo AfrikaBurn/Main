@@ -22,6 +22,13 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
     if (substr($form_id, 0, strlen($parent)) === $parent) {
       $form['revision_log']['#access'] = false;
     }
+
+    $cid = \Drupal::request()->query->get('field_collective');
+    if ($cid) {
+      $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+      $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
+      $form['field_collective']['#access'] = FALSE;
+    }
   }
 
   if ($form_id == 'node_collective_form') {
@@ -31,10 +38,13 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
   }
 }
 
+/**
+ * Checks whether to display the project
+ * @return [type] [description]
+ */
 function afrikaburn_shared_show_project_links(){
 
   $node = \Drupal::routeMatch()->getParameter('node');
-  $stuff = '';
 
   if ($node && $node->bundle() == 'collective'){
     $uid = \Drupal::currentUser()->id();
