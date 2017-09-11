@@ -16,6 +16,8 @@ class AgreementEnforcer implements EventSubscriberInterface {
 
   public function checkForRedirection(GetResponseEvent $event) {
 
+    if (preg_match('^\/user\/reset', \Drupal::service('path.current')->getPath())) return;
+
     $uid = \Drupal::currentUser()->id();
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
 
@@ -34,11 +36,10 @@ class AgreementEnforcer implements EventSubscriberInterface {
               ->execute()
               ->fetchField();
 
-          $user = \Drupal::routeMatch()->getParameter('user');
           $node = \Drupal::routeMatch()->getParameter('node');
           $nid = $node ? $node->id() : FALSE;
 
-          if (!$user && !$done && $nid != $aid) {
+          if (!$done && $nid != $aid) {
             $event->setResponse(new RedirectResponse('/node/' . $aid));
           }
         }
