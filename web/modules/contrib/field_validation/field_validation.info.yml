@@ -6,8 +6,8 @@ package: Field
 # core: 8.x
 dependencies:
   - field
-# Information added by Drupal.org packaging script on 2016-06-09
-version: '8.x-1.0-alpha5'
+# Information added by Drupal.org packaging script on 2017-09-07
+version: '8.x-1.0-alpha6'
 core: '8.x'
 project: 'field_validation'
-datestamp: 1465497242
+datestamp: 1504775347

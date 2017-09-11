@@ -6,7 +6,7 @@ use Drupal\Component\Plugin\PluginManagerInterface;
 use Drupal\Core\Form\ConfigFormBase;
 
 /**
- * Configure webform admin settings for this site.
+ * Base webform admin settings form.
  */
 abstract class WebformAdminSettingsBaseForm extends ConfigFormBase {
 
@@ -16,7 +16,7 @@ abstract class WebformAdminSettingsBaseForm extends ConfigFormBase {
   protected function getEditableConfigNames() {
     return ['webform.settings'];
   }
-  
+
   /****************************************************************************/
   // Exclude plugins
   /****************************************************************************/

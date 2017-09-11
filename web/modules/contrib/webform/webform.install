@@ -74,7 +74,6 @@ function webform_requirements($phase) {
   // Check HTML email handling.
   /** @var \Drupal\webform\WebformEmailProviderInterface $email_provider */
   $email_provider = \Drupal::service('webform.email_provider');
-  $email_provider->check();
   $mail_module_name = $email_provider->getModuleName();
   $mail_plugin_id = $email_provider->getMailPluginId();
   $mail_plugin_definition = $email_provider->getMailPluginDefinition();
@@ -132,11 +131,11 @@ function webform_requirements($phase) {
 /**
  * Update admin settings to reflect changes in the default settings.
  *
- * @param bool $reset
- *  If set TRUE old admin settings will be completly deleted.
- *
  * If you are moving or updating any admin settings this must be explicitly
  * done via an update hook.
+ *
+ * @param bool $reset
+ *  If set TRUE old admin settings will be completly deleted.
  *
  * @see drush_webform_repair().
  */
@@ -249,7 +248,7 @@ function _webform_update_webform_settings() {
 /**
  * Update webform handler setting to reflect changes in a handler's default configuration.
  *
- * @param $handler_id
+ * @param string $handler_id
  *   A webform handler id.
  *
  * @see \Drupal\webform\Plugin\WebformHandlerInterface
@@ -498,7 +497,6 @@ function webform_update_8041() {
   $config->save();
 }
 
-
 /**
  * Issue #2875371: Can't Add Email Handler w/Select "Send To".
  */
@@ -672,15 +670,15 @@ function _webform_update_8046_convert_data(array $data) {
   $actions_element = [];
   $settings = $data['settings'];
   foreach ($button_names as $button_name) {
-    $settings_prefix = ($button_name == 'submit') ? 'form_' . $button_name : $button_name .'_button';
-    if (!empty($settings[$settings_prefix .'_label'])) {
-      $actions_element['#' . $button_name . '__label'] = $settings[$settings_prefix .'_label'];
+    $settings_prefix = ($button_name == 'submit') ? 'form_' . $button_name : $button_name . '_button';
+    if (!empty($settings[$settings_prefix . '_label'])) {
+      $actions_element['#' . $button_name . '__label'] = $settings[$settings_prefix . '_label'];
     }
-    if (!empty($settings[$settings_prefix .'_attributes'])) {
-      $actions_element['#' . $button_name . '__attributes'] = $settings[$settings_prefix .'_attributes'];
+    if (!empty($settings[$settings_prefix . '_attributes'])) {
+      $actions_element['#' . $button_name . '__attributes'] = $settings[$settings_prefix . '_attributes'];
     }
-    unset($settings[$settings_prefix .'_label']);
-    unset($settings[$settings_prefix .'_attributes']);
+    unset($settings[$settings_prefix . '_label']);
+    unset($settings[$settings_prefix . '_attributes']);
   }
   $data['settings'] = $settings;
 
@@ -688,9 +686,9 @@ function _webform_update_8046_convert_data(array $data) {
   if ($actions_element) {
     $elements = Yaml::decode($data['elements']);
     $elements['actions'] = [
-        '#type' => 'webform_actions',
-        '#title' => (string) t('Submit button(s)'),
-      ] + $actions_element;
+      '#type' => 'webform_actions',
+      '#title' => (string) t('Submit button(s)'),
+    ] + $actions_element;
     $data['elements'] = Yaml::encode($elements);
   }
 
@@ -705,7 +703,7 @@ function webform_update_8047() {
 }
 
 /**
- * Issue #2879421: Cleanup webform.settings
+ * Issue #2879421: Cleanup webform.settings.
  */
 function webform_update_8048() {
   _webform_update_admin_settings();
@@ -720,7 +718,7 @@ function webform_update_8048() {
 
   // Change webform.settings.elements to webform.settings.element.
   if ($config->get('elements')) {
-    $config->set('element', $config->get('element'));
+    $config->set('element', $config->get('elements'));
     $config->clear('elements');
   }
 
@@ -1065,5 +1063,79 @@ function webform_update_8071() {
       $webform->save();
     }
   }
+}
 
+/**
+ * Issue #2901738: Add support conditions to WebformHandler.
+ */
+function webform_update_8072() {
+  /** @var \Drupal\webform\WebformInterface[] $webforms */
+  $webforms = Webform::loadMultiple();
+  foreach ($webforms as $webform) {
+    $handlers = $webform->getHandlers();
+    foreach ($handlers as $handler) {
+      $configuration = $handler->getConfiguration();
+      $handler->setConfiguration($configuration);
+    }
+    $webform->save();
+  }
+}
+
+/**
+ * Issue #2905955: Update hook webform_update_8048 is broken.
+ */
+function webform_update_8073() {
+  webform_update_8048();
+}
+
+/**
+ * Issue #2906292: Display element descriptions as help icon (tooltip).
+ */
+function webform_update_8074() {
+  _webform_update_admin_settings();
+}
+
+/**
+ * Issue #2895671: Entity reference format.
+ */
+function webform_update_8075() {
+  // Update webform.settings.
+  $admin_config = \Drupal::configFactory()->getEditable('webform.settings');
+  if ($admin_config->get('export.entity_reference_format') === 'id') {
+    $admin_config->set('export.entity_reference_items', ['id']);
+  }
+  else {
+    $admin_config->set('export.entity_reference_items', ['id', 'title', 'url']);
+  }
+  $admin_config->clear('export.entity_reference_format');
+  $admin_config->save();
+
+  // Update webform results.export state.
+  /** @var \Drupal\webform\WebformInterface[] $webforms */
+  $webforms = Webform::loadMultiple();
+  foreach ($webforms as $webform) {
+    $namespace = 'webform.webform.' . $webform->id();
+    $values = \Drupal::state()->get($namespace, []);
+    if (empty($values)) {
+      continue;
+    }
+
+    // Loop through state value looking for results.export variable.
+    foreach ($values as $key => &$value) {
+      if (strpos($key, 'results.export') === 0) {
+        switch ($value['entity_reference_format']) {
+          case 'id':
+            $value['entity_reference_items'] = ['id'];
+            break;
+          default:
+
+          case 'link':
+            $value['entity_reference_items'] = ['id', 'title', 'url'];
+            break;
+        }
+        unset($value['entity_reference_format']);
+        \Drupal::state()->set($namespace, $values);
+      }
+    }
+  }
 }

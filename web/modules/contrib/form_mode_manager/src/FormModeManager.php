@@ -49,6 +49,13 @@ class FormModeManager implements FormModeManagerInterface {
   public $formModesExcluded;
 
   /**
+   * The Routes Manager Plugin.
+   *
+   * @var \Drupal\form_mode_manager\EntityRoutingMapManager
+   */
+  protected $entityRoutingMap;
+
+  /**
    * Constructs a FormDisplayManager object.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
@@ -59,12 +66,15 @@ class FormModeManager implements FormModeManagerInterface {
    *   The entity display repository.
    * @param \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_type_bundle_info
    *   The entity type bundle info.
+   * @param \Drupal\form_mode_manager\EntityRoutingMapManager $plugin_routes_manager
+   *   Plugin EntityRoutingMap to retrieve entity form operation routes.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, ConfigFactoryInterface $config_factory, EntityDisplayRepositoryInterface $entity_display_repository, EntityTypeBundleInfoInterface $entity_type_bundle_info) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, ConfigFactoryInterface $config_factory, EntityDisplayRepositoryInterface $entity_display_repository, EntityTypeBundleInfoInterface $entity_type_bundle_info, EntityRoutingMapManager $plugin_routes_manager) {
     $this->entityTypeManager = $entity_type_manager;
     $this->configFactory = $config_factory;
     $this->entityDisplayRepository = $entity_display_repository;
     $this->entityTypeBundleInfo = $entity_type_bundle_info;
+    $this->entityRoutingMap = $plugin_routes_manager;
     $this->setFormModesToExclude();
   }
 
@@ -116,19 +126,18 @@ class FormModeManager implements FormModeManagerInterface {
    */
   public function getFormModesByEntity($entity_type_id) {
     $form_modes = $this->entityDisplayRepository->getFormModes($entity_type_id);
-    $this->filterExcludedFormModes($form_modes, $entity_type_id);
-
+    $this->filterExcludedFormModes($form_modes, $entity_type_id, FALSE);
     return $form_modes;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function getAllFormModesDefinitions() {
+  public function getAllFormModesDefinitions($ignore_excluded = FALSE) {
     $filtered_form_modes = [];
     $form_modes = $this->entityDisplayRepository->getAllFormModes();
     foreach ($form_modes as $entity_type_id => $form_mode) {
-      $form_mode = $this->filterExcludedFormModes($form_mode, $entity_type_id);
+      $this->filterExcludedFormModes($form_mode, $entity_type_id, $ignore_excluded);
       if (!empty($form_mode)) {
         $filtered_form_modes[$entity_type_id] = $form_mode;
       }
@@ -158,18 +167,31 @@ class FormModeManager implements FormModeManagerInterface {
   /**
    * {@inheritdoc}
    */
-  public function filterExcludedFormModes(array &$form_mode, $entity_type_id) {
-    foreach ($form_mode as $form_mode_id => $form_mode_definition) {
-      $form_modes = $this->getFormModeExcluded($entity_type_id);
-      if (in_array($form_mode_id, $form_modes)) {
-        unset($form_mode[$form_mode_id]);
+  public function filterExcludedFormModes(array &$form_modes, $entity_type_id, $ignore_excluded) {
+    foreach ($form_modes as $form_mode_id => $form_mode_definition) {
+      // Exclude if current form_mode is malformed eg: "entity_test".
+      if ($this->candidateToExclude($form_mode_definition, $entity_type_id)) {
+        unset($form_modes[$form_mode_id]);
       }
-      elseif ($this->candidateToExclude($form_mode_definition, $entity_type_id)) {
-        unset($form_mode[$form_mode_id]);
+      elseif (!$ignore_excluded && $this->formModeIsExcluded($this->getFormModeExcluded($entity_type_id), $form_mode_id)) {
+        unset($form_modes[$form_mode_id]);
       }
     }
+  }
 
-    return $form_mode;
+  /**
+   * Constructs a FormDisplayManager object.
+   *
+   * @param array $form_modes_to_exclude
+   *   Entity type manager service.
+   * @param string $form_mode_id
+   *   Identifier of form mode prefixed by entity type id.
+   *
+   * @return bool
+   *   Determine if current form mode is excluded by configuration.
+   */
+  protected function formModeIsExcluded(array $form_modes_to_exclude, $form_mode_id) {
+    return (!empty($form_modes_to_exclude) && in_array($form_mode_id, $form_modes_to_exclude[0]['to_exclude']));
   }
 
   /**
@@ -283,7 +305,10 @@ class FormModeManager implements FormModeManagerInterface {
    * {@inheritdoc}
    */
   public function setFormClassPerFormModes(EntityTypeInterface $entity_definition, $form_mode_name) {
-    if ($default_form = $entity_definition->getFormClass('default')) {
+    $entity_type_id = $entity_definition->id();
+    /** @var \Drupal\form_mode_manager\EntityRoutingMapBase $route_mapper_plugin */
+    $route_mapper_plugin = $this->entityRoutingMap->createInstance($entity_type_id, ['entityTypeId' => $entity_type_id]);
+    if ($default_form = $entity_definition->getFormClass($route_mapper_plugin->getDefaultFormClass())) {
       $entity_definition->setFormClass($form_mode_name, $default_form);
     }
   }

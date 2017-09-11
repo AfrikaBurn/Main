@@ -74,6 +74,13 @@ class WebformAdminSettingsAdvancedForm extends WebformAdminSettingsBaseForm {
       ],
       '#default_value' => $config->get('ui.video_display'),
     ];
+    $form['ui']['description_help'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Display element descriptions as help icon (tooltip)'),
+      '#description' => $this->t("If checked, all element description will be moved to help icons."),
+      '#return_value' => TRUE,
+      '#default_value' => $config->get('ui.description_help'),
+    ];
     $form['ui']['details_save'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Save details open/close state'),
@@ -117,7 +124,7 @@ class WebformAdminSettingsAdvancedForm extends WebformAdminSettingsBaseForm {
       '#type' => 'checkbox',
       '#title' => $this->t('Disable promotions'),
       '#description' => $this->t('If checked, dismissible promotion messages that appear when the Webform module is updated will be disabled.') . ' ' .
-        $this->t('Promotions on the <a href=":href">Webform: Add-ons</a> page will still be displayed.', [':href' =>  Url::fromRoute('webform.addons')->toString()]) . '<br/>' .
+        $this->t('Promotions on the <a href=":href">Webform: Add-ons</a> page will still be displayed.', [':href' => Url::fromRoute('webform.addons')->toString()]) . '<br/>' .
         $this->t('Note: Promotions are only visible to users who can <em>administer modules</em>.'),
       '#return_value' => TRUE,
       '#default_value' => $config->get('ui.promotions_disabled'),
@@ -159,7 +166,6 @@ class WebformAdminSettingsAdvancedForm extends WebformAdminSettingsBaseForm {
       '#description' => $this->t("Above test data is keyed by full or partial element names. For example, Using 'zip' will populate fields that are named 'zip' and 'zip_code' but not 'zipcode' or 'zipline'."),
       '#default_value' => $config->get('test.names'),
     ];
-
 
     // Batch.
     $form['batch'] = [

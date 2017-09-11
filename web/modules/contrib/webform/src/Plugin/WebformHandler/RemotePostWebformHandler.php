@@ -3,12 +3,14 @@
 namespace Drupal\webform\Plugin\WebformHandler;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Serialization\Yaml;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\webform\Plugin\WebformHandlerBase;
 use Drupal\webform\WebformInterface;
+use Drupal\webform\WebformSubmissionConditionsValidatorInterface;
 use Drupal\webform\WebformSubmissionInterface;
 use Drupal\webform\WebformTokenManagerInterface;
 use GuzzleHttp\ClientInterface;
@@ -56,8 +58,8 @@ class RemotePostWebformHandler extends WebformHandlerBase {
   /**
    * {@inheritdoc}
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, LoggerInterface $logger, ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager, ModuleHandlerInterface $module_handler, ClientInterface $http_client, WebformTokenManagerInterface $token_manager) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition, $logger, $config_factory, $entity_type_manager);
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, LoggerChannelFactoryInterface $logger_factory, ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager, WebformSubmissionConditionsValidatorInterface $conditions_validator, ModuleHandlerInterface $module_handler, ClientInterface $http_client, WebformTokenManagerInterface $token_manager) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition, $logger_factory, $config_factory, $entity_type_manager, $conditions_validator);
     $this->moduleHandler = $module_handler;
     $this->httpClient = $http_client;
     $this->tokenManager = $token_manager;
@@ -71,9 +73,10 @@ class RemotePostWebformHandler extends WebformHandlerBase {
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('logger.factory')->get('webform.remote_post'),
+      $container->get('logger.factory'),
       $container->get('config.factory'),
       $container->get('entity_type.manager'),
+      $container->get('webform_submission.conditions_validator'),
       $container->get('module_handler'),
       $container->get('http_client'),
       $container->get('webform.token_manager')
@@ -177,20 +180,9 @@ class RemotePostWebformHandler extends WebformHandlerBase {
         '#type' => 'details',
         '#open' => ($state === WebformSubmissionInterface::STATE_COMPLETED),
         '#title' => $state_item['label'],
+        '#description' => $state_item['description'],
         '#access' => $state_item['access'],
       ];
-      $form[$state]['description'] = [
-        '#markup' => $state_item['description'],
-        '#prefix' => '<div>',
-        '#suffix' => '</div>',
-      ];
-      if ($state === WebformSubmissionInterface::STATE_COMPLETED) {
-        $form[$state]['token'] = [
-          '#markup' => $this->t('Response data can be passed to submission data using [webform:handler:{machine_name}:{state}:{key}] tokens. (ie [webform:handler:remote_post:completed:confirmation_number])'),
-          '#prefix' => '<div>',
-          '#suffix' => '</div>',
-        ];
-      }
       $form[$state][$state_url] = [
         '#type' => 'url',
         '#title' => $this->t('@title URL', $t_args),
@@ -208,14 +200,21 @@ class RemotePostWebformHandler extends WebformHandlerBase {
         '#states' => ['visible' => [':input[name="settings[' . $state_url . ']"]' => ['filled' => TRUE]]],
         '#default_value' => $this->configuration[$state_custom_data],
       ];
+      if ($state === WebformSubmissionInterface::STATE_COMPLETED) {
+        $form[$state]['token'] = [
+          '#type' => 'webform_message',
+          '#message_message' => $this->t('Response data can be passed to submission data using [webform:handler:{machine_name}:{state}:{key}] tokens. (ie [webform:handler:remote_post:completed:confirmation_number])'),
+          '#message_type' => 'info',
+        ];
+      }
     }
 
-    // Settings.
-    $form['general'] = [
-      '#type' => 'details',
-      '#title' => $this->t('Settings'),
+    // Additional.
+    $form['additional'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Additional settings'),
     ];
-    $form['general']['type'] = [
+    $form['additional']['type'] = [
       '#type' => 'select',
       '#title' => $this->t('Post type'),
       '#description' => $this->t('Use x-www-form-urlencoded if unsure, as it is the default format for HTML webforms. You also have the option to post data in <a href="http://www.json.org/" target="_blank">JSON</a> format.'),
@@ -227,7 +226,7 @@ class RemotePostWebformHandler extends WebformHandlerBase {
       '#parents' => ['settings', 'type'],
       '#default_value' => $this->configuration['type'],
     ];
-    $form['general']['custom_data'] = [
+    $form['additional']['custom_data'] = [
       '#type' => 'webform_codemirror',
       '#mode' => 'yaml',
       '#title' => $this->t('Custom data'),
@@ -235,7 +234,7 @@ class RemotePostWebformHandler extends WebformHandlerBase {
       '#parents' => ['settings', 'custom_data'],
       '#default_value' => $this->configuration['custom_data'],
     ];
-    $form['general']['custom_options'] = [
+    $form['additional']['custom_options'] = [
       '#type' => 'webform_codemirror',
       '#mode' => 'yaml',
       '#title' => $this->t('Custom options'),
@@ -243,7 +242,13 @@ class RemotePostWebformHandler extends WebformHandlerBase {
       '#parents' => ['settings', 'custom_options'],
       '#default_value' => $this->configuration['custom_options'],
     ];
-    $form['general']['debug'] = [
+
+    // Development.
+    $form['development'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Development settings'),
+    ];
+    $form['development']['debug'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Enable debugging'),
       '#description' => $this->t('If checked, posted submissions will be displayed onscreen to all users.'),
@@ -340,9 +345,9 @@ class RemotePostWebformHandler extends WebformHandlerBase {
         '@type' => $request_type,
         '@url' => $request_url,
         '@message' => $message,
-        'link' => $this->getWebform()->toLink($this->t('Edit'), 'handlers-form')->toString(),
+        'link' => $this->getWebform()->toLink($this->t('Edit'), 'handlers')->toString(),
       ];
-      $this->logger->error('@form webform remote @type post (@state) to @url failed. @message', $context);
+      $this->getLogger()->error('@form webform remote @type post (@state) to @url failed. @message', $context);
       return;
     }
 

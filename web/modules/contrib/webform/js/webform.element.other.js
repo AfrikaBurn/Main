@@ -24,11 +24,17 @@
 
     if (show) {
       // Limit the other inputs width to the parent's container.
-      $element.width($element.parent().width());
+      // If the parent container is not visible it's width will be 0
+      // and ignored.
+      var width = $element.parent().width();
+      if (width) {
+        $element.width(width);
+      }
+
       // Display the element.
       $element[showEffect]();
       // Focus and require the input.
-      $input.focus().prop('required', true);
+      $input.focus().prop('required', true).attr('aria-required', 'aria-required');
       // Restore the input's value.
       var value = $input.data('webform-value');
       if (value !== undefined) {
@@ -46,7 +52,7 @@
       // Save the input's value.
       $input.data('webform-value', $input.val());
       // Empty and un-required the input.
-      $input.val('').prop('required', false);
+      $input.val('').prop('required', false).removeAttr('aria-required');
     }
   }
 

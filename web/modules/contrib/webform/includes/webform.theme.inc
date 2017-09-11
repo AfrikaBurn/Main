@@ -11,7 +11,9 @@ use Drupal\Core\Url;
 use Drupal\Core\Serialization\Yaml;
 use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Xss;
+use Drupal\image\Entity\ImageStyle;
 use Drupal\webform\Element\WebformCodeMirror;
+use Drupal\webform\Element\WebformHtmlEditor;
 use Drupal\webform\WebformMessageManagerInterface;
 use Drupal\webform\Utility\WebformYaml;
 use Drupal\webform\Utility\WebformDateHelper;
@@ -630,8 +632,9 @@ function template_preprocess_webform_progress(array &$variables) {
   /** @var \Drupal\webform\WebformInterface $webform */
   $webform = $variables['webform'];
   $current_page = $variables['current_page'];
+  $operation = $variables['operation'];
 
-  $pages = $webform->getPages();
+  $pages = $webform->getPages($operation);
 
   $page_keys = array_keys($pages);
   $page_indexes = array_flip($page_keys);
@@ -642,8 +645,9 @@ function template_preprocess_webform_progress(array &$variables) {
   if ($webform->getSetting('wizard_progress_bar')) {
     $variables['bar'] = [
       '#theme' => ($libaries_manager->isIncluded('progress-tracker')) ? 'webform_progress_tracker' : 'webform_progress_bar',
-      '#webform' => $variables['webform'],
-      '#current_page' => $variables['current_page'],
+      '#webform' => $webform,
+      '#current_page' => $current_page,
+      '#operation' => $operation,
     ];
   }
 
@@ -696,8 +700,9 @@ function _template_preprocess_webform_progress(array &$variables) {
   /** @var \Drupal\webform\WebformInterface $webform */
   $webform = $variables['webform'];
   $current_page = $variables['current_page'];
+  $operation = $variables['operation'];
 
-  $pages = $webform->getPages();
+  $pages = $webform->getPages($operation);
 
   $page_keys = array_keys($pages);
   $page_indexes = array_flip($page_keys);
@@ -870,6 +875,30 @@ function template_preprocess_webform_composite_telephone(array &$variables) {
 /******************************************************************************/
 
 /**
+ * Prepares variables for element help.
+ *
+ * Default template: webform-element-help.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing the following key:
+ *   - element: The webform element.
+ *   - help: The help content.
+ */
+function template_preprocess_webform_element_help(array &$variables) {
+  $variables['help_icon'] = [
+    '#type' => 'link',
+    '#title' => '?',
+    '#url' => Url::fromRoute('<none>', [], ['fragment' => 'help']),
+    '#attributes' => [
+      'title' => $variables['help'],
+      // Add 'data-webform-help' attribute which support HTML markup.
+      'data-webform-help' => WebformHtmlEditor::stripTags($variables['help']),
+      'class' => ['webform-element-help'],
+    ],
+  ];
+}
+
+/**
  * Prepares variables for a managed file element.
  *
  * @param array $variables
@@ -936,9 +965,62 @@ function template_preprocess_webform_element_document_file(array &$variables) {
  *   - value: The content for the element.
  *   - options Associative array of options for element.
  *   - file: The element's File object.
+ *   - style_name: An image style name.
+ *   - format: Image formatting (link or modal)
  */
 function template_preprocess_webform_element_image_file(array &$variables) {
-  template_preprocess_webform_element_managed_file($variables);
+  if (!empty($variables['file'])) {
+    /** @var \Drupal\file\FileInterface $file */
+    $file = $variables['file'];
+
+    $style_name = $variables['style_name'];
+    $format = $variables['format'];
+
+    $uri = $file->getFileUri();
+    $url = Url::fromUri(file_create_url($uri));
+
+    // Build image.
+    if (\Drupal::moduleHandler()->moduleExists('image') && $style_name && ImageStyle::load($style_name)) {
+      $variables['image'] = [
+        '#theme' => 'image_style',
+        '#style_name' => $variables['style_name'],
+      ];
+    }
+    else {
+      // Note: The 'image' template uses root-relative paths.
+      // The 'image' is preprocessed to use absolute URLs.
+      // @see webform_preprocess_image().
+      $variables['image'] = [
+        '#theme' => 'image',
+      ];
+    }
+    $variables['image'] += [
+      '#uri' => $uri,
+      '#attributes' => ['class' => ['webform-image-file'], 'alt' => $file->getFilename()],
+    ];
+
+    // Wrap 'image' in a link/modal.
+    if ($format && $format != 'image') {
+      $variables['image'] = [
+        '#type' => 'link',
+        '#title' => $variables['image'],
+        '#url' => $url,
+      ];
+      switch ($format) {
+        case 'modal':
+          $variables['image'] += [
+            '#attributes' => ['class' => ['js-webform-image-file-modal', 'webform-image-file-modal']],
+            '#attached' => ['library' => ['webform/webform.element.image_file.modal']],
+          ];
+          break;
+
+        case 'link':
+          $variables['image'] += ['#attributes' => ['class' => ['webform-image-file-link']]];
+          break;
+      }
+    }
+
+  }
 }
 
 /**

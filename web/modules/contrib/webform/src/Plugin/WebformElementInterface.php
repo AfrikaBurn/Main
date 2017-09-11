@@ -313,7 +313,6 @@ interface WebformElementInterface extends PluginInspectionInterface, PluginFormI
    *   TRUE is the element can be accessed by the user.
    *
    * @see \Drupal\webform\Entity\Webform::checkAccessRules
-   * @see \Drupal\webform\Entity\Webform::checkAccessRule
    */
   public function checkAccessRules($operation, array $element, AccountInterface $account = NULL);
 
@@ -444,6 +443,21 @@ interface WebformElementInterface extends PluginInspectionInterface, PluginFormI
    *   The element's submission value.
    */
   public function getValue(array $element, WebformSubmissionInterface $webform_submission, array $options = []);
+
+  /**
+   * Get an element's submission raw value.
+   *
+   * @param array $element
+   *   An element.
+   * @param \Drupal\webform\WebformSubmissionInterface $webform_submission
+   *   A webform submission.
+   * @param array $options
+   *   An array of options.
+   *
+   * @return array|string
+   *   The element's submission value.
+   */
+  public function getRawValue(array $element, WebformSubmissionInterface $webform_submission, array $options = []);
 
   /**
    * Get an element's available single value formats.
@@ -654,6 +668,23 @@ interface WebformElementInterface extends PluginInspectionInterface, PluginFormI
    *   An array of element selectors.
    */
   public function getElementSelectorOptions(array $element);
+
+  /**
+   * Get an element's (sub)input selector value.
+   *
+   * @param string $selector
+   *   CSS :input selector.
+   * @param string $trigger
+   *   Trigger from #states.
+   * @param array $element
+   *   An element.
+   * @param \Drupal\webform\WebformSubmissionInterface $webform_submission
+   *   A webform submission.
+   *
+   * @return mixed
+   *   The element input's value.
+   */
+  public function getElementSelectorInputValue($selector, $trigger, array $element, WebformSubmissionInterface $webform_submission);
 
   /****************************************************************************/
   // Operation methods.

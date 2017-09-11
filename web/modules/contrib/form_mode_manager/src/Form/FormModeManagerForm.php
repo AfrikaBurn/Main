@@ -93,7 +93,7 @@ class FormModeManagerForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form_modes = $this->formModeManager->getAllFormModesDefinitions();
+    $form_modes = $this->formModeManager->getAllFormModesDefinitions(TRUE);
 
     $form['vertical_tabs'] = [
       '#type' => 'vertical_tabs',
@@ -126,17 +126,19 @@ class FormModeManagerForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
 
-    $form_modes = $this->formModeManager->getAllFormModesDefinitions();
+    $form_modes = $this->formModeManager->getAllFormModesDefinitions(TRUE);
     foreach ($form_modes as $entity_type_id => $modes) {
       $this->settings->set("form_modes.{$entity_type_id}.to_exclude", $form_state->getValue('element_' . $entity_type_id));
     }
     $this->settings->save();
 
     $this->cacheTagsInvalidator->invalidateTags([
-      'local_action',
-      'entity_types',
-      'rendered',
       'routes',
+      'rendered',
+      'local_tasks',
+      'local_task',
+      'local_action',
+      'entity_bundles',
     ]);
   }
 

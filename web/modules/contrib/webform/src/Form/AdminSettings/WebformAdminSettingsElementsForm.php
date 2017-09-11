@@ -39,7 +39,7 @@ class WebformAdminSettingsElementsForm extends WebformAdminSettingsBaseForm {
    * @var \Drupal\webform\WebformLibrariesManagerInterface
    */
   protected $librariesManager;
-  
+
   /**
    * {@inheritdoc}
    */
@@ -234,7 +234,7 @@ class WebformAdminSettingsElementsForm extends WebformAdminSettingsBaseForm {
     ];
     $t_args = [
       ':dialog_href' => Url::fromRoute('<current>', [], ['fragment' => 'edit-ui'])->toString(),
-      ':modules_href' => Url::fromRoute('system.modules_list', [], ['fragment' => 'edit-modules-core-experimental'])->toString()
+      ':modules_href' => Url::fromRoute('system.modules_list', [], ['fragment' => 'edit-modules-core-experimental'])->toString(),
     ];
     $form['html_editor']['message'] = [
       '#type' => 'webform_message',
@@ -281,14 +281,14 @@ class WebformAdminSettingsElementsForm extends WebformAdminSettingsBaseForm {
     $form['select']['default_empty_option_required'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Default empty option required'),
-      '#description' => $this->t('The label to show for the first default option for required select menus.') . '<br />' .
+      '#description' => $this->t('The label to show for the first default option for required select menus.') . '<br /><br />' .
         $this->t('Defaults to: %value', ['%value' => $this->t('- Select -')]),
       '#default_value' => $config->get('element.default_empty_option_required'),
     ];
     $form['select']['default_empty_option_optional'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Default empty option optional'),
-      '#description' => $this->t('The label to show for the first default option for optional select menus.') . '<br />' .
+      '#description' => $this->t('The label to show for the first default option for optional select menus.') . '<br /><br />' .
         $this->t('Defaults to: %value', ['%value' => $this->t('- None -')]),
       '#default_value' => $config->get('element.default_empty_option_optional'),
     ];
@@ -373,7 +373,6 @@ class WebformAdminSettingsElementsForm extends WebformAdminSettingsBaseForm {
         ],
       ];
 
-
       $row = [];
 
       // Title.
@@ -385,7 +384,16 @@ class WebformAdminSettingsElementsForm extends WebformAdminSettingsBaseForm {
       // Item format.
       $item_formats = $element_plugin->getItemFormats();
       foreach ($item_formats as $format_name => $format_label) {
-        $item_formats[$format_name] = new FormattableMarkup('@label (@name)', ['@label' => $format_label, '@name' => $format_name]);
+        if (is_array($format_label)) {
+          // Support optgroup.
+          // @see \Drupal\webform\Plugin\WebformElement\WebformImageFile::getItemFormats.
+          foreach ($format_label as $format_label_value => $format_label_text) {
+            $item_formats[$format_name][$format_label_value] = new FormattableMarkup('@label (@name)', ['@label' => $format_label_text, '@name' => $format_label_value]);
+          }
+        }
+        else {
+          $item_formats[$format_name] = new FormattableMarkup('@label (@name)', ['@label' => $format_label, '@name' => $format_name]);
+        }
       }
       $item_formats = ['' => '<' . $this->t('Default') . '>'] + $item_formats;
       $item_default_format = $element_plugin->getItemDefaultFormat();
@@ -394,7 +402,10 @@ class WebformAdminSettingsElementsForm extends WebformAdminSettingsBaseForm {
         '#type' => 'select',
         '#title' => $this->t('Item format'),
         '#title_display' => 'invisible',
-        '#description' => $this->t('Defaults to: %value', ['%value' => $item_default_format_label]),
+        '#field_suffix' => [
+          '#type' => 'webform_help',
+          '#help' => $this->t('Defaults to: %value', ['%value' => $item_default_format_label]),
+        ],
         '#options' => $item_formats,
         '#default_value' => $config->get("format.$element_id"),
         '#parents' => ['format', $element_id, 'item'],
@@ -414,7 +425,10 @@ class WebformAdminSettingsElementsForm extends WebformAdminSettingsBaseForm {
           '#type' => 'select',
           '#title' => $this->t('Items format'),
           '#title_display' => 'invisible',
-          '#description' => $this->t('Defaults to: %value', ['%value' => $items_default_format_label]),
+          '#field_suffix' => [
+            '#type' => 'webform_help',
+            '#help' => $this->t('Defaults to: %value', ['%value' => $items_default_format_label]),
+          ],
           '#options' => $items_formats,
           '#default_value' => $config->get("format.$element_id"),
           '#parents' => ['format', $element_id, 'items'],

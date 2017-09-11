@@ -136,7 +136,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
         '#markup' => '<img' . $img_attributes . ' />',
       ],
       [
-        '#markup' => $this->t('The Lingotek-Inside Drupal Module is the only Drupal module to integrate a translation management system (TMS) directly into Drupal, thus allowing the Drupal community to use professional-grade translation technologies (e.g. machine translation, translation memory, CAT tool) without ever having to leave the comfort of the Drupal environment.'),
+        '#markup' => $this->t('The Lingotek-Inside Drupal Module integrates a translation management system (TMS) directly into Drupal, thus allowing the Drupal community to use professional-grade translation technologies (e.g. machine translation, translation memory, CAT tool) without ever having to leave the comfort of the Drupal environment.'),
         '#prefix' => '<p>',
         '#suffix' => '<p>',
       ],
@@ -278,8 +278,16 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
     // Integrations: Webform Stripe integration.
     $projects['stripe_webform'] = [
       'title' => $this->t('Webform Stripe'),
-      'description' => $this->t('Provides a stripe webform element and default handlers'),
+      'description' => $this->t('Provides a stripe webform element and default handlers.'),
       'url' => Url::fromUri('https://www.drupal.org/project/stripe_webform'),
+      'category' => 'integration',
+    ];
+
+    // Integrations: Webform SugarCRM Integration
+    $projects['webform_sugarcrm'] = [
+      'title' => $this->t('Webform SugarCRM Integration'),
+      'description' => $this->t('Provides integration for webform submission with SugarCRM.'),
+      'url' => Url::fromUri('https://www.drupal.org/project/webform_sugarcrm'),
       'category' => 'integration',
     ];
 
@@ -298,7 +306,6 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'url' => Url::fromUri('https://www.drupal.org/project/sfweb2lead_webform'),
       'category' => 'integration',
     ];
-
 
     // Mail: Mail System.
     $projects['mailsystem'] = [
@@ -328,15 +335,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
     $projects['webform_migrate'] = [
       'title' => $this->t('Webform Migrate'),
       'description' => $this->t('Provides migration routines from d6, d7 webform to d8 webform.'),
-      'url' => Url::fromUri('https://github.com/heshanlk/webform_migrate'),
-      'category' => 'migrate',
-    ];
-
-    // Migrate: YAML Form Migrate.
-    $projects['yamlform_migrate'] = [
-      'title' => $this->t('YAML Form Migrate'),
-      'description' => $this->t('Provides migration routines from Drupal 6 YAML Form module to Drupal 8 YAML Form module.'),
-      'url' => Url::fromUri('https://www.drupal.org/sandbox/dippers/2819169'),
+      'url' => Url::fromUri('https://www.drupal.org/project/webform_migrate'),
       'category' => 'migrate',
     ];
 
