@@ -36,7 +36,17 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
     $form['field_col_admins']['widget'][0]['target_id']['#default_value'] = $user;
     $form['field_col_members']['widget'][0]['target_id']['#default_value'] = $user;
   }
+
+  if ($form_id == 'user_pass_reset') {
+    $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_pass_reset_submit';
+  }
 }
+
+function afrikaburn_shared_pass_reset_submit(){
+  $redirect = new RedirectResponse('/');
+  $redirect->send();
+}
+
 
 /**
  * Checks whether to display the project
