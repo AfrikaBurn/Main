@@ -43,7 +43,7 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
 }
 
 function afrikaburn_shared_pass_reset_submit(array &$form, FormStateInterface $form_state) {
-  $form_state->setRedirect('<front>');
+  // $form_state->setRedirect('<front>');
 }
 
 
