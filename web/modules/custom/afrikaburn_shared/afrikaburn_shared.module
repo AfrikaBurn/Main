@@ -37,8 +37,11 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
     $form['field_col_members']['widget'][0]['target_id']['#default_value'] = $user;
   }
 
-  if ($form_id == 'user_pass_reset') {
-    $form['#action'] .= '?destination=/';
+  if ($form_id == 'user_form') {
+    $parts = array_reverse(explode('/', \Drupal::request()->server->get('HTTP_REFERER')));
+    if ($parts[1] == 'reset') {
+      \Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
+    }
   }
 }
 
