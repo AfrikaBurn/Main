@@ -39,7 +39,8 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
 
   if ($form_id == 'user_form') {
     if (preg_match('/user\/reset/', \Drupal::request()->server->get('HTTP_REFERER'))) {
-      return new Symfony\Component\HttpFoundation\RedirectResponse('<front>');
+      $response = new Symfony\Component\HttpFoundation\RedirectResponse('<front>');
+      $response->send();
     }
   }
 }
