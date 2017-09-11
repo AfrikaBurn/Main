@@ -214,7 +214,7 @@ function _afrikaburn_emails_recipient_new_invitees($entity){
     $value = $field_col_invitee->getValue();
     if ($value) {
       $newbs = array_column(
-        $value->getValue(),
+        $value,
         'value'
       );
     }

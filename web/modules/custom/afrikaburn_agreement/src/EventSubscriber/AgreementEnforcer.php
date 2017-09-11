@@ -34,10 +34,11 @@ class AgreementEnforcer implements EventSubscriberInterface {
               ->execute()
               ->fetchField();
 
+          $user = \Drupal::routeMatch()->getParameter('user');
           $node = \Drupal::routeMatch()->getParameter('node');
           $nid = $node ? $node->id() : FALSE;
 
-          if (!$done && $nid != $aid) {
+          if (!$user && !$done && $nid != $aid) {
             $event->setResponse(new RedirectResponse('/node/' . $aid));
           }
         }

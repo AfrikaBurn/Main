@@ -1,0 +1,15 @@
+afrikaburn_shared.accept_invite:
+  path: '/collective/{nid}/accept'
+  defaults: 
+    _controller: '\Drupal\afrikaburn_shared\InviteController::accept'
+    _title: 'Accept Invitation'
+  requirements: 
+    _permission: 'access content'
+
+afrikaburn_shared.ignore_invite:
+  path: '/collective/{nid}/ignore'
+  defaults: 
+    _controller: '\Drupal\afrikaburn_shared\InviteController::ignore'
+    _title: 'Ignore Invitation'
+  requirements: 
+    _permission: 'access content'

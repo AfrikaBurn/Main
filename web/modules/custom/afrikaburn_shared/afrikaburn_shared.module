@@ -6,8 +6,14 @@
  */
 
 use \Drupal\Core\Form\FormStateInterface;
+use \Drupal\Core\Entity\EntityInterface;
+use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 
-function afrikaburn_shared_form_alter(&$form, $form_state, $form_id){
+/**
+ * Implements hook_form_alter().
+ * Hooked to attach form behaviour, hide revision section.
+ */
+function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
 
   $form['#attached']['library'][] = 'afrikaburn_shared/form';
 
@@ -18,3 +24,35 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id){
   }
 
 }
+
+// /**
+//  * Implements hook_ENTITY_TYPE_view().
+//  * Hooked to add collective members.
+//  */
+// function afrikaburn_shared_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+//   if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'collective') {
+
+//     $field_col_invitee = $entity->get('field_col_invitee');
+
+//     if ($field_col_invitee){
+//       $invitees = array_column(
+//         $field_col_invitee->getValue(),
+//         'value'
+//       );
+
+//       $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+//       $mails = [$user->get('mail')->getValue(), $user->get('field_secondary_mail')->getValue()];
+//       $changed = false;
+//       foreach($mails as $index=>$mail){
+//         if ($mail) {
+//           $value = array_values(array_column($mail, 'value'))[0];
+//           if (in_array($value, $invitees)) {
+//             $field_col_invitee->get($index)->set(false);
+//             $changed = true;
+//           }
+//         }
+//       }
+//       if ($changed) $entity->save();
+//     }
+//   }
+// }
