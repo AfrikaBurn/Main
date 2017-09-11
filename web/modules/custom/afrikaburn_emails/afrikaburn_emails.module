@@ -136,19 +136,25 @@ function _afrikaburn_emails_recipient_author($entity){
  */
 function _afrikaburn_emails_recipient_group($entity){
 
+  $members = [];
   $addresses = [];
 
-  $members = $entity
-    ->get('field_collective')
+  $field_collective = $entity->get('field_collective');
+  if ($field_collective) {
+    $collective = $field_collective
     ->first()
-    ->get('entity')
-    ->getTarget()    
-    ->get('field_col_members')
-    ->referencedEntities();
+    ->get('entity');
 
-  foreach ($members as $member) {
-    $email = $member->getEmail();
-    $addresses[$email] = $email;
+    if ($collective) {
+      $members = $collective
+        ->getTarget()
+        ->get('field_col_members')
+        ->referencedEntities();    
+      foreach ($members as $member) {
+        $email = $member->getEmail();
+        $addresses[$email] = $email;
+      }
+    }
   }
 
   return $addresses;
@@ -161,7 +167,7 @@ function _afrikaburn_emails_recipient_group($entity){
  */
 function _afrikaburn_emails_recipient_invitees($entity){
 
-  $addresses = [];
+  $invitees = [];
 
   $invitees = array_column(
     $entity
@@ -180,21 +186,27 @@ function _afrikaburn_emails_recipient_invitees($entity){
  */
 function _afrikaburn_emails_recipient_new_invitees($entity){
 
-  $addresses = [];
-
-  $originals = array_column(
-    $entity->original
+  $originals = $entity->original
       ->get('field_col_invitee')
-      ->getValue(),
-    'value'
-  );
+      ->getValue()
+      ? array_column(
+          $entity->original
+            ->get('field_col_invitee')
+            ->getValue(),
+          'value'
+        )
+      : [];
 
-  $invitees = array_column(
-    $entity
+  $invitees = $entity
       ->get('field_col_invitee')
-      ->getValue(),
-    'value'
-  );
+      ->getValue()
+      ? array_column(
+          $entity
+            ->get('field_col_invitee')
+            ->getValue(),
+          'value'
+        )
+      : [];
 
   return array_diff($invitees, $originals);
 }
