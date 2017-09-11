@@ -25,7 +25,7 @@ class InviteController extends ControllerBase {
         \Drupal::service('path.current')->getPath());
       $redirect->send();
       drupal_set_message(t('Howdy! You need to be logged in to accept a collective invite, so...'), 'status', TRUE);
-      return [];
+      exit;
     }
 
     $nid = \Drupal::routeMatch()->getParameter('nid');
@@ -71,7 +71,7 @@ class InviteController extends ControllerBase {
         \Drupal::service('path.current')->getPath());
       $redirect->send();
       drupal_set_message(t('Howdy! You need to be logged in to ignore a collective invite, so...'), 'status', TRUE);
-      return [];
+      exit;
     }
 
     $nid = \Drupal::routeMatch()->getParameter('nid');
