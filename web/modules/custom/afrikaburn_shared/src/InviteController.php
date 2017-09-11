@@ -20,10 +20,7 @@ class InviteController extends ControllerBase {
   public static function accept() {
 
     if (\Drupal::currentUser()->isAnonymous()){
-      return array(
-        '#type' => 'markup',
-        '#markup' => 'Woah! You need to be logged in for this, so...',
-      );
+      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
 
     $nid = \Drupal::routeMatch()->getParameter('nid');
@@ -65,10 +62,7 @@ class InviteController extends ControllerBase {
   public static function ignore() {
 
     if (\Drupal::currentUser()->isAnonymous()){
-      return array(
-        '#type' => 'markup',
-        '#markup' => 'Woah! You need to be logged in for this, so...',
-      );
+      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
 
     $nid = \Drupal::routeMatch()->getParameter('nid');
