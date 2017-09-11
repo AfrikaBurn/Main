@@ -38,14 +38,9 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
   }
 
   if ($form_id == 'user_pass_reset') {
-    $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_pass_reset_submit';
+    $form['#action'] .= '?destination=/';
   }
 }
-
-function afrikaburn_shared_pass_reset_submit(array &$form, FormStateInterface $form_state) {
-  // $form_state->setRedirect('<front>');
-}
-
 
 /**
  * Checks whether to display the project
