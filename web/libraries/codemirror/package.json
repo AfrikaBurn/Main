@@ -2,50 +2,50 @@
   "_args": [
     [
       {
-        "raw": "codemirror@5.21.0",
+        "raw": "codemirror@5.27.4",
         "scope": null,
         "escapedName": "codemirror",
         "name": "codemirror",
-        "rawSpec": "5.21.0",
-        "spec": "5.21.0",
+        "rawSpec": "5.27.4",
+        "spec": "5.27.4",
         "type": "version"
       },
-      "/private/var/folders/9p/clj0fc754y35m01btd46043c0000gn/T/tmp.jcwKwtRA"
+      "/private/var/folders/9p/clj0fc754y35m01btd46043c0000gn/T/tmp.WTUiVdwG"
     ]
   ],
-  "_from": "codemirror@5.21.0",
-  "_id": "codemirror@5.21.0",
+  "_from": "codemirror@5.27.4",
+  "_id": "codemirror@5.27.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/codemirror",
   "_nodeVersion": "6.9.1",
   "_npmOperationalInternal": {
-    "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/codemirror-5.21.0.tgz_1479723046708_0.6828831229358912"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/codemirror-5.27.4.tgz_1498741415818_0.08282826188951731"
   },
   "_npmUser": {
     "name": "marijn",
     "email": "marijnh@gmail.com"
   },
-  "_npmVersion": "3.10.8",
+  "_npmVersion": "5.0.4",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "codemirror@5.21.0",
+    "raw": "codemirror@5.27.4",
     "scope": null,
     "escapedName": "codemirror",
     "name": "codemirror",
-    "rawSpec": "5.21.0",
-    "spec": "5.21.0",
+    "rawSpec": "5.27.4",
+    "spec": "5.27.4",
     "type": "version"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/codemirror/-/codemirror-5.21.0.tgz",
-  "_shasum": "9ec4caeda50807575b2115226bf12414f85d2246",
+  "_resolved": "https://registry.npmjs.org/codemirror/-/codemirror-5.27.4.tgz",
+  "_shasum": "0e817c839bfea9959dd16cd48ae14acc0e43c3b6",
   "_shrinkwrap": null,
-  "_spec": "codemirror@5.21.0",
-  "_where": "/private/var/folders/9p/clj0fc754y35m01btd46043c0000gn/T/tmp.jcwKwtRA",
+  "_spec": "codemirror@5.27.4",
+  "_where": "/private/var/folders/9p/clj0fc754y35m01btd46043c0000gn/T/tmp.WTUiVdwG",
   "bugs": {
     "url": "http://github.com/codemirror/CodeMirror/issues"
   },
@@ -70,6 +70,9 @@
     },
     {
       "name": "Adam King"
+    },
+    {
+      "name": "Adam Particka"
     },
     {
       "name": "adanlobato"
@@ -141,6 +144,9 @@
       "name": "Allen Sarkisyan"
     },
     {
+      "name": "Ami Fischman"
+    },
+    {
       "name": "Amin Shali"
     },
     {
@@ -187,6 +193,9 @@
     },
     {
       "name": "Andre von Houck"
+    },
+    {
+      "name": "Andrew Cheng"
     },
     {
       "name": "Andrey Fedorov"
@@ -255,6 +264,15 @@
       "name": "Arnab Bose"
     },
     {
+      "name": "Arsène von Wyss"
+    },
+    {
+      "name": "Arthur Müller"
+    },
+    {
+      "name": "Arun Narasani"
+    },
+    {
       "name": "as3boyan"
     },
     {
@@ -268,6 +286,9 @@
     },
     {
       "name": "Aurelian Oancea"
+    },
+    {
+      "name": "Axel Lewenhaupt"
     },
     {
       "name": "Barret Rennie"
@@ -354,7 +375,13 @@
       "name": "Brian Sletten"
     },
     {
+      "name": "brrd"
+    },
+    {
       "name": "Bruce Mitchener"
+    },
+    {
+      "name": "Bryan Massoth"
     },
     {
       "name": "Caitlin Potter"
@@ -409,6 +436,9 @@
     },
     {
       "name": "Christopher Brown"
+    },
+    {
+      "name": "Christopher Kramer"
     },
     {
       "name": "Christopher Mitchell"
@@ -475,6 +505,9 @@
     },
     {
       "name": "Daniel Parnell"
+    },
+    {
+      "name": "Danila Malyutin"
     },
     {
       "name": "Danny Yoo"
@@ -576,6 +609,9 @@
       "name": "Elisée"
     },
     {
+      "name": "Emmanuel Schanzer"
+    },
+    {
       "name": "Enam Mijbah Noor"
     },
     {
@@ -586,6 +622,9 @@
     },
     {
       "name": "eustas"
+    },
+    {
+      "name": "Fabien Dubosson"
     },
     {
       "name": "Fabien O'Carroll"
@@ -612,6 +651,9 @@
       "name": "Felix Raab"
     },
     {
+      "name": "ficristo"
+    },
+    {
       "name": "Filip Noetzel"
     },
     {
@@ -619,6 +661,9 @@
     },
     {
       "name": "flack"
+    },
+    {
+      "name": "Florian Felten"
     },
     {
       "name": "ForbesLindesay"
@@ -658,6 +703,9 @@
     },
     {
       "name": "gekkoe"
+    },
+    {
+      "name": "Geordie Hall"
     },
     {
       "name": "geowarin"
@@ -789,6 +837,12 @@
       "name": "Jacob Lee"
     },
     {
+      "name": "Jaimin"
+    },
+    {
+      "name": "Jake Peyser"
+    },
+    {
       "name": "Jakob Miland"
     },
     {
@@ -808,6 +862,9 @@
     },
     {
       "name": "Jamie Hill"
+    },
+    {
+      "name": "Jamie Morris"
     },
     {
       "name": "Jan Jongboom"
@@ -949,6 +1006,9 @@
       "name": "Joseph Pecoraro"
     },
     {
+      "name": "Josh Barnes"
+    },
+    {
       "name": "Josh Cohen"
     },
     {
@@ -1015,6 +1075,9 @@
       "name": "Kevin Earls"
     },
     {
+      "name": "Kevin Muret"
+    },
+    {
       "name": "Kevin Sawicki"
     },
     {
@@ -1049,6 +1112,9 @@
     },
     {
       "name": "Kyle Kelley"
+    },
+    {
+      "name": "KyleMcNutt"
     },
     {
       "name": "Lanfei"
@@ -1088,6 +1154,9 @@
     },
     {
       "name": "Lorenzo Stoakes"
+    },
+    {
+      "name": "Luca Fabbri"
     },
     {
       "name": "Luciano Longo"
@@ -1258,6 +1327,9 @@
       "name": "McBrainy"
     },
     {
+      "name": "mce2"
+    },
+    {
       "name": "melpon"
     },
     {
@@ -1345,6 +1417,9 @@
       "name": "Mu-An Chiou"
     },
     {
+      "name": "mzabuawala"
+    },
+    {
       "name": "Narciso Jaramillo"
     },
     {
@@ -1355,6 +1430,9 @@
     },
     {
       "name": "nerbert"
+    },
+    {
+      "name": "NetworkNode"
     },
     {
       "name": "nextrevision"
@@ -1415,6 +1493,9 @@
       "name": "Norman Rzepka"
     },
     {
+      "name": "opl-"
+    },
+    {
       "name": "Oreoluwa Onatemowo"
     },
     {
@@ -1425,6 +1506,9 @@
     },
     {
       "name": "pabloferz"
+    },
+    {
+      "name": "Pablo Zubieta"
     },
     {
       "name": "Page"
@@ -1538,6 +1622,9 @@
       "name": "Rasmus Erik Voel Jensen"
     },
     {
+      "name": "Rasmus Schultz"
+    },
+    {
       "name": "ray ratchup"
     },
     {
@@ -1547,6 +1634,9 @@
       "name": "Remi Nyborg"
     },
     {
+      "name": "Renaud Durlin"
+    },
+    {
       "name": "Richard Denton"
     },
     {
@@ -1554,6 +1644,12 @@
     },
     {
       "name": "Richard Z.H. Wang"
+    },
+    {
+      "name": "Rishi Goomar"
+    },
+    {
+      "name": "Robert Brignull"
     },
     {
       "name": "Robert Crossfield"
@@ -1571,7 +1667,13 @@
       "name": "Rrandom"
     },
     {
+      "name": "Rrrandom"
+    },
+    {
       "name": "Ruslan Osmanov"
+    },
+    {
+      "name": "Ryan Petrello"
     },
     {
       "name": "Ryan Prior"
@@ -1581,6 +1683,9 @@
     },
     {
       "name": "Sam Lee"
+    },
+    {
+      "name": "Sam Rawlins"
     },
     {
       "name": "Samuel Ainsworth"
@@ -1611,6 +1716,9 @@
     },
     {
       "name": "sathyamoorthi"
+    },
+    {
+      "name": "Saul Costa"
     },
     {
       "name": "S. Chris Colbert"
@@ -1652,6 +1760,9 @@
       "name": "sheopory"
     },
     {
+      "name": "Shil S"
+    },
+    {
       "name": "Shiv Deepak"
     },
     {
@@ -1665,6 +1776,9 @@
     },
     {
       "name": "silverwind"
+    },
+    {
+      "name": "Simon Edwards"
     },
     {
       "name": "sinkuu"
@@ -1736,6 +1850,9 @@
       "name": "Takuji Shimokawa"
     },
     {
+      "name": "Takuya Matsuyama"
+    },
+    {
       "name": "Tarmil"
     },
     {
@@ -1743,6 +1860,9 @@
     },
     {
       "name": "tel"
+    },
+    {
+      "name": "Tentone"
     },
     {
       "name": "tfjgeorge"
@@ -1793,6 +1913,9 @@
       "name": "Todd Berman"
     },
     {
+      "name": "Todd Kennedy"
+    },
+    {
       "name": "Tomas-A"
     },
     {
@@ -1800,6 +1923,9 @@
     },
     {
       "name": "Tom Erik Støwer"
+    },
+    {
+      "name": "Tom Klancer"
     },
     {
       "name": "Tom MacWright"
@@ -1895,7 +2021,13 @@
       "name": "Zachary Dremann"
     },
     {
+      "name": "Zeno Rocha"
+    },
+    {
       "name": "Zhang Hao"
+    },
+    {
+      "name": "Ziv"
     },
     {
       "name": "zziuni"
@@ -1907,21 +2039,22 @@
   "dependencies": {},
   "description": "Full-featured in-browser code editor",
   "devDependencies": {
-    "blint": "^0.5.1",
+    "blint": "^1",
     "node-static": "0.6.0",
     "phantomjs-prebuilt": "^2.1.12",
-    "rollup": "^0.34.10",
-    "rollup-plugin-buble": "^0.14.0",
-    "rollup-watch": "^2.5.0"
+    "rollup": "^0.41.0",
+    "rollup-plugin-buble": "^0.15.0",
+    "rollup-watch": "^3.2.0"
   },
   "directories": {
     "lib": "./lib"
   },
   "dist": {
-    "shasum": "9ec4caeda50807575b2115226bf12414f85d2246",
-    "tarball": "https://registry.npmjs.org/codemirror/-/codemirror-5.21.0.tgz"
+    "integrity": "sha512-oOpSTMT3gj27u8NSkkrciuIpCqID3dvb8UGpS7eEm/F1x1DVinp6+ROLR+B8hXdxqVFpCl2NrR2BQe7zd3uH7g==",
+    "shasum": "0e817c839bfea9959dd16cd48ae14acc0e43c3b6",
+    "tarball": "https://registry.npmjs.org/codemirror/-/codemirror-5.27.4.tgz"
   },
-  "gitHead": "692393d609e4cc96a1726830ff161c3f4e56670e",
+  "gitHead": "b695f230da7243bf8ff0d3d0771cd7f43f583162",
   "homepage": "http://codemirror.net",
   "jspm": {
     "directories": {},
@@ -1951,9 +2084,10 @@
   "scripts": {
     "build": "rollup -c",
     "lint": "bin/lint",
-    "prepublish": "npm run-script build",
+    "prepare": "npm run-script build",
     "test": "node ./test/run.js",
     "watch": "rollup -w -c"
   },
-  "version": "5.21.0"
+  "style": "lib/codemirror.css",
+  "version": "5.27.4"
 }
