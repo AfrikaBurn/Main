@@ -9,6 +9,7 @@ use \Drupal\Core\Form\FormStateInterface;
 use \Drupal\Core\Entity\EntityInterface;
 use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use \Drupal\user\Entity\User;
+use \Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Implements hook_form_alter().
