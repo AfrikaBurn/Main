@@ -8,6 +8,7 @@
 use \Drupal\Core\Form\FormStateInterface;
 use \Drupal\Core\Entity\EntityInterface;
 use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use \Drupal\user\Entity\User;
 
 /**
  * Implements hook_form_alter().
@@ -24,8 +25,17 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
   }
 
   if ($form_id == 'node_collective_form') {
-    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $user = User::load(\Drupal::currentUser()->id());
     $form['field_col_admins']['widget'][0]['target_id']['#default_value'] = $user;
     $form['field_col_members']['widget'][0]['target_id']['#default_value'] = $user;
   }
+}
+
+function afrikaburn_shared_show_project_links(){
+  preg_match('/^\/node\/', \Drupal::service('path.current')->getPath())
+  // $node = \Drupal::routeMatch()->getParameter('node');
+  // if ($node && $node->bundle() == 'collective'){
+  //   $user = User::load(\Drupal::currentUser()->id());
+    
+  // }
 }

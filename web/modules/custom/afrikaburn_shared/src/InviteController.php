@@ -96,8 +96,6 @@ class InviteController extends ControllerBase {
     $indexes = [];
     $field_col_invitee = $group->get('field_col_invitee');
 
-    dpm($field_col_invitee);
-
     if ($field_col_invitee){
 
       $invitees = array_column(
@@ -110,7 +108,6 @@ class InviteController extends ControllerBase {
         if ($mail) {
           $value = array_values(array_column($mail, 'value'))[0];
           if (in_array($value, $invitees)) {
-            $field_col_invitee->get($index)->set(false);
             $indexes[$index] = $index;
           }
         }

@@ -16,7 +16,7 @@ class AgreementEnforcer implements EventSubscriberInterface {
 
   public function checkForRedirection(GetResponseEvent $event) {
 
-    if (preg_match('/^\/user/', \Drupal::service('path.current')->getPath())) return;
+    if (preg_match('/^\/user', \Drupal::service('path.current')->getPath())) return;
 
     $uid = \Drupal::currentUser()->id();
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
