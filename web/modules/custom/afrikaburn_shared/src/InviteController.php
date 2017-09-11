@@ -20,6 +20,7 @@ class InviteController extends ControllerBase {
   public static function accept() {
 
     if (\Drupal::currentUser()->isAnonymous()){
+      drupal_set_message(t('Howdy! You need to be logged in to accept a collective invite, so...'), 'status', TRUE);
       $redirect = new RedirectResponse(
         '/user/login?destination=' . 
         \Drupal::service('path.current')->getPath());
@@ -64,6 +65,7 @@ class InviteController extends ControllerBase {
   public static function ignore() {
 
     if (\Drupal::currentUser()->isAnonymous()){
+      drupal_set_message(t('Howdy! You need to be logged in to ignore a collective invite, so...'), 'status', TRUE);
       $redirect = new RedirectResponse(
         '/user/login?destination=' . 
         \Drupal::service('path.current')->getPath());
