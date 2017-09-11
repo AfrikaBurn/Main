@@ -20,11 +20,12 @@ class InviteController extends ControllerBase {
   public static function accept() {
 
     if (\Drupal::currentUser()->isAnonymous()){
-      drupal_set_message(t('Howdy! You need to be logged in to accept a collective invite, so...'), 'status', TRUE);
       $redirect = new RedirectResponse(
         '/user/login?destination=' . 
         \Drupal::service('path.current')->getPath());
       $redirect->send();
+      drupal_set_message(t('Howdy! You need to be logged in to accept a collective invite, so...'), 'status', TRUE);
+      return [];
     }
 
     $nid = \Drupal::routeMatch()->getParameter('nid');
@@ -65,11 +66,12 @@ class InviteController extends ControllerBase {
   public static function ignore() {
 
     if (\Drupal::currentUser()->isAnonymous()){
-      drupal_set_message(t('Howdy! You need to be logged in to ignore a collective invite, so...'), 'status', TRUE);
       $redirect = new RedirectResponse(
         '/user/login?destination=' . 
         \Drupal::service('path.current')->getPath());
       $redirect->send();
+      drupal_set_message(t('Howdy! You need to be logged in to ignore a collective invite, so...'), 'status', TRUE);
+      return [];
     }
 
     $nid = \Drupal::routeMatch()->getParameter('nid');
