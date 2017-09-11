@@ -20,12 +20,10 @@ class InviteController extends ControllerBase {
   public static function accept() {
 
     if (\Drupal::currentUser()->isAnonymous()){
-      $redirect = new RedirectResponse(
-        '/user/login?destination=' . 
-        \Drupal::service('path.current')->getPath());
-      $redirect->send();
-      drupal_set_message(t('Howdy! You need to be logged in to accept a collective invite, so...'), 'status', TRUE);
-      exit;
+      return array(
+        '#type' => 'markup',
+        '#markup' => 'Woah! You need to be logged in for this, so...',
+      );
     }
 
     $nid = \Drupal::routeMatch()->getParameter('nid');
@@ -38,6 +36,7 @@ class InviteController extends ControllerBase {
       $inviteIndex = self::inviteIndex($user, $group);
 
       if (count($inviteIndex)) {
+
         self::addToMembers($user, $group);
         self::removeFromInvites($inviteIndex, $group);
         $group->save();
@@ -45,14 +44,14 @@ class InviteController extends ControllerBase {
       } else {
         return array(
           '#type' => 'markup',
-          '#markup' => t('Oh no! It seems like your invitation expired!'),
+          '#markup' => 'Oh no! This invitation is meant for a different email address! Make sure you get invited to collectives with this email address:<br />' . $user->getEmail(),
         );
       }
 
     } else {
       return array(
         '#type' => 'markup',
-        '#markup' => t('Oh no! It seems that group no longer exists!'),
+        '#markup' => t('Oh no! It seems that this group no longer exists!'),
       );
     }
 
@@ -66,12 +65,10 @@ class InviteController extends ControllerBase {
   public static function ignore() {
 
     if (\Drupal::currentUser()->isAnonymous()){
-      $redirect = new RedirectResponse(
-        '/user/login?destination=' . 
-        \Drupal::service('path.current')->getPath());
-      $redirect->send();
-      drupal_set_message(t('Howdy! You need to be logged in to ignore a collective invite, so...'), 'status', TRUE);
-      exit;
+      return array(
+        '#type' => 'markup',
+        '#markup' => 'Woah! You need to be logged in for this, so...',
+      );
     }
 
     $nid = \Drupal::routeMatch()->getParameter('nid');
@@ -89,7 +86,7 @@ class InviteController extends ControllerBase {
       } else {
         return array(
           '#type' => 'markup',
-          '#markup' => t('Oh well! It seems like your invitation expired anyway!'),
+          '#markup' => 'Oh no! This invitation is meant for a different email address! Make sure you get invited to collectives with this email address:<br />' . $user->getEmail(),
         );
       }
 
