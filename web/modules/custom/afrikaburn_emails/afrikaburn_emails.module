@@ -56,7 +56,7 @@ function _afrikaburn_emails_notify($entity, $action){
 
         $recipient_string = implode(', ', $recipients);
         $message = \Drupal::token()->replace(
-          $config['template'], 
+          $config['template'],
           [
             $config['key'][2] => $entity
           ]
