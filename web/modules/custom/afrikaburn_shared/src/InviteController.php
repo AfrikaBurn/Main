@@ -75,8 +75,10 @@ class InviteController extends ControllerBase {
       $inviteIndex = self::inviteIndex($user, $group);
 
       if (count($inviteIndex)) {
+
         self::removeFromInvites($inviteIndex, $group);
         $group->save();
+
       } else {
         return array(
           '#type' => 'markup',
