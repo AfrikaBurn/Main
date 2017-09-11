@@ -17,7 +17,7 @@ class AgreementEnforcer implements EventSubscriberInterface {
   public function checkForRedirection(GetResponseEvent $event) {
 
     $path = \Drupal::service('path.current')->getPath();
-    $exempt = preg_match('/(^\/user\/[0-9]+\/edit)|(^\/user\/reset)/', $path);
+    $exempt = preg_match('/(^\/user\/[0-9]+\/edit)|(^\/user\/reset)|(^\/user\/logout)/', $path);
 
     if (!$exempt) {    
 
