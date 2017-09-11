@@ -191,7 +191,7 @@ function _afrikaburn_emails_recipient_invitees($entity){
 function _afrikaburn_emails_recipient_new_invitees($entity){
 
   $originals = [];
-  $new = [];
+  $newbs = [];
 
   $original = $entity->original;
   if ($original) {
@@ -213,14 +213,14 @@ function _afrikaburn_emails_recipient_new_invitees($entity){
   if ($field_col_invitee) {
     $value = $field_col_invitee->getValue();
     if ($value) {
-      $news = array_column(
+      $newbs = array_column(
         $value->getValue(),
         'value'
       )
     }
   }
 
-  return array_diff($new, $originals);
+  return array_diff($newbs, $originals);
 }
 
 // --- Config Utilities
