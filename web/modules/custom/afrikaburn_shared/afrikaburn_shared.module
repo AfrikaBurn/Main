@@ -9,7 +9,6 @@ use \Drupal\Core\Form\FormStateInterface;
 use \Drupal\Core\Entity\EntityInterface;
 use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use \Drupal\user\Entity\User;
-use \Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Implements hook_form_alter().
@@ -43,9 +42,8 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
   }
 }
 
-function afrikaburn_shared_pass_reset_submit(){
-  $redirect = new RedirectResponse('/');
-  $redirect->send();
+function afrikaburn_shared_pass_reset_submit(array &$form, FormStateInterface $form_state) {
+  $form_state->setRedirect('<front>');
 }
 
 
