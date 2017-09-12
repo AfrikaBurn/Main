@@ -46,6 +46,15 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
 }
 
 /**
+ * Implements hook_preprocess_input().
+ */
+function afrikaburn_shared_preprocess_input(&$variables) {
+  if (isset($variables['attributes']['data-autocomplete-path']) && $cid = \Drupal::request()->query->get('field_collective')){
+    $variables['attributes']['data-autocomplete-path'] .= '?field_collective=' . $cid;
+  }
+}
+
+/**
  * Checks whether to display the project
  * @return [type] [description]
  */
