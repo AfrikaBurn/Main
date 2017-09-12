@@ -57,8 +57,13 @@ function _afrikaburn_emails_notify($entity, $action){
       if (count($recipients)) {
 
         $recipient_string = implode(', ', $recipients);
-        $message = \Drupal::token()->replace(
-          $config['template'], [$config['key'][2] => $entity]
+        $message = strip_tags(
+          str_replace(
+            ['</p>', '<br />'], "\n", 
+            \Drupal::token()->replace(
+              $config['template'], [$config['key'][2] => $entity]
+            )
+          )
         );
         $subject = \Drupal::token()->replace(
           $config['subject'], [$config['key'][2] => $entity]
