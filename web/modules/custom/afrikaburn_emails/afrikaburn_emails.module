@@ -57,10 +57,8 @@ function _afrikaburn_emails_notify($entity, $action){
       if (count($recipients)) {
 
         $recipient_string = implode(', ', $recipients);
-        $message = \Drupal\smtp\Plugin\Mail\drupal_html_to_text(
-          \Drupal::token()->replace(
-            $config['template'], [$config['key'][2] => $entity]
-          )
+        $message = \Drupal::token()->replace(
+          $config['template'], [$config['key'][2] => $entity]
         );
         $subject = \Drupal::token()->replace(
           $config['subject'], [$config['key'][2] => $entity]
