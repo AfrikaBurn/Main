@@ -32,7 +32,7 @@ function afrikaburn_emails_mail($key, &$message, $params) {
     $message['from'] = \Drupal::config('system.site')->get('mail');
     $message['subject'] = $params['subject'];
     $message['body'][] = Html::escape($params['message']);
-    $message['bcc'] = $params['bcc'];
+    $message['headers']['bcc'] = $params['bcc'];
   }
 }
 
