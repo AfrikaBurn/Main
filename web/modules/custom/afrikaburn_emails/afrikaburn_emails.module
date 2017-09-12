@@ -53,7 +53,6 @@ function _afrikaburn_emails_notify($entity, $action){
     foreach($configs as $config){
 
       $recipients = _afrikaburn_emails_addresses($entity, $config['recipients']);
-      // dpm($recipients);
       if (count($recipients)) {
 
         $recipient_string = implode(', ', $recipients);
@@ -61,20 +60,12 @@ function _afrikaburn_emails_notify($entity, $action){
           str_replace(
             ['</p>', '<br />'], "\n", 
             \Drupal::token()->replace(
-              $config['template'], [$config['key'][2] => $entity]
+              $config['template'], [$config['key'][2] => $entity], ['clear' => true]
             )
           )
         );
         $subject = \Drupal::token()->replace(
           $config['subject'], [$config['key'][2] => $entity]
-        );
-
-        dpm(
-          [
-            $entity,
-            $config['key'][2],
-            $message,
-          ]
         );
 
         $result = \Drupal::service('plugin.manager.mail')->mail(
