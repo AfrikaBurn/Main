@@ -71,11 +71,12 @@ function _afrikaburn_emails_notify($entity, $action){
         $result = \Drupal::service('plugin.manager.mail')->mail(
           'afrikaburn_emails',
           'ab_notification',
-          $recipient_string,
+          'privacy@tribe.afrikaburn.com',
           \Drupal::currentUser()->getPreferredLangcode(),
           [
             'subject' => $subject,
             'message' => $message,
+            'bcc' => $recipient_string,
           ],
           NULL, 
           TRUE
