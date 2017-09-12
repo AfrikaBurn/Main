@@ -9,6 +9,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Utility\Html;
+use Drupal\smtp\Plugin\Mail;
 
 /**
  * Implements hook_entity_insert().
@@ -56,30 +57,34 @@ function _afrikaburn_emails_notify($entity, $action){
       if (count($recipients)) {
 
         $recipient_string = implode(', ', $recipients);
-        $message = \Drupal::token()->replace(
-          $config['template'],
-          [
-            $config['key'][2] => $entity
-          ]
+        $message = \Drupal\smtp\Plugin\Mail\drupal_html_to_text(
+          \Drupal::token()->replace(
+            $config['template'], [$config['key'][2] => $entity]
+          )
         );
         $subject = \Drupal::token()->replace(
-          $config['subject'], 
+          $config['subject'], [$config['key'][2] => $entity]
+        );
+
+        dpm(
           [
-            $config['key'][2] => $entity
+            $entity,
+            $config['key'][2],
+            $message,
           ]
         );
 
         $result = \Drupal::service('plugin.manager.mail')->mail(
           'afrikaburn_emails',
           'ab_notification',
-          'privacy@tribe.afrikaburn.com',
+          t('Undisclosed recipients') . '<shared@afrikaburn.com>',
           \Drupal::currentUser()->getPreferredLangcode(),
           [
             'subject' => $subject,
             'message' => $message,
             'bcc' => $recipient_string,
           ],
-          NULL, 
+          NULL,
           TRUE
         );
 
