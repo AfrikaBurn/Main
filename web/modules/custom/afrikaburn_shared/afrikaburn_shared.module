@@ -29,8 +29,10 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
         $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
         $form['field_collective']['#access'] = FALSE;
       } else {
-        $response = new Symfony\Component\HttpFoundation\RedirectResponse('/');
-        $response->send();      
+        if ($form['field_collective']['widget'][0]['target_id']['#default_value'] == NULL) {
+          $response = new Symfony\Component\HttpFoundation\RedirectResponse('/');
+          $response->send();          
+        }
       }
 
     }
