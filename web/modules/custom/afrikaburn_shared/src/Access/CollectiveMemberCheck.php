@@ -23,35 +23,31 @@ class CollectiveMemberCheck implements AccessInterface {
   }
   
   public function access(AccountInterface $account) {
-    // $registration = \Drupal::routeMatch()->getParameter('node');
-    // if (in_array($registration->bundle(), ['art', 'performances', 'mutant_vehicles', 'theme_camps']){
+    $registration = \Drupal::routeMatch()->getParameter('node');
+    if (in_array($registration->bundle(), ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
 
-    //   $field_collective = $registration->get('field_collective');
-    //   if ($field_collective) {
-    //     $collective = $field_collective->first();
-    //     $members = $collective
-    //       ->get('entity')
-    //       ->getTarget()
-    //       ->get('field_col_members')
-    //       ->referencedEntities();    
-    //     foreach ($members as $member) {
-    //       if ($member->id() == \Drupal::currentUser()->id()){
-    //         return AccessResult::allowedIf(
-    //           TRUE
-    //         );          
-    //       }
-    //     }
-    //   }
+      $field_collective = $registration->get('field_collective');
+      if ($field_collective) {
+        $collective = $field_collective->first();
+        $members = $collective
+          ->get('entity')
+          ->getTarget()
+          ->get('field_col_members')
+          ->referencedEntities();    
+        foreach ($members as $member) {
+          if ($member->id() == \Drupal::currentUser()->id()){
+            return AccessResult::allowedIf(
+              TRUE
+            );          
+          }
+        }
+      }
 
-    //   return AccessResult::allowedIf(
-    //     FALSE
-    //   );
+      return AccessResult::allowedIf(FALSE);
 
-    // } else {
-      return AccessResult::allowedIf(
-        TRUE
-      );
-    // }
+    } else {
+      return AccessResult::allowedIf(TRUE);
+    }
 
   }
 
