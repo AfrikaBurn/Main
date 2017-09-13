@@ -16,11 +16,11 @@ entity_type: paragraph
 bundle: grant_expences
 label: 'Price (Total)'
 description: ''
-required: true
+required: false
 translatable: false
 default_value:
   -
-    value: 100
+    value: -1
 default_value_callback: ''
 settings:
   min: 0

@@ -14,8 +14,8 @@ id: user.user.field_participation
 field_name: field_participation
 entity_type: user
 bundle: user
-label: 'Please let us know about your previous participation at AfrikaBurn.'
-description: "<p>Year and Event Name<br> \r\nHow did you participate? Did you volunteer, and if so, how?</p>\r\n\r\n<p>Been part of a Theme Camp, Artwork, Performance or Mutant crew? Volunteered?</p>"
+label: 'Please Let Us Know About Your Previous Participation At AfrikaBurn:'
+description: "<p>How did you participate? Did you volunteer, and if so, how?<br>\r\nRemember to list if you've been part of a Theme Camp, Artwork, Performance or Mutant crew? Or if you volunteered.</p>\r\n<p><i>Please type it in one year per line, with a description of what you did e.g. <br>\r\n2010 - Volunteered at Greeters and performed with my band.</i></p>\r\n"
 required: false
 translatable: false
 default_value: {  }

@@ -14,7 +14,7 @@ id: user.user.field_other_burns
 field_name: field_other_burns
 entity_type: user
 bundle: user
-label: 'Other burns you''ve been to'
+label: 'Other Burns You''ve Attended:'
 description: ''
 required: false
 translatable: false

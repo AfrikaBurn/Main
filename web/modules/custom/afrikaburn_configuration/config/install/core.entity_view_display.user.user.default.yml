@@ -6,12 +6,8 @@ dependencies:
     - field.field.user.user.field_country
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_district
-    - field.field.user.user.field_emr_company
     - field.field.user.user.field_emr_email
-    - field.field.user.user.field_emr_med_telephone
-    - field.field.user.user.field_emr_medical_aid
     - field.field.user.user.field_emr_name
-    - field.field.user.user.field_emr_relationship
     - field.field.user.user.field_emr_telephone
     - field.field.user.user.field_first_name
     - field.field.user.user.field_gender
@@ -149,12 +145,8 @@ hidden:
   field_country: true
   field_date_of_birth: true
   field_district: true
-  field_emr_company: true
   field_emr_email: true
-  field_emr_med_telephone: true
-  field_emr_medical_aid: true
   field_emr_name: true
-  field_emr_relationship: true
   field_emr_telephone: true
   field_first_name: true
   field_gender: true

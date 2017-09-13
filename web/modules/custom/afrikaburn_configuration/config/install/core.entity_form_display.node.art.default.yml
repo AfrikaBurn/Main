@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_grt_art_apply
     - field.field.node.art.field_grt_art_comment
@@ -10,6 +11,7 @@ dependencies:
     - field.field.node.art.field_grt_breakdown
     - field.field.node.art.field_grt_contribution
     - field.field.node.art.field_grt_f1
+    - field.field.node.art.field_grt_materials
     - field.field.node.art.field_grt_more
     - field.field.node.art.field_grt_other
     - field.field.node.art.field_grt_other_description
@@ -390,6 +392,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_grt_materials:
+    weight: 108
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_muncipal_district:
     weight: 12
     settings:
@@ -1076,6 +1085,7 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_col_members: true
   field_grt_art_apply: true
   field_grt_art_comment: true
   field_grt_art_reason: true

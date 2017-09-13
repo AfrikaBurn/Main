@@ -1,0 +1,37 @@
+.field--name-field-grt-breakdown .paragraphs-subform {
+    display: flex;
+    max-width: 920px;
+}
+.field--name-field-grt-breakdown .field--name-field-grt-brk-description,
+.field--name-field-grt-breakdown .field--name-field-field-specifications,
+.field--name-field-grt-breakdown .field--name-field-other {
+    max-width: 20%;
+}
+.field--name-field-grt-breakdown .field--name-field-type-of-expence,
+.field--name-field-grt-breakdown .field--name-field-field-quantity,
+.field--name-field-grt-breakdown .field--name-field-price-total-,
+.field--name-field-grt-breakdown .field--name-field-cost-type {
+    max-width: 10%;
+}
+.field--name-field-grt-breakdown input {
+    max-width: 95%;
+}
+.field--name-field-grt-breakdown .form-number {
+    max-width: 80%;
+}
+.field--name-field-grt-breakdown select {
+    max-width: 90%;
+}
+.field--name-field-grt-breakdown tr label {
+    display: none;
+    height: 42px;
+}
+.field--name-field-grt-breakdown tr:first-child label {
+    display: block;
+}
+.field--name-field-grt-breakdown .paragraph-type-title {
+    display: none;
+}
+
+
+

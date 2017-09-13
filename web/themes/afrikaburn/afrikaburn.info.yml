@@ -29,6 +29,7 @@ ckeditor_stylesheets:
   - css/components/text-formatted.css
 stylesheets-remove:
   - core/themes/classy/css/components/details.css
+  - core/themes/classy/css/components/button.css
 regions:
   status_messages: Status Messages
   user_greeting: 'User Greeting'

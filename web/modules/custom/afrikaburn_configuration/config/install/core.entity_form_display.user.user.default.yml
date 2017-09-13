@@ -6,12 +6,8 @@ dependencies:
     - field.field.user.user.field_country
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_district
-    - field.field.user.user.field_emr_company
     - field.field.user.user.field_emr_email
-    - field.field.user.user.field_emr_med_telephone
-    - field.field.user.user.field_emr_medical_aid
     - field.field.user.user.field_emr_name
-    - field.field.user.user.field_emr_relationship
     - field.field.user.user.field_emr_telephone
     - field.field.user.user.field_first_name
     - field.field.user.user.field_gender
@@ -181,14 +177,6 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_emr_company:
-    weight: 51
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_emr_email:
     weight: 50
     settings:
@@ -197,31 +185,8 @@ content:
     third_party_settings: {  }
     type: email_default
     region: content
-  field_emr_med_telephone:
-    weight: 53
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: telephone_default
-    region: content
-  field_emr_medical_aid:
-    weight: 52
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_emr_name:
     weight: 46
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_emr_relationship:
-    weight: 48
     settings:
       size: 60
       placeholder: ''
