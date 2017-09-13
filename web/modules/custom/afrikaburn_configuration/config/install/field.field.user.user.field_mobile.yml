@@ -15,7 +15,7 @@ id: user.user.field_mobile
 field_name: field_mobile
 entity_type: user
 bundle: user
-label: 'Mobile number'
+label: 'Mobile Number:'
 description: "<p>If you are international, please add your country code.</p>\r\n<p>Don't want to enter your number? No problem: just enter 'NO' and proceed. (just be aware that if there are any last-minute updates, a text is the best way to get it to you soonest)</p>"
 required: true
 translatable: false

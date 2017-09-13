@@ -16,7 +16,7 @@ entity_type: node
 bundle: art
 label: 'How long do you estimate it will take to install your piece on site?'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

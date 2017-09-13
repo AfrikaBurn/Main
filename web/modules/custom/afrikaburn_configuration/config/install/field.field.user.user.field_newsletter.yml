@@ -14,13 +14,13 @@ id: user.user.field_newsletter
 field_name: field_newsletter
 entity_type: user
 bundle: user
-label: 'Receive our newsletter'
+label: 'Receive our newsletter?'
 description: ''
 required: false
 translatable: false
 default_value:
   -
-    value: 0
+    value: 1
 default_value_callback: ''
 settings:
   on_label: 'Yes'

@@ -34,7 +34,7 @@ content:
     weight: 7
     settings:
       size: 60
-      placeholder: ''
+      placeholder: 30x40x2000
     third_party_settings: {  }
     type: string_textfield
     region: content
@@ -42,7 +42,7 @@ content:
     weight: 6
     settings:
       size: 60
-      placeholder: ''
+      placeholder: 'Wooden Batten'
     third_party_settings: {  }
     type: string_textfield
     region: content
@@ -50,7 +50,7 @@ content:
     weight: 12
     settings:
       size: 60
-      placeholder: ''
+      placeholder: 'type of cost'
     third_party_settings: {  }
     type: string_textfield
     region: content

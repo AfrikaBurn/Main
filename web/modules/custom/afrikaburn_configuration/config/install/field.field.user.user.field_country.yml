@@ -14,7 +14,7 @@ id: user.user.field_country
 field_name: field_country
 entity_type: user
 bundle: user
-label: Country
+label: 'Country:'
 description: ''
 required: false
 translatable: false

@@ -15,7 +15,7 @@ id: user.user.field_date_of_birth
 field_name: field_date_of_birth
 entity_type: user
 bundle: user
-label: 'Date of birth'
+label: 'Date of Birth:'
 description: ''
 required: true
 translatable: false

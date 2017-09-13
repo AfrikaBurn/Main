@@ -14,7 +14,7 @@ id: user.user.field_secondary_mail
 field_name: field_secondary_mail
 entity_type: user
 bundle: user
-label: 'Secondary mail'
+label: 'Secondary Email Address:'
 description: ''
 required: false
 translatable: false

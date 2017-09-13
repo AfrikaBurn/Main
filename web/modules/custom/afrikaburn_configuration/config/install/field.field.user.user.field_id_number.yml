@@ -14,7 +14,7 @@ id: user.user.field_id_number
 field_name: field_id_number
 entity_type: user
 bundle: user
-label: 'SA ID or Passport Number'
+label: 'SA ID or Passport Number:'
 description: ''
 required: false
 translatable: false

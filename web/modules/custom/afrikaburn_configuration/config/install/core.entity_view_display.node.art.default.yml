@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
+    - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_grt_art_apply
     - field.field.node.art.field_grt_art_comment
@@ -11,6 +12,7 @@ dependencies:
     - field.field.node.art.field_grt_breakdown
     - field.field.node.art.field_grt_contribution
     - field.field.node.art.field_grt_f1
+    - field.field.node.art.field_grt_materials
     - field.field.node.art.field_grt_more
     - field.field.node.art.field_grt_other
     - field.field.node.art.field_grt_other_description
@@ -191,6 +193,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: markup
+    region: content
+  field_grt_materials:
+    weight: 232
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   field_grt_more:
     weight: 226
@@ -1065,5 +1076,6 @@ content:
     weight: 100
     region: content
 hidden:
+  field_col_members: true
   field_collective: true
   field_prj_oth_unregistered: true

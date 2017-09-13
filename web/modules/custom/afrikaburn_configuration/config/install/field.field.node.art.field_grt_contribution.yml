@@ -16,7 +16,7 @@ entity_type: node
 bundle: art
 label: 'Financial contributions from your Crew & campmates / friends '
 description: "This is the amount of money that you've secured to actualise your project, either through 'team fees', generous enthusiasts, altruistic benefactors and/or any other source of money. (You already specified non-financial contributions, above)\r\n\r\nCreative Crews usually start planning ahead, and make provision for their creative projects - some start building an AfrikaBurn kitty.\r\n\r\nFor example: each member of the team puts aside R50/month. In 10 months, this is R500 per person. In a team of 20 people, it means R 10 000!\r\n\r\nIf you haven't started your kitty yet, consider starting it now. You still have 6 months and any amount of money that your team can gather will help, regardless of the outcome of this grant application."
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

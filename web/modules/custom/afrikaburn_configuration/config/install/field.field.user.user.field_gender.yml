@@ -15,7 +15,7 @@ id: user.user.field_gender
 field_name: field_gender
 entity_type: user
 bundle: user
-label: Gender
+label: 'Gender:'
 description: ''
 required: true
 translatable: false

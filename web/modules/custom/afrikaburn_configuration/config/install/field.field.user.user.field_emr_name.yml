@@ -14,8 +14,8 @@ id: user.user.field_emr_name
 field_name: field_emr_name
 entity_type: user
 bundle: user
-label: 'Emergency Contact Person''s Name '
-description: ''
+label: 'Emergency Contact Person''s Name :'
+description: 'Please select your immediate contact (someone who is not at the Burn). In order of preference - spouse/romantic partner &gt; parent &gt; grandparent &gt; adult child &gt; sibling:'
 required: true
 translatable: false
 default_value: {  }

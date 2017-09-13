@@ -15,8 +15,8 @@ id: user.user.field_links
 field_name: field_links
 entity_type: user
 bundle: user
-label: 'Social media or website links'
-description: ''
+label: 'Social Media or Website Links'
+description: 'Start typing the title of an existing piece of content to select it. If you''re using an external URL, please start the URL with http://'
 required: false
 translatable: false
 default_value: {  }
