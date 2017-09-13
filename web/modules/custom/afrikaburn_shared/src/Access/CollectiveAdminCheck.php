@@ -23,26 +23,26 @@ class CollectiveAdminCheck implements AccessInterface {
   }
   
   public function access(AccountInterface $account) {
-    $registration = \Drupal::routeMatch()->getParameter('node');
-    $field_collective = $registration->get('field_collective');
-    if ($field_collective) {
-      $collective = $field_collective->first();
-      $admins = $collective
-        ->get('entity')
-        ->getTarget()
-        ->get('field_col_admins')
-        ->referencedEntities();    
-      foreach ($admins as $admin) {
-        if ($admin->id() == \Drupal::currentUser()->id()){
+    // $registration = \Drupal::routeMatch()->getParameter('node');
+    // $field_collective = $registration->get('field_collective');
+    // if ($field_collective) {
+    //   $collective = $field_collective->first();
+    //   $admins = $collective
+    //     ->get('entity')
+    //     ->getTarget()
+    //     ->get('field_col_admins')
+    //     ->referencedEntities();    
+    //   foreach ($admins as $admin) {
+    //     if ($admin->id() == \Drupal::currentUser()->id()){
           return AccessResult::allowedIf(
             TRUE
           );          
-        }
-      }
-    }
+    //     }
+    //   }
+    // }
 
-    return AccessResult::allowedIf(
-      FALSE
-    );
+    // return AccessResult::allowedIf(
+    //   FALSE
+    // );
   }
 }
