@@ -7,6 +7,8 @@
 
 namespace Drupal\php\Tests;
 
+use Drupal\Core\Language\Language;
+
 /**
  * Tests to make sure the PHP filter actually evaluates PHP code when used.
  *
