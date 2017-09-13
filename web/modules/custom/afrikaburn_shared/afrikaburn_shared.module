@@ -19,16 +19,20 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
   $form['#attached']['library'][] = 'afrikaburn_shared/form';
 
   foreach(['node_art', 'node_performances', 'node_mutant_vehicles', 'node_theme_camps'] as $parent) {
-
     if (substr($form_id, 0, strlen($parent)) === $parent) {
-      $form['revision_log']['#access'] = false;
-    }
 
-    $cid = \Drupal::request()->query->get('field_collective');
-    if ($cid) {
-      $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-      $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
-      $form['field_collective']['#access'] = FALSE;
+      $form['revision_log']['#access'] = false;
+
+      $cid = \Drupal::request()->query->get('field_collective');
+      if ($cid) {
+        $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+        $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
+        $form['field_collective']['#access'] = FALSE;
+      } else {
+        $response = new Symfony\Component\HttpFoundation\RedirectResponse('/');
+        $response->send();      
+      }
+
     }
   }
 
