@@ -12,7 +12,7 @@ dependencies:
 id: howdywrangler
 theme: afrikaburn
 region: content
-weight: -12
+weight: -14
 provider: null
 plugin: 'block_content:baf6fb35-b984-4a2e-b2aa-9a5ede91d5dc'
 settings:

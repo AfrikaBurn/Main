@@ -4,6 +4,7 @@ dependencies:
   config:
     - system.menu.footer
   module:
+    - php
     - system
   theme:
     - afrikaburn
@@ -20,4 +21,9 @@ settings:
   label_display: '0'
   level: 1
   depth: 0
-visibility: {  }
+visibility:
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
+    context_mapping: {  }

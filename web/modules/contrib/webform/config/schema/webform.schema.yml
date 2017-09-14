@@ -275,9 +275,12 @@ webform.settings:
           sequence:
             type: string
             label: 'Entity reference format item'
-        options_format:
+        options_single_format:
           type: string
-          label: 'Options format'
+          label: 'Options single value format'
+        options_multiple_format:
+          type: string
+          label: 'Options multiple values format'
         options_item_format:
           type: string
           label: 'Options item format'
@@ -354,7 +357,7 @@ webform.settings:
           label: 'Save details open/close state'
         description_help:
           type: boolean
-          label: 'Display element descriptions as help icon (tooltip)'
+          label: 'Display element description as help icon (tooltip)'
     libraries:
       type: mapping
       label: 'Library settings'

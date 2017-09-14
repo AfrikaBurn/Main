@@ -5,6 +5,7 @@ dependencies:
     - 'block_content:basic:f6bbd3ef-9b64-460b-bc52-64c88c5327cf'
   module:
     - block_content
+    - php
     - system
   theme:
     - afrikaburn
@@ -27,4 +28,9 @@ visibility:
     id: request_path
     pages: ''
     negate: true
+    context_mapping: {  }
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
     context_mapping: {  }
