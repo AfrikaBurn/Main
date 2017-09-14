@@ -1,9 +1,19 @@
-.node-art-grant-form .field-group-accordion-wrapper {
-    width: 940px;
+// body.node-add-art-grant div.main-block {
+//     max-width: 100%;
+// }
+
+body.node-add-art-grant div#field-grt-breakdown-add-more-wrapper {
+    max-width: 100%;
+    overflow-x: scroll;
 }
+
+// .node-art-grant-form .field-group-accordion-wrapper {
+//     width: 940px;
+// }
 .field--name-field-grt-breakdown .paragraphs-subform {
     display: flex;
-    max-width: 920px;
+    max-width: 1400px;
+    width: 1400px;
 }
 .field--name-field-grt-breakdown .field--name-field-grt-brk-description,
 .field--name-field-grt-breakdown .field--name-field-field-specifications,
@@ -26,8 +36,8 @@
     max-width: 90%;
 }
 .field--name-field-grt-breakdown tr label {
-    display: none;
-    height: 42px;
+    // display: none;
+    // height: 42px;
 }
 .field--name-field-grt-breakdown tr:first-child label {
     display: block;

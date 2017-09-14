@@ -146,6 +146,13 @@ jQuery(document).ready(function() {
     //     Query("label.error").closest("fieldset").addClass("validation-error");
     // })
 
+    // Hack to hide the "Revision information" boxes.
+    jQuery(".entity-content-form-revision-information").closest(".form-item").addClass("hidden");
+
+
+    jQuery(".entity-content-form-revision-information").closest(".form-item").addClass("hidden");
+
+
     jQuery(".node-art-grant-form").closest("body").addClass("node-add-art-grant");
 
 });
