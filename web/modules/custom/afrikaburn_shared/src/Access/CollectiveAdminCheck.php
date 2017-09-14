@@ -25,7 +25,7 @@ class CollectiveAdminCheck implements AccessInterface {
   public function access(AccountInterface $account) {
 
     $registration = \Drupal::routeMatch()->getParameter('node');
-    if (in_array($registration->bundle(), ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+    if ($registration && in_array($registration->bundle(), ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
 
       $field_collective = $registration->get('field_collective');
       if ($field_collective) {
