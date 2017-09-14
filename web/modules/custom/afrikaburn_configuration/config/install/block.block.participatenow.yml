@@ -1,10 +1,11 @@
 langcode: en
-status: false
+status: true
 dependencies:
   content:
     - 'block_content:basic:1260ebfa-59e7-4d86-b191-edabb15a0f9c'
   module:
     - block_content
+    - php
     - system
   theme:
     - afrikaburn
@@ -27,4 +28,9 @@ visibility:
     id: request_path
     pages: '/collective/*'
     negate: true
+    context_mapping: {  }
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
     context_mapping: {  }

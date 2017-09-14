@@ -23,7 +23,7 @@ expression:
     actions:
       -
         id: rules_action
-        uuid: ae6042f2-91ee-4bcf-90c4-87cb85336e81
+        uuid: 7d6a3510-e0a7-4742-a9d5-93f1a5b27c40
         context_values:
           url: /
         context_mapping: {  }

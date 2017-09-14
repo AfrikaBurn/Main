@@ -5,12 +5,13 @@ dependencies:
     - 'block_content:basic:c43a52f9-3fed-4002-938f-abbb3239cecb'
   module:
     - block_content
+    - php
     - system
   theme:
     - afrikaburn
 id: copyrighttext
 theme: afrikaburn
-region: footer_right
+region: copyright
 weight: -15
 provider: null
 plugin: 'block_content:c43a52f9-3fed-4002-938f-abbb3239cecb'
@@ -18,7 +19,7 @@ settings:
   id: 'block_content:c43a52f9-3fed-4002-938f-abbb3239cecb'
   label: 'Copyright text'
   provider: block_content
-  label_display: visible
+  label_display: '0'
   status: true
   info: ''
   view_mode: full
@@ -27,4 +28,9 @@ visibility:
     id: request_path
     pages: "/collective/*\r\n/collective"
     negate: true
+    context_mapping: {  }
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
     context_mapping: {  }

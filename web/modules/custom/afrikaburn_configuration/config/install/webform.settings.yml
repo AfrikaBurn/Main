@@ -51,7 +51,6 @@ export:
   header_prefix_label_delimiter: ': '
   header_prefix_key_delimiter: __
   composite_element_item_format: label
-  options_format: compact
   options_item_format: label
   entity_reference_items:
     - id
@@ -60,6 +59,8 @@ export:
   likert_answers_format: label
   signature_format: status
   excluded_exporters: {  }
+  options_single_format: compact
+  options_multiple_format: compact
 batch:
   default_batch_export_size: 500
   default_batch_update_size: 500

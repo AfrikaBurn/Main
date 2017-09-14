@@ -19,9 +19,9 @@ provider: null
 plugin: 'block_content:5dd8c982-0fcd-45bb-a561-c5208d64c153'
 settings:
   id: 'block_content:5dd8c982-0fcd-45bb-a561-c5208d64c153'
-  label: 'Project links'
+  label: Register
   provider: block_content
-  label_display: '0'
+  label_display: visible
   status: true
   info: ''
   view_mode: full

@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - node.type.collective
+    - user.role.authenticated
   module:
     - node
     - user
@@ -23,9 +24,10 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            authenticated: authenticated
       cache:
         type: tag
         options: {  }
@@ -207,7 +209,7 @@ display:
           field: field_col_members_target_id
           plugin_id: numeric
       display_extenders: {  }
-      title: 'My Invites'
+      title: Collectives
     cache_metadata:
       max-age: -1
       contexts:
@@ -216,7 +218,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags: {  }
   my_collectives:
     display_plugin: block
@@ -266,6 +268,8 @@ display:
         empty: false
         fields: false
         header: false
+        footer: false
+        title: false
       empty:
         area_text_custom:
           id: area_text_custom
@@ -276,7 +280,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: "You haven't created a Collective yet (or been listed on a Collective by a fellow crew member). <a href=\"/node/add/collective\">Click here to see if you've been listed on a crew, or to create a Collective.</a><br>\n<br>\n<strong>If you're certain you should have been added to a Collective but cannot find it here, check your emails for an invitation link, or give your team lead a shout and check that they have added you under the right email address. </strong>"
+          content: "You haven't created a Collective yet (or been listed on a Collective by a fellow crew member). <a href=\"/node/add/collective\">Click here to create a Collective.</a><br>\n<br>\n<strong>If you're certain you should have been added to a Collective but cannot find it here, check your emails for an invitation link, or give your team lead a shout and check that they have added you under the right email address. </strong>"
           plugin_id: text_custom
       header:
         area:
@@ -286,11 +290,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
+          empty: false
           tokenize: false
           content:
-            value: 'You are a member of these collectives:'
-            format: basic_html
+            value: '<a href="/node/add/collective" class="button">Create a new Collective</a>'
+            format: full_html
           plugin_id: text
       fields:
         nid:
@@ -395,7 +399,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: h3
+          element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
@@ -431,7 +435,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Project registrations'
+          label: ''
           exclude: false
           alter:
             alter_text: false
@@ -464,7 +468,7 @@ display:
           element_class: description
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -476,6 +480,8 @@ display:
           display: default
           arguments: '{{ fields.nid }}'
           plugin_id: view
+      footer: {  }
+      title: 'My Collectives'
     cache_metadata:
       max-age: -1
       contexts:
@@ -485,7 +491,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags: {  }
   my_invites:
     display_plugin: block
@@ -540,6 +546,7 @@ display:
         empty: false
         fields: false
         header: false
+        title: false
       empty:
         area_text_custom:
           id: area_text_custom
@@ -550,7 +557,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: "You haven't created a Collective yet (or been listed on a Collective by a fellow crew member). <a href=\"/node/add/collective\">Click here to see if you've been listed on a crew, or to create a Collective.</a><br>\n<br>\n<strong>If you're certain you should have been added to a Collective but cannot find it here, check your emails for an invitation link, or give your team lead a shout and check that they have added you under the right email address. </strong>"
+          content: "Nope, no outstanding invites here...\n<p>\n<strong>If you're certain you should have been added to a Collective but cannot find it here, check your emails for an invitation link, or give your team lead a shout and check that they have added you with the correct email address. </strong>\n</p>"
           plugin_id: text_custom
       header:
         area:
@@ -560,10 +567,10 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
+          empty: false
           tokenize: false
           content:
-            value: 'You have been invited to join these Collectives'
+            value: 'You have been invited to join these Collectives:'
             format: basic_html
           plugin_id: text
       fields:
@@ -747,6 +754,8 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+      block_hide_empty: false
+      title: 'My Invites'
     cache_metadata:
       max-age: -1
       contexts:
@@ -755,5 +764,5 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags: {  }
