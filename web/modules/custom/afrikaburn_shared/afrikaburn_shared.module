@@ -21,8 +21,6 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
   foreach(['node_art', 'node_performances', 'node_mutant_vehicles', 'node_theme_camps'] as $parent) {
     if (substr($form_id, 0, strlen($parent)) === $parent) {
 
-      dpm($links);
-
       $form['revision_log']['#access'] = false;
 
       $cid = \Drupal::request()->query->get('field_collective');
@@ -69,9 +67,7 @@ function afrikaburn_shared_preprocess_input(&$variables) {
     preg_match(
       '/node\/add\/(art|mutant_vehicles|performances|theme_camps)/', 
       \Drupal::service('path.current')->getPath()
-    ) && 
-    $variables['element']['#published_status']
-  ) {
+    )) {
     $variables['attributes']['value'] = t('Submit');
   }
 }
