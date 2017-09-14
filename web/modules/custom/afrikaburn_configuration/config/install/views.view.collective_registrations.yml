@@ -306,7 +306,7 @@ display:
           not: false
           plugin_id: numeric
       display_extenders: {  }
-      title: 'Active registrations'
+      title: 'Projects:'
     cache_metadata:
       max-age: -1
       contexts:
