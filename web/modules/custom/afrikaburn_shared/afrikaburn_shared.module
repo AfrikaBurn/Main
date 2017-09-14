@@ -21,6 +21,8 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
   foreach(['node_art', 'node_performances', 'node_mutant_vehicles', 'node_theme_camps'] as $parent) {
     if (substr($form_id, 0, strlen($parent)) === $parent) {
 
+      dpm($links);
+
       $form['revision_log']['#access'] = false;
 
       $cid = \Drupal::request()->query->get('field_collective');
@@ -31,7 +33,7 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
       } else {
         if ($form['field_collective']['widget'][0]['target_id']['#default_value'] == NULL) {
           $response = new Symfony\Component\HttpFoundation\RedirectResponse('/');
-          $response->send();          
+          $response->send();
         }
       }
 
@@ -58,9 +60,11 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
  * Implements hook_preprocess_input().
  */
 function afrikaburn_shared_preprocess_input(&$variables) {
+
   if (isset($variables['attributes']['data-autocomplete-path']) && $cid = \Drupal::request()->query->get('field_collective')){
     $variables['attributes']['data-autocomplete-path'] .= '?field_collective=' . $cid;
   }
+
   if (
     preg_match(
       '/node\/add\/(art|mutant_vehicles|performances|theme_camps)/', 
