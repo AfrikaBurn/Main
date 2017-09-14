@@ -274,10 +274,7 @@ content:
     region: content
   field_prj_cll_contact:
     weight: 70
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings:
       conditional_fields:
         fbfe2d23-000e-47ac-9d04-67dfc705bc85:
@@ -295,7 +292,7 @@ content:
             selector: ''
           entity_type: node
           bundle: theme_camps
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_cll_description:
     weight: 69
@@ -352,12 +349,9 @@ content:
     region: content
   field_prj_gen_contact:
     weight: 1
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_gen_description:
     weight: 15
@@ -369,12 +363,9 @@ content:
     region: content
   field_prj_gen_fundraiser:
     weight: 6
-    settings:
-      match_operator: STARTS_WITH
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_gen_fundraising:
     weight: 5
@@ -443,12 +434,9 @@ content:
     region: content
   field_prj_lnt_representative:
     weight: 1
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_oth_associated:
     weight: 18
@@ -505,10 +493,7 @@ content:
     region: content
   field_prj_stg_contact:
     weight: 76
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings:
       conditional_fields:
         de67304e-0d03-4939-8d64-ad64bd534d6a:
@@ -526,7 +511,7 @@ content:
             selector: ''
           entity_type: node
           bundle: theme_camps
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_stg_description:
     weight: 74

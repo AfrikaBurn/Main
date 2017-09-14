@@ -11,17 +11,25 @@ dependencies:
     - field.field.node.art.field_grt_breakdown
     - field.field.node.art.field_grt_contribution
     - field.field.node.art.field_grt_f1
+    - field.field.node.art.field_grt_health
+    - field.field.node.art.field_grt_lighting
+    - field.field.node.art.field_grt_location
     - field.field.node.art.field_grt_materials
     - field.field.node.art.field_grt_more
     - field.field.node.art.field_grt_other
     - field.field.node.art.field_grt_other_description
+    - field.field.node.art.field_grt_pyrotechnics
+    - field.field.node.art.field_grt_services
     - field.field.node.art.field_grt_short
     - field.field.node.art.field_grt_short_desc
+    - field.field.node.art.field_grt_specify
     - field.field.node.art.field_grt_tec_apply
     - field.field.node.art.field_grt_tec_comment
     - field.field.node.art.field_grt_tec_reason
     - field.field.node.art.field_grt_tec_total
+    - field.field.node.art.field_grt_tool
     - field.field.node.art.field_grt_total
+    - field.field.node.art.field_grt_transport
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
@@ -124,6 +132,7 @@ dependencies:
     - node.type.art
   module:
     - comment
+    - conditional_fields
     - content_moderation
     - cshs
     - datetime
@@ -392,13 +401,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_grt_materials:
-    weight: 108
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
   field_muncipal_district:
     weight: 12
     settings:
@@ -462,6 +464,21 @@ content:
             selector: ''
           entity_type: node
           bundle: art
+        ab64b6a7-32bb-4ce7-ad3d-cfe7cb5fe2c4:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
     type: string_textarea
     region: content
   field_prj_cll_collaborate:
@@ -472,10 +489,7 @@ content:
     region: content
   field_prj_cll_contact:
     weight: 49
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings:
       conditional_fields:
         d091fb17-5783-46d1-b694-6ba989da373c:
@@ -495,7 +509,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_cll_description:
     weight: 48
@@ -547,12 +561,9 @@ content:
     region: content
   field_prj_gen_contact:
     weight: 2
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_gen_description:
     weight: 7
@@ -579,10 +590,7 @@ content:
     region: content
   field_prj_gen_fundraiser:
     weight: 6
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings:
       conditional_fields:
         f92da156-9aa0-40b9-8391-11ee2be157b3:
@@ -601,7 +609,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_gen_fundraising:
     weight: 5
@@ -628,12 +636,9 @@ content:
     region: content
   field_prj_gen_lead:
     weight: 3
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_gen_location:
     weight: 7
@@ -646,12 +651,9 @@ content:
     region: content
   field_prj_gen_manager:
     weight: 4
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_gen_story:
     weight: 8
@@ -720,13 +722,10 @@ content:
     type: options_select
     region: content
   field_prj_lnt_representative:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 103
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_prj_oth_area:
     weight: 74
@@ -916,12 +915,9 @@ content:
     region: content
   field_prj_stc_structural:
     weight: 13
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_stc_weight:
     weight: 9
@@ -932,10 +928,7 @@ content:
     region: content
   field_prj_stg_contact:
     weight: 54
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings:
       conditional_fields:
         ccee49ed-528f-41c8-bd4e-84bbda090011:
@@ -955,7 +948,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_stg_description:
     weight: 53
@@ -1093,16 +1086,25 @@ hidden:
   field_grt_breakdown: true
   field_grt_contribution: true
   field_grt_f1: true
+  field_grt_health: true
+  field_grt_lighting: true
+  field_grt_location: true
+  field_grt_materials: true
   field_grt_more: true
   field_grt_other: true
   field_grt_other_description: true
+  field_grt_pyrotechnics: true
+  field_grt_services: true
   field_grt_short: true
   field_grt_short_desc: true
+  field_grt_specify: true
   field_grt_tec_apply: true
   field_grt_tec_comment: true
   field_grt_tec_reason: true
   field_grt_tec_total: true
+  field_grt_tool: true
   field_grt_total: true
+  field_grt_transport: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
   field_prj_adm_form_wtf: true

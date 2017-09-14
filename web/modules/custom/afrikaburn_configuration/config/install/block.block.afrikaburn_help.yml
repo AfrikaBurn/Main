@@ -8,7 +8,7 @@ dependencies:
 id: afrikaburn_help
 theme: afrikaburn
 region: content
-weight: -11
+weight: -14
 provider: null
 plugin: help_block
 settings:

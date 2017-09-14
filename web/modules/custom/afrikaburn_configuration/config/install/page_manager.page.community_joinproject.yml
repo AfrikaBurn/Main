@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: community_joinproject
+label: community/joinproject
+description: ''
+use_admin_theme: false
+path: '/community/joinproject '
+access_logic: and
+access_conditions: {  }
+parameters: {  }

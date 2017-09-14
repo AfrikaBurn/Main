@@ -24,8 +24,8 @@ variant_settings:
       status: true
       info: ''
       view_mode: full
-      region: content
-      weight: 0
+      region: top
+      weight: -10
       uuid: 967d6bad-27f1-4085-b056-3ac565fad25e
       context_mapping: {  }
     9e5a2dc9-4448-4f9d-a798-add9c5599e1b:
@@ -35,15 +35,26 @@ variant_settings:
       label_display: visible
       views_label: 'My Collectives'
       items_per_page: none
-      region: content
-      weight: 1
+      region: first_above
+      weight: -1
       uuid: 9e5a2dc9-4448-4f9d-a798-add9c5599e1b
+      context_mapping: {  }
+    2455def8-e23e-470f-9d2d-d49e3bd1ade2:
+      id: 'views_block:collectives-my_invites'
+      label: Invites
+      provider: views
+      label_display: visible
+      views_label: Invites
+      items_per_page: none
+      region: second_above
+      weight: -1
+      uuid: 2455def8-e23e-470f-9d2d-d49e3bd1ade2
       context_mapping: {  }
   id: panels_variant
   uuid: 0675148d-30b7-4c21-9732-04195a991461
   label: null
   weight: 0
-  layout: layout_onecol
+  layout: layout_twocol_bricks
   layout_settings: {  }
   page_title: ''
   storage_type: page_manager

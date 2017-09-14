@@ -44,6 +44,7 @@ dependencies:
   - rdf
   - responsive_image
   - rest
+  - rules
   - search
   - shortcut
   - system
@@ -54,6 +55,7 @@ dependencies:
   - tour
   - user
   - views
+  - views_field_view
   - views_ui
   - webform
   - workflows

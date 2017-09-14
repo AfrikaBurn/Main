@@ -14,7 +14,7 @@ id: node.theme_camps.field_prj_gen_profit
 field_name: field_prj_gen_profit
 entity_type: node
 bundle: theme_camps
-label: 'Agree to Plug play and profit policy'
+label: 'Agree to Plug, Play and Profit Policy'
 description: ''
 required: true
 translatable: false

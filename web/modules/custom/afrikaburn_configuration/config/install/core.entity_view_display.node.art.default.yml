@@ -12,17 +12,25 @@ dependencies:
     - field.field.node.art.field_grt_breakdown
     - field.field.node.art.field_grt_contribution
     - field.field.node.art.field_grt_f1
+    - field.field.node.art.field_grt_health
+    - field.field.node.art.field_grt_lighting
+    - field.field.node.art.field_grt_location
     - field.field.node.art.field_grt_materials
     - field.field.node.art.field_grt_more
     - field.field.node.art.field_grt_other
     - field.field.node.art.field_grt_other_description
+    - field.field.node.art.field_grt_pyrotechnics
+    - field.field.node.art.field_grt_services
     - field.field.node.art.field_grt_short
     - field.field.node.art.field_grt_short_desc
+    - field.field.node.art.field_grt_specify
     - field.field.node.art.field_grt_tec_apply
     - field.field.node.art.field_grt_tec_comment
     - field.field.node.art.field_grt_tec_reason
     - field.field.node.art.field_grt_tec_total
+    - field.field.node.art.field_grt_tool
     - field.field.node.art.field_grt_total
+    - field.field.node.art.field_grt_transport
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
@@ -194,6 +202,33 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_grt_health:
+    weight: 236
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_lighting:
+    weight: 238
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_location:
+    weight: 235
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_grt_materials:
     weight: 232
     label: above
@@ -227,6 +262,24 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
+  field_grt_pyrotechnics:
+    weight: 239
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_services:
+    weight: 234
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_grt_short:
     weight: 224
     label: above
@@ -243,6 +296,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
+  field_grt_specify:
+    weight: 240
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   field_grt_tec_apply:
     weight: 219
@@ -277,8 +339,26 @@ content:
     third_party_settings: {  }
     type: number_integer
     region: content
+  field_grt_tool:
+    weight: 233
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_grt_total:
     weight: 213
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_transport:
+    weight: 237
     label: above
     settings:
       thousand_separator: ''

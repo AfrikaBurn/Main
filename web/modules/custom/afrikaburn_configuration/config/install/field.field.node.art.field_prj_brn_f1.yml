@@ -24,6 +24,6 @@ default_value:
 default_value_callback: ''
 settings:
   markup:
-    value: "<p>There will be a separate form later on about your burn plan.</p>\r\n"
+    value: "<p>There will be a separate form later about your burn plan.</p>\r\n"
     format: full_html
 field_type: markup

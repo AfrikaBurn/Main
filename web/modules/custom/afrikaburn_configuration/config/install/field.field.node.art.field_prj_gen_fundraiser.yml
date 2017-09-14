@@ -16,7 +16,7 @@ entity_type: node
 bundle: art
 label: 'Fundraiser Person (this can be you)'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''

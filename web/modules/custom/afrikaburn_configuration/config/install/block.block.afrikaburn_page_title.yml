@@ -6,7 +6,7 @@ dependencies:
 id: afrikaburn_page_title
 theme: afrikaburn
 region: content
-weight: -15
+weight: -19
 provider: null
 plugin: page_title_block
 settings:
