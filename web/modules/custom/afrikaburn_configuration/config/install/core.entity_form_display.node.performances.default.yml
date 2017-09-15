@@ -117,7 +117,7 @@ third_party_settings:
         label: 'Project Registration'
         effect: none
         id: ''
-        classes: 'js-wizard ui-widget-content'
+        classes: ''
       label: 'Project Registration'
     group_overview:
       children:

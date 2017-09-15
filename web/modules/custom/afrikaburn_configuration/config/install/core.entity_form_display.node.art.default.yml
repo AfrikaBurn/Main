@@ -160,9 +160,9 @@ third_party_settings:
       format_type: accordion
       format_settings:
         label: 'Project Registration'
-        direction: vertical
+        effect: none
         id: ''
-        classes: js-wizard
+        classes: ''
       label: 'Project Registration'
     group_overview:
       children:

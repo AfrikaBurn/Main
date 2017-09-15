@@ -138,9 +138,10 @@ third_party_settings:
       weight: 9
       format_type: accordion
       format_settings:
-        id: ''
-        classes: js-wizard
+        label: 'Overview registration'
         effect: none
+        id: ''
+        classes: ''
       label: 'Overview registration'
     group_overview:
       children:

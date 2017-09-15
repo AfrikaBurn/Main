@@ -435,7 +435,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Projects
           exclude: false
           alter:
             alter_text: false
@@ -465,7 +465,7 @@ display:
             preserve_tags: ''
             html: false
           element_type: aside
-          element_class: description
+          element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
@@ -557,7 +557,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: "Nope, no outstanding invites here...\n<p>\n<strong>If you're certain you should have been added to a Collective but cannot find it here, check your emails for an invitation link, or give your team lead a shout and check that they have added you with the correct email address. </strong>\n</p>"
+          content: "Nope, no outstanding invites here...\n"
           plugin_id: text_custom
       header:
         area:
