@@ -63,7 +63,6 @@ global-styling:
       assets/css/temp.css: {}
       assets/css/print.css: { media: print }
   js:
-    assets/js/mobile-drop-down-menu.js: {}
     assets/js/theme.js: {}
   dependencies:
     - core/jquery
