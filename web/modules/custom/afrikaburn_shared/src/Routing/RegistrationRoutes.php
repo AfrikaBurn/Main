@@ -20,13 +20,20 @@ class RegistrationRoutes extends RouteSubscriberBase {
    */
   protected function alterRoutes(RouteCollection $collection) {
 
-    // Registration views
+    dpm($collection);
+
+    // Node views
     if ($route = $collection->get('entity.node.canonical')) {
       $route->setRequirement('_is_collective_member', 'TRUE');
     }
 
-    // Registration Edits
+    // Node Edits
     if ($route = $collection->get('entity.node.edit_form')) {
+      $route->setRequirement('_is_collective_admin', 'TRUE');
+    }
+
+    // Node deletes
+    if ($route = $collection->get('entity.node.delete_form')) {
       $route->setRequirement('_is_collective_admin', 'TRUE');
     }
 
