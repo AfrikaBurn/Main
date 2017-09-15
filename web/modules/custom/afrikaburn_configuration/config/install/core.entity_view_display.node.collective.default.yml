@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.post.default
     - field.field.node.collective.field_col_admins
     - field.field.node.collective.field_col_description
     - field.field.node.collective.field_col_invitee
@@ -10,6 +11,7 @@ dependencies:
     - field.field.node.collective.field_col_posts
     - node.type.collective
   module:
+    - comment
     - panelizer
     - text
     - user
@@ -39,9 +41,17 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_col_posts:
+    type: comment_default
+    weight: 2
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
 hidden:
   field_col_admins: true
   field_col_invitee: true
   field_col_mem_writeup: true
-  field_col_posts: true
   links: true

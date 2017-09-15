@@ -199,7 +199,12 @@ display:
             value: "To register a project you will need to first create a Collective of your team members. Once you've created a collective you need to go into your Collective space to continue registration.<br>\nThe collective will be used to for Direct Distribution Tickets and Early access management, as well as let the rest of your team see and manage project registrations. Click the link below to continue. "
             format: basic_html
           plugin_id: text
-      footer: {  }
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          plugin_id: text
       empty: {  }
       relationships: {  }
       arguments:
@@ -280,22 +285,9 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: "You haven't created a Collective yet (or been listed on a Collective by a fellow crew member). <a href=\"/node/add/collective\">Click here to create a Collective.</a><br>\n<br>\n<strong>If you're certain you should have been added to a Collective but cannot find it here, check your emails for an invitation link, or give your team lead a shout and check that they have added you under the right email address. </strong>"
+          content: 'You haven''t joined any Collectives yet.'
           plugin_id: text_custom
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: '<a href="/node/add/collective" class="button">Create a new Collective</a>'
-            format: full_html
-          plugin_id: text
+      header: {  }
       fields:
         nid:
           id: nid
@@ -480,7 +472,20 @@ display:
           display: default
           arguments: '{{ fields.nid }}'
           plugin_id: view
-      footer: {  }
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<a href="/node/add/collective" class="button">Create a new Collective</a>'
+            format: full_html
+          plugin_id: text
       title: 'My Collectives'
     cache_metadata:
       max-age: -1
@@ -547,6 +552,7 @@ display:
         fields: false
         header: false
         title: false
+        footer: false
       empty:
         area_text_custom:
           id: area_text_custom
@@ -557,7 +563,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: "Nope, no outstanding invites here...\n"
+          content: 'Nope, no outstanding invites here...'
           plugin_id: text_custom
       header:
         area:
@@ -756,6 +762,20 @@ display:
           plugin_id: custom
       block_hide_empty: false
       title: 'My Invites'
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: '<p><strong>If you''re certain you should have been added to a Collective but cannot find it here, check your emails for an invitation link, or give your team lead a shout and check that they have added you under the right email address. </strong></p>'
+            format: basic_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
