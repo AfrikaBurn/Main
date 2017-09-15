@@ -144,23 +144,14 @@ third_party_settings:
         classes: ''
       label: 'Overview registration'
     group_overview:
-      children:
-        - field_collective
-        - field_prj_gen_contact
-        - field_prj_gen_location
-        - field_prj_gen_bio
-        - field_prj_gen_history
-        - field_prj_gen_fundraising
-        - field_prj_gen_fundraiser
-      parent_name: group_overview_registration
+      children: {  }
+      parent_name: ''
       weight: 20
-      format_type: accordion_item
+      format_type: accordion
       format_settings:
         id: ''
         classes: ''
-        formatter: open
-        description: ''
-        required_fields: true
+        effect: none
       label: Overview
     group_the_project:
       children:
@@ -246,6 +237,18 @@ third_party_settings:
         required_fields: true
         description: ''
       label: 'Almost done!'
+    group_project:
+      children: {  }
+      parent_name: ''
+      weight: 20
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'The Project'
 id: node.theme_camps.default
 targetEntityType: node
 bundle: theme_camps

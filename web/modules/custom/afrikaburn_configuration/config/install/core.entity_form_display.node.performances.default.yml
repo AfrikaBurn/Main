@@ -140,7 +140,7 @@ third_party_settings:
         formatter: open
         required_fields: true
         id: ''
-        classes: ui-accordion-header
+        classes: ''
       label: Overview
     group_the_:
       children:
