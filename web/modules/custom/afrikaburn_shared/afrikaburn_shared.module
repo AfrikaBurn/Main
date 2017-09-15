@@ -22,16 +22,16 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
     if (substr($form_id, 0, strlen($parent)) === $parent) {
 
       $form['revision_log']['#access'] = false;
+      $form['field_collective']['#access'] = FALSE;
 
       $cid = \Drupal::request()->query->get('field_collective');
       if ($cid) {
         $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
         $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
-        $form['field_collective']['#access'] = FALSE;
       } else {
-        if ($form['field_collective']['widget'][0]['target_id']['#default_value'] == NULL) {
-          $response = new Symfony\Component\HttpFoundation\RedirectResponse('/');
-          $response->send();
+        $registration = $form_state->getFormObject()->getEntity();
+        if (!$registration->field_collective->getValue()[0]['target_id']) {
+          throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
         }
       }
 
