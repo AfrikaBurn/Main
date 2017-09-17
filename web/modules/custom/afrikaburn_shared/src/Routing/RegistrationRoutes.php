@@ -20,7 +20,7 @@ class RegistrationRoutes extends RouteSubscriberBase {
    */
   protected function alterRoutes(RouteCollection $collection) {
 
-    dpm($collection);
+    // dpm($collection);
 
     // Node views
     if ($route = $collection->get('entity.node.canonical')) {
