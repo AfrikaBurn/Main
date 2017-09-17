@@ -38,7 +38,7 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
     }
   }
 
-  if (substr($form_id, 0, strlen('node_collective_form')) === 'node_collective_form') {
+  if (substr($form_id, 0, strlen('node_collective')) === 'node_collective') {
     $user = User::load(\Drupal::currentUser()->id());
     $form['field_col_admins']['widget'][0]['target_id']['#default_value'] = $user;
     $form['field_col_admins']['#access'] = FALSE;
