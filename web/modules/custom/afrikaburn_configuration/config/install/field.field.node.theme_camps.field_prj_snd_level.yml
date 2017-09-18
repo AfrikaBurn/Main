@@ -16,7 +16,7 @@ field_name: field_prj_snd_level
 entity_type: node
 bundle: theme_camps
 label: 'Please select the level of your sound component'
-description: "<p><b>Level 1</b><br>\r\nNon-amplified sound: it includes instrumental music, as well as sound at the level of a normal (domestic hi-fi) stereo without sub woofers etc. This level permits you to play sound in most areas during the day unless it's a silent zone near the temple or other artworks.</p>\r\n\r\n<p><b>Level 2</b><br>\r\nAmplified sound: system with sub woofers. This can only be played in specified areas within the Binnekring during the day, and in Sound Zones at night. Please be very aware of Quiet Zones and where artworks require low sound in their surrounds, as well as which way your speakers point.</p>\r\n\r\n<p><b>Level 3</b><br>\r\nVery large club or stadium-size sound. These systems can only be played at full volume in Sound Zones with speakers orientated away from the Binnekring and camping areas.</p>"
+description: "<p><b>Level 1</b><br>\r\nWe have a small amplified sound system for background music without sub woofers.</p>\r\n\r\n<p><b>Level 2</b><br>\r\nWe have a small sound rig for our stage/performance space/dance floor and music is one of our gifts.</p>\r\n\r\n<p><b>Level 3</b><br>\r\nMusic is our main gift and we are working in conjunction with the sound committee to make it work. So, large club or stadium size sound.</p>"
 required: false
 translatable: false
 default_value: {  }

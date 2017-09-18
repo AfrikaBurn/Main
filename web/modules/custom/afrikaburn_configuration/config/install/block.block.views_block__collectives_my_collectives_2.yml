@@ -10,8 +10,8 @@ dependencies:
     - afrikaburn
 id: views_block__collectives_my_collectives_2
 theme: afrikaburn
-region: user_menu
-weight: -19
+region: collectives
+weight: -20
 provider: null
 plugin: 'views_block:collectives-my_collectives'
 settings:

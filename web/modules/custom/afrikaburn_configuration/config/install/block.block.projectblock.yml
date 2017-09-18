@@ -1,28 +1,23 @@
 langcode: en
 status: true
 dependencies:
-  config:
-    - views.view.collectives
   module:
+    - afrikaburn_shared
     - php
     - system
-    - views
   theme:
     - afrikaburn
-id: views_block__collectives_my_collectives
+id: projectblock
 theme: afrikaburn
 region: sidebar
-weight: -17
+weight: -21
 provider: null
-plugin: 'views_block:collectives-my_collectives'
+plugin: project_block
 settings:
-  id: 'views_block:collectives-my_collectives'
-  label: ''
-  provider: views
-  label_display: visible
-  views_label: ''
-  items_per_page: none
-  context_mapping: {  }
+  id: project_block
+  label: Register
+  provider: afrikaburn_shared
+  label_display: '0'
 visibility:
   php:
     id: php
@@ -31,6 +26,6 @@ visibility:
     context_mapping: {  }
   request_path:
     id: request_path
-    pages: '<front>'
+    pages: '/collective/*'
     negate: false
     context_mapping: {  }

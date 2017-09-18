@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.post.default
+    - core.entity_form_mode.node.member_invitation
     - field.field.node.collective.field_col_admins
     - field.field.node.collective.field_col_description
     - field.field.node.collective.field_col_invitee
@@ -11,40 +11,29 @@ dependencies:
     - field.field.node.collective.field_col_posts
     - node.type.collective
   module:
-    - comment
-    - panelizer
-    - text
-    - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
-id: node.collective.default
+    - content_moderation
+id: node.collective.member_invitation
 targetEntityType: node
 bundle: collective
-mode: default
+mode: member_invitation
 content:
-  field_col_description:
+  field_col_invitee:
     weight: 0
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_col_posts:
-    type: comment_default
-    weight: 1
-    region: content
-    label: hidden
     settings:
-      view_mode: default
-      pager_id: 0
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+    type: email_default
+    region: content
 hidden:
+  created: true
   field_col_admins: true
-  field_col_invitee: true
+  field_col_description: true
   field_col_mem_writeup: true
   field_col_members: true
-  links: true
+  field_col_posts: true
+  path: true
+  promote: true
+  sticky: true
+  title: true
+  uid: true

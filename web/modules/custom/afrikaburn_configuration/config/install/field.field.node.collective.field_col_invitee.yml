@@ -14,7 +14,7 @@ id: node.collective.field_col_invitee
 field_name: field_col_invitee
 entity_type: node
 bundle: collective
-label: 'Invite a new member to your collective'
+label: 'Invite people'
 description: 'Add their email address'
 required: false
 translatable: false

@@ -2,9 +2,11 @@ name: 'Afrikaburn configuration'
 type: module
 core: 8.x
 dependencies:
+  - afrikaburn_shared
   - basic_auth
   - block
   - block_content
+  - captcha
   - ckeditor
   - comment
   - conditional_fields

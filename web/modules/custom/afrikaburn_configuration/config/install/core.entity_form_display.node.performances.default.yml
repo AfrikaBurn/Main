@@ -140,7 +140,7 @@ third_party_settings:
         formatter: open
         required_fields: true
         id: ''
-        classes: ''
+        classes: ui-accordion-header
       label: Overview
     group_the_:
       children:
@@ -302,7 +302,7 @@ third_party_settings:
         formatter: closed
         required_fields: true
         id: ''
-        classes: ui-accordion-header
+        classes: ''
       label: Lighting
     group_burn:
       children:
