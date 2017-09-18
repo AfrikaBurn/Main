@@ -70,9 +70,12 @@
         {{ page.create_tickets }}
         <div class='user-menu'>
           {{ page.user_menu }}
+
         </div>
 
         {% if logged_in %}
+        <a href="#" class="my-collectives">My Collectives</a>
+        <div class="my-collectives-block">{{ page.collectives }}</div>
         <div class='user-greeting'>
           {{ page.user_greeting }}
           <div class="user-menu-icon">

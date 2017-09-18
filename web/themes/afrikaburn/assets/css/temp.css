@@ -47,7 +47,7 @@ body.node-add-art-grant div#field-grt-breakdown-add-more-wrapper {
 }
 
 
-.tabs.secondary {
+body.user-logged-in .tabs.secondary {
     display: none;
 }
 

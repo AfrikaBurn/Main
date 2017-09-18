@@ -126,80 +126,55 @@ dependencies:
     - path
 third_party_settings:
   field_group:
-    group_overview_registration:
+    group_overview_new:
       children:
-        - group_overview
-        - group_the_project
-        - group_sound
-        - group_moop
-        - group_wtf
-        - group_almost_done_
-      parent_name: ''
-      weight: 9
-      format_type: accordion
-      format_settings:
-        label: 'Overview registration'
-        effect: none
-        id: ''
-        classes: ''
-      label: 'Overview registration'
-    group_overview:
-      children: {  }
-      parent_name: ''
-      weight: 20
-      format_type: accordion
-      format_settings:
-        id: ''
-        classes: ''
-        effect: none
-      label: Overview
-    group_the_project:
-      children:
-        - field_prj_gen_description
-        - field_prj_gen_story
-        - field_prj_gen_commodification
-        - field_prj_gen_concept
-      parent_name: group_overview_registration
-      weight: 21
+        - field_collective
+        - title
+        - field_prj_gen_contact
+        - field_prj_gen_location
+        - field_prj_gen_bio
+        - field_prj_gen_fundraising
+        - field_prj_gen_fundraiser
+      parent_name: group_overview_registrationew
+      weight: 1
       format_type: accordion_item
       format_settings:
+        label: Overview
+        formatter: open
+        required_fields: true
         id: ''
         classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: 'The Project'
-    group_sound:
+      label: Overview
+    group_sound_new:
       children:
         - field_prj_snd_sound
         - field_prj_snd_level
-      parent_name: group_overview_registration
-      weight: 22
+      parent_name: group_overview_registrationew
+      weight: 3
       format_type: accordion_item
       format_settings:
+        label: Sound
+        formatter: closed
+        required_fields: true
         id: ''
         classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
       label: Sound
-    group_moop:
+    group_leave_no_trace_new:
       children:
         - field_prj_lnt_handled
         - field_prj_lnt_representative
         - field_prj_lnt_historic
-      parent_name: group_overview_registration
-      weight: 23
+      parent_name: group_overview_registrationew
+      weight: 4
       format_type: accordion_item
       format_settings:
         label: 'Leave No Trace'
         formatter: closed
-        description: ''
         required_fields: true
         id: ''
         classes: ''
       label: 'Leave No Trace'
-    group_wtf:
+    group_wtf_guide_and_community_ne:
       children:
         - field_prj_wtf_image
         - field_prj_wtf_website
@@ -211,44 +186,64 @@ third_party_settings:
         - field_prj_stg_type
         - field_prj_stg_description
         - field_prj_stg_contact
-      parent_name: group_overview_registration
-      weight: 24
+      parent_name: group_overview_registrationew
+      weight: 5
       format_type: accordion_item
       format_settings:
         label: 'WTF Guide and Community'
         formatter: closed
-        description: ''
         required_fields: true
         id: ''
         classes: ''
       label: 'WTF Guide and Community'
-    group_almost_done_:
+    group_almost_done_new:
       children:
         - field_prj_oth_associated
         - field_prj_oth_move
         - field_prj_oth_mv
-      parent_name: group_overview_registration
-      weight: 25
+      parent_name: group_overview_registrationew
+      weight: 6
       format_type: accordion_item
       format_settings:
-        id: ''
-        classes: ''
+        label: 'Almost done!'
         formatter: closed
         required_fields: true
-        description: ''
+        id: ''
+        classes: ''
       label: 'Almost done!'
-    group_project:
-      children: {  }
-      parent_name: ''
-      weight: 20
+    group_the_project_new:
+      children:
+        - field_prj_gen_description
+        - field_prj_gen_story
+        - field_prj_gen_commodification
+        - field_prj_gen_concept
+      parent_name: group_overview_registrationew
+      weight: 2
       format_type: accordion_item
       format_settings:
-        id: ''
-        classes: ''
+        label: 'The Project'
         formatter: closed
         required_fields: true
-        description: ''
+        id: ''
+        classes: ''
       label: 'The Project'
+    group_overview_registrationew:
+      children:
+        - group_overview_new
+        - group_the_project_new
+        - group_sound_new
+        - group_leave_no_trace_new
+        - group_wtf_guide_and_community_ne
+        - group_almost_done_new
+      parent_name: ''
+      weight: 10
+      format_type: accordion
+      format_settings:
+        label: 'Overview registration'
+        effect: none
+        id: ''
+        classes: ''
+      label: 'Overview registration'
 id: node.theme_camps.default
 targetEntityType: node
 bundle: theme_camps
@@ -256,13 +251,13 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   field_collective:
     type: entity_reference_autocomplete
-    weight: 0
+    weight: 21
     region: content
     settings:
       match_operator: CONTAINS
@@ -270,14 +265,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_cll_collaborate:
-    weight: 68
+    weight: 26
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_cll_contact:
-    weight: 70
+    weight: 28
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -299,7 +294,7 @@ content:
     type: options_select
     region: content
   field_prj_cll_description:
-    weight: 69
+    weight: 27
     settings:
       rows: 5
       placeholder: ''
@@ -323,13 +318,13 @@ content:
     type: string_textarea
     region: content
   field_prj_cll_thread:
-    weight: 71
+    weight: 29
     settings: {  }
     third_party_settings: {  }
     type: comment_default
     region: content
   field_prj_gen_bio:
-    weight: 3
+    weight: 26
     settings:
       rows: 5
       placeholder: ''
@@ -352,7 +347,7 @@ content:
     type: image_image
     region: content
   field_prj_gen_contact:
-    weight: 1
+    weight: 24
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -366,13 +361,13 @@ content:
     type: string_textarea
     region: content
   field_prj_gen_fundraiser:
-    weight: 6
+    weight: 28
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_prj_gen_fundraising:
-    weight: 5
+    weight: 27
     settings:
       display_label: true
     third_party_settings: {  }
@@ -391,7 +386,7 @@ content:
     type: markup
     region: content
   field_prj_gen_history:
-    weight: 4
+    weight: 3
     settings:
       rows: 5
       placeholder: ''
@@ -399,7 +394,7 @@ content:
     type: string_textarea
     region: content
   field_prj_gen_location:
-    weight: 2
+    weight: 25
     settings:
       force_deepest: '1'
       parent: '0'
@@ -443,7 +438,7 @@ content:
     type: options_select
     region: content
   field_prj_oth_associated:
-    weight: 18
+    weight: 24
     settings:
       match_operator: CONTAINS
       size: 60
@@ -452,14 +447,14 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_prj_oth_move:
-    weight: 19
+    weight: 25
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_oth_mv:
-    weight: 20
+    weight: 26
     settings:
       rows: 5
       placeholder: ''
@@ -467,7 +462,7 @@ content:
     type: string_textarea
     region: content
   field_prj_snd_level:
-    weight: 15
+    weight: 26
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -486,17 +481,32 @@ content:
             selector: ''
           entity_type: node
           bundle: theme_camps
+        9bfea207-79cf-4f07-a4c3-bcf108e8be43:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: theme_camps
     type: options_select
     region: content
   field_prj_snd_sound:
-    weight: 14
+    weight: 25
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_stg_contact:
-    weight: 76
+    weight: 35
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -518,7 +528,7 @@ content:
     type: options_select
     region: content
   field_prj_stg_description:
-    weight: 74
+    weight: 33
     settings:
       rows: 5
       placeholder: ''
@@ -542,14 +552,14 @@ content:
     type: string_textarea
     region: content
   field_prj_stg_stage:
-    weight: 72
+    weight: 30
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_stg_type:
-    weight: 73
+    weight: 31
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -571,7 +581,7 @@ content:
     type: options_buttons
     region: content
   field_prj_wtf_image:
-    weight: 66
+    weight: 24
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -579,7 +589,7 @@ content:
     type: image_image
     region: content
   field_prj_wtf_website:
-    weight: 67
+    weight: 25
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -596,7 +606,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 3
+    weight: 2
     region: content
     third_party_settings: {  }
   sticky:
@@ -608,7 +618,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 23
     region: content
     settings:
       size: 60
@@ -616,7 +626,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 0
     settings:
       match_operator: CONTAINS
       size: 60

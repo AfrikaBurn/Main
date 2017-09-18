@@ -6,7 +6,7 @@ dependencies:
 id: userregistrationform
 theme: afrikaburn
 region: content
-weight: -13
+weight: -14
 provider: null
 plugin: formblock_user_register
 settings:

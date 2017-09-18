@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.collectives
+  module:
+    - php
+    - views
+  theme:
+    - afrikaburn
+id: views_block__collectives_my_collectives_2
+theme: afrikaburn
+region: user_menu
+weight: -19
+provider: null
+plugin: 'views_block:collectives-my_collectives'
+settings:
+  id: 'views_block:collectives-my_collectives'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
+    context_mapping: {  }
