@@ -42,10 +42,12 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
   }
 
   if (substr($form_id, 0, strlen('node_collective')) === 'node_collective') {
-    $form['field_col_admins']['widget'][0]['target_id']['#default_value'] = $user;
     $form['field_col_admins']['#access'] = $user->hasRole('administrator');
-    $form['field_col_members']['widget'][0]['target_id']['#default_value'] = $user;
     $form['field_col_members']['#access'] = $user->hasRole('administrator');
+    if ($form_id == 'node_collective_form'){
+      $form['field_col_admins']['widget'][0]['target_id']['#default_value'] = $user;
+      $form['field_col_members']['widget'][0]['target_id']['#default_value'] = $user;      
+    }
   }
 
   if ($form_id == 'user_form') {
