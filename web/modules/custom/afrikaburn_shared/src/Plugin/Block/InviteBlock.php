@@ -24,7 +24,14 @@ class InviteBlock extends BlockBase {
     $form = \Drupal::service('entity.manager')
       ->getFormObject('node', 'member_invitation')
       ->setEntity($node);
-    
-    return \Drupal::formBuilder()->getForm($form);
+    $build = \Drupal::formBuilder()->getForm($form);
+
+    $build['revision']['#access'] = FALSE;
+    $build['revision_information']['#access'] = FALSE;
+    $build['revision_log']['#access'] = FALSE;
+
+    unset($build['actions']['delete']);
+
+    return $build;
   }
 }
