@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
+use \Drupal\user\Entity\User;
 
 /**
  * Checks Collective Admin access.
@@ -27,6 +28,8 @@ class CollectiveAdminCheck implements AccessInterface {
    */
   public function access(AccountInterface $account) {
 
+    static $user;
+    $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
     $entity = \Drupal::routeMatch()->getParameter('node');
     $bundle = $entity ? $entity->bundle() : FALSE;
 
@@ -34,13 +37,13 @@ class CollectiveAdminCheck implements AccessInterface {
       $field_collective = $entity->get('field_collective');
       if ($field_collective) {
         $collective = $field_collective->first()->get('entity')->getTarget();
-        return AccessResult::allowedIf($this->isAdmin($collective));
+        return AccessResult::allowedIf($this->isAdmin($collective) || $user->hasRole('administrator'));
       }
-      return AccessResult::allowedIf(FALSE);
+      return AccessResult::allowedIf($user->hasRole('administrator'));
     }
 
     if ($bundle == 'collective') {
-      return AccessResult::allowedIf($this->isAdmin($entity));
+      return AccessResult::allowedIf($this->isAdmin($entity) || $user->hasRole('administrator'));
     }
 
     return AccessResult::allowedIf(TRUE);

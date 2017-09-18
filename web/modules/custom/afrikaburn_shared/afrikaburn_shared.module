@@ -16,7 +16,9 @@ use \Drupal\user\Entity\User;
  */
 function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
 
-  $user = User::load(\Drupal::currentUser()->id());
+  static $user;
+  $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
+
   $form['#attached']['library'][] = 'afrikaburn_shared/form';
 
   foreach(['node_art', 'node_performances', 'node_mutant_vehicles', 'node_theme_camps'] as $parent) {
