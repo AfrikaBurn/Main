@@ -29,12 +29,14 @@ class ProjectBlock extends BlockBase {
 
     $node = \Drupal::routeMatch()->getParameter('node');
     if ($node) { 
+
       $nid = $node->id();
       $block['#markup'] = '
+        <h2>Register</h2>
         <ul>
-          <li><a href="/node/add/art?field_collective=' . $nid . '" class="button">Register an artwork</a></li>        
-          <li><a href="/node/add/performances?field_collective=' . $nid . '" class="button">Register a Performance</a></li>
-          <li><a href="/node/add/theme_camps?field_collective=' . $nid . '" class="button">Register a Theme camp</a></li>
+          <li><a href="/node/add/art?field_collective=' . $nid . '" class="button">An artwork</a></li>        
+          <li><a href="/node/add/performances?field_collective=' . $nid . '" class="button">A Performance</a></li>
+          <li><a href="/node/add/theme_camps?field_collective=' . $nid . '" class="button">A Theme camp</a></li>
         </ul>
       ';
     }
