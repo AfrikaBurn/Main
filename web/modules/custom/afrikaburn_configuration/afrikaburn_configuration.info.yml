@@ -1,4 +1,4 @@
-name: afrikaburn_configuration
+name: 'Afrikaburn Configuration'
 type: module
 core: 8.x
 dependencies:

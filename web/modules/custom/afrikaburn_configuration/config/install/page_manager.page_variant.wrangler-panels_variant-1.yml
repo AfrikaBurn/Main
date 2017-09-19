@@ -1,0 +1,146 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.wrangler
+  content:
+    - 'block_content:basic:11e9454e-0a14-486d-b9f7-08358cdf4a31'
+    - 'block_content:basic:14d2c42c-cffe-469c-81ae-fbd4732bfd5d'
+    - 'block_content:basic:3dbfbbc4-a747-4939-a38a-099f8d1fe791'
+    - 'block_content:basic:63b8ad28-7540-40b9-bb2c-a4bd486b33af'
+    - 'block_content:basic:9c70a8bb-808d-4743-a42f-64a52e66a1c9'
+    - 'block_content:basic:a4b82411-0a8b-4690-8c98-a4492af84cec'
+    - 'block_content:basic:da31640e-ffc1-4f97-8c0d-59e2a99188c9'
+    - 'block_content:basic:dbf2871f-1170-4f06-85de-ba2e720d1132'
+    - 'block_content:basic:e5fca3be-ebdc-4c07-9457-e0cee7b5af40'
+  module:
+    - block_content
+    - panels
+id: wrangler-panels_variant-1
+label: Wrangle
+variant: panels_variant
+variant_settings:
+  blocks:
+    e6273a7c-4d2c-4367-a073-7ae3017e29b6:
+      id: 'block_content:da31640e-ffc1-4f97-8c0d-59e2a99188c9'
+      label: 'Theme Camp Wrangers overview'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: content
+      weight: 9
+      uuid: e6273a7c-4d2c-4367-a073-7ae3017e29b6
+      context_mapping: {  }
+    f351a932-a351-4a09-8c4c-66baf608273a:
+      id: 'block_content:11e9454e-0a14-486d-b9f7-08358cdf4a31'
+      label: 'Art Com'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      context_mapping: {  }
+      region: content
+      uuid: f351a932-a351-4a09-8c4c-66baf608273a
+      weight: 1
+    48f8bcc1-96e4-4493-b9b7-1ea283c1cd7d:
+      id: 'block_content:3dbfbbc4-a747-4939-a38a-099f8d1fe791'
+      label: 'Department of Mutant Vehicles'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      context_mapping: {  }
+      region: content
+      uuid: 48f8bcc1-96e4-4493-b9b7-1ea283c1cd7d
+      weight: 3
+    1b7da3d0-7d29-43b0-a397-41351d457c2c:
+      id: 'block_content:14d2c42c-cffe-469c-81ae-fbd4732bfd5d'
+      label: 'Leave No Trace'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      context_mapping: {  }
+      region: content
+      uuid: 1b7da3d0-7d29-43b0-a397-41351d457c2c
+      weight: 5
+    aa615650-aeff-4e70-a005-b4967b485fb2:
+      id: 'block_content:a4b82411-0a8b-4690-8c98-a4492af84cec'
+      label: 'Safety Marshels'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      context_mapping: {  }
+      region: content
+      uuid: aa615650-aeff-4e70-a005-b4967b485fb2
+      weight: 6
+    9b68c9e8-5d96-4326-b742-1d8b8f40bd6b:
+      id: 'block_content:63b8ad28-7540-40b9-bb2c-a4bd486b33af'
+      label: 'Fire Rangers'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      context_mapping: {  }
+      region: content
+      uuid: 9b68c9e8-5d96-4326-b742-1d8b8f40bd6b
+      weight: 4
+    bbbdd2ec-e3f1-46b1-8742-a5d937010597:
+      id: 'block_content:dbf2871f-1170-4f06-85de-ba2e720d1132'
+      label: 'Sound Rangers'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      context_mapping: {  }
+      region: content
+      uuid: bbbdd2ec-e3f1-46b1-8742-a5d937010597
+      weight: 7
+    7521446e-3e67-43e6-8a95-4e5bab8cb528:
+      id: 'block_content:e5fca3be-ebdc-4c07-9457-e0cee7b5af40'
+      label: Tickets
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      context_mapping: {  }
+      region: content
+      uuid: 7521446e-3e67-43e6-8a95-4e5bab8cb528
+      weight: 8
+    4b5b8132-c380-4fdb-a44b-1b83055e0734:
+      id: 'block_content:9c70a8bb-808d-4743-a42f-64a52e66a1c9'
+      label: Communications
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      context_mapping: {  }
+      region: content
+      uuid: 4b5b8132-c380-4fdb-a44b-1b83055e0734
+      weight: 2
+  id: panels_variant
+  uuid: 6e50c006-1735-40c6-8bc8-7277b05dd3c7
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: wrangler-panels_variant-1
+  builder: ipe
+page: wrangler
+weight: -10
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
