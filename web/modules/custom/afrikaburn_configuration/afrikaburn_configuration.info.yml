@@ -4,6 +4,7 @@ core: 8.x
 dependencies:
   - block
   - block_content
+  - captcha
   - ckeditor
   - comment
   - conditional_fields
@@ -15,6 +16,7 @@ dependencies:
   - datetime
   - editor
   - entity_reference_revisions
+  - features
   - field
   - field_group
   - field_permissions
