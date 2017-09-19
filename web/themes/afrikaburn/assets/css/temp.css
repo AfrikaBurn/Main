@@ -1,15 +1,15 @@
-// body.node-add-art-grant div.main-block {
-//     max-width: 100%;
-// }
+/* body.node-add-art-grant div.main-block {
+     max-width: 100%;
+ }*/
 
 body.node-add-art-grant div#field-grt-breakdown-add-more-wrapper {
     max-width: 100%;
     overflow-x: scroll;
 }
 
-// .node-art-grant-form .field-group-accordion-wrapper {
-//     width: 940px;
-// }
+/* .node-art-grant-form .field-group-accordion-wrapper {
+     width: 940px;
+ }*/
 .field--name-field-grt-breakdown .paragraphs-subform {
     display: flex;
     max-width: 1400px;
@@ -36,9 +36,9 @@ body.node-add-art-grant div#field-grt-breakdown-add-more-wrapper {
     max-width: 90%;
 }
 .field--name-field-grt-breakdown tr label {
-    // display: none;
+/*    // display: none;
     // height: 42px;
-}
+*/}
 .field--name-field-grt-breakdown tr:first-child label {
     display: block;
 }
@@ -51,3 +51,40 @@ body.user-logged-in .tabs.secondary {
     display: none;
 }
 
+/* skp 18/9/2017 */
+/* RHS button and table width */
+#block-projectblock .button,
+#block-views-block-collective-members-members table,
+#block-views-block-collectives-my-collectives .button{
+  width: 100%;
+}
+
+/* Collectives menu bar */
+#my-collectives-block{
+  right: 0 !important;
+  max-width: 100%;
+  width: 938px;
+}
+
+#my-collectives-block:before,
+#my-collectives-block:after{ 
+  right: 170px
+}
+
+#my-collectives-block img{
+ width: auto;
+}
+
+/* top bar */
+body.user-logged-in .logo-container img{
+  width: 50%;
+}
+
+body.user-logged-in div.banners{
+  height: 150px;
+  overflow: hidden;
+}
+
+body.user-logged-in div.banners div.slide{
+  top: -50%;
+}
