@@ -1,0 +1,24 @@
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:3dbfbbc4-a747-4939-a38a-099f8d1fe791'
+  module:
+    - block_content
+  theme:
+    - afrikaburn
+id: afrikaburn_departmentofmutantvehicles
+theme: afrikaburn
+region: status_messages
+weight: -15
+provider: null
+plugin: 'block_content:3dbfbbc4-a747-4939-a38a-099f8d1fe791'
+settings:
+  id: 'block_content:3dbfbbc4-a747-4939-a38a-099f8d1fe791'
+  label: 'Department of Mutant Vehicles'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

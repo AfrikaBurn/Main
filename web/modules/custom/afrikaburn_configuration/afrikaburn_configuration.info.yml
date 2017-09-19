@@ -2,6 +2,7 @@ name: 'Afrikaburn Configuration'
 type: module
 core: 8.x
 dependencies:
+  - afrikaburn_shared
   - block
   - block_content
   - captcha
@@ -23,6 +24,7 @@ dependencies:
   - field_validation
   - file
   - filter
+  - help
   - image
   - link
   - linkit
@@ -42,6 +44,7 @@ dependencies:
   - rdf
   - responsive_image
   - rules
+  - search
   - shortcut
   - system
   - taxonomy

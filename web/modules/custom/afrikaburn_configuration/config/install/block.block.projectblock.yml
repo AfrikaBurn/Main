@@ -1,29 +1,31 @@
 langcode: en
 status: true
 dependencies:
-  config:
-    - system.menu.main
   module:
+    - afrikaburn_shared
     - php
     - system
   theme:
     - afrikaburn
-id: afrikaburn_main_menu
+id: projectblock
 theme: afrikaburn
-region: main_menu
-weight: -19
+region: sidebar
+weight: -20
 provider: null
-plugin: 'system_menu_block:main'
+plugin: project_block
 settings:
-  id: 'system_menu_block:main'
-  label: 'Main navigation'
-  provider: system
+  id: project_block
+  label: Register
+  provider: afrikaburn_shared
   label_display: '0'
-  level: 1
-  depth: 2
 visibility:
   php:
     id: php
     negate: false
     php: '<?php return TRUE; ?>'
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '/collective/*'
+    negate: false
     context_mapping: {  }

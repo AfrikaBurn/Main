@@ -1,0 +1,24 @@
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:ccc13d9d-fc4f-4f7a-b7d7-9264195cd850'
+  module:
+    - block_content
+  theme:
+    - bartik
+id: themecampregestationoverview
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:ccc13d9d-fc4f-4f7a-b7d7-9264195cd850'
+settings:
+  id: 'block_content:ccc13d9d-fc4f-4f7a-b7d7-9264195cd850'
+  label: 'Theme Camp Regestation Overview'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
