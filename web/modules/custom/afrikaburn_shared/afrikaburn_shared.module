@@ -37,10 +37,10 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
         \Drupal::request()->query->get('field_collective'),
         $registration ? $registration->field_collective->getValue()[0]['target_id'] : FALSE,
       ]
-    ))[0];
+    ));
 
-    if ($cid) {
-      $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+    if ($cid[0]) {
+      $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid[0]);
       $collective_title = '<div class="subtitle">by the ' . $collective->getTitle() . ' collective</div>';
     }
   }
