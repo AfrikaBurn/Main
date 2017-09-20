@@ -35,7 +35,9 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
     $cid = array_values(array_filter(
       [
         \Drupal::request()->query->get('field_collective'),
-        $registration ? $registration->field_collective->getValue()[0]['target_id'] : FALSE,
+        $registration && $registration->field_collective 
+          ? $registration->field_collective->getValue()[0]['target_id'] 
+          : FALSE,
       ]
     ));
 
