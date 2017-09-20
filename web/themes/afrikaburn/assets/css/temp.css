@@ -119,3 +119,8 @@ h1.page-title .subtitle{
 #edit-field-grt-breakdown {
     min-height: 190px;
 }
+
+/* This is hidious I know, but only way I found to get the aweful create revision gone. */
+.form-type-vertical-tabs {
+    display: none;
+}
