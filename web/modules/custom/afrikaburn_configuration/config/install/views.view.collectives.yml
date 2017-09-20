@@ -1515,7 +1515,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 6
+          items_per_page: 3
           offset: 0
           id: 1
           total_pages: null

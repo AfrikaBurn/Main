@@ -11,5 +11,111 @@ body.user-logged-in .tabs.secondary {
   width: 100%;
 }
 
+h1.page-title .subtitle{
+  font-size: 60%;  
+}
+
+.view-display-id-grant_selection .view-content .view-content h3{
+  font-size:120%;
+  text-transform: none;  
+}
+
+.block-views-blockcollectives-my-collectives-menu{
+  font-size: 80%;
+}
+
+.view-display-id-my_collectives_menu,
+.view-display-id-my_collectives_block{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.view-display-id-my_collectives_menu .pager,
+.view-display-id-my_collectives_block .pager{
+  flex-basis: 70%;
+  order: 1;
+  margin: 1em 0;
+}
+
+.view-display-id-my_collectives_menu .view-content,
+.view-display-id-my_collectives_block .view-content{
+  flex-basis: 70%;
+}
+
+.view-display-id-my_collectives_menu .attachment,
+.view-display-id-my_collectives_block .attachment{
+  flex-basis: 30%;
+}
+
+.view-display-id-my_collectives_menu .view-footer,
+.view-display-id-my_collectives_block .view-footer{
+  flex-basis: 100%; 
+  order: 2;
+}
+
+.view-display-id-my_collectives_menu > .view-content,
+.view-display-id-my_collectives_block > .view-content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+.view-display-id-my_collectives_menu > .view-content > .views-row,
+.view-display-id-my_collectives_block > .view-content > .views-row{
+  width: auto !important;
+  flex-basis: 33%;
+  margin: 0 !important;
+  padding: 0 20px 20px 0;
+}
 
 
+
+.field--widget-entity-reference-paragraphs input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+.field--widget-entity-reference-paragraphs input[type=number]::-webkit-inner-spin-button,
+.field--widget-entity-reference-paragraphs input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.field--name-field-grt-breakdown .field--name-field-field-quantity {
+    width: 7%;
+}
+.field--name-field-grt-breakdown .field--name-field-price-total- input {
+    width: 83% !important;
+}
+.field--name-field-grt-breakdown .field--name-field-price-total- {
+    width: 10%;
+}
+.field--name-field-grt-breakdown .field--name-field-cost-type {
+    width: 10%;
+}
+.field--name-field-grt-breakdown .field--name-field-type-of-expence {
+    width: 14%;
+}
+.field--name-field-grt-breakdown .form-wrapper {
+    padding-right: 5px;
+    height: 52px;
+}
+.field--name-field-grt-breakdown .paragraph-type-title {
+    max-height: 0px;
+}
+.field--name-field-grt-breakdown .paragraph-type-top {
+    padding-right: 0px;
+    position: absolute;
+    right: 10px;
+    z-index: 1;
+}
+.field--name-field-grt-breakdown .paragraphs-subform {
+    top: -5px;
+    z-index: 0;
+    position: relative;
+}
+.field--name-field-grt-breakdown .field--name-field-grt-brk-description {
+    width: 24%;
+}
+#edit-field-grt-breakdown {
+    min-height: 190px;
+}
