@@ -38,7 +38,11 @@ class ProjectBlock extends BlockBase {
           'max-age' => 0,
         ]
       ]
-      : [];
+      : [
+        '#cache' => [
+          'max-age' => 0,
+        ]
+      ];
 
     return $block;
   }
