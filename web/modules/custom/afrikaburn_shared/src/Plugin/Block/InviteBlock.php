@@ -20,30 +20,33 @@ class InviteBlock extends BlockBase {
    */
   public function build() {
 
-    $node = \Drupal::routeMatch()->getParameter('node');
+    $user = \Drupal::currentUser();
+    $collective = \Drupal::routeMatch()->getParameter('node');
 
-    $form = [
-      '#type' => 'form',
-      '#action' => '/collective/' . $node->id() . '/invite',
-      
-      'emails' => [
-        '#type' => 'textfield',
-        '#attributes' => [
-          'size' => 34,
-          'placeholder' => 'john@smith.com, ncedi@shaya.com...',
-          'name' => 'emails',
-        ],
-      ],
+    $form = \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.invite', ['cid' => $collective->id()], $user) 
+      ? [
+          '#type' => 'form',
+          '#action' => '/collective/' . $collective->id() . '/invite',
+          
+          'emails' => [
+            '#type' => 'textfield',
+            '#attributes' => [
+              'size' => 34,
+              'placeholder' => 'john@smith.com, ncedi@shaya.com...',
+              'name' => 'emails',
+            ],
+          ],
 
-      'submit' => [
-        '#type' => 'submit',
-        '#value' => 'Send',
-      ],
+          'submit' => [
+            '#type' => 'submit',
+            '#value' => 'Send',
+          ],
 
-      '#cache' => [
-        'max-age' => 0,
-      ],
-    ];
+          '#cache' => [
+            'max-age' => 0,
+          ],
+        ] 
+      : [];
 
     return $form;
   }

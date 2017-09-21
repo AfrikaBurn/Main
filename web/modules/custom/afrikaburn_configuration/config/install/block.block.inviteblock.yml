@@ -16,9 +16,9 @@ provider: null
 plugin: invite_block
 settings:
   id: invite_block
-  label: 'Invite Block'
+  label: 'Invite new members'
   provider: afrikaburn_shared
-  label_display: '0'
+  label_display: visible
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'

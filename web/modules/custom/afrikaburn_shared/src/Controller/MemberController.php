@@ -159,8 +159,8 @@ class MemberController extends ControllerBase {
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
     $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
 
-    if (isset($user) && $collective->bundle() == 'collective'){
-      self::addToAdmins($member_index, $collective);
+    if (isset($user) && $collective->bundle() == 'collective' && !count(self::memberIndex($uid, $collective, 'field_col_admins'))){
+      self::addToAdmins($user, $collective);
       $collective->save();
     }
 
