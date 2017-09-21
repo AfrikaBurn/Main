@@ -31,7 +31,7 @@ class MembersBlock extends BlockBase {
         : 'members_block',
       '#cache' => [
         'max-age' => 0,
-      ],        
+      ],
     ];
   }
 
