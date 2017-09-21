@@ -601,7 +601,7 @@ display:
             alter_text: true
             text: Boot
             make_link: true
-            path: '/collective/{{ nid }}/boot/{{ nid }}'
+            path: '/collective/{{ nid }}/boot/{{ uid }}'
             absolute: false
             external: false
             replace_spaces: false
@@ -648,7 +648,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/collective/{{ nid }}/admin/{{ nid }}">Admin</a>'
+            text: '<a href="/collective/{{ nid }}/admin/{{ uid }}">Admin</a>'
             make_link: false
             path: ''
             absolute: false

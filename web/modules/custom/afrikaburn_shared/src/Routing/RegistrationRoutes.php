@@ -37,6 +37,20 @@ class RegistrationRoutes extends RouteSubscriberBase {
       $route->setRequirement('_is_collective_admin', 'TRUE');
     }
 
+    // Collective invites
+    if ($route = $collection->get('afrikaburn_shared.invite')) {
+      $route->setRequirement('_is_collective_admin', 'TRUE');
+    }
+
+    // Collective member boot
+    if ($route = $collection->get('afrikaburn_shared.boot')) {
+      $route->setRequirement('_is_collective_admin', 'TRUE');
+    }
+
+    // Collective member admin
+    if ($route = $collection->get('afrikaburn_shared.admin')) {
+      $route->setRequirement('_is_collective_admin', 'TRUE');
+    }
   }
 
 }
