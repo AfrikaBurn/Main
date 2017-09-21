@@ -172,6 +172,9 @@ jQuery(document).ready(function() {
 
   jQuery(".node-art-grant-form").closest("body").addClass("node-add-art-grant");
 
+  var numberOfCollectives = jQuery("#my-collectives-block .view-collectives .collective-row").length;
+  jQuery("#my-collectives-block").addClass("length-" + numberOfCollectives);
+
 });
 
 // Run various functions above when AJAX operations complete.
