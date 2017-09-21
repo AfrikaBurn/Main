@@ -17,57 +17,37 @@ class MemberController extends ControllerBase {
   /**
    * Invite a person to the group
    */
-  public static function invite($cid = FALSE, $email = FALSE) {
+  public static function invite($cid = FALSE) {
+
+    $emails = \Drupal::request()->request->get('emails');
     $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+    $emails = explode(',', $emails);
+
     if ($collective->bundle() == 'collective'){
-      $collective->get('field_col_invitee')->appendItem($email);
+      self::addToInvites($emails, $collective);
     }
-  }
-
-  /**
-   * Remove a member from a group
-   */
-  public static function boot($cid = FALSE, $uid = FALSE) {
-
-    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
-    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-    $member_index = self::memberIndex($uid, $collective);
-
-    self::removeFromMembers($member_index, $collective);
+    $collective->save();
 
     drupal_set_message(
       t(
-        '%user has been booted from %collective', 
+        'You have invited %emails to join %collective',
         [
-            '%user' => $user->name, 
+            '%emails' => implode(', ', $emails),
             '%collective' => $collective->getTitle(),
         ]
       ),
       'status',
       TRUE
     );
+
     $redirect = new RedirectResponse('/node/' . $cid);
     $redirect->send();
-  }
-
-  /**
-   * Promote member to admin
-   */
-  public static function admin($cid = FALSE, $user = FALSE) {
-    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-    if ($collective->bundle() == 'collective'){
-      $collective->get('field_col_admins')->appendItem($email);
-    }    
   }
 
   /**
    * Accept a group invitation
    */
   public static function accept($cid = FALSE) {
-
-    if (\Drupal::currentUser()->isAnonymous()){
-      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-    }
 
     $nid = \Drupal::routeMatch()->getParameter('nid');
     $collective = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
@@ -107,10 +87,6 @@ class MemberController extends ControllerBase {
    */
   public static function ignore($cid = FALSE) {
 
-    if (\Drupal::currentUser()->isAnonymous()){
-      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-    }
-
     $nid = \Drupal::routeMatch()->getParameter('nid');
     $collective = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
 
@@ -141,6 +117,107 @@ class MemberController extends ControllerBase {
 
     $redirect = new RedirectResponse('/');
     $redirect->send();
+  }
+
+  /**
+   * Remove a member from a group
+   */
+  public static function boot($cid = FALSE, $uid = FALSE) {
+
+    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+    $member_index = self::memberIndex($uid, $collective, 'field_col_members');
+    $admin_index = self::memberIndex($uid, $collective, 'field_col_admins');
+
+    if (isset($user) && $collective->bundle() == 'collective'){
+      self::removeFromMembers($member_index, $collective);
+      self::removeFromAdmins($admin_index, $collective);
+      $collective->save();
+    }
+
+    drupal_set_message(
+      t(
+        '%user has been booted from %collective', 
+        [
+            '%user' => $user->getUsername(), 
+            '%collective' => $collective->getTitle(),
+        ]
+      ),
+      'status',
+      TRUE
+    );
+
+    $redirect = new RedirectResponse('/node/' . $cid);
+    $redirect->send();
+  }
+
+  /**
+   * Promote member to admin
+   */
+  public static function admin($cid = FALSE, $uid = FALSE) {
+
+    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+
+    if (isset($user) && $collective->bundle() == 'collective'){
+      self::addToAdmins($member_index, $collective);
+      $collective->save();
+    }
+
+    drupal_set_message(
+      t(
+        '%user is now an administrator of %collective', 
+        [
+            '%user' => $user->getUsername(), 
+            '%collective' => $collective->getTitle(),
+        ]
+      ),
+      'status',
+      TRUE
+    );
+
+    $redirect = new RedirectResponse('/node/' . $cid);
+    $redirect->send();
+  }
+
+  /* ---- CRUD ---- */
+
+  // Add email address to invites
+  private static function addToInvites($emails, $collective) {
+    foreach($emails as $email){
+      $collective->get('field_col_invitee')->appendItem(trim($email));
+    }
+  }
+
+  // Remove email address(es) from invites
+  private static function removeFromInvites($inviteIndexes, $collective) {
+    foreach(array_reverse($inviteIndexes) as $index){
+      $collective->get('field_col_invitee')->removeItem($index);    
+    }
+  }
+
+  // Add user to members
+  private static function addToMembers($user, $collective) {
+    $collective->get('field_col_members')->appendItem($user);
+  }
+
+  // Remove user from members
+  private static function removeFromMembers($memberIndexes, $collective) {
+    foreach(array_reverse($memberIndexes) as $index){
+      $collective->get('field_col_members')->removeItem($index);    
+    }
+  }
+
+  // Add user to Admins
+  private static function addToAdmins($user, $collective) {
+    $collective->get('field_col_admins')->appendItem($user);
+  }
+
+  // Remove user from Admins
+  private static function removeFromAdmins($memberIndexes, $collective) {
+    foreach(array_reverse($memberIndexes) as $index){
+      $collective->get('field_col_admins')->removeItem($index);
+    }
   }
 
   /* ---- Utility ---- */
@@ -177,10 +254,10 @@ class MemberController extends ControllerBase {
   /**
    * Returns the index(es) of a users invite.
    */
-  private static function memberIndex($user, $collective) {
+  private static function memberIndex($uid, $collective, $field) {
 
     $indexes = [];
-    $field_col_members = $collective->get('field_col_members');
+    $field_col_members = $collective->get($field);
 
     if ($field_col_members){
 
@@ -190,7 +267,7 @@ class MemberController extends ControllerBase {
       );
 
       $indexes = [];
-      foreach($members as $index=>$mid){
+      foreach($members as $index => $mid){
         if ($mid == $uid) {
           $indexes[$index] = $index;
         }
@@ -200,24 +277,6 @@ class MemberController extends ControllerBase {
     return $indexes;
   }
 
-  // Add user to members
-  private static function addToMembers($user, $collective) {
-    $collective->get('field_col_members')->appendItem($user);
-  }
-
-  // Remove email address(es) from invites
-  private static function removeFromInvites($inviteIndexes, $collective) {
-    foreach(array_reverse($inviteIndexes) as $index){
-      $collective->get('field_col_invitee')->removeItem($index);    
-    }
-  }
-
-  // Remove user from members
-  private static function removeFromMembers($inviteIndexes, $collective) {
-    foreach(array_reverse($inviteIndexes) as $index){
-      $collective->get('field_col_invitee')->removeItem($index);    
-    }
-  }
 
 }
 

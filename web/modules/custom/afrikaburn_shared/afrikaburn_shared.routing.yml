@@ -1,10 +1,10 @@
 afrikaburn_shared.invite:
-  path: '/collective/{cid}/invite/{email}'
+  path: '/collective/{cid}/invite'
   defaults: 
     _controller: '\Drupal\afrikaburn_shared\Controller\MemberController::invite'
     _title: 'Invite member'
   requirements: 
-    _permission: 'access content'
+    _role: authenticated
     cid: '^[0-9]+'
     email: '^[a-zA-Z0-9_\.\@]+'
 
@@ -14,7 +14,7 @@ afrikaburn_shared.accept_invite:
     _controller: '\Drupal\afrikaburn_shared\Controller\MemberController::accept'
     _title: 'Accept Invitation'
   requirements: 
-    _permission: 'access content'
+    _role: authenticated
     cid: '^[0-9]+'
 
 afrikaburn_shared.ignore_invite:
@@ -23,7 +23,7 @@ afrikaburn_shared.ignore_invite:
     _controller: '\Drupal\afrikaburn_shared\Controller\MemberController::ignore'
     _title: 'Ignore Invitation'
   requirements: 
-    _permission: 'access content'
+    _role: authenticated
     cid: '^[0-9]+'
 
 afrikaburn_shared.boot:
@@ -32,7 +32,7 @@ afrikaburn_shared.boot:
     _controller: '\Drupal\afrikaburn_shared\Controller\MemberController::boot'
     _title: 'Boot Member'
   requirements: 
-    _permission: 'access content'
+    _role: authenticated
     cid: '^[0-9]+'
     uid: '^[0-9]+'
 
@@ -42,6 +42,6 @@ afrikaburn_shared.admin:
     _controller: '\Drupal\afrikaburn_shared\Controller\MemberController::admin'
     _title: 'Promote Member'
   requirements: 
-    _permission: 'access content'
+    _role: authenticated
     cid: '^[0-9]+'
     uid: '^[0-9]+'

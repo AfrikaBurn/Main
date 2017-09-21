@@ -21,17 +21,30 @@ class InviteBlock extends BlockBase {
   public function build() {
 
     $node = \Drupal::routeMatch()->getParameter('node');
-    $form = \Drupal::service('entity.manager')
-      ->getFormObject('node', 'member_invitation')
-      ->setEntity($node);
-    $build = \Drupal::formBuilder()->getForm($form);
 
-    $build['revision']['#access'] = FALSE;
-    $build['revision_information']['#access'] = FALSE;
-    $build['revision_log']['#access'] = FALSE;
+    $form = [
+      '#type' => 'form',
+      '#action' => '/collective/' . $node->id() . '/invite',
+      
+      'emails' => [
+        '#type' => 'textfield',
+        '#attributes' => [
+          'size' => 34,
+          'placeholder' => 'john@smith.com, ncedi@shaya.com...',
+          'name' => 'emails',
+        ],
+      ],
 
-    unset($build['actions']['delete']);
+      'submit' => [
+        '#type' => 'submit',
+        '#value' => 'Send',
+      ],
 
-    return $build;
+      '#cache' => [
+        'max-age' => 0,
+      ],
+    ];
+
+    return $form;
   }
 }
