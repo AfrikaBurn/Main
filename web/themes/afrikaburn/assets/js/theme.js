@@ -171,6 +171,9 @@ jQuery(document).ready(function() {
   // })
 
   jQuery(".node-art-grant-form").closest("body").addClass("node-add-art-grant");
+  
+  jQuery(".node-performances-grant-form").closest("body").addClass("node-add-performances-grant");
+
 
   var numberOfCollectives = jQuery("#my-collectives-block .view-collectives .collective-row").length;
   jQuery("#my-collectives-block").addClass("length-" + numberOfCollectives);

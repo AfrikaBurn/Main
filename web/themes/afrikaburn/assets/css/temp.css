@@ -116,11 +116,24 @@ h1.page-title .subtitle{
 .field--name-field-grt-breakdown .field--name-field-grt-brk-description {
     width: 24%;
 }
-#edit-field-grt-breakdown {
+.field--name-field-grt-breakdown, #edit-field-grt-breakdown {
     min-height: 190px;
 }
+
 
 /* This is hidious I know, but only way I found to get the aweful create revision gone. */
 .form-type-vertical-tabs {
     display: none;
+}
+
+body.node-add-performances-grant div.main-block {
+    max-width: 100%;
+}
+
+
+.view-display-id-grant_selection .views-row {
+    padding-bottom: 31px;
+}
+.block-views-blockcollectives-my-collectives-menu img {
+    width: auto;
 }
