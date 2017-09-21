@@ -3,21 +3,21 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_grt_art_total
-    - node.type.art
+    - node.type.performances
   module:
     - custom_add_another
 third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-id: node.art.field_grt_art_total
+id: node.performances.field_grt_art_total
 field_name: field_grt_art_total
 entity_type: node
-bundle: art
+bundle: performances
 label: 'ART GRANT AMOUNT YOU''RE APPLYING FOR'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: -1

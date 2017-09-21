@@ -3,7 +3,9 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_picture
+    - image.style.medium
     - image.style.small_50x50
+    - image.style.thumbnail
     - node.type.collective
     - user.role.authenticated
   module:
@@ -279,6 +281,8 @@ display:
         header: false
         footer: false
         title: false
+        style: false
+        row: false
       empty:
         area_text_custom:
           id: area_text_custom
@@ -293,6 +297,70 @@ display:
           plugin_id: text_custom
       header: {  }
       fields:
+        field_picture:
+          id: field_picture
+          table: node__field_picture
+          field: field_picture
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_style: thumbnail
+            image_link: ''
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         nid:
           id: nid
           table: node_field_data
@@ -395,7 +463,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: h2
           element_class: ''
           element_label_type: ''
           element_label_class: ''
@@ -479,6 +547,26 @@ display:
       footer: {  }
       title: 'Select a project for your grant application'
       path: grant-application/select-project
+      style:
+        type: grid
+        options:
+          grouping: {  }
+          columns: 3
+          automatic_width: true
+          alignment: horizontal
+          col_class_default: true
+          col_class_custom: ''
+          row_class_default: true
+          row_class_custom: ''
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline:
+            field_picture: field_picture
+            title: title
+          separator: ''
+          hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -489,7 +577,8 @@ display:
         - user
         - 'user.node_grants:view'
         - user.roles
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_picture'
   invites:
     display_plugin: attachment
     id: invites
@@ -555,7 +644,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: '<h2>No outstanding invites...</h2>'
+          content: 'Nope... no invites here.'
           plugin_id: text_custom
       header:
         area:
@@ -565,10 +654,10 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: false
+          empty: true
           tokenize: false
           content:
-            value: '<h2>Invites:</h2>'
+            value: '<h2>Invitations</h2>'
             format: full_html
           plugin_id: text
       fields:
@@ -901,7 +990,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: small_50x50
+            image_style: medium
             image_link: content
           group_column: ''
           group_columns: {  }
@@ -1166,9 +1255,7 @@ display:
         type: fields
         options:
           default_field_elements: true
-          inline:
-            field_picture: field_picture
-            title: title
+          inline: {  }
           separator: ''
           hide_empty: false
     cache_metadata:

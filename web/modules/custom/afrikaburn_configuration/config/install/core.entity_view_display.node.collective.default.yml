@@ -10,7 +10,8 @@ dependencies:
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
     - field.field.node.collective.field_picture
-    - image.style.medium
+    - field.field.node.collective.panelizer
+    - image.style.large
     - node.type.collective
   module:
     - comment
@@ -49,7 +50,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: medium
+      image_style: large
       image_link: ''
     third_party_settings: {  }
     type: image
@@ -60,3 +61,4 @@ hidden:
   field_col_mem_writeup: true
   field_col_members: true
   links: true
+  panelizer: true

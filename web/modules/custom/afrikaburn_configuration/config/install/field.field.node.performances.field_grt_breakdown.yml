@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_grt_breakdown
-    - node.type.art
+    - node.type.performances
     - paragraphs.paragraphs_type.grant_expences
   module:
     - custom_add_another
@@ -12,14 +12,14 @@ third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-id: node.art.field_grt_breakdown
+id: node.performances.field_grt_breakdown
 field_name: field_grt_breakdown
 entity_type: node
-bundle: art
+bundle: performances
 label: 'Everything that goes into your project'
-description: "<b>Note:</b> Type of expense<br>\r\nHave you phoned around for quoting or are thumbsucking? Do you own it, or can you have it for free."
+description: ''
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
