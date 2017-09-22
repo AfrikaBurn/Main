@@ -23,16 +23,17 @@ class MembersBlock extends BlockBase {
     $user = \Drupal::currentUser();
     $collective = \Drupal::routeMatch()->getParameter('node');
     
-    return [
-      '#type' => 'view',
-      '#name' => 'collective_members',
-      '#display_id' => \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.admin', ['cid' => $collective->id()], $user) 
-        ? 'admin_block'
-        : 'members_block',
-      '#cache' => [
-        'max-age' => 0,
-      ],
-    ];
+    return $collective 
+      ? [
+        '#type' => 'view',
+        '#name' => 'collective_members',
+        '#display_id' => \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.admin', ['cid' => $collective->id()], $user) 
+          ? 'admin_block'
+          : 'members_block',
+        '#cache' => [
+          'max-age' => 0,
+        ],
+      ] : [];
   }
 
 }
