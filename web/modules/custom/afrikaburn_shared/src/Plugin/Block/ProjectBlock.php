@@ -20,25 +20,30 @@ class ProjectBlock extends BlockBase {
    */
   public function build() {
 
-    $block = [
-      '#type' => 'markup',
-      '#cache' => [
-        'max-age' => 0,
-      ],
-    ];
+    $user = \Drupal::currentUser();
+    $collective = \Drupal::routeMatch()->getParameter('node');
+    $cid = $collective->id();
 
-    $node = \Drupal::routeMatch()->getParameter('node');
-    if ($node) { 
-      $nid = $node->id();
-      $block['#markup'] = '
-        <ul>
-          <li><a href="/node/add/art?field_collective=' . $nid . '" class="button">Register an artwork</a></li>        
-          <li><a href="/node/add/performances?field_collective=' . $nid . '" class="button">Register a Performance</a></li>
-          <li><a href="/node/add/theme_camps?field_collective=' . $nid . '" class="button">Register a Theme camp</a></li>
-        </ul>
-      ';
-    }
-
-    return $block;
+    return \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.admin', ['cid' => $cid], $user)
+      ? [
+        '#type' => 'markup',
+        '#markup' => '
+          <h2>Register</h2>
+          <ul>
+            <li><a href="/node/add/art?field_collective=' . $cid . '" class="button">An artwork</a></li>        
+            <li><a href="/node/add/performances?field_collective=' . $cid . '" class="button">A Performance</a></li>
+            <li><a href="/node/add/theme_camps?field_collective=' . $cid . '" class="button">A Theme camp</a></li>
+          </ul>
+        ',
+        '#cache' => [
+          'max-age' => 0,
+        ]
+      ]
+      : [
+        '#cache' => [
+          'max-age' => 0,
+        ]
+      ];
   }
+
 }

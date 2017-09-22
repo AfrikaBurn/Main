@@ -1,10 +1,11 @@
-name: 'Afrikaburn configuration'
+name: 'Afrikaburn Configuration'
 type: module
 core: 8.x
 dependencies:
-  - basic_auth
+  - afrikaburn_shared
   - block
   - block_content
+  - captcha
   - ckeditor
   - comment
   - conditional_fields
@@ -23,7 +24,6 @@ dependencies:
   - field_validation
   - file
   - filter
-  - hal
   - help
   - image
   - link
@@ -43,7 +43,6 @@ dependencies:
   - php
   - rdf
   - responsive_image
-  - rest
   - rules
   - search
   - shortcut
@@ -56,8 +55,7 @@ dependencies:
   - user
   - views
   - views_field_view
-  - views_ui
   - webform
   - workflows
-version: 8.x-0.0
+version: 8.x-1.1
 package: AfrikaBurn

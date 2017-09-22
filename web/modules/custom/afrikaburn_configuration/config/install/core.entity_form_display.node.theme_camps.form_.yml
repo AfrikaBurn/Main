@@ -293,6 +293,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_collective:
+    type: entity_reference_autocomplete
+    weight: 10
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_gen_concept:
     type: image_image
     weight: 18
@@ -902,7 +911,6 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
-  field_collective: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
   field_prj_adm_form_wtf: true

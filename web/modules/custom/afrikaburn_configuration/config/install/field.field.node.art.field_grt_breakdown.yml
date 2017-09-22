@@ -18,13 +18,14 @@ entity_type: node
 bundle: art
 label: 'Everything that goes into your project'
 description: "<b>Note:</b> Type of expense<br>\r\nHave you phoned around for quoting or are thumbsucking? Do you own it, or can you have it for free."
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
+    negate: 0
     target_bundles:
       grant_expences: grant_expences
     target_bundles_drag_drop:

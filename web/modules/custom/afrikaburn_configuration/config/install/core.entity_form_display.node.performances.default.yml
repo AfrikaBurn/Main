@@ -3,6 +3,22 @@ status: true
 dependencies:
   config:
     - field.field.node.performances.field_collective
+    - field.field.node.performances.field_grt_art_total
+    - field.field.node.performances.field_grt_breakdown
+    - field.field.node.performances.field_grt_contribution
+    - field.field.node.performances.field_grt_f1
+    - field.field.node.performances.field_grt_lighting
+    - field.field.node.performances.field_grt_location
+    - field.field.node.performances.field_grt_materials
+    - field.field.node.performances.field_grt_more
+    - field.field.node.performances.field_grt_pyrotechnics
+    - field.field.node.performances.field_grt_services
+    - field.field.node.performances.field_grt_short
+    - field.field.node.performances.field_grt_short_desc
+    - field.field.node.performances.field_grt_specify
+    - field.field.node.performances.field_grt_tool
+    - field.field.node.performances.field_grt_total
+    - field.field.node.performances.field_grt_transport
     - field.field.node.performances.field_muncipal_district
     - field.field.node.performances.field_prj_adm_comms
     - field.field.node.performances.field_prj_adm_notes
@@ -83,6 +99,7 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
     - field.field.node.performances.field_prj_wtf_website
+    - field.field.node.performances.field_this_is_the_amount_of_mone
     - image.style.thumbnail
     - node.type.performances
   module:
@@ -140,7 +157,7 @@ third_party_settings:
         formatter: open
         required_fields: true
         id: ''
-        classes: ''
+        classes: ui-accordion-header
       label: Overview
     group_the_:
       children:
@@ -302,7 +319,7 @@ third_party_settings:
         formatter: closed
         required_fields: true
         id: ''
-        classes: ui-accordion-header
+        classes: ''
       label: Lighting
     group_burn:
       children:
@@ -960,6 +977,22 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_grt_art_total: true
+  field_grt_breakdown: true
+  field_grt_contribution: true
+  field_grt_f1: true
+  field_grt_lighting: true
+  field_grt_location: true
+  field_grt_materials: true
+  field_grt_more: true
+  field_grt_pyrotechnics: true
+  field_grt_services: true
+  field_grt_short: true
+  field_grt_short_desc: true
+  field_grt_specify: true
+  field_grt_tool: true
+  field_grt_total: true
+  field_grt_transport: true
   field_prj_adm_comms: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
@@ -990,3 +1023,4 @@ hidden:
   field_prj_wtf_plan: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
+  field_this_is_the_amount_of_mone: true

@@ -3,12 +3,14 @@ status: true
 dependencies:
   config:
     - page_manager.page.home_page_logged_in
+    - views.view.collectives
   content:
     - 'block_content:basic:7171e6af-8d3c-4413-a495-894fa39c939b'
   module:
     - block_content
     - panels
     - user
+    - views
 id: home_page_logged_in-panels_variant-0
 label: Home
 variant: panels_variant
@@ -25,6 +27,17 @@ variant_settings:
       region: content
       weight: -10
       uuid: 967d6bad-27f1-4085-b056-3ac565fad25e
+      context_mapping: {  }
+    f70a88e4-54ca-481d-a8db-090e7710e76c:
+      id: 'views_block:collectives-my_collectives_block'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: f70a88e4-54ca-481d-a8db-090e7710e76c
       context_mapping: {  }
   id: panels_variant
   uuid: 0675148d-30b7-4c21-9732-04195a991461

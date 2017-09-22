@@ -15,7 +15,7 @@ field_name: field_prj_snd_agree
 entity_type: node
 bundle: art
 label: 'I agree to abide by the AfrikaBurn Sound Policies and the basic rules of Civic Responsibility and general common-sense.'
-description: 'Please read our <a href="http://www.afrikaburn.com/wp-content/uploads/2017/08/AfrikaBurn-Sound-Policy-2017.pdf" target="_blank">Sound Policy here</a> so you''re aware of how things work.'
+description: 'Please read our <a href="https://www.afrikaburn.com/the-event/artworks/afrikaburn-sound-policy" target="_blank">Sound Policy here</a> so you''re aware of how things work.'
 required: false
 translatable: true
 default_value:

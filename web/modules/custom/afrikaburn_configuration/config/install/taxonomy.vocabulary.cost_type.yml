@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies: {  }
-name: 'Cost type'
+name: 'Price type'
 vid: cost_type
 description: ''
 hierarchy: 0

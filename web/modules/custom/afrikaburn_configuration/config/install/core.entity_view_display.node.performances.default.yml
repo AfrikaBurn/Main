@@ -4,6 +4,22 @@ dependencies:
   config:
     - core.entity_view_display.comment.comment.default
     - field.field.node.performances.field_collective
+    - field.field.node.performances.field_grt_art_total
+    - field.field.node.performances.field_grt_breakdown
+    - field.field.node.performances.field_grt_contribution
+    - field.field.node.performances.field_grt_f1
+    - field.field.node.performances.field_grt_lighting
+    - field.field.node.performances.field_grt_location
+    - field.field.node.performances.field_grt_materials
+    - field.field.node.performances.field_grt_more
+    - field.field.node.performances.field_grt_pyrotechnics
+    - field.field.node.performances.field_grt_services
+    - field.field.node.performances.field_grt_short
+    - field.field.node.performances.field_grt_short_desc
+    - field.field.node.performances.field_grt_specify
+    - field.field.node.performances.field_grt_tool
+    - field.field.node.performances.field_grt_total
+    - field.field.node.performances.field_grt_transport
     - field.field.node.performances.field_muncipal_district
     - field.field.node.performances.field_prj_adm_comms
     - field.field.node.performances.field_prj_adm_notes
@@ -84,10 +100,12 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
     - field.field.node.performances.field_prj_wtf_website
+    - field.field.node.performances.field_this_is_the_amount_of_mone
     - node.type.performances
   module:
     - comment
     - datetime
+    - entity_reference_revisions
     - field_group
     - file
     - image
@@ -347,6 +365,145 @@ targetEntityType: node
 bundle: performances
 mode: default
 content:
+  field_grt_art_total:
+    weight: 82
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_breakdown:
+    weight: 71
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_grt_contribution:
+    weight: 73
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_f1:
+    weight: 70
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_grt_lighting:
+    weight: 79
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_location:
+    weight: 77
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_materials:
+    weight: 74
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_more:
+    weight: 85
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_grt_pyrotechnics:
+    weight: 80
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_services:
+    weight: 76
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_short:
+    weight: 83
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_grt_short_desc:
+    weight: 84
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_grt_specify:
+    weight: 81
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_tool:
+    weight: 75
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_total:
+    weight: 72
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_grt_transport:
+    weight: 78
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_muncipal_district:
     weight: 23
     label: above
@@ -761,6 +918,13 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
+  field_this_is_the_amount_of_mone:
+    weight: 86
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   links:
     weight: 0

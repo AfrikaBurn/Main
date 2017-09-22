@@ -11,6 +11,7 @@ dependencies:
     - field.field.paragraph.grant_expences.field_type_of_expence
     - paragraphs.paragraphs_type.grant_expences
   module:
+    - conditional_fields
     - content_moderation
 id: paragraph.grant_expences.default
 targetEntityType: paragraph
@@ -51,7 +52,25 @@ content:
     settings:
       size: 60
       placeholder: 'type of cost'
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        fab82031-ebbc-4224-9a8e-ad144c5ffff8:
+          dependee: field_type_of_expence
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: '516'
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: paragraph
+          bundle: grant_expences
     type: string_textfield
     region: content
   field_price_total_:

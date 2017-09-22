@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - afrikaburn_shared
+    - ctools
+    - node
+    - php
+  theme:
+    - afrikaburn
+id: inviteblock
+theme: afrikaburn
+region: sidebar
+weight: -18
+provider: null
+plugin: invite_block
+settings:
+  id: invite_block
+  label: 'Invite new members'
+  provider: afrikaburn_shared
+  label_display: visible
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
+    context_mapping: {  }

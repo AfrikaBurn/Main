@@ -33,6 +33,7 @@ dependencies:
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
+    - field.field.node.art.field_prj_adm_form_grant
     - field.field.node.art.field_prj_adm_form_wtf
     - field.field.node.art.field_prj_adm_latitude
     - field.field.node.art.field_prj_adm_longitude
@@ -1107,6 +1108,7 @@ hidden:
   field_grt_transport: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
+  field_prj_adm_form_grant: true
   field_prj_adm_form_wtf: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true

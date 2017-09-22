@@ -29,21 +29,27 @@ class CollectiveAdminCheck implements AccessInterface {
   public function access(AccountInterface $account) {
 
     static $user;
-    $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
-    $entity = \Drupal::routeMatch()->getParameter('node');
-    $bundle = $entity ? $entity->bundle() : FALSE;
+    $uid = \Drupal::currentUser()->id();
+    $user = isset($user) ? $user : User::load($uid);
+    $node = \Drupal::routeMatch()->getParameter('node');
+    $bundle = $node ? $node->bundle() : FALSE;
 
-    if ($entity && in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
-      $field_collective = $entity->get('field_collective');
+    if ($node && in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+      $field_collective = $node->get('field_collective');
       if ($field_collective) {
         $collective = $field_collective->first()->get('entity')->getTarget();
-        return AccessResult::allowedIf($this->isAdmin($collective) || $user->hasRole('administrator'));
+        return AccessResult::allowedIf($this->isAdmin($uid, $collective) || $user->hasRole('administrator'));
       }
       return AccessResult::allowedIf($user->hasRole('administrator'));
     }
 
     if ($bundle == 'collective') {
-      return AccessResult::allowedIf($this->isAdmin($entity) || $user->hasRole('administrator'));
+      return AccessResult::allowedIf($this->isAdmin($uid, $node) || $user->hasRole('administrator'));
+    }
+
+    if (($cid = \Drupal::routeMatch()->getParameter('cid')) && ($uid = \Drupal::routeMatch()->getParameter('uid'))){
+      $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+      return AccessResult::allowedIf($this->isAdmin($uid, $collective));
     }
 
     return AccessResult::allowedIf(TRUE);
@@ -52,8 +58,7 @@ class CollectiveAdminCheck implements AccessInterface {
   /**
    * Checks whether the current user is an admin
    */
-  private function isAdmin($collective){
-    $uid = \Drupal::currentUser()->id();
+  private function isAdmin($uid, $collective){
     $admins = $collective
       ->get('field_col_admins')
       ->referencedEntities();    

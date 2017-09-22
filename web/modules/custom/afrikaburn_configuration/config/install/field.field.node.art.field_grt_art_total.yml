@@ -18,10 +18,12 @@ label: 'ART GRANT AMOUNT YOU''RE APPLYING FOR'
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: -1
 default_value_callback: ''
 settings:
-  min: null
+  min: 0
   max: null
   prefix: R
   suffix: 'ZAR (South African Rands)'
