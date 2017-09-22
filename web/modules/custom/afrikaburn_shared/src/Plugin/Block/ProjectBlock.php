@@ -23,7 +23,7 @@ class ProjectBlock extends BlockBase {
     $user = \Drupal::currentUser();
     $collective = \Drupal::routeMatch()->getParameter('node');
 
-    return ($cid = $collective->id()) && \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.admin', ['cid' => $cid], $user)
+    return $collective && ($cid = $collective->id()) && \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.admin', ['cid' => $cid], $user)
       ? [
         '#type' => 'markup',
         '#markup' => '
