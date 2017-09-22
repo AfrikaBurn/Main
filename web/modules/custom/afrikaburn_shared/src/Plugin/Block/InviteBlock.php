@@ -23,7 +23,7 @@ class InviteBlock extends BlockBase {
     $user = \Drupal::currentUser();
     $collective = \Drupal::routeMatch()->getParameter('node');
 
-    $form = \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.invite', ['cid' => $collective->id()], $user) 
+    return $collective && \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.invite', ['cid' => $collective->id()], $user)
       ? [
         '#type' => 'form',
         '#action' => '/collective/' . $collective->id() . '/invite',

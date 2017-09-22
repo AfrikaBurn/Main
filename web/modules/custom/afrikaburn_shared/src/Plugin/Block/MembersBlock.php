@@ -23,7 +23,7 @@ class MembersBlock extends BlockBase {
     $user = \Drupal::currentUser();
     $collective = \Drupal::routeMatch()->getParameter('node');
     
-    return $collective 
+    return $collective
       ? [
         '#type' => 'view',
         '#name' => 'collective_members',
