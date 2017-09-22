@@ -47,7 +47,7 @@ class CollectiveAdminCheck implements AccessInterface {
       return AccessResult::allowedIf($this->isAdmin($uid, $node) || $user->hasRole('administrator'));
     }
 
-    if ( ($cid = \Drupal::routeMatch()->getParameter('cid')) && ($uid = \Drupal::routeMatch()->getParameter('uid')) ){
+    if ( ($cid = \Drupal::routeMatch()->getParameter('cid')) && (\Drupal::routeMatch()->getParameter('uid')) ){
       dpm([$cid, $uid]);
       $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
       return AccessResult::allowedIf($this->isAdmin($uid, $collective));
