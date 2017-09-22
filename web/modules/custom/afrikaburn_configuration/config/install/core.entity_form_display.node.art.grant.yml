@@ -34,6 +34,7 @@ dependencies:
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
+    - field.field.node.art.field_prj_adm_form_grant
     - field.field.node.art.field_prj_adm_form_wtf
     - field.field.node.art.field_prj_adm_latitude
     - field.field.node.art.field_prj_adm_longitude
@@ -203,15 +204,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_collective:
-    type: entity_reference_autocomplete
-    weight: 6
-    region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_grt_art_total:
     weight: 7
     settings:
@@ -335,6 +327,13 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_adm_form_grant:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_prj_brn_head:
     weight: 49
     settings: {  }
@@ -460,6 +459,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_col_members: true
+  field_collective: true
   field_grt_art_apply: true
   field_grt_art_comment: true
   field_grt_art_reason: true

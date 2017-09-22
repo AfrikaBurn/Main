@@ -2,9 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.art
-    - node.type.mutant_vehicles
-    - node.type.performances
+    - core.entity_view_mode.node.wrangler_overview
     - node.type.theme_camps
   module:
     - node
@@ -221,9 +219,6 @@ display:
           admin_label: ''
           operator: in
           value:
-            art: art
-            mutant_vehicles: mutant_vehicles
-            performances: performances
             theme_camps: theme_camps
           group: 1
           exposed: false
@@ -277,7 +272,43 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      title: ''
+      title: 'Wrangle Overview'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: 'Wrangle Overview'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      style:
+        type: default
+        options:
+          grouping:
+            -
+              field: type
+              rendered: true
+              rendered_strip: false
+          row_class: ''
+          default_row_class: true
+      defaults:
+        style: false
+        row: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: wrangler_overview
+      path: wrangle/registrations
     cache_metadata:
       max-age: -1
       contexts:

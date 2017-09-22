@@ -3,9 +3,9 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_picture
+    - image.style.max_325x325
     - image.style.medium
     - image.style.small_50x50
-    - image.style.thumbnail
     - node.type.collective
     - user.role.authenticated
   module:
@@ -348,7 +348,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: thumbnail
+            image_style: max_325x325
             image_link: ''
           group_column: ''
           group_columns: {  }
@@ -542,7 +542,7 @@ display:
           hide_alter_empty: true
           view: collective_registrations
           display: grants
-          arguments: '{{ fields.nid }}'
+          arguments: '{{ raw_fields.nid }}'
           plugin_id: view
       footer: {  }
       title: 'Select a project for your grant application'
@@ -859,8 +859,12 @@ display:
       displays:
         my_collectives_block: my_collectives_block
         my_collectives_menu: my_collectives_menu
-      attachment_position: after
+      attachment_position: before
       inherit_arguments: false
+      pager:
+        type: none
+        options:
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:
@@ -1249,7 +1253,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: ''
+          row_class: collective-row
           default_row_class: true
       row:
         type: fields
