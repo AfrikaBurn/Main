@@ -1,0 +1,32 @@
+uuid: f0c7069e-048f-44aa-9319-4394d6ae2ae3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_map
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 9bolwvjTiN7eOgXlpufhdlBmIsywj-fBVBCK-89VhJ0
+id: node.theme_camps.field_prj_plc_map
+field_name: field_prj_plc_map
+entity_type: node
+bundle: theme_camps
+label: 'Location Map'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p><img alt=\"Theme Camp Placement\" data-entity-type=\"file\" data-entity-uuid=\"6ea58b88-83ce-48d1-bf6d-8072ae1814dc\" src=\"/sites/default/files/inline-images/Tankwa-Town-Theme%20Camping_2017.png\" /></p>\r\n"
+    format: basic_html
+field_type: markup
