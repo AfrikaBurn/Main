@@ -49,10 +49,10 @@ class MemberController extends ControllerBase {
    */
   public static function accept($cid = FALSE) {
 
-    $nid = \Drupal::routeMatch()->getParameter('nid');
-    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+    $cid = \Drupal::routeMatch()->getParameter('cid');
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
 
-    if ($collective->bundle() == 'collective'){
+    if ($collective && $collective->bundle() == 'collective'){
 
       $uid = \Drupal::currentUser()->id();
       $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
@@ -78,7 +78,7 @@ class MemberController extends ControllerBase {
       );
     }
 
-    $redirect = new RedirectResponse('/node/' . $nid);
+    $redirect = new RedirectResponse('/node/' . $cid);
     $redirect->send();
   }
 

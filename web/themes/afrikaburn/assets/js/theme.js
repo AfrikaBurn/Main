@@ -88,6 +88,7 @@ var wrapperClass = (window.location.pathname).replace(/\//g, "-");
 jQuery("#wrapper").addClass(wrapperClass.slice(1));
 
 jQuery(document).ready(function() {
+  console.log('test');
   // Initiate functions that insert/ wrap html elements to help with tricky styling.
   radioCheckBoxWrapper();
   inputTypeFile();
@@ -171,12 +172,15 @@ jQuery(document).ready(function() {
   // })
 
   jQuery(".node-art-grant-form").closest("body").addClass("node-add-art-grant");
-  
   jQuery(".node-performances-grant-form").closest("body").addClass("node-add-performances-grant");
 
+  jQuery(".collective-row").parent().addClass("collectives-container");
 
   var numberOfCollectives = jQuery("#my-collectives-block .view-collectives .collective-row").length;
   jQuery("#my-collectives-block").addClass("length-" + numberOfCollectives);
+  jQuery(".block-views-blockcollectives-my-collectives-block").addClass("length-" + numberOfCollectives);
+
+
 
 });
 
@@ -184,5 +188,5 @@ jQuery(document).ready(function() {
 jQuery(document).ajaxComplete(function() {
   radioCheckBoxWrapper();
   inputTypeFile();
-  // jQuery("div.messages").prepend("<span class='icon'></span>");
+  jQuery(".collective-row").parent().addClass("collectives-container");
 });

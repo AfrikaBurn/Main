@@ -13,6 +13,9 @@ vendor/*
 # Ignore Drupal's file directory
 /web/sites/*/files/
 
+# Ignore mail server config
+/config/sync/smtp.settings.yml
+
 # Ignore SimpleTest multi-site environment.
 /web/sites/simpletest
 
