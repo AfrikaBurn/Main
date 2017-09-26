@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - node
-id: node.grant
-label: Grant
-targetEntityType: node
-cache: true

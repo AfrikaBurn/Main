@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Activity Types'
-vid: activity_types
-description: ''
-hierarchy: 0
-weight: 0
