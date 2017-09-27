@@ -25,6 +25,7 @@ dependencies:
     - field.field.node.performances.field_prj_adm_notes
     - field.field.node.performances.field_prj_adm_ranger_comment
     - field.field.node.performances.field_prj_adm_review
+    - field.field.node.performances.field_prj_adm_wrangler
     - field.field.node.performances.field_prj_brn_agree
     - field.field.node.performances.field_prj_brn_burning
     - field.field.node.performances.field_prj_brn_f2
@@ -383,6 +384,15 @@ content:
           entity_type: node
           bundle: performances
     type: cshs
+    region: content
+  field_prj_adm_wrangler:
+    weight: 67
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_prj_brn_burning:
     type: boolean_checkbox

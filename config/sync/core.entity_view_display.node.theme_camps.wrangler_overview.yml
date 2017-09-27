@@ -114,12 +114,13 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_short
     - field.field.node.theme_camps.field_prj_wtf_short_copy
     - field.field.node.theme_camps.field_prj_wtf_website
-    - image.style.thumbnail
     - node.type.theme_camps
+    - responsive_image.styles.wangler_preview
   module:
+    - ds
     - field_group
-    - image
     - panelizer
+    - responsive_image
     - user
 third_party_settings:
   field_group:
@@ -176,30 +177,33 @@ third_party_settings:
       weight: 21
       format_type: html_element
       format_settings:
-        id: ''
-        classes: ''
+        label: 'Title and Details'
         element: div
         show_label: false
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
+        id: ''
+        classes: wrangler_ovr_2
       label: 'Title and Details'
     group_wrangler_3:
       children:
         - field_prj_gen_contact
+        - field_prj_stg_contact
       parent_name: group_overview
       weight: 22
       format_type: html_element
       format_settings:
-        id: ''
-        classes: ''
+        label: Leads
         element: div
         show_label: false
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
+        id: ''
+        classes: wrangler_ovr_3
       label: Leads
     group_wrangler_4:
       children:
@@ -210,14 +214,15 @@ third_party_settings:
       weight: 23
       format_type: html_element
       format_settings:
-        id: ''
-        classes: ''
+        label: 'Wrangler and Comments'
         element: div
         show_label: false
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
+        id: ''
+        classes: wrangler_ovr_4
       label: 'Wrangler and Comments'
     group_wrangler_5:
       children:
@@ -226,14 +231,15 @@ third_party_settings:
       weight: 24
       format_type: html_element
       format_settings:
-        id: ''
-        classes: ''
+        label: 'Project Description'
         element: div
         show_label: false
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
+        id: ''
+        classes: wrangler_ovr_5
       label: 'Project Description'
   panelizer:
     enable: false
@@ -280,12 +286,14 @@ content:
     region: content
   field_prj_gen_concept:
     weight: 1
-    label: above
+    label: hidden
     settings:
-      image_style: thumbnail
+      responsive_image_style: wangler_preview
       image_link: content
-    third_party_settings: {  }
-    type: image
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    type: responsive_image
     region: content
   field_prj_gen_contact:
     weight: 2
@@ -319,6 +327,14 @@ content:
       format: default
       format_custom_false: ''
       format_custom_true: ''
+    third_party_settings: {  }
+  field_prj_stg_contact:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link: true
     third_party_settings: {  }
   links:
     weight: 0
@@ -415,7 +431,6 @@ hidden:
   field_prj_snd_level: true
   field_prj_snd_person: true
   field_prj_snd_soop: true
-  field_prj_stg_contact: true
   field_prj_stg_description: true
   field_prj_stg_stage: true
   field_prj_stg_tread: true

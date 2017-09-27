@@ -1,8 +1,9 @@
-uuid: 69c5c5bf-20f3-4f0e-85b5-8a90bb141faf
+uuid: 255c5f54-ec64-47d1-b496-27f5ba81abb4
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.wrangler_overview
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_grt_art_apply
@@ -140,15 +141,26 @@ dependencies:
     - user
 third_party_settings:
   field_group:
+    group_over:
+      children:
+        - group_overview
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: 'Project Overview'
     group_overview:
       children:
         - group_wrangler_1
         - group_wrangler_2
         - group_wrangler_3
-        - group_wrangler_5
         - group_wrangler_4
-      parent_name: ''
-      weight: 0
+        - group_wrangler_5
+      parent_name: group_over
+      weight: 20
       format_type: tab
       format_settings:
         id: ''
@@ -175,7 +187,6 @@ third_party_settings:
       label: 1_Image
     group_wrangler_2:
       children:
-        - field_collective
         - field_prj_gen_location
         - field_prj_stc_size
         - field_prj_brn_burning
@@ -217,8 +228,9 @@ third_party_settings:
     group_wrangler_4:
       children:
         - field_prj_adm_wrangler
+        - field_prj_adm_notes
       parent_name: group_overview
-      weight: 24
+      weight: 23
       format_type: html_element
       format_settings:
         label: '4 Wrangler and Comments'
@@ -347,7 +359,7 @@ third_party_settings:
         - field_prj_adm_longitude
         - links
       parent_name: group_overview
-      weight: 23
+      weight: 24
       format_type: html_element
       format_settings:
         label: '5 Project Description'
@@ -367,21 +379,13 @@ third_party_settings:
     default: default
 _core:
   default_config_hash: F2XD_eUMlwsnh64FXbom-cxJT8e3efAGLdsgfXOFMac
-id: node.art.default
+id: node.art.wrangler_overview
 targetEntityType: node
 bundle: art
-mode: default
+mode: wrangler_overview
 content:
-  field_collective:
-    type: entity_reference_label
-    weight: 0
-    region: content
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
   field_grt_art_total:
-    weight: 6
+    weight: 28
     label: above
     settings:
       thousand_separator: ''
@@ -389,6 +393,13 @@ content:
     third_party_settings: {  }
     type: number_integer
     region: content
+  field_prj_adm_notes:
+    type: basic_string
+    weight: 190
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_prj_adm_wrangler:
     weight: 189
     label: above
@@ -398,7 +409,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_brn_burning:
-    weight: 3
+    weight: 25
     label: above
     settings:
       format: default
@@ -442,7 +453,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_gen_location:
-    weight: 1
+    weight: 23
     label: above
     settings:
       link: true
@@ -450,7 +461,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_snd_level:
-    weight: 5
+    weight: 27
     label: above
     settings:
       link: true
@@ -458,7 +469,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_snd_sound:
-    weight: 4
+    weight: 26
     label: above
     settings:
       format: default
@@ -468,7 +479,7 @@ content:
     type: boolean
     region: content
   field_prj_stc_size:
-    weight: 2
+    weight: 24
     label: above
     settings:
       link: true
@@ -477,6 +488,7 @@ content:
     region: content
 hidden:
   field_col_members: true
+  field_collective: true
   field_grt_art_apply: true
   field_grt_art_comment: true
   field_grt_art_reason: true
@@ -509,7 +521,6 @@ hidden:
   field_prj_adm_form_wtf: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
-  field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
   field_prj_brn_agree: true
