@@ -25,3 +25,56 @@ body.path-frontpage .main-block{
 .view-display-id-my_collectives_block .views-field-field-picture{
   float: none !important;
 }
+
+.path-wranglers .body-content {
+    width: 1300px;
+    position: relative;
+    left: -180px;
+    background: #450b14;
+}
+
+.path-wranglers .main-block {
+    max-width: 100%;
+    width: 1300px;
+}
+
+.path-wranglers .details-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+.path-wranglers .wrangler_ovr_1 {
+    max-height: 240px;
+    overflow: hidden;
+    width: 20%;
+}
+
+.path-wranglers .wrangler_ovr_1,
+.path-wranglers .wrangler_ovr_2,
+.path-wranglers .wrangler_ovr_3,
+.path-wranglers .wrangler_ovr_4,
+.path-wranglers .wrangler_ovr_5 {
+    max-width: 25%;
+    width: 18%;
+    padding: 7px;
+}
+
+.path-wranglers .wrangler_ovr_4 {
+    width: 22%;
+}
+
+.path-wranglers .wrangler_ovr_1 .field__item {
+    padding-left: 0em;
+}
+
+.path-wranglers .wrangler_ovr_4 .field--name-field-prj-adm-notes .field__item {
+    max-height: 150px;
+    height: 150px;
+    overflow-y: scroll;
+}
+
+.path-wranglers .wrangler_ovr_5 .field__item {
+    overflow-y: scroll;
+    max-height: 213px;
+    height: 213px;
+
+}

@@ -1,0 +1,19 @@
+uuid: 8c10e7a9-c8d2-4933-b20f-0cf1bc062f91
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.mutant_vehicles
+  module:
+    - user
+_core:
+  default_config_hash: C9Fh0QjRhuwpBvMWXkPEtFOs5iom_nF-2vt1jAFIxwE
+id: node.mutant_vehicles.default
+targetEntityType: node
+bundle: mutant_vehicles
+mode: default
+content:
+  links:
+    weight: 100
+    region: content
+hidden: {  }

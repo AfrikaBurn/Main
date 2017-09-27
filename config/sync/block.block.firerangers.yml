@@ -1,0 +1,25 @@
+uuid: 36f2da64-0737-49ad-b7fe-893867860eff
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:63b8ad28-7540-40b9-bb2c-a4bd486b33af'
+  module:
+    - block_content
+  theme:
+    - bartik
+id: firerangers
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:63b8ad28-7540-40b9-bb2c-a4bd486b33af'
+settings:
+  id: 'block_content:63b8ad28-7540-40b9-bb2c-a4bd486b33af'
+  label: 'Fire Rangers'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

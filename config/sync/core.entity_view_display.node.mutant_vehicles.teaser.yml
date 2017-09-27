@@ -1,0 +1,20 @@
+uuid: 45779d38-99de-49a1-9ae9-e97ccf1a2ca6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.mutant_vehicles
+  module:
+    - user
+_core:
+  default_config_hash: tMUF6awe0pu5NQziUiH6CbxaXZMXdNG3WHmGwC2ufO0
+id: node.mutant_vehicles.teaser
+targetEntityType: node
+bundle: mutant_vehicles
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden: {  }
