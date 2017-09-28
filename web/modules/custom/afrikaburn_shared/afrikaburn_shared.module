@@ -107,9 +107,6 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
  * Hooked to redirect users to the home page
  */
 function afrikaburn_shared_user_login($account){
-  // print \Drupal::service('path.current')->getPath();
-  // die;
-
   if (\Drupal::service('path.current')->getPath() == '/user/login'){
     $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
     $response->send();    
@@ -118,31 +115,9 @@ function afrikaburn_shared_user_login($account){
 
 /**
  * Implements hook_preprocess_input().
- * Add autocomplete path parameters 
  * Change "Save" to "Submit"
  */
 function afrikaburn_shared_preprocess_input(&$variables) {
-
-  // Set the field_collective parameter
-  if (isset($variables['attributes']['data-autocomplete-path'])){
-
-    static $cid;
-    if (!isset($cid)) {
-      $cid = \Drupal::request()->query->get('field_collective');
-      if (!$cid) {
-        $node = \Drupal::routeMatch()->getParameter('node');
-        if (isset($node) && $node->bundle() == 'collective') {
-          $cid = $node->id();
-        }
-      }
-    }
-
-    if ($cid) {
-      $variables['attributes']['data-autocomplete-path'] .= '?field_collective=' . $cid;
-    }
-  }
-
-  // Change Save to Submit
   if (
     preg_match(
       '/node\/add\/(art|mutant_vehicles|performances|theme_camps)/', 
@@ -152,6 +127,21 @@ function afrikaburn_shared_preprocess_input(&$variables) {
       && $variables['attributes']['value'] == t('Save and publish')
   ) {
     $variables['attributes']['value'] = t('Submit');
+  }
+}
+
+/**
+ * Implements hook_views_pre_view().
+ * Hooked to set collective on drop down view selects
+ */
+function afrikaburn_shared_views_pre_view(\Drupal\views\ViewExecutable $view, $display_id, &$args){
+  if ($view->id() == 'collective_members' && $display_id == 'entity_reference_1'){
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node && $node->field_collective){
+      $args[0] = $node->field_collective->first()->getValue()['target_id'];
+    } else if ($cid = \Drupal::request()->query->get('field_collective')) {
+      $args[0] = $cid;
+    }
   }
 }
 
