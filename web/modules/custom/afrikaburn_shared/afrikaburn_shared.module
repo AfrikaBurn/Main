@@ -66,7 +66,7 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
     ];
   }
 
-  $form['#attached']['library'][] = 'afrikaburn_shared/form';
+  //$form['#attached']['library'][] = 'afrikaburn_shared/form';
   foreach(['node_art', 'node_performances', 'node_mutant_vehicles', 'node_theme_camps'] as $parent) {
     if (substr($form_id, 0, strlen($parent)) === $parent) {
 
@@ -99,6 +99,20 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
       $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
       $response->send();
     }
+  }
+}
+
+/**
+ * Implements hook_user_login().
+ * Hooked to redirect users to the home page
+ */
+function afrikaburn_shared_user_login($account){
+  // print \Drupal::service('path.current')->getPath();
+  // die;
+  
+  if (\Drupal::service('path.current')->getPath() != '/access_denied'){
+    $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
+    $response->send();    
   }
 }
 
