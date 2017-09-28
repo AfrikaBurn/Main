@@ -107,9 +107,6 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
  * Hooked to redirect users to the home page
  */
 function afrikaburn_shared_user_login($account){
-  // print \Drupal::service('path.current')->getPath();
-  // die;
-
   if (\Drupal::service('path.current')->getPath() == '/user/login'){
     $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
     $response->send();    
