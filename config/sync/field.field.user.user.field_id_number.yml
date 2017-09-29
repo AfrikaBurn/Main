@@ -17,7 +17,7 @@ entity_type: user
 bundle: user
 label: 'SA ID or Passport Number:'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

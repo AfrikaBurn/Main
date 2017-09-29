@@ -1,0 +1,24 @@
+uuid: af92b947-012a-4fc7-a60c-d29a6d27e58d
+langcode: en
+status: true
+dependencies: {  }
+id: register_redirect
+label: 'Register redirect'
+events:
+  -
+    event_name: kernel.request
+description: ''
+tags:
+  - ''
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 2223463b-2580-4549-b8c5-1d00b5ae9e92
+  conditions:
+    id: rules_and
+    uuid: 8e3692a0-2068-4031-9dc1-ce3f1b6fda53
+    conditions: {  }
+  actions:
+    id: rules_action_set
+    uuid: ebe7d30f-3a2c-4f6d-bcc5-64965a477f04
+    actions: {  }
