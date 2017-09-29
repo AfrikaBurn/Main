@@ -634,6 +634,7 @@ display:
         filters: false
         filter_groups: false
         arguments: false
+        empty: false
       filters:
         status:
           value: '1'
@@ -727,6 +728,20 @@ display:
           break_phrase: false
           not: false
           plugin_id: numeric
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'No eligible projects registered within this collective.'
+            format: basic_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:

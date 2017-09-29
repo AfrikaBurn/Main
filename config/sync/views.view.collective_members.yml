@@ -714,7 +714,7 @@ display:
           relationship: reverse__node__field_col_members
           group_type: group
           admin_label: ''
-          default_action: default
+          default_action: 'not found'
           exception:
             value: all
             title_enable: false
