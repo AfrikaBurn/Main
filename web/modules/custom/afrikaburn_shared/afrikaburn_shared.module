@@ -67,7 +67,7 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
   }
 
   //$form['#attached']['library'][] = 'afrikaburn_shared/form';
-  foreach(['node_art', 'node_performances', 'node_mutant_vehicles', 'node_theme_camps'] as $parent) {
+  foreach(['node_art_', 'node_performances_', 'node_mutant_vehicles_', 'node_theme_camps_'] as $parent) {
     if (substr($form_id, 0, strlen($parent)) === $parent) {
 
       $form['revision_log']['#access'] = $user->hasRole('administrator');
@@ -77,7 +77,7 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
         $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
       } else {
         $registration = $form_state->getFormObject()->getEntity();
-        if (!$registration->field_collective->getValue()[0]['target_id']) {
+        if (isset($registration->field_collective) && !$registration->field_collective->getValue()[0]['target_id']) {
           throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
         }
       }
