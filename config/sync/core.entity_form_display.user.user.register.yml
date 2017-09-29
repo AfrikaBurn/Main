@@ -1,8 +1,9 @@
-uuid: 3db5986f-7c4e-44ba-a8bb-8053a0ef8e1e
+uuid: 1fb9bd4c-d54a-464b-81a7-658b0951d9d7
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.user.register
     - field.field.user.user.field_agreements
     - field.field.user.user.field_country
     - field.field.user.user.field_date_of_birth
@@ -146,10 +147,10 @@ third_party_settings:
       label: 'Emergency medical information'
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
-id: user.user.default
+id: user.user.register
 targetEntityType: user
 bundle: user
-mode: default
+mode: register
 content:
   account:
     weight: 3

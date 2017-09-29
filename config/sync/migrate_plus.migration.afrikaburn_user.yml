@@ -1,0 +1,58 @@
+uuid: 490ac309-4253-410f-9524-d8ca2ee2765e
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - afrikaburn_migration
+_core:
+  default_config_hash: i_b0TwNi23OF5_UDgF9-cdyaPM3YrW4L-PZjGaZRRdY
+id: afrikaburn_user
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: AfrikaBurn
+label: 'AfrikaBurn D7 to D8 Users'
+source:
+  plugin: afrikaburn_user
+  target: migrate
+process:
+  uid: uid
+  name: name
+  pass: pass
+  mail: mail
+  status: status
+  created: created
+  changed: changed
+  access: access
+  login: login
+  timezone: timezone
+  langcode: langcode
+  preferred_langcode: preferred_langcode
+  preferred_admin_langcode: preferred_admin_langcode
+  init: init
+  field_first_name: first_name
+  field_last_name: last_name
+  field_gender:
+    plugin: static_map
+    source: gender
+    map:
+      Female: f
+      Male: m
+      Other: o
+    default_value: 'n'
+  field_date_of_birth: date_of_birth
+  field_id_number: sa_id_or_passport_number
+  field_drivers_licence: drivers_licence_number
+  field_mobile: mobile_number
+  field_secondary_mail: secondary_email_address
+  field_country: where_are_you_based
+  field_district: munciple_district
+  field_participation: previous_envolvement
+  field_other_burns: other_burns
+  field_links: website
+  field_agreements: agreements
+destination:
+  plugin: 'entity:user'
+migration_dependencies: null
