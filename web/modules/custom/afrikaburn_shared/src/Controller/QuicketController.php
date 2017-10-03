@@ -1,5 +1,31 @@
 <?php
-
+if(!function_exists('kid_count')){ 
+  function kid_count ($kids) {
+    $count = 0;
+    $teen = 0;
+    foreach ($kids['und'] as $value) {
+      if (isset($value['field_first_name_value']) ) {
+        
+        
+        
+        $time = strtotime( substr( $value['field_date_of_birth']['und'][0]['value'], 0, 10 ) );
+        $newformat = date('Y-m-d',$time);
+        
+        if ( strtotime('24 April 2002') < $time ) {
+          $count++;
+        } elseif ( strtotime('24 April 1999') < $time ) {
+          $teen++;
+        }
+        //drupal_set_message('DoB:<br><pre>' . $value['field_date_of_birth']['und'][0]['value'] . ' ' . $newformat .  ' ' . $teen . ' ' . $count .'</pre><br><br><br>'); 
+        
+        //drupal_set_message('Node Result:<br><pre>1</pre><br><br><br>'); 
+      } else {
+        //drupal_set_message('user_fields:<br><pre>'. print_r($value, true) .'</pre><br><br><br>');
+      }
+    }
+    return array ($count, $teen);
+  }
+}
 
 GLOBAL $user;
 
