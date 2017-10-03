@@ -12,7 +12,7 @@ dependencies:
 id: views_block__collectives_my_collectives_menu
 theme: afrikaburn
 region: collectives
-weight: -21
+weight: 0
 provider: null
 plugin: 'views_block:collectives-my_collectives_menu'
 settings:
