@@ -128,7 +128,7 @@ third_party_settings:
       children:
         - group_overview
       parent_name: ''
-      weight: 20
+      weight: 1
       format_type: tabs
       format_settings:
         id: ''
@@ -139,7 +139,6 @@ third_party_settings:
       children:
         - group_wrangler_1
         - group_wrangler_2
-        - group_wrangler_3
         - group_wrangler_4
         - group_wrangler_5
       parent_name: group_the_project
@@ -187,24 +186,6 @@ third_party_settings:
         id: ''
         classes: wrangler_ovr_2
       label: 'Title and Details'
-    group_wrangler_3:
-      children:
-        - field_prj_gen_contact
-        - field_prj_stg_contact
-      parent_name: group_overview
-      weight: 22
-      format_type: html_element
-      format_settings:
-        label: Leads
-        element: div
-        show_label: false
-        label_element: h3
-        attributes: ''
-        effect: none
-        speed: fast
-        id: ''
-        classes: wrangler_ovr_3
-      label: Leads
     group_wrangler_4:
       children:
         - field_prj_adm_review
@@ -295,14 +276,6 @@ content:
         ds_limit: ''
     type: responsive_image
     region: content
-  field_prj_gen_contact:
-    weight: 2
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_prj_gen_description:
     type: basic_string
     weight: 0
@@ -328,14 +301,6 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-  field_prj_stg_contact:
-    type: entity_reference_label
-    weight: 3
-    region: content
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
   links:
     weight: 0
     region: content
@@ -354,6 +319,7 @@ hidden:
   field_prj_cll_thread: true
   field_prj_gen_bio: true
   field_prj_gen_commodification: true
+  field_prj_gen_contact: true
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
   field_prj_gen_header1: true
@@ -431,6 +397,7 @@ hidden:
   field_prj_snd_level: true
   field_prj_snd_person: true
   field_prj_snd_soop: true
+  field_prj_stg_contact: true
   field_prj_stg_description: true
   field_prj_stg_stage: true
   field_prj_stg_tread: true
