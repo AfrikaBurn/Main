@@ -20,6 +20,8 @@ dependencies:
     - field.field.user.user.field_newsletter
     - field.field.user.user.field_other_burns
     - field.field.user.user.field_participation
+    - field.field.user.user.field_quicket_code
+    - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -280,6 +282,22 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_quicket_code:
+    weight: 51
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_quicket_id:
+    weight: 52
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_secondary_mail:
     weight: 3
     settings:
@@ -287,6 +305,9 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: email_default
+    region: content
+  google_analytics:
+    weight: 3
     region: content
   language:
     weight: 4
