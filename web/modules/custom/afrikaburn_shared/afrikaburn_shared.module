@@ -41,7 +41,7 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
  */
 function afrikaburn_shared_entity_update($entity){
   $user = $entity->getEntityType()->id() == 'user' ? $entity : FALSE;
-  if ($user){
+  if ($user && isset($user->get('field_quicket_id'))){
     if (!($user->get('field_quicket_id')->count() && $user->get('field_quicket_id')->count())){
       module_load_include('inc', 'afrikaburn_shared', 'includes/quicket');
       afrikaburn_shared_quicket_new_code($user);
