@@ -132,8 +132,12 @@ third_party_settings:
     group_emergency_medical_informat:
       children:
         - field_emr_name
+        - field_emr_relationship
         - field_emr_telephone
         - field_emr_email
+        - field_emr_company
+        - field_emr_medical_aid
+        - field_emr_med_telephone
       parent_name: group_root
       weight: 25
       format_type: accordion_item
@@ -284,11 +288,6 @@ content:
     third_party_settings: {  }
     type: email_default
     region: content
-  google_analytics:
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   language:
     weight: 4
     region: content
