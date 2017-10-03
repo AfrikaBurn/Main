@@ -30,20 +30,27 @@ class CollectiveMemberCheck implements AccessInterface {
 
     static $user;
     $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
-    $entity = \Drupal::routeMatch()->getParameter('node');
-    $bundle = $entity ? $entity->bundle() : FALSE;
+    $node = \Drupal::routeMatch()->getParameter('node');
+    $bundle = $node ? $node->bundle() : FALSE;
 
-    if ($entity && in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
-      $field_collective = $entity->get('field_collective');
+    $roles = [
+      'art' => 'art_wrangler', 
+      'performances' => 'art_wrangler',
+      'mutant_vehicles' => 'mutant_vehicle_wrangler',
+      'theme_camps' => 'theme_camp_wrangler',
+    ];
+
+    if ($node && in_array($bundle, array_keys($roles))){
+      $field_collective = $node->get('field_collective');
       if ($field_collective) {
         $collective = $field_collective->first()->get('entity')->getTarget();
-        return AccessResult::allowedIf($this->isMember($collective) || $user->hasRole('administrator'));
+        return AccessResult::allowedIf($this->isMember($collective) || $user->hasRole('administrator') || $user->hasRole($roles[$bundle]));
       }
       return AccessResult::allowedIf($user->hasRole('administrator'));
     }
 
     if ($bundle == 'collective') {
-      return AccessResult::allowedIf($this->isMember($entity) || $user->hasRole('administrator'));
+      return AccessResult::allowedIf($this->isMember($node) || $user->hasRole('administrator'));
     }
 
     return AccessResult::allowedIf(TRUE);

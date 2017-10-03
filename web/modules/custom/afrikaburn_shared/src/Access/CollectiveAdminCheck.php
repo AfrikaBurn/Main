@@ -34,7 +34,14 @@ class CollectiveAdminCheck implements AccessInterface {
     $node = \Drupal::routeMatch()->getParameter('node');
     $bundle = $node ? $node->bundle() : FALSE;
 
-    if ($node && in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+    $roles = [
+      'art' => 'art_admin',
+      'performances' => 'art_admin',
+      'mutant_vehicles' => 'mutant_vehicle_admin',
+      'theme_camps' => 'theme_camp_admin',
+    ];
+
+    if ($node && in_array($bundle, array_keys($roles))){
       $field_collective = $node->get('field_collective');
       if ($field_collective) {
         $collective = $field_collective->first()->get('entity')->getTarget();
@@ -44,7 +51,7 @@ class CollectiveAdminCheck implements AccessInterface {
     }
 
     if ($bundle == 'collective') {
-      return AccessResult::allowedIf($this->isAdmin($uid, $node) || $user->hasRole('administrator'));
+      return AccessResult::allowedIf($this->isAdmin($uid, $node) || $user->hasRole('administrator') || $user->hasRole($roles[$bundle]));
     }
 
     if ( ($cid = \Drupal::routeMatch()->getParameter('cid')) && (\Drupal::routeMatch()->getParameter('uid')) ){

@@ -28,7 +28,7 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
   static $user;
   $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
   list($registration, $registration_title) = _get_registration();
-  list($collective, $collective_title) = _get_collective();
+  list($collective, $collective_title) = _get_collective($registration);
 
   _set_registration_form_title($form, $form_id, $collective_title, $registration_title);
   _set_registration_form_defaults($form, $form_id, $user, $collective);
