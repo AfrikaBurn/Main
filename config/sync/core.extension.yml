@@ -3,7 +3,6 @@ module:
   admin_toolbar_tools: 0
   afrikaburn_agreement: 0
   afrikaburn_emails: 0
-  afrikaburn_migration: 0
   afrikaburn_shared: 0
   autocomplete_deluxe: 0
   automated_cron: 0
@@ -89,6 +88,7 @@ module:
   redirect: 0
   responsive_image: 0
   rest: 0
+  restui: 0
   rules: 0
   search: 0
   serialization: 0
