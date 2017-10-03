@@ -129,10 +129,10 @@ third_party_settings:
         - title
         - field_grt_f1
         - field_grt_breakdown
-        - group_expense_totals_by_type
         - field_grt_total
         - field_grt_contribution
         - field_this_is_the_amount_of_mone
+        - group_expense_totals_by_type
         - field_grt_art_total
         - field_grt_short
         - field_grt_short_desc
@@ -158,7 +158,7 @@ third_party_settings:
         - field_grt_pyrotechnics
         - field_grt_specify
       parent_name: group_grant
-      weight: 3
+      weight: 6
       format_type: fieldset
       format_settings:
         label: 'Expense totals by type'
@@ -201,7 +201,7 @@ content:
     third_party_settings: {  }
   field_grt_contribution:
     type: number
-    weight: 5
+    weight: 4
     region: content
     settings:
       placeholder: ''
@@ -212,47 +212,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_grt_lighting:
-    type: number
-    weight: 5
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_location:
-    type: number
-    weight: 3
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_materials:
-    type: number
-    weight: 0
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
   field_grt_more:
     type: string_textarea
     weight: 10
     region: content
     settings:
       rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_pyrotechnics:
-    type: number
-    weight: 6
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_services:
-    type: number
-    weight: 2
-    region: content
-    settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_short:
@@ -269,37 +234,16 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_grt_specify:
-    type: number
-    weight: 7
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_tool:
-    type: number
-    weight: 1
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
   field_grt_total:
     type: number
-    weight: 4
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_transport:
-    type: number
-    weight: 4
+    weight: 3
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_this_is_the_amount_of_mone:
     type: string_textarea
-    weight: 6
+    weight: 5
     region: content
     settings:
       rows: 5
@@ -344,6 +288,14 @@ content:
     third_party_settings: {  }
 hidden:
   field_collective: true
+  field_grt_lighting: true
+  field_grt_location: true
+  field_grt_materials: true
+  field_grt_pyrotechnics: true
+  field_grt_services: true
+  field_grt_specify: true
+  field_grt_tool: true
+  field_grt_transport: true
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_notes: true
