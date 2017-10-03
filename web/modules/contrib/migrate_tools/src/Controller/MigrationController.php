@@ -37,7 +37,7 @@ class MigrationController extends ControllerBase implements ContainerInjectionIn
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('plugin.manager.config_entity_migration')
+      $container->get('plugin.manager.migration')
     );
   }
 

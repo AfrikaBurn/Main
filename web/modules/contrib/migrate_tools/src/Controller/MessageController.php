@@ -34,7 +34,7 @@ class MessageController extends ControllerBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('database'),
-      $container->get('plugin.manager.config_entity_migration')
+      $container->get('plugin.manager.migration')
     );
   }
 
