@@ -156,7 +156,6 @@ third_party_settings:
       children:
         - group_wrangler_1
         - group_wrangler_2
-        - group_wrangler_3
         - group_wrangler_4
         - group_wrangler_5
       parent_name: group_over
@@ -207,24 +206,6 @@ third_party_settings:
         id: ''
         classes: wrangler_ovr_2
       label: '2 Title and Details'
-    group_wrangler_3:
-      children:
-        - field_prj_gen_lead
-        - field_prj_gen_contact
-      parent_name: group_overview
-      weight: 22
-      format_type: html_element
-      format_settings:
-        label: '3 Leads'
-        element: div
-        show_label: false
-        label_element: h3
-        attributes: ''
-        effect: none
-        speed: fast
-        id: ''
-        classes: wrangler_ovr_3
-      label: '3 Leads'
     group_wrangler_4:
       children:
         - field_prj_adm_wrangler
@@ -429,28 +410,12 @@ content:
         ds_limit: '1'
     type: image
     region: content
-  field_prj_gen_contact:
-    weight: 103
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_prj_gen_description:
     weight: 190
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-    region: content
-  field_prj_gen_lead:
-    weight: 102
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
     region: content
   field_prj_gen_location:
     weight: 23
@@ -538,12 +503,14 @@ hidden:
   field_prj_cll_description: true
   field_prj_cll_thread: true
   field_prj_gen_bio: true
+  field_prj_gen_contact: true
   field_prj_gen_doc: true
   field_prj_gen_external: true
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
   field_prj_gen_history: true
   field_prj_gen_immortal: true
+  field_prj_gen_lead: true
   field_prj_gen_manager: true
   field_prj_gen_story: true
   field_prj_lgh_agree: true

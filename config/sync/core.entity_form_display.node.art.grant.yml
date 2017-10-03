@@ -189,10 +189,11 @@ third_party_settings:
       weight: 3
       format_type: fieldset
       format_settings:
-        id: ''
-        classes: ''
+        label: 'Expense totals by type'
         description: ''
         required_fields: true
+        id: ''
+        classes: hidden
       label: 'Expense totals by type'
 _core:
   default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
