@@ -75,6 +75,9 @@ permissions:
   - 'use text format basic_html'
   - 'use user.default form mode'
   - 'use user.register form mode'
+  - userprotect.account.edit
+  - userprotect.mail.edit
+  - userprotect.pass.edit
   - 'view field_department'
   - 'view field_eml_adm_desc'
   - 'view field_prj_adm_latitude'
