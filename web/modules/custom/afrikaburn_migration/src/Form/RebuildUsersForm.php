@@ -31,7 +31,9 @@ class RebuildUsersForm extends FormBase {
       '#type' => 'radios',
       '#options' => [
         'language' => 'Set default languages',
-        'quicket' => 'Set quicket info',
+        'quicket' => 'Migrate existing quicket info (For migrated users with up to date agreements)',
+        'short_agreement' => 'Attach updated agreements (For migrated users with outdated agreements)',
+        'new_quicket' => 'Generate new quicket info (For new users with new agreements)',
       ],
     ];
 
@@ -49,7 +51,9 @@ class RebuildUsersForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     switch ($form_state->getValues()['operation']){
       case 'language': $this->setLanguage(); break;
-      case 'quicket': $this->setQuicket(); break;
+      case 'quicket': $this->migrateQuicket(); break;
+      case 'short_agreement': $this->attachAgreementUpdate(); break;
+      case 'new_quicket': $this->generateQuicketInfo(); break;
       default: return 'Unknown option!';
     }
   }
@@ -78,9 +82,9 @@ class RebuildUsersForm extends FormBase {
   }
 
   /**
-   * Sets all user default languages to en
+   * Migrates existing quicket codes
    */
-  public function setQuicket(){
+  public function migrateQuicket(){
 
     Database::setActiveConnection('migrate');
 
@@ -113,5 +117,73 @@ class RebuildUsersForm extends FormBase {
 
     Database::setActiveConnection();
     batch_set($batch);
+  }
+
+  /**
+   * Attaches the short updated agreement to profiles
+   */
+  public function attachAgreementUpdate(){
+
+    $uids = db_query('
+      SELECT uid
+      FROM 
+        {users} LEFT JOIN {user__field_quicket_code} ON (uid=entity_id)
+      WHERE 
+        entity_id IS NULL AND 
+        uid <= 38495
+    ')->fetchCol();
+
+    $aid = array_values(
+      \Drupal::entityQuery('node')
+        ->condition('status', 1)
+        ->condition('type', 'agreement')
+        ->condition('title', ['Updates to how we do stuff'], 'IN')
+        ->execute()
+    )[0];
+    $agreement = \Drupal::entityTypeManager()->getStorage('node')->load($aid);
+
+    $batch = [
+      'title' => t('Attaching updated agreement...'),
+      'operations' => [],
+      'finished' => '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::finished',
+    ];
+
+    foreach($uids as $uid){
+      $batch['operations'][] = [
+        '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::setAgreementUpdate',
+        [$uid, $agreement]
+      ];
+    }
+
+    batch_set($batch);
+  }
+
+  /**
+   * Fetches new quicket information for profiles
+   */
+  public function generateQuicketInfo(){
+
+    $uids = db_query('
+      SELECT uid
+      FROM 
+        {users} LEFT JOIN {user__field_quicket_code} ON (uid=entity_id)
+      WHERE 
+        entity_id IS NULL AND 
+        uid > 38495
+    ')->fetchCol();
+
+    $batch = [
+      'title' => t('Generating new quicket information...'),
+      'operations' => [],
+      'finished' => '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::finished',
+    ];
+
+    foreach($uids as $uid){
+      $batch['operations'][] = [
+        '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::getNewQuicketInfo',
+        [$uid]
+      ];
+    }
+
   }
 }
