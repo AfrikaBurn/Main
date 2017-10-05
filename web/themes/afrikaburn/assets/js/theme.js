@@ -66,6 +66,18 @@ function hideUserMenuBlock() {
   jQuery(".user-menu-icon").removeClass("active");
 }
 
+function combineFormHeadersAndFields() {
+  var formFieldHeaders = jQuery('.js-form-type-webform-markup p.western');
+  jQuery.each(formFieldHeaders, function(index, item) {
+    if (!jQuery(this).hasClass('hidden')) {
+      jQuery(this).addClass('hidden');
+      var headerText = jQuery(this).text();
+      var fieldText = jQuery(this).parent().next('fieldset').find('legend span').text();
+      jQuery(this).parent().next('fieldset').find('legend span').text(headerText + ' ' + fieldText);
+    }
+  });
+}
+
 // ZZZ - Used on the community pages on old site. May need this again. Allows the "contact this group" form to be hidden initially.
 // function toggleContactForm(clickedElement) {
 //     var contactForm = clickedElement.next();
@@ -88,11 +100,11 @@ var wrapperClass = (window.location.pathname).replace(/\//g, "-");
 jQuery("#wrapper").addClass(wrapperClass.slice(1));
 
 jQuery(document).ready(function() {
-  console.log('test');
   // Initiate functions that insert/ wrap html elements to help with tricky styling.
-  radioCheckBoxWrapper();
+  //radioCheckBoxWrapper();
   inputTypeFile();
   addIconToStatusMessage();
+  // combineFormHeadersAndFields();
   // Display file name underneath input type file element when file is selected.
   jQuery("input:file").change(function() {
     var self = this;
@@ -166,10 +178,6 @@ jQuery(document).ready(function() {
   jQuery("a.btn-navbar").click(function(e) {
     jQuery(this).parent().parent().toggleClass('open');
   })
-  /*----Hack to make validation messages that display inside checkbox and label groups look better---*/
-  // jQuery("input.webform-button--next").click(function() {
-  //     Query("label.error").closest("fieldset").addClass("validation-error");
-  // })
 
   jQuery(".node-art-grant-form").closest("body").addClass("node-add-art-grant");
   jQuery(".node-performances-grant-form").closest("body").addClass("node-add-performances-grant");
@@ -180,13 +188,20 @@ jQuery(document).ready(function() {
   jQuery("#my-collectives-block").addClass("length-" + numberOfCollectives);
   jQuery(".block-views-blockcollectives-my-collectives-block").addClass("length-" + numberOfCollectives);
 
+  // HACKS
+  // Force the "no-sidebars class if the sidebar is empty."
+  console.log(jQuery('div.sidebar').is(':empty'));
+  if (jQuery.trim( jQuery('div.sidebar').html() ).length === 0) {
+    jQuery('body').addClass('no-sidebars');
+  }
 
 
 });
 
 // Run various functions above when AJAX operations complete.
 jQuery(document).ajaxComplete(function() {
-  radioCheckBoxWrapper();
+  //radioCheckBoxWrapper();
   inputTypeFile();
   jQuery(".collective-row").parent().addClass("collectives-container");
+  // combineFormHeadersAndFields();
 });
