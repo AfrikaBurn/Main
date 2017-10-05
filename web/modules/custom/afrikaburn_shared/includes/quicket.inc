@@ -76,9 +76,10 @@ function _quicket($user, $method){
 
 $context  = stream_context_create($options);
 
-dpm(['WTF', $data, $options]);
+dpm(['WTF', $options]);
 
 $result = file_get_contents(
+  // 'http://127.0.0.1:3000?api_key=' . $settings['api_key'],
   'https://api.quicket.co.za/api/codes?api_key=' . $settings['api_key'], 
   FALSE,
   $context

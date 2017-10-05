@@ -44,13 +44,15 @@ class AfrikaburnUserRebuilder extends ControllerBase {
 
   /* ---- Set updated agreement ---- */
 
-  public static function setAgreementUpdate($uid, $agreement, &$context){
+  public static function setAgreementUpdate($uid, $agreements, &$context){
 
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
     if ($user) {
 
       if ($user->get('field_agreements')->count() == 0){
-        $user->get('field_agreements')->appendItem($agreement);
+        foreach($agreements as $agreement){
+          $user->get('field_agreements')->appendItem($agreement);
+        }
         $context['results'][] = $user->save();
       }
 
