@@ -49,10 +49,3 @@ afrikaburn_shared.admin:
     cid: '^[0-9]+'
     uid: '^[0-9]+'
     _is_collective_admin: 'TRUE'
-
-afrikaburn_shared.export:
-  path: '/admin/people/export'
-  defaults: 
-    _controller: '\Drupal\afrikaburn_shared\Controller\ViewsExporter::export'
-  requirements: 
-    _role: administrator
