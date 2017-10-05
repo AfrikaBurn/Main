@@ -3,6 +3,7 @@ module:
   admin_toolbar_tools: 0
   afrikaburn_agreement: 0
   afrikaburn_emails: 0
+  afrikaburn_migration: 0
   afrikaburn_shared: 0
   autocomplete_deluxe: 0
   automated_cron: 0
@@ -107,6 +108,7 @@ module:
   typed_data: 0
   update: 0
   user: 0
+  views_data_export: 0
   views_field_view: 0
   views_slideshow: 0
   views_slideshow_cycle: 0
@@ -114,6 +116,7 @@ module:
   webform: 0
   webform_ui: 0
   workflows: 0
+  xls_serialization: 0
   ds: 1
   menu_link_content: 1
   views: 10
