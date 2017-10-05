@@ -185,7 +185,9 @@ class MemberController extends ControllerBase {
   // Add email address to invites
   private static function addToInvites($emails, $collective) {
     foreach($emails as $email){
-      $collective->get('field_col_invitee')->appendItem(trim($email));
+      if (!count(self::inviteIndex($email, $collective))){
+        $collective->get('field_col_invitee')->appendItem(trim($email));
+      }
     }
   }
 
@@ -198,25 +200,29 @@ class MemberController extends ControllerBase {
 
   // Add user to members
   private static function addToMembers($user, $collective) {
-    $collective->get('field_col_members')->appendItem($user);
+    if (!count(self::memberIndex($user->id(), $collective, 'field_col_members'))){
+      $collective->get('field_col_members')->appendItem($user);
+    }
   }
 
   // Remove user from members
   private static function removeFromMembers($memberIndexes, $collective) {
-    foreach(array_reverse($memberIndexes) as $index){
-      $collective->get('field_col_members')->removeItem($index);    
+    if (count($memberIndexes)){
+      $collective->get('field_col_members')->removeItem(array_reverse($memberIndexes)[0]);    
     }
   }
 
   // Add user to Admins
   private static function addToAdmins($user, $collective) {
-    $collective->get('field_col_admins')->appendItem($user);
+    if (!count(self::memberIndex($user->id(), $collective, 'field_col_admins'))){
+      $collective->get('field_col_admins')->appendItem($user);
+    }
   }
 
   // Remove user from Admins
   private static function removeFromAdmins($memberIndexes, $collective) {
-    foreach(array_reverse($memberIndexes) as $index){
-      $collective->get('field_col_admins')->removeItem($index);
+    if (count($memberIndexes)){
+      $collective->get('field_col_admins')->removeItem(array_reverse($memberIndexes)[0]);    
     }
   }
 
@@ -237,7 +243,9 @@ class MemberController extends ControllerBase {
         'value'
       );
 
-      $mails = [$user->get('mail')->getValue(), $user->get('field_secondary_mail')->getValue()];
+      $mails = is_string($user)
+        ? [$user]
+        : [$user->get('mail')->getValue(), $user->get('field_secondary_mail')->getValue()];
       foreach($mails as $index=>$mail){
         if ($mail) {
           $value = array_values(array_column($mail, 'value'))[0];
