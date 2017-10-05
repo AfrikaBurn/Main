@@ -237,7 +237,7 @@ third_party_settings:
         - group_wtf_guide_and_community_ne
         - group_almost_done_new
       parent_name: ''
-      weight: 10
+      weight: 9
       format_type: accordion
       format_settings:
         label: 'Overview registration'
@@ -266,6 +266,12 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_prj_adm_wrangler:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_prj_cll_collaborate:
     weight: 26
@@ -645,7 +651,6 @@ hidden:
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
-  field_prj_adm_wrangler: true
   field_prj_gen_header2: true
   field_prj_gen_year: true
   field_prj_lgh_agree: true

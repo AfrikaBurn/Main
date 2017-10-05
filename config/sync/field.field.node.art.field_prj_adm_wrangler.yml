@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_prj_adm_wrangler
     - node.type.art
+  content:
+    - 'user:user:89dcd4de-d42c-4e3c-becc-16eccf2f39e9'
   module:
     - custom_add_another
 third_party_settings:
@@ -21,7 +23,9 @@ label: Wrangler
 description: ''
 required: false
 translatable: true
-default_value: {  }
+default_value:
+  -
+    target_uuid: 89dcd4de-d42c-4e3c-becc-16eccf2f39e9
 default_value_callback: ''
 settings:
   handler: 'default:user'
@@ -40,11 +44,11 @@ settings:
         mutant_vehicle_admin: '0'
         outreach_wrangler: '0'
         outreach_admin: '0'
+        administrator: '0'
         support_wrangler: '0'
         support_admin: '0'
         theme_camp_wrangler: '0'
         theme: '0'
-        administrator: '0'
     target_bundles: null
     sort:
       field: _none

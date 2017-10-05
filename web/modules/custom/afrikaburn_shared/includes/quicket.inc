@@ -13,7 +13,7 @@ use Drupal\Component\Serialization\Json;
  * @param [object] $user User to fetch new code & id for
  */
 function _quicket_new($user){
-  return _quicket($user, 'POST');
+  // return _quicket($user, 'POST');
 }
 
 /**
@@ -22,10 +22,10 @@ function _quicket_new($user){
  */
 function _quicket_update($user){
 
-  $field_quicket_id = $user->get('field_quicket_id');
-  $quicket_id = $field_quicket_id ? $field_quicket_id->getValue()[0]['value'] : FALSE;
+  // $field_quicket_id = $user->get('field_quicket_id');
+  // $quicket_id = $field_quicket_id ? $field_quicket_id->getValue()[0]['value'] : FALSE;
 
-  return _quicket($user, 'PUT', $quicket_id);
+  // return _quicket($user, 'PUT', $quicket_id);
 }
 
 /**
@@ -78,7 +78,7 @@ function _quicket($user, $method, $quicket_id = FALSE){
     ],
     'timeout' => 45,
     'form_params' => [
-      'data' => $data,
+      'data' => json_encode($data),
     ]
   ];
 
