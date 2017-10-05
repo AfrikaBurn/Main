@@ -112,4 +112,3 @@ function _set_collective_defaults(&$form, $form_id, $user){
     }
   }  
 }
-

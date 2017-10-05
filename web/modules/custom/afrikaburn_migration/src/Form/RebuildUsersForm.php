@@ -130,17 +130,17 @@ class RebuildUsersForm extends FormBase {
         {users} LEFT JOIN {user__field_quicket_code} ON (uid=entity_id)
       WHERE 
         entity_id IS NULL AND 
-        uid <= 38495
+        uid <= 38495 AND uid > 0
     ')->fetchCol();
 
-    $aid = array_values(
+    $aids = array_values(
       \Drupal::entityQuery('node')
         ->condition('status', 1)
         ->condition('type', 'agreement')
-        ->condition('title', ['Updates to how we do stuff'], 'IN')
+        ->condition('title', ['Updates to how we do stuff', 'Terms & Conditions'], 'IN')
         ->execute()
-    )[0];
-    $agreement = \Drupal::entityTypeManager()->getStorage('node')->load($aid);
+    );
+    $agreements = \Drupal::entityTypeManager()->getStorage('node')->load($aids);
 
     $batch = [
       'title' => t('Attaching updated agreement...'),
@@ -151,7 +151,7 @@ class RebuildUsersForm extends FormBase {
     foreach($uids as $uid){
       $batch['operations'][] = [
         '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::setAgreementUpdate',
-        [$uid, $agreement]
+        [$uid, $agreements]
       ];
     }
 
@@ -185,5 +185,6 @@ class RebuildUsersForm extends FormBase {
       ];
     }
 
+    batch_set($batch);
   }
 }
