@@ -54,7 +54,7 @@ class AfrikaburnUserRebuilder extends ControllerBase {
         $context['results'][] = $user->save();
       }
 
-      $context['message'] = 'Attaching updated agreement';      
+      $context['message'] = 'Attaching updated agreement';
     }
 
   }

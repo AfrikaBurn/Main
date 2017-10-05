@@ -130,7 +130,7 @@ class RebuildUsersForm extends FormBase {
         {users} LEFT JOIN {user__field_quicket_code} ON (uid=entity_id)
       WHERE 
         entity_id IS NULL AND 
-        uid <= 38495
+        uid <= 38495 AND uid > 0
     ')->fetchCol();
 
     $aid = array_values(
@@ -185,5 +185,6 @@ class RebuildUsersForm extends FormBase {
       ];
     }
 
+    batch_set($batch);
   }
 }
