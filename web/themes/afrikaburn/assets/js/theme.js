@@ -185,8 +185,8 @@ jQuery(document).ready(function() {
   jQuery(".collective-row").parent().addClass("collectives-container");
 
   var numberOfCollectives = jQuery("#my-collectives-block .view-collectives .collective-row").length;
-  jQuery("#my-collectives-block").addClass("length-" + numberOfCollectives);
-  jQuery(".block-views-blockcollectives-my-collectives-block").addClass("length-" + numberOfCollectives);
+  if (numberOfCollectives > 2) {numberOfCollectives = '3x'}
+  jQuery("body").addClass("collectives-length-" + numberOfCollectives);
 
   // HACKS
   // Force the "no-sidebars class if the sidebar is empty."

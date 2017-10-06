@@ -2,7 +2,6 @@
 .view-id-collective_registrations .views-row{
   padding-left: 10px;
   display:list-item;
-  border-left: 1px solid #666;
   list-style: none;
   display: block;
 }
@@ -11,8 +10,6 @@
     line-height: 40px;
     text-decoration: none;
   }
-
-
 
 //Only styles the images next to the projects.
 .views-field-field-prj-gen-concept img {
@@ -63,16 +60,14 @@ nav.pager ul {
   box-shadow: 3px 3px 6px rgba(0,0,0,0.5);
   background: #111;
   font-size: 1.4em;
-  // max-width: 320px;
   float: right;
   right: 0 !important;
   color: #999;
   box-sizing: border-box;
 
   .collectives-container {
-    // float: left;
-    box-sizing: border-box;
-    margin: 0 -20px;
+    float: left;
+    width: 100%;
   }
   h2, h3 {
 
@@ -84,7 +79,7 @@ nav.pager ul {
 
   h2 {
     font-size: 2.8em/1.4em;
-    margin: 30px 0 0.3em 20px;
+    margin: 30px 0 0.3em 0;
   }
 
   h3.field-content {
@@ -120,7 +115,6 @@ nav.pager ul {
 
   .collective-row {
     float: left;
-    width: 320px;
     box-sizing: border-box;
     padding: 20px;
   }
@@ -174,50 +168,68 @@ nav.pager ul {
   right: 170px
 }
 
-#my-collectives-block {
-  max-width: 980px;
-  width: 100%;
+.collectives-length-0 #my-collectives-block div.view-footer a {
+  margin-top: 20px;
 }
 
-#my-collectives-block.length-2 {
+// Set the max-width of the collectives block based on number of collectives
+.collectives-length-0 #my-collectives-block,
+.collectives-length-1 #my-collectives-block {
+  max-width: 400px;
+}
+.collectives-length-2 #my-collectives-block {
   max-width: 660px;
 }
+// Set the max-width of the collectives block and width of the collectives based on number of collectives and viewport width
+@media (min-width: 980px) {
+  #my-collectives-block {
+      max-width: 100%;
+  }
 
-#my-collectives-block.length-1 {
-  max-width: 360px;
+  #my-collectives-block .collective-row {
+    width: 100%;
+  }
+
+  .collectives-length-2 #my-collectives-block .collective-row {
+    width: 50%;
+  }
+
+  .collectives-length-3x #my-collectives-block .collective-row {
+    width: 33.3%;
+  }
 }
 
-@media (max-width: 979px) {
+@media (min-width: 667px) and (max-width: 979px) {
   #my-collectives-block {
     max-width: 660px;
-    .collectives-container {
-      border-width: 0;
-    }
-    .view-footer {
-      clear: both;
-    }
-    .attachment {
-      width: 100%;
-    }
+  }
+  #my-collectives-block .collective-row {
+    width: 100%;
+  }
+
+  .collectives-length-2 #my-collectives-block .collective-row,
+  .collectives-length-3x #my-collectives-block .collective-row {
+    width: 50%;
   }
 }
 
 @media (max-width: 666px) {
   #my-collectives-block {
-    max-width: 300px !important;
-    .collectives-container {
-      border-width: 0;
-    }
-    .collective-row,
-    .attachment {
-      width: 100%;
-      max-width: 100%;
-    }
+    max-width: 400px;
+  }
+
+  #my-collectives-block .collective-row {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
-/* Collectives block in the home page content*/
-#wrapper .block-views-blockcollectives-my-collectives-block {
+/*---------------------------------------------------------------------
+Collectives block in the home page content
+---------------------------------------------------------------------*/
+
+
+.block-views-blockcollectives-my-collectives-block {
   h2, h3 {
     color: #fff;
     text-align: left;
@@ -228,8 +240,8 @@ nav.pager ul {
   h3.field-content {
     font-size: 1.8em/1.4em;
     text-transform: uppercase;
-    border-top: 1px solid #555;
-    border-bottom: 1px solid #555;
+    border-top: 1px solid @ab-peach;
+    border-bottom: 1px solid @ab-peach;
     padding: 14px 0;
     margin-top: 0;
   }
@@ -243,11 +255,21 @@ nav.pager ul {
   h3 a {
     text-decoration: none;
   }
+
+  .collectives-container {
+    float: left;
+    width: 100%;
+    background: @ab-light-maroon;
+    margin-bottom: 20px;
+    .border-radius;
+  }
+
   .view-id-collectives > .view-content > .views-row {
     float: left;
-    width: 292px;
+    width: 100%;
     box-sizing: border-box;
-    margin: 0 20px 20px 0;
+    padding: 0 10px 20px 10px;
+
   }
 
   .view-id-collectives > .view-content > .views-row .views-field-view {
@@ -259,15 +281,49 @@ nav.pager ul {
     margin-right: 15px;
   }
 
-  // .attachment {
-  //   clear: both;
-  //   float: left;
-  //   width: 100%;
-  // }
-
   .views-field-field-picture img {
     max-width: 50px;
     width: auto;
+  }
+}
+
+.collectives-length-0 .block-views-blockcollectives-my-collectives-block div.view-footer a {
+  margin-top: 20px;
+}
+
+@media (min-width: 980px) {
+  .collectives-length-3x .block-views-blockcollectives-my-collectives-block {
+    width: 940px;
+    margin-left: -120px;
+  }
+  .block-views-blockcollectives-my-collectives-block .view-id-collectives > .view-content > .views-row {
+    width: 100%;
+  }
+
+  .collectives-length-2 .block-views-blockcollectives-my-collectives-block .view-id-collectives > .view-content > .views-row {
+    width: 50%;
+  }
+
+  .collectives-length-3x .block-views-blockcollectives-my-collectives-block .view-id-collectives > .view-content > .views-row {
+    width: 33.3%;
+  }
+}
+
+@media (min-width: 667px) and (max-width: 979px) {
+  .block-views-blockcollectives-my-collectives-block .views-row {
+    width: 100%;
+  }
+
+  .collectives-length-2 .block-views-blockcollectives-my-collectives-block .view-id-collectives > .view-content > .views-row,
+  .collectives-length-3x .block-views-blockcollectives-my-collectives-block .view-id-collectives > .view-content > .views-row {
+    width: 50%;
+  }
+}
+
+@media (max-width: 666px) {
+ .block-views-blockcollectives-my-collectives-block .view-id-collectives > .view-content > .views-row {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
