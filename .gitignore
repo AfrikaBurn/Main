@@ -24,3 +24,6 @@ vendor/*
 
 # Ignore MAC OS generated .DS_Store files.
 .DS_Store
+
+# Ignore testing statis HTML files in the afrikaburn theme root directory
+web/themes/afrikaburn/testing*
