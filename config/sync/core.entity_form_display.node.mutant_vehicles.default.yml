@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_prj_gen_year
     - node.type.mutant_vehicles
   module:
     - content_moderation
@@ -20,6 +22,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_prj_gen_year:
+    weight: 31
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   path:
     type: path
     weight: 30
@@ -57,4 +66,5 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_collective: true
