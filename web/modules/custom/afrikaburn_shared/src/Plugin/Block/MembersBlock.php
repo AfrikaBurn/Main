@@ -22,7 +22,7 @@ class MembersBlock extends BlockBase {
 
     $user = \Drupal::currentUser();
     $collective = \Drupal::routeMatch()->getParameter('node');
-    
+
     return $collective
       ? [
         '#type' => 'view',
@@ -33,7 +33,11 @@ class MembersBlock extends BlockBase {
         '#cache' => [
           'max-age' => 0,
         ],
-      ] : [];
+      ] : [
+        '#cache' => [
+          'max-age' => 0,
+        ],
+      ];
   }
 
 }
