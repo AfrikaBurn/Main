@@ -1,4 +1,4 @@
-uuid: 8a9cba45-d3d7-49ca-962a-7e58e4b69582
+uuid: 5d01f69d-345a-47a2-927b-c7c594c22c62
 langcode: en
 status: true
 dependencies:
@@ -8,10 +8,8 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-_core:
-  default_config_hash: OnoBHxwLk1Y1CF-_KteOZzFVY6bYKRa01IViHr1Hy9s
-id: node.field_prj_saf_access
-field_name: field_prj_saf_access
+id: node.field_prj_snd_safety
+field_name: field_prj_snd_safety
 entity_type: node
 type: string_long
 settings:

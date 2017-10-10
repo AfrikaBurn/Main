@@ -1,21 +1,20 @@
-uuid: 8a9cba45-d3d7-49ca-962a-7e58e4b69582
+uuid: 4c0486f5-4938-4372-b8b4-92b9e82d16c9
 langcode: en
 status: true
 dependencies:
   module:
     - field_permissions
     - node
+    - taxonomy
 third_party_settings:
   field_permissions:
     permission_type: public
-_core:
-  default_config_hash: OnoBHxwLk1Y1CF-_KteOZzFVY6bYKRa01IViHr1Hy9s
-id: node.field_prj_saf_access
-field_name: field_prj_saf_access
+id: node.field_prj_gen_base
+field_name: field_prj_gen_base
 entity_type: node
-type: string_long
+type: entity_reference
 settings:
-  case_sensitive: false
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1
