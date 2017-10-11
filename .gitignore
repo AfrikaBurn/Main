@@ -17,6 +17,9 @@ composer.lock
 # Ignore mail server config
 /config/sync/smtp.settings.yml
 
+# Ignore mailing engine config
+/config/sync/afrikaburn_emails.settings.yml
+
 # Ignore SimpleTest multi-site environment.
 /web/sites/simpletest
 
