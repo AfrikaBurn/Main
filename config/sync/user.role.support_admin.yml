@@ -12,6 +12,7 @@ permissions:
   - 'create field_comment'
   - 'create field_ddt_eligible'
   - 'create field_grt_art_comment'
+  - 'create field_grt_breakdown'
   - 'create field_grt_tec_comment'
   - 'create field_manage_by_deparment'
   - 'create field_prj_adm_notes'

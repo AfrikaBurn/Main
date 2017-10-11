@@ -20,4 +20,3 @@ WHERE
   users.uid = mail.uid AND
   users.uid = mobile.entity_id AND
   users.uid = id.entity_id
-

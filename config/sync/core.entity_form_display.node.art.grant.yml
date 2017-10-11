@@ -175,17 +175,17 @@ third_party_settings:
       label: Grant
     group_expense_totals_by_type:
       children:
-        - field_grt_materials
-        - field_grt_tool
-        - field_grt_services
-        - field_grt_location
-        - field_grt_transport
         - field_grt_lighting
+        - field_grt_location
+        - field_grt_materials
         - field_grt_pyrotechnics
+        - field_grt_services
         - field_grt_specify
+        - field_grt_tool
         - field_grt_total
+        - field_grt_transport
       parent_name: ''
-      weight: 8
+      weight: 6
       format_type: fieldset
       format_settings:
         label: 'Expense totals by type'
@@ -267,13 +267,6 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_adm_form_grant:
-    type: boolean_checkbox
-    weight: 6
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_prj_brn_head:
     weight: 49
     settings: {  }
@@ -422,6 +415,7 @@ hidden:
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
+  field_prj_adm_form_grant: true
   field_prj_adm_form_wtf: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
