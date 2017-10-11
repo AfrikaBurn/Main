@@ -63,7 +63,7 @@ function _set_registration_form_title(&$form, $form_id, $collective_title, $regi
 
     'node_theme_camps_edit_form' => t('Updating %title Theme Camp registration', ['%title' => $registration_title]) . $collective_title,
     'node_art_edit_form' => t('Updating %title Artwork registration', ['%title' => $registration_title]) . $collective_title,
-    'node_performances_edit_form' => t('Uodating %title Performance registration', ['%title' => $registration_title]) . $collective_title,
+    'node_performances_edit_form' => t('Updating %title Performance registration', ['%title' => $registration_title]) . $collective_title,
 
     'node_art_grant_form' => t('Grant application for %title', ['%title' => $registration_title]) . $collective_title,
     'node_performances_grant_form' => t('Grant application for %title', ['%title' => $registration_title]) . $collective_title,
