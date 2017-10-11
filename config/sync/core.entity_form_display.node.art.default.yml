@@ -143,6 +143,7 @@ dependencies:
     - image
     - link
     - markup
+    - paragraphs
     - path
 third_party_settings:
   field_group:
@@ -404,6 +405,18 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_grt_breakdown:
+    type: entity_reference_paragraphs
+    weight: 7
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: grant_expences
     third_party_settings: {  }
   field_muncipal_district:
     weight: 12
@@ -1093,7 +1106,6 @@ hidden:
   field_grt_art_comment: true
   field_grt_art_reason: true
   field_grt_art_total: true
-  field_grt_breakdown: true
   field_grt_contribution: true
   field_grt_f1: true
   field_grt_health: true

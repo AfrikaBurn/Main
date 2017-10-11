@@ -115,6 +115,7 @@ dependencies:
     - image
     - link
     - markup
+    - paragraphs
     - path
 third_party_settings:
   field_group:
@@ -360,6 +361,18 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_grt_breakdown:
+    type: entity_reference_paragraphs
+    weight: 7
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
   field_muncipal_district:
     weight: 38
     settings:
@@ -386,7 +399,7 @@ content:
     type: cshs
     region: content
   field_prj_adm_wrangler:
-    weight: 67
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -988,7 +1001,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_grt_art_total: true
-  field_grt_breakdown: true
   field_grt_contribution: true
   field_grt_f1: true
   field_grt_lighting: true
