@@ -16,6 +16,7 @@
         }
     ],
     "require": {
+        "PHPOffice/PHPExcel": "^1.8",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.2",
@@ -40,6 +41,7 @@
         "drupal/linkit": "^4.3",
         "drupal/login_emailusername": "^1.1",
         "drupal/markup": "^1.0@beta",
+        "drupal/masquerade": "^2.0@beta",
         "drupal/migrate_plus": "^2.0",
         "drupal/migrate_source_csv": "^2.0",
         "drupal/migrate_tools": "^2.0",
@@ -57,7 +59,6 @@
         "drupal/token_filter": "^1.0@beta",
         "drupal/typed_data": "^1.0@alpha",
         "drush/drush": "~8.0",
-        "PHPOffice/PHPExcel": "^1.8",
         "webflo/drupal-finder": "^0.3.0",
         "webmozart/path-util": "^2.3"
     },
