@@ -42,6 +42,7 @@ class MemberController extends ControllerBase {
 
     $redirect = new RedirectResponse('/node/' . $cid);
     $redirect->send();
+    return [];
   }
 
   /**
@@ -80,6 +81,7 @@ class MemberController extends ControllerBase {
 
     $redirect = new RedirectResponse('/node/' . $cid);
     $redirect->send();
+    return [];
   }
 
   /**
@@ -117,6 +119,7 @@ class MemberController extends ControllerBase {
 
     $redirect = new RedirectResponse('/');
     $redirect->send();
+    return [];
   }
 
   /**
@@ -149,6 +152,7 @@ class MemberController extends ControllerBase {
 
     $redirect = new RedirectResponse('/node/' . $cid);
     $redirect->send();
+    return [];
   }
 
   /**
@@ -178,6 +182,7 @@ class MemberController extends ControllerBase {
 
     $redirect = new RedirectResponse('/node/' . $cid);
     $redirect->send();
+    return [];
   }
 
   /* ---- CRUD ---- */

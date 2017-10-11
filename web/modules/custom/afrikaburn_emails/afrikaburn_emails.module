@@ -124,8 +124,8 @@ function _afrikaburn_emails_addresses($entity, $recipients){
  */
 function _afrikaburn_emails_recipient_author($entity){
   switch($entity->getEntityType()->id()){
-    case 'user': $mail = $entity->getEmail(); return [$mail => $mail];
-    case 'node': $mail = $entity->getOwner()->getEmail(); return [$mail => $mail];
+    case 'user': $mail = $entity->getEmail(); return $mail ? [$mail => $mail] : [];
+    case 'node': $mail = $entity->getOwner()->getEmail(); return $mail ? [$mail => $mail] : [];
     default: return [];
   }
 }
