@@ -104,3 +104,11 @@ body.path-frontpage .main-block{
 .path-wranglers div.body-content table td {
     background-color: transparent;
 }
+.node-art-edit-form .field--name-field-grt-breakdown,
+.node-performances-edit-form .field--name-field-grt-breakdown {
+    display: none;
+}
+.node-art-grant-form .field--name-field-grt-breakdown,
+.node-performances-grant-form .field--name-field-grt-breakdown {
+    display: block;
+}
