@@ -13,7 +13,7 @@ FROM
   d8_newuser__field_mobile mobile,
   d8_newuser__field_id_number id
 
-WHERE 
+WHERE
   users.uid > '1' AND
   users.uid = first_name.entity_id AND
   users.uid = last_name.entity_id AND

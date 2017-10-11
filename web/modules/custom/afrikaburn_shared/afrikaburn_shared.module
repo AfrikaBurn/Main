@@ -15,12 +15,19 @@ use \Drupal\user\Entity\User;
  */
 function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
 
+  // dpm($form_id);
+
   // Redirect to front page after password reset
   if ($form_id == 'user_form') {
     if (preg_match('/user\/reset/', \Drupal::request()->server->get('HTTP_REFERER'))) {
       $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
       $response->send();
     }
+  }
+
+  // Add ID validation
+  if (in_array($form_id, ['user_form', 'user_register_form'])) {
+    $form['#validate'][] = 'afrikaburn_shared_user_id_validate';    
   }
 
   // Fetch new quicket info on acceptance of agreements
@@ -41,14 +48,6 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
   _set_registration_form_defaults($form, $form_id, $user, $collective);
   _set_collective_defaults($form, $form_id, $user);
 
-}
-
-/**
- * Agreement submission handler.
- */
-function afrikaburn_shared_agreement_submit($form, $form_state){
-  module_load_include('inc', 'afrikaburn_shared', 'includes/quicket');
-  _quicket_new(User::load(\Drupal::currentUser()->id()));
 }
 
 /**
@@ -116,4 +115,59 @@ function afrikaburn_shared_views_pre_view(\Drupal\views\ViewExecutable $view, $d
       $args[0] = $cid;
     }
   }
+}
+
+/* ---- Validators & Submit handlers ---- */
+
+
+/**
+ * ID number validation
+ */
+function afrikaburn_shared_user_id_validate($form, FormStateInterface &$form_state) {
+  $id = $form_state->getValue('field_id_number')[0]['value'];
+  if (isset($id)) {
+
+    if (!preg_match('/^[a-zA-Z0-9]+$/', $id)){
+      $form_state->setErrorByName('field_id_number', t('Only numbers and letters are allowed.'));
+    }
+
+    if ($user = $form_state->getStorage()['user']){
+      $existing = db_query(
+        '
+          SELECT COUNT(entity_id)
+          FROM {user__field_id_number}
+          WHERE entity_id != :uid AND field_id_number_value = :id
+        ',
+        [
+          ':uid' => $user->id(),
+          ':id' => $user->get('field_id_number')->value,
+        ]
+      )->fetchField();
+      if ($existing) {
+        $form_state->setErrorByName('field_id_number', t('This number is already in use.'));
+      }
+    } else {
+      $existing = db_query(
+        '
+          SELECT COUNT(entity_id)
+          FROM {user__field_id_number}
+          WHERE field_id_number_value = :id
+        ',
+        [
+          ':id' => $form_state->getValue('field_id_number')[0]['value'],
+        ]
+      )->fetchField();
+      if ($existing) {
+        $form_state->setErrorByName('field_id_number', t('This number is already in use.'));
+      }      
+    }
+  }
+}
+
+/**
+ * Agreement submission handler.
+ */
+function afrikaburn_shared_agreement_submit($form, $form_state){
+  module_load_include('inc', 'afrikaburn_shared', 'includes/quicket');
+  _quicket_new(User::load(\Drupal::currentUser()->id()));
 }
