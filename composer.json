@@ -30,6 +30,7 @@
         "drupal/custom_add_another": "^1.0@beta",
         "drupal/devel": "^1.0",
         "drupal/ds": "^3.1",
+        "drupal/empty_fields": "^1.0@alpha",
         "drupal/features": "^3.5",
         "drupal/field_group": "^1.0@RC",
         "drupal/field_permissions": "^1.0@beta",
