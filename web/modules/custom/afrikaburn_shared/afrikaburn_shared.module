@@ -131,7 +131,7 @@ function afrikaburn_shared_user_id_validate($form, FormStateInterface &$form_sta
       $form_state->setErrorByName('field_id_number', t('Only numbers and letters are allowed.'));
     }
 
-    if ($user = $form_state->getStorage()['user']){
+    if ($user = $form_state->getFormObject()->getEntity()){
 
       $existing = db_query(
         '
@@ -146,7 +146,6 @@ function afrikaburn_shared_user_id_validate($form, FormStateInterface &$form_sta
       )->fetchField();
 
       if ($existing) {
-        dpm($existing);
         $form_state->setErrorByName('field_id_number', t('This number is already in use.'));
       }
 
