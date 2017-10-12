@@ -132,6 +132,7 @@ function afrikaburn_shared_user_id_validate($form, FormStateInterface &$form_sta
     }
 
     if ($user = $form_state->getStorage()['user']){
+
       $existing = db_query(
         '
           SELECT COUNT(entity_id)
@@ -140,13 +141,17 @@ function afrikaburn_shared_user_id_validate($form, FormStateInterface &$form_sta
         ',
         [
           ':uid' => $user->id(),
-          ':id' => $user->get('field_id_number')->value,
+          ':id' => $id,
         ]
       )->fetchField();
+
       if ($existing) {
+        dpm($existing);
         $form_state->setErrorByName('field_id_number', t('This number is already in use.'));
       }
+
     } else {
+
       $existing = db_query(
         '
           SELECT COUNT(entity_id)
@@ -157,9 +162,11 @@ function afrikaburn_shared_user_id_validate($form, FormStateInterface &$form_sta
           ':id' => $form_state->getValue('field_id_number')[0]['value'],
         ]
       )->fetchField();
+
       if ($existing) {
         $form_state->setErrorByName('field_id_number', t('This number is already in use.'));
       }      
+
     }
   }
 }
