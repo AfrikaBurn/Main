@@ -1329,6 +1329,7 @@ display:
             field_quicket_id:
               alias: ''
               raw_output: false
+      enabled: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -1366,18 +1367,7 @@ display:
         show_admin_links: false
         header: false
       display_extenders: {  }
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content: '<a href="/admin/people/download" class="button" target="_blank">Download CSV</a>'
-          plugin_id: text_custom
+      header: {  }
     cache_metadata:
       contexts:
         - 'languages:language_content'

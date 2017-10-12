@@ -36,6 +36,7 @@ module:
   dynamic_page_cache: 0
   editor: 0
   editor_advanced_link: 0
+  empty_fields: 0
   entity_reference_revisions: 0
   features: 0
   features_ui: 0
@@ -61,6 +62,7 @@ module:
   login_emailusername: 0
   mailsystem: 0
   markup: 0
+  masquerade: 0
   menu_ui: 0
   migrate: 0
   migrate_drupal: 0

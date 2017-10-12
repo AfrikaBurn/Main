@@ -4,6 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_prj_brn_burning
+    - field.field.node.mutant_vehicles.field_prj_brn_desc
+    - field.field.node.mutant_vehicles.field_prj_brn_person
+    - field.field.node.mutant_vehicles.field_prj_brn_plan
     - field.field.node.mutant_vehicles.field_prj_gen_base
     - field.field.node.mutant_vehicles.field_prj_gen_concept
     - field.field.node.mutant_vehicles.field_prj_gen_contact
@@ -20,6 +24,14 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_lgh_lighter
     - field.field.node.mutant_vehicles.field_prj_lgh_night
     - field.field.node.mutant_vehicles.field_prj_lgh_projection
+    - field.field.node.mutant_vehicles.field_prj_lnt_comments
+    - field.field.node.mutant_vehicles.field_prj_lnt_handled
+    - field.field.node.mutant_vehicles.field_prj_lnt_historic
+    - field.field.node.mutant_vehicles.field_prj_lnt_images
+    - field.field.node.mutant_vehicles.field_prj_lnt_publish
+    - field.field.node.mutant_vehicles.field_prj_lnt_score
+    - field.field.node.mutant_vehicles.field_prj_lnt_signoff
+    - field.field.node.mutant_vehicles.field_prj_lnt_type
     - field.field.node.mutant_vehicles.field_prj_saf_access
     - field.field.node.mutant_vehicles.field_prj_saf_comment
     - field.field.node.mutant_vehicles.field_prj_saf_guide
@@ -27,11 +39,21 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_saf_other
     - field.field.node.mutant_vehicles.field_prj_saf_passengers
     - field.field.node.mutant_vehicles.field_prj_snd_agree
+    - field.field.node.mutant_vehicles.field_prj_snd_comment
     - field.field.node.mutant_vehicles.field_prj_snd_description
     - field.field.node.mutant_vehicles.field_prj_snd_level
+    - field.field.node.mutant_vehicles.field_prj_snd_person
     - field.field.node.mutant_vehicles.field_prj_snd_safety
     - field.field.node.mutant_vehicles.field_prj_snd_soop
     - field.field.node.mutant_vehicles.field_prj_snd_sound
+    - field.field.node.mutant_vehicles.field_prj_trl_area
+    - field.field.node.mutant_vehicles.field_prj_trl_capasity
+    - field.field.node.mutant_vehicles.field_prj_trl_communicate
+    - field.field.node.mutant_vehicles.field_prj_trl_describe
+    - field.field.node.mutant_vehicles.field_prj_trl_markup
+    - field.field.node.mutant_vehicles.field_prj_trl_passengers
+    - field.field.node.mutant_vehicles.field_prj_trl_size
+    - field.field.node.mutant_vehicles.field_prj_trl_walkers
     - node.type.mutant_vehicles
   module:
     - file
@@ -46,6 +68,38 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: default
 content:
+  field_prj_brn_burning:
+    weight: 131
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_brn_desc:
+    weight: 134
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_brn_person:
+    weight: 133
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_prj_brn_plan:
+    weight: 132
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
   field_prj_gen_base:
     weight: 109
     label: above
@@ -174,6 +228,70 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
+  field_prj_lnt_comments:
+    weight: 147
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_lnt_handled:
+    weight: 143
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_lnt_historic:
+    weight: 144
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_prj_lnt_images:
+    weight: 148
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_prj_lnt_publish:
+    weight: 150
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_lnt_score:
+    weight: 146
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_prj_lnt_signoff:
+    weight: 145
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_lnt_type:
+    weight: 149
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_prj_saf_access:
     weight: 115
     label: above
@@ -226,6 +344,13 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
+  field_prj_snd_comment:
+    weight: 130
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
   field_prj_snd_description:
     weight: 125
     label: above
@@ -235,6 +360,14 @@ content:
     region: content
   field_prj_snd_level:
     weight: 124
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_prj_snd_person:
+    weight: 129
     label: above
     settings:
       link: true
@@ -257,6 +390,70 @@ content:
     region: content
   field_prj_snd_sound:
     weight: 123
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_trl_area:
+    weight: 135
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_trl_capasity:
+    weight: 140
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_trl_communicate:
+    weight: 141
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_trl_describe:
+    weight: 136
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_trl_markup:
+    weight: 142
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_trl_passengers:
+    weight: 139
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_prj_trl_size:
+    weight: 137
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_prj_trl_walkers:
+    weight: 138
     label: above
     settings:
       format: default
