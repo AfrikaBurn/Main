@@ -254,7 +254,7 @@ class MemberController extends ControllerBase {
       foreach($mails as $index=>$mail){
         if ($mail) {
           $value = array_values(array_column($mail, 'value'))[0];
-          if (in_array($value, $invitees)) {
+          if (in_array(strtolower($value), array_map('strtolower', $invitees))) {
             $indexes[$index] = $index;
           }
         }
