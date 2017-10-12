@@ -253,7 +253,9 @@ content:
     label: above
     settings:
       link: true
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
   field_prj_brn_burning:
     type: boolean
     weight: 2

@@ -262,7 +262,9 @@ content:
     label: above
     settings:
       link: true
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
     type: entity_reference_label
     region: content
   field_prj_gen_concept:

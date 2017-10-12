@@ -25,7 +25,7 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: moop
+  file_directory: lnt/art
   file_extensions: 'png gif jpg jpeg'
   max_filesize: '3 MB'
   max_resolution: ''

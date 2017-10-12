@@ -198,6 +198,7 @@ third_party_settings:
     group_wrangler_4:
       children:
         - field_prj_adm_wrangler
+        - field_prj_adm_notes
       parent_name: group_overview
       weight: 24
       format_type: html_element
@@ -370,6 +371,13 @@ content:
     third_party_settings: {  }
     type: number_integer
     region: content
+  field_prj_adm_notes:
+    type: basic_string
+    weight: 190
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_prj_adm_wrangler:
     weight: 189
     label: above
@@ -474,7 +482,6 @@ hidden:
   field_prj_adm_form_wtf: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
-  field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
   field_prj_brn_agree: true
