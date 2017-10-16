@@ -14,6 +14,17 @@ class AfrikaburnUserRebuilder extends ControllerBase {
 
   /* ---- Set default languages ---- */
 
+  public static function reSave($uid, &$context) {
+
+    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
+
+    $context['results'][] = $user->save();
+    $context['message'] = 'reSaving';
+
+  }
+
+  /* ---- Set default languages ---- */
+
   public static function setLanguage($uid, &$context) {
 
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
