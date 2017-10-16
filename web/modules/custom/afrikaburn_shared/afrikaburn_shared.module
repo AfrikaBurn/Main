@@ -96,7 +96,10 @@ function afrikaburn_shared_preprocess_input(&$variables) {
       \Drupal::service('path.current')->getPath()
     ) 
       && isset($variables['attributes']['value'])
-      && $variables['attributes']['value'] == t('Save and publish')
+      && (
+        $variables['attributes']['value'] == t('Save and publish') ||
+        $variables['attributes']['value'] == t('Save')
+      )
   ) {
     $variables['attributes']['value'] = t('Submit');
   }
