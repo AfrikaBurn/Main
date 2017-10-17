@@ -18,8 +18,10 @@ class AfrikaburnUserRebuilder extends ControllerBase {
 
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
 
+    $user->field_email = $user->mail;
+
     $context['results'][] = $user->save();
-    $context['message'] = 'reSaving';
+    $context['message'] = 'reSaving users';
 
   }
 
@@ -30,7 +32,7 @@ class AfrikaburnUserRebuilder extends ControllerBase {
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
     $user->langcode = 'en';
     $user->preferred_langcode = 'en';
-    $user->admin_langcode = NULL;
+    $user->admin_langcode = 'en';
 
     $context['results'][] = $user->save();
     $context['message'] = 'Setting default languages';      

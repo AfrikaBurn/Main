@@ -51,7 +51,7 @@ class RebuildUsersForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     switch ($form_state->getValues()['operation']){
-      case 'reSave': $this->setLanguage(); break;
+      case 'reSave': $this->reSave(); break;
       case 'language': $this->setLanguage(); break;
       case 'quicket': $this->migrateQuicket(); break;
       case 'short_agreement': $this->attachAgreementUpdate(); break;
