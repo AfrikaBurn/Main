@@ -17,6 +17,7 @@ dependencies:
     - field.storage.node.field_prj_gen_location
     - field.storage.node.field_prj_gen_profit
     - field.storage.node.field_prj_gen_story
+    - field.storage.user.field_email
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
     - field.storage.user.field_mobile
@@ -35,6 +36,7 @@ dependencies:
   module:
     - null
     - basic_auth
+    - computed_field
     - csv_serialization
     - file
     - image
@@ -2157,10 +2159,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        mail:
-          id: mail
-          table: users_field_data
-          field: mail
+        field_email:
+          id: field_email
+          table: user__field_email
+          field: field_email
           relationship: field_prj_gen_contact
           group_type: group
           admin_label: ''
@@ -2206,8 +2208,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: basic_string
-          settings: {  }
+          type: computed_string
+          settings:
+            sanitized: 1
+            cache_unit: '-1'
+            cache_duration: '1'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2218,8 +2223,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: user
-          entity_field: mail
           plugin_id: field
         field_mobile:
           id: field_mobile
@@ -2410,10 +2413,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        mail_1:
-          id: mail_1
-          table: users_field_data
-          field: mail
+        field_email_1:
+          id: field_email_1
+          table: user__field_email
+          field: field_email
           relationship: field_prj_gen_lead
           group_type: group
           admin_label: ''
@@ -2459,8 +2462,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: basic_string
-          settings: {  }
+          type: computed_string
+          settings:
+            sanitized: 1
+            cache_unit: '-1'
+            cache_duration: '1'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2471,14 +2477,12 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: user
-          entity_field: mail
           plugin_id: field
         field_mobile_1:
           id: field_mobile_1
           table: user__field_mobile
           field: field_mobile
-          relationship: field_prj_gen_contact
+          relationship: field_prj_gen_lead
           group_type: group
           admin_label: ''
           label: ''
@@ -2663,10 +2667,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        mail_2:
-          id: mail_2
-          table: users_field_data
-          field: mail
+        field_email_2:
+          id: field_email_2
+          table: user__field_email
+          field: field_email
           relationship: field_prj_gen_manager
           group_type: group
           admin_label: ''
@@ -2712,8 +2716,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: basic_string
-          settings: {  }
+          type: computed_string
+          settings:
+            sanitized: 1
+            cache_unit: '-1'
+            cache_duration: '1'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2724,14 +2731,12 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: user
-          entity_field: mail
           plugin_id: field
         field_mobile_2:
           id: field_mobile_2
           table: user__field_mobile
           field: field_mobile
-          relationship: field_prj_gen_contact
+          relationship: field_prj_gen_manager
           group_type: group
           admin_label: ''
           label: ''
@@ -3568,6 +3573,7 @@ display:
         - 'config:field.storage.node.field_prj_gen_location'
         - 'config:field.storage.node.field_prj_gen_profit'
         - 'config:field.storage.node.field_prj_gen_story'
+        - 'config:field.storage.user.field_email'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
         - 'config:field.storage.user.field_mobile'
@@ -3594,12 +3600,14 @@ display:
             rendered_entity: rendered_entity
             field_first_name: field_first_name
             field_last_name: field_first_name
-            mail: field_first_name
+            field_email: field_first_name
             name: field_first_name
             field_first_name_1: field_first_name
             field_last_name_1: field_first_name
-            mail_1: field_first_name
+            field_email_1: field_first_name
             name_1: field_first_name
+            field_prj_gen_description: field_prj_gen_description
+            title: title
           info:
             rendered_entity:
               sortable: false
@@ -3622,7 +3630,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            mail:
+            field_email:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -3650,7 +3658,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            mail_1:
+            field_email_1:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -3658,6 +3666,18 @@ display:
               empty_column: false
               responsive: ''
             name_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_prj_gen_description:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            title:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -3867,10 +3887,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        mail:
-          id: mail
-          table: users_field_data
-          field: mail
+        field_email:
+          id: field_email
+          table: user__field_email
+          field: field_email
           relationship: field_prj_gen_contact
           group_type: group
           admin_label: ''
@@ -3916,8 +3936,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: basic_string
-          settings: {  }
+          type: computed_string
+          settings:
+            sanitized: 1
+            cache_unit: '-1'
+            cache_duration: '1'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -3928,8 +3951,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: user
-          entity_field: mail
           plugin_id: field
         name:
           id: name
@@ -4122,10 +4143,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        mail_1:
-          id: mail_1
-          table: users_field_data
-          field: mail
+        field_email_1:
+          id: field_email_1
+          table: user__field_email
+          field: field_email
           relationship: field_prj_gen_lead
           group_type: group
           admin_label: ''
@@ -4171,8 +4192,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: basic_string
-          settings: {  }
+          type: computed_string
+          settings:
+            sanitized: 1
+            cache_unit: '-1'
+            cache_duration: '1'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -4183,8 +4207,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: user
-          entity_field: mail
           plugin_id: field
         name_1:
           id: name_1
@@ -4539,6 +4561,7 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.teaser'
         - 'config:core.entity_view_display.node.theme_camps.wrangler_overview'
         - 'config:field.storage.node.field_prj_gen_description'
+        - 'config:field.storage.user.field_email'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
   rest_export_1:

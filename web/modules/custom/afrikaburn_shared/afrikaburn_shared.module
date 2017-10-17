@@ -92,11 +92,9 @@ function afrikaburn_shared_user_login($account){
 function afrikaburn_shared_preprocess_input(&$variables) {
   if (
     preg_match(
-      '/node\/add\/(art|mutant_vehicles|performances|theme_camps)/', 
+      '/node\/add\/(art|mutant_vehicles|performances|theme_camps)/',
       \Drupal::service('path.current')->getPath()
-    ) 
-      && isset($variables['attributes']['value'])
-      && $variables['attributes']['value'] == t('Save and publish')
+    ) && $variables['element']['#attributes']['id'] == 'edit-submit'
   ) {
     $variables['attributes']['value'] = t('Submit');
   }

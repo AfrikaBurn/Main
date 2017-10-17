@@ -41,6 +41,7 @@ permissions:
   - 'use text format full_html'
   - 'view field_comment'
   - 'view field_ddt_eligible'
+  - 'view field_email'
   - 'view field_grt_art_comment'
   - 'view field_grt_tec_comment'
   - 'view field_manage_by_deparment'

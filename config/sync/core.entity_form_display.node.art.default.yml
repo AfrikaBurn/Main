@@ -407,16 +407,18 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_grt_breakdown:
-    type: entity_reference_paragraphs
-    weight: 7
+    type: paragraphs
+    weight: 46
     region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
+      closed_mode: summary
+      autocollapse: none
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: grant_expences
+      default_paragraph_type: ''
     third_party_settings: {  }
   field_muncipal_district:
     weight: 12
@@ -434,10 +436,13 @@ content:
     type: markup
     region: content
   field_prj_adm_wrangler:
-    type: options_select
+    type: entity_reference_autocomplete
     weight: 6
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_prj_brn_burning:
     type: boolean_checkbox

@@ -30,6 +30,7 @@ class RebuildUsersForm extends FormBase {
     $form['operation'] = [
       '#type' => 'radios',
       '#options' => [
+        'reSave' => 'reSave',
         'language' => 'Set default languages',
         'quicket' => 'Migrate existing quicket info (For migrated users with up to date agreements)',
         'short_agreement' => 'Attach updated agreements (For migrated users with outdated agreements)',
@@ -50,6 +51,7 @@ class RebuildUsersForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     switch ($form_state->getValues()['operation']){
+      case 'reSave': $this->reSave(); break;
       case 'language': $this->setLanguage(); break;
       case 'quicket': $this->migrateQuicket(); break;
       case 'short_agreement': $this->attachAgreementUpdate(); break;
@@ -58,6 +60,28 @@ class RebuildUsersForm extends FormBase {
     }
   }
 
+  /**
+   * Sets all user default languages to en
+   */
+  public function reSave(){
+
+    $uids = db_query('SELECT uid FROM {users} WHERE uid != 0')->fetchCol();
+
+    $batch = [
+      'title' => t('Resaving all users...'),
+      'operations' => [],
+      'finished' => '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::finished',
+    ];
+
+    foreach($uids as $uid){
+      $batch['operations'][] = [
+        '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::reSave',
+        [$uid]
+      ];
+    }
+
+    batch_set($batch);
+  }
   /**
    * Sets all user default languages to en
    */
