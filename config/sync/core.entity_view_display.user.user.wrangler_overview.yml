@@ -8,6 +8,7 @@ dependencies:
     - field.field.user.user.field_country
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_district
+    - field.field.user.user.field_email
     - field.field.user.user.field_emr_email
     - field.field.user.user.field_emr_name
     - field.field.user.user.field_emr_telephone
@@ -27,97 +28,53 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - computed_field
     - field_group
     - image
     - panelizer
     - telephone
     - user
 third_party_settings:
-  field_group:
-    group_root:
-      children:
-        - group_contact
-        - group_identity
-        - group_account
-        - group_history
-      parent_name: ''
-      weight: 0
-      format_type: accordion
-      format_settings:
-        id: ''
-        classes: ''
-        effect: none
-      label: Root
-    group_identity:
-      children: {  }
-      parent_name: group_root
-      weight: 2
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-      label: Identity
-    group_account:
-      children: {  }
-      parent_name: group_root
-      weight: 3
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-      label: Account
-    group_location:
-      children: {  }
-      parent_name: ''
-      weight: 1
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-      label: Location
-    group_history:
-      children: {  }
-      parent_name: group_root
-      weight: 4
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-      label: History
-    group_contact:
-      children:
-        - user_picture
-        - member_for
-        - field_agreements
-        - field_first_name
-        - field_last_name
-        - field_secondary_mail
-        - field_mobile
-        - field_id_number
-        - field_quicket_code
-        - masquerade
-      parent_name: group_root
-      weight: 1
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-      label: Contact
   panelizer:
     enable: false
     custom: false
     allow: false
     default: default
+  field_group:
+    group_overview:
+      children:
+        - group_contact
+      parent_name: ''
+      weight: 20
+      format_type: tabs
+      format_settings:
+        label: Overview
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: Overview
+    group_contact:
+      children:
+        - user_picture
+        - field_first_name
+        - field_last_name
+        - field_email
+        - field_secondary_mail
+        - field_mobile
+        - field_id_number
+        - field_quicket_code
+        - field_agreements
+        - masquerade
+        - member_for
+      parent_name: group_overview
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+      label: Contact
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
 id: user.user.wrangler_overview
@@ -127,15 +84,33 @@ mode: wrangler_overview
 content:
   field_agreements:
     type: entity_reference_label
-    weight: 7
+    weight: 13
     region: content
     label: above
     settings:
       link: false
     third_party_settings: {  }
+  field_email:
+    type: computed_string
+    weight: 8
+    region: content
+    label: above
+    settings:
+      sanitized: true
+      cache_unit: -1
+      cache_duration: 1
+    third_party_settings: {  }
+  field_emr_telephone:
+    type: telephone_link
+    weight: 0
+    region: content
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
   field_first_name:
     type: string
-    weight: 8
+    weight: 6
     region: content
     label: above
     settings:
@@ -143,7 +118,7 @@ content:
     third_party_settings: {  }
   field_id_number:
     type: string
-    weight: 12
+    weight: 11
     region: content
     label: above
     settings:
@@ -151,22 +126,22 @@ content:
     third_party_settings: {  }
   field_last_name:
     type: string
-    weight: 9
+    weight: 7
     region: content
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
   field_mobile:
-    type: telephone_link
-    weight: 11
+    type: string
+    weight: 10
     region: content
     label: above
     settings:
-      title: ''
+      link_to_entity: false
     third_party_settings: {  }
   field_quicket_code:
-    weight: 13
+    weight: 12
     label: above
     settings:
       link_to_entity: false
@@ -175,7 +150,7 @@ content:
     region: content
   field_secondary_mail:
     type: basic_string
-    weight: 10
+    weight: 9
     region: content
     label: above
     settings: {  }
@@ -186,7 +161,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   member_for:
-    weight: 6
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -205,7 +180,6 @@ hidden:
   field_district: true
   field_emr_email: true
   field_emr_name: true
-  field_emr_telephone: true
   field_gender: true
   field_links: true
   field_location: true

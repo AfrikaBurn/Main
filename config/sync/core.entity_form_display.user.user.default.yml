@@ -27,7 +27,6 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
-    - computed_field
     - cshs
     - datetime
     - field_group
@@ -180,12 +179,6 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_email:
-    weight: 53
-    settings: {  }
-    third_party_settings: {  }
-    type: computed_string_widget
-    region: content
   field_emr_email:
     weight: 50
     settings:
@@ -287,7 +280,7 @@ content:
     type: string_textarea
     region: content
   field_quicket_code:
-    weight: 51
+    weight: 3
     settings:
       size: 60
       placeholder: ''
@@ -295,7 +288,7 @@ content:
     type: string_textfield
     region: content
   field_quicket_id:
-    weight: 52
+    weight: 4
     settings:
       size: 60
       placeholder: ''
@@ -311,7 +304,7 @@ content:
     type: email_default
     region: content
   google_analytics:
-    weight: 3
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -342,3 +335,4 @@ content:
 hidden:
   field_country: true
   field_district: true
+  field_email: true
