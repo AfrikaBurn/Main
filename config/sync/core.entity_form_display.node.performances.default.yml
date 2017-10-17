@@ -285,7 +285,7 @@ third_party_settings:
         - group_offsite_building
         - group_onsite_building
       parent_name: group_the_st
-      weight: 28
+      weight: 29
       format_type: fieldset
       format_settings:
         label: Dimensions
@@ -362,13 +362,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_grt_breakdown:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 7
     region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
+      closed_mode: summary
+      autocollapse: none
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: ''
@@ -399,11 +401,14 @@ content:
     type: cshs
     region: content
   field_prj_adm_wrangler:
+    type: entity_reference_autocomplete
     weight: 6
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
     region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_brn_burning:
     type: boolean_checkbox
     weight: 0

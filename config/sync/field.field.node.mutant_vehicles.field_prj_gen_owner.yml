@@ -1,0 +1,29 @@
+uuid: 9ae1ab7a-eb6e-44a8-8bc5-ec0310b694c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_owner
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_gen_owner
+field_name: field_prj_gen_owner
+entity_type: node
+bundle: mutant_vehicles
+label: 'Is this the mutant Vehicle Owner?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

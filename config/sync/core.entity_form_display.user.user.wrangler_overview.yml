@@ -1,13 +1,13 @@
-uuid: 3db5986f-7c4e-44ba-a8bb-8053a0ef8e1e
+uuid: 73dc38cc-2582-467a-8c44-c314c0b16890
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.user.wrangler_overview
     - field.field.user.user.field_agreements
     - field.field.user.user.field_country
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_district
-    - field.field.user.user.field_email
     - field.field.user.user.field_emr_email
     - field.field.user.user.field_emr_name
     - field.field.user.user.field_emr_telephone
@@ -27,13 +27,9 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
-    - computed_field
-    - cshs
     - datetime
     - field_group
     - image
-    - link
-    - path
     - telephone
     - user
 third_party_settings:
@@ -41,11 +37,6 @@ third_party_settings:
     group_root:
       children:
         - group_identity
-        - group_account
-        - group_location
-        - group_history
-        - group_contact
-        - group_emergency_medical_informat
       parent_name: ''
       weight: 0
       format_type: accordion
@@ -57,12 +48,10 @@ third_party_settings:
       label: Root
     group_account:
       children:
-        - user_picture
-        - account
         - language
-        - field_agreements
-      parent_name: group_root
-      weight: 21
+        - group_location
+      parent_name: ''
+      weight: 3
       format_type: accordion_item
       format_settings:
         id: ''
@@ -73,11 +62,15 @@ third_party_settings:
       label: Account
     group_identity:
       children:
+        - user_picture
+        - account
         - field_first_name
         - field_last_name
-        - field_gender
+        - field_secondary_mail
+        - field_mobile
         - field_id_number
         - field_date_of_birth
+        - field_agreements
       parent_name: group_root
       weight: 20
       format_type: accordion_item
@@ -92,8 +85,8 @@ third_party_settings:
       children:
         - field_location
         - timezone
-      parent_name: group_root
-      weight: 22
+      parent_name: group_account
+      weight: 5
       format_type: accordion_item
       format_settings:
         id: ''
@@ -105,12 +98,12 @@ third_party_settings:
     group_contact:
       children:
         - contact
-        - field_secondary_mail
-        - field_mobile
         - field_links
         - field_newsletter
-      parent_name: group_root
-      weight: 24
+        - group_emergency_medical_informat
+        - group_history
+      parent_name: group_history
+      weight: 30
       format_type: accordion_item
       format_settings:
         id: ''
@@ -121,10 +114,13 @@ third_party_settings:
       label: Contact
     group_history:
       children:
+        - group_contact
         - field_participation
         - field_other_burns
-      parent_name: group_root
-      weight: 23
+        - path
+        - google_analytics
+      parent_name: group_contact
+      weight: 6
       format_type: accordion_item
       format_settings:
         id: ''
@@ -138,8 +134,8 @@ third_party_settings:
         - field_emr_name
         - field_emr_telephone
         - field_emr_email
-      parent_name: group_root
-      weight: 25
+      parent_name: group_contact
+      weight: 5
       format_type: accordion_item
       format_settings:
         id: ''
@@ -150,24 +146,19 @@ third_party_settings:
       label: 'Emergency medical information'
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
-id: user.user.default
+id: user.user.wrangler_overview
 targetEntityType: user
 bundle: user
-mode: default
+mode: wrangler_overview
 content:
   account:
     weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
-  contact:
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_agreements:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -175,56 +166,21 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_date_of_birth:
-    weight: 31
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_email:
-    weight: 53
-    settings: {  }
-    third_party_settings: {  }
-    type: computed_string_widget
-    region: content
-  field_emr_email:
-    weight: 50
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: email_default
-    region: content
-  field_emr_name:
-    weight: 46
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_emr_telephone:
-    weight: 49
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: telephone_default
-    region: content
   field_first_name:
     type: string_textfield
-    weight: 11
+    weight: 4
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_gender:
-    weight: 13
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
   field_id_number:
-    weight: 15
+    weight: 8
     settings:
       size: 60
       placeholder: ''
@@ -233,61 +189,21 @@ content:
     region: content
   field_last_name:
     type: string_textfield
-    weight: 12
+    weight: 5
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_links:
-    weight: 5
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
-  field_location:
-    weight: 32
-    settings:
-      force_deepest: '1'
-      parent: '0'
-      level_labels: ''
-    third_party_settings: {  }
-    type: cshs
-    region: content
   field_mobile:
-    weight: 4
+    weight: 7
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
     region: content
-  field_newsletter:
-    weight: 6
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_other_burns:
-    weight: 30
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content
-  field_participation:
-    weight: 28
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_quicket_code:
-    weight: 51
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -295,7 +211,7 @@ content:
     type: string_textfield
     region: content
   field_quicket_id:
-    weight: 52
+    weight: 2
     settings:
       size: 60
       placeholder: ''
@@ -303,34 +219,13 @@ content:
     type: string_textfield
     region: content
   field_secondary_mail:
-    weight: 3
+    weight: 6
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: email_default
     region: content
-  google_analytics:
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  language:
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  timezone:
-    weight: 33
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   user_picture:
     type: image_image
     settings:
@@ -340,5 +235,19 @@ content:
     weight: 2
     region: content
 hidden:
+  contact: true
   field_country: true
   field_district: true
+  field_emr_email: true
+  field_emr_name: true
+  field_emr_telephone: true
+  field_gender: true
+  field_links: true
+  field_location: true
+  field_newsletter: true
+  field_other_burns: true
+  field_participation: true
+  google_analytics: true
+  language: true
+  path: true
+  timezone: true

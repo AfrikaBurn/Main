@@ -1,13 +1,13 @@
-uuid: 772cc544-16f4-4e8f-8b94-8d80806c8820
+uuid: 9a7b34d3-26fa-4395-8375-a0b85ad9b247
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.user.wrangler_overview
     - field.field.user.user.field_agreements
     - field.field.user.user.field_country
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_district
-    - field.field.user.user.field_email
     - field.field.user.user.field_emr_email
     - field.field.user.user.field_emr_name
     - field.field.user.user.field_emr_telephone
@@ -30,6 +30,7 @@ dependencies:
     - field_group
     - image
     - panelizer
+    - telephone
     - user
 third_party_settings:
   field_group:
@@ -59,8 +60,7 @@ third_party_settings:
         description: ''
       label: Identity
     group_account:
-      children:
-        - user_picture
+      children: {  }
       parent_name: group_root
       weight: 3
       format_type: accordion_item
@@ -82,10 +82,7 @@ third_party_settings:
         description: ''
       label: Location
     group_history:
-      children:
-        - member_for
-        - field_other_burns
-        - field_agreements
+      children: {  }
       parent_name: group_root
       weight: 4
       format_type: accordion_item
@@ -96,7 +93,17 @@ third_party_settings:
         description: ''
       label: History
     group_contact:
-      children: {  }
+      children:
+        - user_picture
+        - member_for
+        - field_agreements
+        - field_first_name
+        - field_last_name
+        - field_secondary_mail
+        - field_mobile
+        - field_id_number
+        - field_quicket_code
+        - masquerade
       parent_name: group_root
       weight: 1
       format_type: accordion_item
@@ -113,49 +120,73 @@ third_party_settings:
     default: default
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
-id: user.user.default
+id: user.user.wrangler_overview
 targetEntityType: user
 bundle: user
-mode: default
+mode: wrangler_overview
 content:
   field_agreements:
     type: entity_reference_label
-    weight: 6
+    weight: 7
     region: content
     label: above
     settings:
       link: false
     third_party_settings: {  }
-  field_other_burns:
+  field_first_name:
+    type: string
+    weight: 8
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_id_number:
+    type: string
+    weight: 12
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_last_name:
+    type: string
+    weight: 9
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_mobile:
+    type: telephone_link
+    weight: 11
+    region: content
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+  field_quicket_code:
+    weight: 13
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_secondary_mail:
     type: basic_string
-    weight: 5
+    weight: 10
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_quicket_code:
-    weight: 2
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_quicket_id:
-    weight: 3
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   masquerade:
-    weight: 4
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   member_for:
-    weight: 4
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -172,17 +203,13 @@ hidden:
   field_country: true
   field_date_of_birth: true
   field_district: true
-  field_email: true
   field_emr_email: true
   field_emr_name: true
   field_emr_telephone: true
-  field_first_name: true
   field_gender: true
-  field_id_number: true
-  field_last_name: true
   field_links: true
   field_location: true
-  field_mobile: true
   field_newsletter: true
+  field_other_burns: true
   field_participation: true
-  field_secondary_mail: true
+  field_quicket_id: true

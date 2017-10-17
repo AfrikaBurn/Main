@@ -1,8 +1,9 @@
-uuid: d94c6ae3-7a3a-4971-bd1b-c9931ec84823
+uuid: ce2b4566-a2af-47ff-a270-60b3fdbbfe51
 langcode: en
-status: true
+status: false
 dependencies:
   config:
+    - core.entity_form_mode.node.form_
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_grt_art_comment
     - field.field.node.mutant_vehicles.field_grt_awarded
@@ -97,6 +98,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.mutant_vehicles
   module:
+    - autocomplete_deluxe
     - content_moderation
     - cshs
     - field_group
@@ -129,7 +131,6 @@ third_party_settings:
       label: 'Project Overview'
     group_acc_overview:
       children:
-        - field_collective
         - field_prj_gen_contact
         - field_prj_gen_lead
         - field_prj_gen_owner
@@ -307,25 +308,16 @@ third_party_settings:
       label: 'Almost done!'
 _core:
   default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
-id: node.mutant_vehicles.default
+id: node.mutant_vehicles.form_
 targetEntityType: node
 bundle: mutant_vehicles
-mode: default
+mode: form_
 content:
   created:
     type: datetime_timestamp
     weight: 2
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_collective:
-    type: entity_reference_autocomplete
-    weight: 20
-    region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_prj_brn_burning:
     weight: 9
@@ -344,9 +336,20 @@ content:
     region: content
   field_prj_brn_person:
     weight: 11
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
     third_party_settings: {  }
-    type: options_select
+    type: autocomplete_deluxe
     region: content
   field_prj_brn_plan:
     weight: 10
@@ -365,9 +368,20 @@ content:
     region: content
   field_prj_cll_contact:
     weight: 14
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
     third_party_settings: {  }
-    type: options_select
+    type: autocomplete_deluxe
     region: content
   field_prj_cll_description:
     weight: 13
@@ -392,10 +406,21 @@ content:
     type: image_image
     region: content
   field_prj_gen_contact:
-    weight: 21
-    settings: {  }
+    weight: 16
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
     third_party_settings: {  }
-    type: options_select
+    type: autocomplete_deluxe
     region: content
   field_prj_gen_description:
     weight: 27
@@ -413,26 +438,48 @@ content:
     type: file_generic
     region: content
   field_prj_gen_fundraiser:
-    weight: 25
-    settings: {  }
+    weight: 20
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
     third_party_settings: {  }
-    type: options_select
+    type: autocomplete_deluxe
     region: content
   field_prj_gen_fundraising:
-    weight: 24
+    weight: 19
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_gen_lead:
-    weight: 22
-    settings: {  }
+    weight: 17
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
     third_party_settings: {  }
-    type: options_select
+    type: autocomplete_deluxe
     region: content
   field_prj_gen_location:
-    weight: 26
+    weight: 21
     settings:
       force_deepest: '1'
       parent: '0'
@@ -449,7 +496,7 @@ content:
     type: string_textarea
     region: content
   field_prj_gen_owner:
-    weight: 23
+    weight: 18
     settings:
       display_label: true
     third_party_settings: {  }
@@ -471,7 +518,7 @@ content:
     type: number
     region: content
   field_prj_lgh_description:
-    weight: 63
+    weight: 62
     settings:
       rows: 5
       placeholder: ''
@@ -479,10 +526,21 @@ content:
     type: string_textarea
     region: content
   field_prj_lgh_lighter:
-    weight: 65
-    settings: {  }
+    weight: 64
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
     third_party_settings: {  }
-    type: options_select
+    type: autocomplete_deluxe
     region: content
   field_prj_lgh_night:
     weight: 61
@@ -492,7 +550,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_lgh_projection:
-    weight: 64
+    weight: 63
     settings:
       rows: 5
       placeholder: ''
@@ -515,9 +573,20 @@ content:
     region: content
   field_prj_lnt_representative:
     weight: 9
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
     third_party_settings: {  }
-    type: options_select
+    type: autocomplete_deluxe
     region: content
   field_prj_oth_agree:
     weight: 24
@@ -551,7 +620,7 @@ content:
     type: string_textarea
     region: content
   field_prj_saf_access:
-    weight: 65
+    weight: 25
     settings:
       rows: 5
       placeholder: ''
@@ -559,7 +628,7 @@ content:
     type: string_textarea
     region: content
   field_prj_saf_guide:
-    weight: 63
+    weight: 23
     settings:
       rows: 5
       placeholder: ''
@@ -567,13 +636,13 @@ content:
     type: string_textarea
     region: content
   field_prj_saf_mark:
-    weight: 67
+    weight: 27
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_prj_saf_other:
-    weight: 66
+    weight: 26
     settings:
       rows: 5
       placeholder: ''
@@ -581,7 +650,7 @@ content:
     type: string_textarea
     region: content
   field_prj_saf_passengers:
-    weight: 64
+    weight: 24
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -595,7 +664,7 @@ content:
     region: content
   field_prj_snd_comment:
     type: string_textarea
-    weight: 8
+    weight: 28
     region: content
     settings:
       rows: 5
@@ -611,15 +680,37 @@ content:
     region: content
   field_prj_snd_level:
     weight: 9
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
     third_party_settings: {  }
-    type: options_select
+    type: autocomplete_deluxe
     region: content
   field_prj_snd_person:
     weight: 14
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
     third_party_settings: {  }
-    type: options_select
+    type: autocomplete_deluxe
     region: content
   field_prj_snd_safety:
     weight: 11
@@ -643,13 +734,24 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_stg_contact:
-    weight: 19
-    settings: {  }
+    weight: 18
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
     third_party_settings: {  }
-    type: options_select
+    type: autocomplete_deluxe
     region: content
   field_prj_stg_description:
-    weight: 18
+    weight: 17
     settings:
       rows: 5
       placeholder: ''
@@ -657,14 +759,14 @@ content:
     type: string_textarea
     region: content
   field_prj_stg_stage:
-    weight: 16
+    weight: 15
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_stg_type:
-    weight: 17
+    weight: 16
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -677,7 +779,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_trl_capasity:
-    weight: 12
+    weight: 11
     settings:
       rows: 5
       placeholder: ''
@@ -685,7 +787,7 @@ content:
     type: string_textarea
     region: content
   field_prj_trl_communicate:
-    weight: 13
+    weight: 12
     settings:
       rows: 5
       placeholder: ''
@@ -701,26 +803,26 @@ content:
     type: string_textarea
     region: content
   field_prj_trl_markup:
-    weight: 14
+    weight: 13
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_prj_trl_passengers:
-    weight: 11
+    weight: 10
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_prj_trl_size:
-    weight: 9
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_prj_trl_walkers:
-    weight: 10
+    weight: 9
     settings:
       display_label: true
     third_party_settings: {  }
@@ -786,6 +888,7 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_collective: true
   field_grt_art_comment: true
   field_grt_awarded: true
   field_grt_contribution: true
