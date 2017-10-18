@@ -13,6 +13,10 @@ form.node-collective-form details summary{
   cursor: pointer;
 }
 
+form.node-collective-form .clearfix{
+  clear: both;
+}
+
 /* 11 Oct 2017 - scheepers */
 
 .view-id-wrangler_registrations > .view-header {
