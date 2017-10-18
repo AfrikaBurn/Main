@@ -132,6 +132,10 @@ class MemberController extends ControllerBase {
     $member_index = self::memberIndex($uid, $collective, 'field_col_members');
     $admin_index = self::memberIndex($uid, $collective, 'field_col_admins');
 
+    // Make sure we delete only one instance
+    $member_index = count ($member_index) ? [$member_index[0]] : [];
+    $admin_index = count ($admin_index) ? [$admin_index[0]] : [];
+
     if (isset($user) && $collective->bundle() == 'collective'){
       self::removeFromMembers($member_index, $collective);
       self::removeFromAdmins($admin_index, $collective);
