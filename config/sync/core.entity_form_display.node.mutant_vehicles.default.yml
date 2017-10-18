@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_grt_status
     - field.field.node.mutant_vehicles.field_grt_total
     - field.field.node.mutant_vehicles.field_grt_transport
+    - field.field.node.mutant_vehicles.field_mutant_drivers
     - field.field.node.mutant_vehicles.field_prj_adm_comms
     - field.field.node.mutant_vehicles.field_prj_adm_form_grant
     - field.field.node.mutant_vehicles.field_prj_adm_form_wtf
@@ -104,6 +105,7 @@ dependencies:
     - image
     - link
     - markup
+    - paragraphs
     - path
 third_party_settings:
   field_group:
@@ -136,6 +138,7 @@ third_party_settings:
         - field_prj_gen_fundraising
         - field_prj_gen_fundraiser
         - field_prj_gen_location
+        - field_mutant_drivers
       parent_name: group_acc_project_overview
       weight: 20
       format_type: accordion_item
@@ -327,6 +330,24 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_grt_dmv_budget:
+    type: entity_reference_paragraphs
+    weight: 9
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_mutant_drivers:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_prj_brn_burning:
     weight: 9
     settings:
@@ -789,7 +810,6 @@ hidden:
   field_grt_art_comment: true
   field_grt_awarded: true
   field_grt_contribution: true
-  field_grt_dmv_budget: true
   field_grt_materials: true
   field_grt_other: true
   field_grt_other_description: true

@@ -16,7 +16,7 @@ field_name: field_col_invitee
 entity_type: node
 bundle: collective
 label: 'Invite people'
-description: 'Add their email address'
+description: "Optionally invite your team mates using the email addresses they <em>have associated with their Burner Bio</em>.\r\n<p>\r\nThey need to accept this invite in order for you to assign roles, tickets, or early access passes.\r\n<p>\r\nYou will be able to change your team/collective at any point."
 required: false
 translatable: false
 default_value: {  }
