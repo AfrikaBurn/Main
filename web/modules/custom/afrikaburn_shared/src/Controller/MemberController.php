@@ -133,26 +133,35 @@ class MemberController extends ControllerBase {
     $admin_index = self::memberIndex($uid, $collective, 'field_col_admins');
 
     // Make sure we delete only one instance
-    $member_index = count ($member_index) ? [$member_index[0]] : [];
-    $admin_index = count ($admin_index) ? [$admin_index[0]] : [];
+    $member_index = count ($member_index) ? [array_shift($member_index)] : [];
+    $admin_index = count ($admin_index) ? [array_shift($admin_index)] : [];
 
-    if (isset($user) && $collective->bundle() == 'collective'){
-      self::removeFromMembers($member_index, $collective);
-      self::removeFromAdmins($admin_index, $collective);
-      $collective->save();
+    if($collective->getOwner()->id() != $uid){
+
+      if (isset($user) && $collective->bundle() == 'collective'){
+        self::removeFromMembers($member_index, $collective);
+        self::removeFromAdmins($admin_index, $collective);
+        $collective->save();
+      }
+
+      drupal_set_message(
+        t(
+          '%user has been booted from %collective', 
+          [
+              '%user' => $user->getUsername(), 
+              '%collective' => $collective->getTitle(),
+          ]
+        ),
+        'status',
+        TRUE
+      );      
+    } else {
+      drupal_set_message(
+        t('You cannot boot the owner of a collective!'),
+        'status',
+        TRUE
+      );
     }
-
-    drupal_set_message(
-      t(
-        '%user has been booted from %collective', 
-        [
-            '%user' => $user->getUsername(), 
-            '%collective' => $collective->getTitle(),
-        ]
-      ),
-      'status',
-      TRUE
-    );
 
     $redirect = new RedirectResponse('/node/' . $cid);
     $redirect->send();
