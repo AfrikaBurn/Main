@@ -129,16 +129,18 @@ class MemberController extends ControllerBase {
 
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
     $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-    $member_index = self::memberIndex($uid, $collective, 'field_col_members');
-    $admin_index = self::memberIndex($uid, $collective, 'field_col_admins');
-
-    // Make sure we delete only one instance
-    $member_index = count ($member_index) ? [array_shift($member_index)] : [];
-    $admin_index = count ($admin_index) ? [array_shift($admin_index)] : [];
 
     if($collective->getOwner()->id() != $uid){
 
       if (isset($user) && $collective->bundle() == 'collective'){
+
+      $member_index = self::memberIndex($uid, $collective, 'field_col_members');
+      $admin_index = self::memberIndex($uid, $collective, 'field_col_admins');
+
+      // Make sure we delete only one instance
+      $member_index = count ($member_index) ? [array_shift($member_index)] : [];
+      $admin_index = count ($admin_index) ? [array_shift($admin_index)] : [];
+
         self::removeFromMembers($member_index, $collective);
         self::removeFromAdmins($admin_index, $collective);
         $collective->save();
