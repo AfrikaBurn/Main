@@ -30,7 +30,7 @@ class RebuildUsersForm extends FormBase {
     $form['operation'] = [
       '#type' => 'radios',
       '#options' => [
-        'reSave' => 'reSave',
+        'reSave' => 'Rebuild email address field',
         'language' => 'Set default languages',
         'quicket' => 'Migrate existing quicket info (For migrated users with up to date agreements)',
         'short_agreement' => 'Attach updated agreements (For migrated users with outdated agreements)',

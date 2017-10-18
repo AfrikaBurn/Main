@@ -6,8 +6,8 @@ package: Fields
 dependencies:
  - drupal:field
 
-# Information added by Drupal.org packaging script on 2017-09-02
-version: '8.x-1.0-alpha2'
+# Information added by Drupal.org packaging script on 2017-10-09
+version: '8.x-1.0-alpha4'
 core: '8.x'
 project: 'multiple_fields_remove_button'
-datestamp: 1504351449
+datestamp: 1507571050

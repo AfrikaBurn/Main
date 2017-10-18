@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.collective.field_col_admins
     - field.field.node.collective.field_col_description
     - field.field.node.collective.field_col_invitee
-    - field.field.node.collective.field_col_mem_writeup
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
     - field.field.node.collective.field_picture
@@ -15,9 +14,26 @@ dependencies:
     - node.type.collective
   module:
     - content_moderation
+    - field_group
     - image
-    - markup
     - text
+third_party_settings:
+  field_group:
+    group_optional:
+      children:
+        - field_col_mem_writeup
+        - field_col_description
+        - field_picture
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        label: 'Click to add a description and picture (You can do this later, too)'
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: 'Click to add a description and picture (You can do this later, too)'
 id: node.collective.default
 targetEntityType: node
 bundle: collective
@@ -25,7 +41,7 @@ mode: default
 content:
   field_col_admins:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -33,7 +49,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_col_description:
-    weight: 1
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
@@ -41,30 +57,24 @@ content:
     type: text_textarea
     region: content
   field_col_invitee:
-    weight: 2
+    weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: email_default
     region: content
-  field_col_mem_writeup:
-    weight: 3
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
   field_col_members:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
       size: 60
-      placeholder: 'Type an email address'
+      placeholder: ''
     third_party_settings: {  }
   field_picture:
-    weight: 4
+    weight: 5
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail

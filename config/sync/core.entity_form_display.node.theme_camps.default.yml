@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.theme_camps.field_collective
+    - field.field.node.theme_camps.field_field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_comms
     - field.field.node.theme_camps.field_prj_adm_form_2
+    - field.field.node.theme_camps.field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_form_wtf
     - field.field.node.theme_camps.field_prj_adm_latitude
     - field.field.node.theme_camps.field_prj_adm_longitude
@@ -267,6 +269,20 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_field_prj_adm_form_3:
+    weight: 36
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_prj_adm_form_3:
+    weight: 37
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_prj_adm_wrangler:
     type: options_select
     weight: 10

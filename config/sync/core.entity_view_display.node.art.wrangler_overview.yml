@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
+    - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_form_grant
     - field.field.node.art.field_prj_adm_form_wtf
     - field.field.node.art.field_prj_adm_latitude
@@ -135,6 +136,7 @@ dependencies:
     - node.type.art
   module:
     - ds
+    - empty_fields
     - field_group
     - image
     - panelizer
@@ -210,6 +212,7 @@ third_party_settings:
       children:
         - field_prj_adm_wrangler
         - field_prj_adm_notes
+        - field_prj_adm_review
       parent_name: group_overview
       weight: 23
       format_type: html_element
@@ -335,7 +338,6 @@ third_party_settings:
         - field_prj_brn_f1
         - field_prj_brn_desc
         - field_prj_brn_agree
-        - field_prj_adm_review
         - field_prj_adm_ranger_comment
         - field_prj_adm_longitude
         - links
@@ -380,7 +382,19 @@ content:
     region: content
     label: above
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+  field_prj_adm_review:
+    type: entity_reference_label
+    weight: 191
+    region: content
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
   field_prj_adm_wrangler:
     weight: 189
     label: above
@@ -406,10 +420,12 @@ content:
     label: above
     settings:
       image_style: medium
-      image_link: content
+      image_link: file
     third_party_settings:
+      empty_fields:
+        handler: ''
       ds:
-        ds_limit: '1'
+        ds_limit: ''
     type: image
     region: content
   field_prj_gen_description:
@@ -484,12 +500,12 @@ hidden:
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
+  field_prj_adm_form_3: true
   field_prj_adm_form_grant: true
   field_prj_adm_form_wtf: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
   field_prj_adm_ranger_comment: true
-  field_prj_adm_review: true
   field_prj_brn_agree: true
   field_prj_brn_desc: true
   field_prj_brn_f1: true

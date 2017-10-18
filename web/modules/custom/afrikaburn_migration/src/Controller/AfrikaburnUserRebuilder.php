@@ -32,7 +32,7 @@ class AfrikaburnUserRebuilder extends ControllerBase {
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
     $user->langcode = 'en';
     $user->preferred_langcode = 'en';
-    $user->admin_langcode = 'en';
+    $user->admin_langcode = NULL;
 
     $context['results'][] = $user->save();
     $context['message'] = 'Setting default languages';      

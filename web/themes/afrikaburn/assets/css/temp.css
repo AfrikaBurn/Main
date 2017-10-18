@@ -10,6 +10,11 @@
 form.node-collective-form details summary{
   color: #f26c55;
   padding: 9px 0 18px;
+  cursor: pointer;
+}
+
+form.node-collective-form .clearfix{
+  clear: both;
 }
 
 /* 11 Oct 2017 - scheepers */
