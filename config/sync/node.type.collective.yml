@@ -11,7 +11,7 @@ third_party_settings:
 name: Collective
 type: collective
 description: 'A handy way to group your mates and project communication'
-help: ''
+help: "<p>To improve security, and simplify the registration form, we have made team members a separate section.</p>\r\n\r\n<p>Simply add their email address that they registered there Burner Bio's with, and they will get an invite email.<br>\r\nor<br>\r\nSimply register your collectives name for now, and then hit save. (you can add members at any time)</p>\r\n\r\n<p>When you hit save, you can create your project, even before anyone else joins up.</p> "
 new_revision: false
 preview_mode: 0
 display_submitted: false
