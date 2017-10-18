@@ -7,6 +7,10 @@
   width: 40%;
 }
 
+form.node-collective-form details summary{
+  color: #f26c55;
+  padding: 9px 0 18px;
+}
 
 /* 11 Oct 2017 - scheepers */
 
