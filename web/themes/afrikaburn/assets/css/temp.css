@@ -1,3 +1,13 @@
+/* 18 Oct 2017 - collective form */
+
+.field--name-field-col-invitee table,
+.field--name-field-col-invitee .description{
+  float: left;
+  margin-right: 20px;
+  width: 40%;
+}
+
+
 /* 11 Oct 2017 - scheepers */
 
 .view-id-wrangler_registrations > .view-header {

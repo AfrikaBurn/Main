@@ -94,7 +94,7 @@ function afrikaburn_shared_preprocess_input(&$variables) {
     preg_match(
       '/node\/add\/(art|mutant_vehicles|performances|theme_camps)/',
       \Drupal::service('path.current')->getPath()
-    ) && $variables['element']['#attributes']['id'] == 'edit-submit'
+    ) && isset($variables['element']['#attributes']['id']) && $variables['element']['#attributes']['id'] == 'edit-submit'
   ) {
     $variables['attributes']['value'] = t('Submit');
   }
