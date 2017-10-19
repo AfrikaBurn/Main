@@ -33,14 +33,62 @@ function afrikaburn_emails_mail($key, &$message, $params) {
     $message['from'] = \Drupal::config('system.site')->get('mail');
     $message['subject'] = $params['subject'];
     $message['options'] = $params['options'];
-    $message['body'][] = $params['message'];
     $message['headers']['bcc'] = $params['bcc'];
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
     $message['headers']['MIME-Version'] = '1.0';
+
+    _afrikaburn_emails_images(&$message, $params['message']);
   }
 }
 
 // --- Message utilities
+
+function _afrikaburn_emails_images(&$message, $body){
+
+  $patterns = array(
+    '/"(image:[^"]+)"/',
+    '/src="(\/[^"]+\.gif)"/',
+    '/src="(\/[^"]+\.jpg)"/',
+    '/src="(\/[^"]+\.png)"/',
+    '/src="(\/[^"]+\.GIF)"/',
+    '/src="(\/[^"]+\.JPG)"/',
+    '/src="(\/[^"]+\.PNG)"/',
+  );
+
+  $processed_images = array();
+  foreach ($patterns as $pattern) {
+    $embeddable_images = array();
+    preg_match_all($pattern, $message['body'], $embeddable_images);
+
+    for ($i = 0; $i < count($embeddable_images[0]); $i++) {
+      $image_uri = $embeddable_images[1][$i];
+      if (isset($processed_images[$image_uri])) {
+        continue;
+      }
+      $image_path = $image_uri;
+      $image_path = trim($image_path);
+      if (strpos($image_path, 'image:') === 0) {
+        $image_path = substr($image_path, 6);
+      }
+      $image_name = basename($image_path);
+          
+      if (drupal_substr($image_path, 0, 1) == '/') {
+        $image_path = drupal_substr($image_path, 1);
+      }
+ 
+      $image = new stdClass();
+      $image->uri = $image_path;
+      $image->filename = $image_name;
+      $image->filemime = file_get_mimetype($image_path);
+      $image->cid = rand(0, 9999999999);
+      $message['params']['images'][] = $image;
+      $body = preg_replace($image_id, 'cid:' . $image->cid, $body);
+      $processed_images[$image_id] = 1;
+    }
+  }
+
+  $message['body'][] = $body;
+}
 
 /**
  * Sends emails to notify users of actions
