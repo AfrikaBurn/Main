@@ -34,7 +34,6 @@ dependencies:
     - user.role.theme
     - user.role.theme_camp_wrangler
   module:
-    - null
     - basic_auth
     - computed_field
     - csv_serialization
