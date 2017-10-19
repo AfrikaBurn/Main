@@ -10,6 +10,7 @@ use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Utility\Html;
 use Drupal\smtp\Plugin\Mail;
+use Drupal\Core\Url;
 
 /**
  * Implements hook_entity_insert().
@@ -46,9 +47,11 @@ function afrikaburn_emails_mail($key, &$message, $params) {
 // --- Message utilities
 
 function _afrikaburn_emails_links($body){
-  preg_match_all('/href="(\/[^"]+"/', $body, $links);
-  foreach ($links[0] as $link){
-    $body = str_replace($link, Url::fromRoute('<front>', [], ['absolute' => TRUE]) . $link, $body);  
+  $links = [];
+  $root = \Drupal::request()->getSchemeAndHttpHost();
+  preg_match_all('/href="(\/[^"]+)"/', $body, $links);
+  foreach ($links[1] as $link){
+    $body = str_replace($link, $root . $link, $body);  
   }
   return $body;
 }
