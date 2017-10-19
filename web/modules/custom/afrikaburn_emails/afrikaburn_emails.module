@@ -48,7 +48,7 @@ function afrikaburn_emails_mail($key, &$message, $params) {
 function _afrikaburn_emails_links($body){
   preg_match_all('/href="(\/[^"]+"/', $body, $links);
   foreach ($links[0] as $link){
-    $body = str_replace($link, \Drupal::request()->getSchemeAndHttpHost() . $link, $body);  
+    $body = str_replace($link, Url::fromRoute('<front>', [], ['absolute' => TRUE]) . $link, $body);  
   }
   return $body;
 }
