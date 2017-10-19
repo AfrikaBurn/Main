@@ -37,7 +37,7 @@ function afrikaburn_emails_mail($key, &$message, $params) {
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
     $message['headers']['MIME-Version'] = '1.0';
 
-    _afrikaburn_emails_images(&$message, $params['message']);
+    _afrikaburn_emails_images($message, $params['message']);
   }
 }
 
@@ -58,7 +58,7 @@ function _afrikaburn_emails_images(&$message, $body){
   $processed_images = array();
   foreach ($patterns as $pattern) {
     $embeddable_images = array();
-    preg_match_all($pattern, $message['body'], $embeddable_images);
+    preg_match_all($pattern, $body, $embeddable_images);
 
     for ($i = 0; $i < count($embeddable_images[0]); $i++) {
       $image_uri = $embeddable_images[1][$i];
@@ -72,18 +72,18 @@ function _afrikaburn_emails_images(&$message, $body){
       }
       $image_name = basename($image_path);
           
-      if (drupal_substr($image_path, 0, 1) == '/') {
-        $image_path = drupal_substr($image_path, 1);
+      if (substr($image_path, 0, 1) == '/') {
+        $image_path = substr($image_path, 1);
       }
  
       $image = new stdClass();
       $image->uri = $image_path;
       $image->filename = $image_name;
-      $image->filemime = file_get_mimetype($image_path);
+      $image->filemime = \Drupal::service('file.mime_type.guesser')->guess($image_path);
       $image->cid = rand(0, 9999999999);
       $message['params']['images'][] = $image;
-      $body = preg_replace($image_id, 'cid:' . $image->cid, $body);
-      $processed_images[$image_id] = 1;
+      $body = str_replace($image_uri, 'cid:' . $image->cid, $body);
+      $processed_images[$image_uri] = 1;
     }
   }
 
