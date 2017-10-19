@@ -37,11 +37,21 @@ function afrikaburn_emails_mail($key, &$message, $params) {
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
     $message['headers']['MIME-Version'] = '1.0';
 
-    _afrikaburn_emails_images($message, $params['message']);
+    $message['body'][] = _afrikaburn_emails_links(
+      _afrikaburn_emails_images($message, $params['message'])
+    );
   }
 }
 
 // --- Message utilities
+
+function _afrikaburn_emails_links($body){
+  preg_match_all('/href="(\/[^"]+"/', $body, $links);
+  foreach ($links[0] as $link){
+    $body = str_replace($link, \Drupal::request()->getSchemeAndHttpHost() . $link, $body);  
+  }
+  return $body;
+}
 
 function _afrikaburn_emails_images(&$message, $body){
 
@@ -87,7 +97,7 @@ function _afrikaburn_emails_images(&$message, $body){
     }
   }
 
-  $message['body'][] = $body;
+  return $body;
 }
 
 /**
