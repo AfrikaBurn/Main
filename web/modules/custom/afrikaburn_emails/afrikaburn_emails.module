@@ -71,12 +71,12 @@ function _afrikaburn_emails_notify($entity, $action){
             $rendered,
             $template
           )
-          : $template;
+          : $template; dpm($message);
         $message = \Drupal::token()->replace(
           $message,
           [$config['key'][2] => $entity],
           ['clear' => true]
-        );
+        ); dpm($message);
         $subject = \Drupal::token()->replace(
           $config['subject'], [$config['key'][2] => $entity]
         );
