@@ -30,7 +30,6 @@ function afrikaburn_emails_entity_update($entity){
  */
 function afrikaburn_emails_mail($key, &$message, $params) {
   if ($key === 'ab_notification') {
-    dpm($params);
     $message['from'] = \Drupal::config('system.site')->get('mail');
     $message['subject'] = $params['subject'];
     $message['options'] = $params['options'];
