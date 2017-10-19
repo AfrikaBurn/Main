@@ -58,19 +58,28 @@ function _afrikaburn_emails_notify($entity, $action){
 
         $recipient_string = implode(', ', $recipients);
 
-        $message = \Drupal::token()->replace(
-          str_replace(
+        $template = $config['template'];
+        $entity_build = strpos('[rendered]', $template) >= 0
+          ? entity_view($entity, 'full') 
+          : false;
+        $rendered = $entity_build
+          ? render($entity_build)
+          : false;
+        $message = $rendered
+          ? str_replace(
             '[rendered]', 
-            render(entity_view($entity, 'full')), 
-            $config['template']
-          ),
+            $rendered,
+            $template
+          )
+          : $template;
+        $message = \Drupal::token()->replace(
+          $message,
           [$config['key'][2] => $entity],
           ['clear' => true]
         );
         $subject = \Drupal::token()->replace(
           $config['subject'], [$config['key'][2] => $entity]
         );
-
         $result = \Drupal::service('plugin.manager.mail')->mail(
           'afrikaburn_emails',
           'ab_notification',
