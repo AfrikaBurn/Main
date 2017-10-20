@@ -238,6 +238,7 @@ hidden:
   contact: true
   field_country: true
   field_district: true
+  field_email: true
   field_emr_email: true
   field_emr_name: true
   field_emr_telephone: true

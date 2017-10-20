@@ -215,7 +215,7 @@ third_party_settings:
         - field_prj_stc_footprint
         - field_prj_stc_weight
         - field_prj_stc_attributes
-        - field_grt_materials
+        - field_prj_stc_materials
         - field_prj_stc_safety
         - field_prj_stc_structural
         - field_muncipal_district
@@ -496,15 +496,6 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_grt_materials:
-    type: number_integer
-    weight: 29
-    region: content
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
   field_grt_more:
     type: basic_string
     weight: 18
@@ -564,7 +555,7 @@ content:
     third_party_settings: {  }
   field_muncipal_district:
     type: entity_reference_label
-    weight: 32
+    weight: 33
     region: content
     label: above
     settings:
@@ -900,7 +891,7 @@ content:
     third_party_settings: {  }
   field_prj_lgh_agree:
     type: boolean
-    weight: 71
+    weight: 8
     region: content
     label: above
     settings:
@@ -910,28 +901,28 @@ content:
     third_party_settings: {  }
   field_prj_lgh_description:
     type: basic_string
-    weight: 66
+    weight: 3
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_prj_lgh_f1:
     type: markup
-    weight: 64
+    weight: 1
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_prj_lgh_f2:
     type: markup
-    weight: 65
+    weight: 2
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_prj_lgh_lighter:
     type: entity_reference_label
-    weight: 69
+    weight: 6
     region: content
     label: above
     settings:
@@ -939,21 +930,21 @@ content:
     third_party_settings: {  }
   field_prj_lgh_policy:
     type: markup
-    weight: 70
+    weight: 7
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_prj_lgh_power:
     type: basic_string
-    weight: 67
+    weight: 4
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_prj_lgh_projection:
     type: basic_string
-    weight: 68
+    weight: 5
     region: content
     label: above
     settings: {  }
@@ -1096,7 +1087,7 @@ content:
     third_party_settings: {  }
   field_prj_prp_duration:
     type: number_integer
-    weight: 36
+    weight: 37
     region: content
     label: above
     settings:
@@ -1105,7 +1096,7 @@ content:
     third_party_settings: {  }
   field_prj_prp_erection:
     type: datetime_default
-    weight: 35
+    weight: 36
     region: content
     label: above
     settings:
@@ -1114,7 +1105,7 @@ content:
     third_party_settings: {  }
   field_prj_prp_start:
     type: datetime_default
-    weight: 33
+    weight: 34
     region: content
     label: above
     settings:
@@ -1123,7 +1114,7 @@ content:
     third_party_settings: {  }
   field_prj_prp_transport:
     type: basic_string
-    weight: 34
+    weight: 35
     region: content
     label: above
     settings: {  }
@@ -1217,9 +1208,16 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-  field_prj_stc_safety:
+  field_prj_stc_materials:
     type: basic_string
     weight: 30
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_stc_safety:
+    type: basic_string
+    weight: 31
     region: content
     label: above
     settings: {  }
@@ -1234,7 +1232,7 @@ content:
     region: content
   field_prj_stc_structural:
     type: entity_reference_label
-    weight: 31
+    weight: 32
     region: content
     label: above
     settings:
@@ -1361,6 +1359,7 @@ hidden:
   field_grt_health: true
   field_grt_lighting: true
   field_grt_location: true
+  field_grt_materials: true
   field_grt_pyrotechnics: true
   field_grt_services: true
   field_grt_specify: true
@@ -1371,5 +1370,4 @@ hidden:
   field_grt_transport: true
   field_prj_adm_comms: true
   field_prj_oth_unregistered: true
-  field_prj_stc_materials: true
   field_prj_wtf_categories: true
