@@ -9,16 +9,12 @@ vendor/*
 # Ignore sensitive information
 /web/sites/*/settings.php
 /web/sites/*/settings.local.php
-composer.lock
 
 # Ignore Drupal's file directory
 /web/sites/*/files/
 
 # Ignore mail server config
 /config/sync/smtp.settings.yml
-
-# Ignore mailing engine config
-/config/sync/afrikaburn_emails.settings.yml
 
 # Ignore SimpleTest multi-site environment.
 /web/sites/simpletest
