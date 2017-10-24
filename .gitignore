@@ -15,6 +15,7 @@ vendor/*
 
 # Ignore mail server config
 /config/sync/smtp.settings.yml
+/config/sync/afrikaburn_emails.settings.yml
 
 # Ignore SimpleTest multi-site environment.
 /web/sites/simpletest

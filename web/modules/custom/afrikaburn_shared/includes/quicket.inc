@@ -82,8 +82,6 @@ function _quicket($user, $method, $quicket_id = FALSE){
     ]
   ];
 
-  dpm($data);
-
   try{
     $client = \Drupal::httpClient();
     $response = $client->request(
@@ -95,16 +93,15 @@ function _quicket($user, $method, $quicket_id = FALSE){
     dpm($e);
   }
 
-  dpm($response);
-  // if ($response->getStatusCode() == 200){
+  if ($response->getStatusCode() == 200){
     
-  //   $result = $response->getBody()->getContents();
-  //   // $user->field_quicket_code = $result->CodeValue;
-  //   // $user->field_quicket_id = $result->CodeId;
-  //   \Drupal::logger('afrikaburn_shared')->debug('<pre>' . var_export($result, TRUE) . '</pre>');
+    $result = $response->getBody()->getContents();
+    $user->field_quicket_code = $result->CodeValue;
+    $user->field_quicket_id = $result->CodeId;
+    \Drupal::logger('afrikaburn_shared')->debug('<pre>' . var_export($result, TRUE) . '</pre>');
 
-    // return $user->save();
-  // }
+    return $user->save();
+  }
 
   return FALSE;  
 }

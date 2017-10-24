@@ -33,7 +33,6 @@ function afrikaburn_emails_mail($key, &$message, $params) {
   if ($key === 'ab_notification') {
     $message['from'] = \Drupal::config('system.site')->get('mail');
     $message['subject'] = $params['subject'];
-    $message['options'] = $params['options'];
     $message['headers']['bcc'] = $params['bcc'];
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
     $message['headers']['MIME-Version'] = '1.0';
@@ -60,20 +59,19 @@ function _afrikaburn_emails_images(&$message, $body){
 
   $patterns = array(
     '/"(image:[^"]+)"/',
-    '/src="(\/[^"]+\.gif)"/',
-    '/src="(\/[^"]+\.jpg)"/',
-    '/src="(\/[^"]+\.png)"/',
-    '/src="(\/[^"]+\.GIF)"/',
-    '/src="(\/[^"]+\.JPG)"/',
-    '/src="(\/[^"]+\.PNG)"/',
+    '/src="(\/[^"]+\.gif[^"]*)"/',
+    '/src="(\/[^"]+\.jpg[^"]*)"/',
+    '/src="(\/[^"]+\.png[^"]*)"/',
+    '/src="(\/[^"]+\.GIF[^"]*)"/',
+    '/src="(\/[^"]+\.JPG[^"]*)"/',
+    '/src="(\/[^"]+\.PNG[^"]*)"/',
   );
 
   $processed_images = array();
   foreach ($patterns as $pattern) {
     $embeddable_images = array();
     preg_match_all($pattern, $body, $embeddable_images);
-
-    for ($i = 0; $i < count($embeddable_images[0]); $i++) {
+    for ($i = 0; $i < count($embeddable_images[1]); $i++) {
       $image_uri = $embeddable_images[1][$i];
       if (isset($processed_images[$image_uri])) {
         continue;
@@ -84,7 +82,7 @@ function _afrikaburn_emails_images(&$message, $body){
         $image_path = substr($image_path, 6);
       }
       $image_name = basename($image_path);
-          
+
       if (substr($image_path, 0, 1) == '/') {
         $image_path = substr($image_path, 1);
       }
@@ -93,13 +91,13 @@ function _afrikaburn_emails_images(&$message, $body){
       $image->uri = $image_path;
       $image->filename = $image_name;
       $image->filemime = \Drupal::service('file.mime_type.guesser')->guess($image_path);
-      $image->cid = rand(0, 9999999999);
+      $image->cid = preg_replace('/[^0-9a-zA-Z]/', '', $image_name);
       $message['params']['images'][] = $image;
       $body = str_replace($image_uri, 'cid:' . $image->cid, $body);
       $processed_images[$image_uri] = 1;
     }
   }
-
+dpm($body);
   return $body;
 }
 
