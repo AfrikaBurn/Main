@@ -97,7 +97,7 @@ function _afrikaburn_emails_images(&$message, $body){
       $processed_images[$image_uri] = 1;
     }
   }
-dpm($body);
+
   return $body;
 }
 
