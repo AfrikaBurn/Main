@@ -48,7 +48,7 @@ function _quicket($user, $method, $quicket_id = FALSE){
 
   $ticket_types = array_filter(
     [
-      65400,
+      "65400",
       ($kids ? 0 : 0),
       ($teens ? 0 : 0)
     ]
