@@ -121,7 +121,7 @@ function _afrikaburn_emails_notify($entity, $action){
 
         $template = $config['template'];
         $entity_build = strpos('[rendered]', $template) >= 0
-          ? entity_view($entity, 'full')
+          ? entity_view($entity, 'notification')
           : false;
         $rendered = $entity_build
           ? render($entity_build)
