@@ -50,7 +50,7 @@ function _afrikaburn_emails_links($body){
   $root = \Drupal::request()->getSchemeAndHttpHost();
   preg_match_all('/href="(\/[^"]+)"/', $body, $links);
   foreach ($links[1] as $link){
-    $body = str_replace($link, $root . $link, $body);  
+    $body = str_replace($link, $root . $link, $body);
   }
   return $body;
 }
@@ -86,7 +86,7 @@ function _afrikaburn_emails_images(&$message, $body){
       if (substr($image_path, 0, 1) == '/') {
         $image_path = substr($image_path, 1);
       }
- 
+
       $image = new stdClass();
       $image->uri = $image_path;
       $image->filename = $image_name;
@@ -108,7 +108,7 @@ dpm($body);
  */
 function _afrikaburn_emails_notify($entity, $action){
 
-  $token_service = \Drupal::token();  
+  $token_service = \Drupal::token();
   $configs = _afrikaburn_emails_get_config($entity, $action);
 
   if ($configs) {
@@ -121,14 +121,14 @@ function _afrikaburn_emails_notify($entity, $action){
 
         $template = $config['template'];
         $entity_build = strpos('[rendered]', $template) >= 0
-          ? entity_view($entity, 'full') 
+          ? entity_view($entity, 'full')
           : false;
         $rendered = $entity_build
           ? render($entity_build)
           : false;
         $message = $rendered
           ? str_replace(
-            '[rendered]', 
+            '[rendered]',
             $rendered,
             $template
           )
@@ -159,7 +159,7 @@ function _afrikaburn_emails_notify($entity, $action){
           ? \Drupal::logger('mail-log')->notice('Mail sent to ' . $recipient_string . "\n" . $subject . "\n:" . $message)
           : \Drupal::logger('mail-log')->notice('Mail send FAILED to ' . $recipient_string . "\n" . $subject . "\n:" . $message);
       } else {
-        \Drupal::logger('mail-log')->notice('No recipients to send "' . $config['subject'] . '" email to');        
+        \Drupal::logger('mail-log')->notice('No recipients to send "' . $config['subject'] . '" email to');
       }
     }
   }
@@ -222,7 +222,7 @@ function _afrikaburn_emails_recipient_group($entity){
         ->get('entity')
         ->getTarget()
         ->get('field_col_members')
-        ->referencedEntities();    
+        ->referencedEntities();
       foreach ($members as $member) {
         $email = $member->getEmail();
         $addresses[$email] = $email;
