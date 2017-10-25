@@ -46,14 +46,12 @@ function _quicket($user, $method, $quicket_id = FALSE){
     )[0]
   );
 
-  $ticket_types = implode(',',
-    array_filter(
-      [
-        65400,
-        ($kids ? 0 : 0),
-        ($teens ? 0 : 0)
-      ]
-    )
+  $ticket_types = array_filter(
+    [
+      65400,
+      ($kids ? 0 : 0),
+      ($teens ? 0 : 0)
+    ]
   );
 
   $data = json_encode(
