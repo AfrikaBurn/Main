@@ -18,7 +18,7 @@ field_name: field_prj_oth_grant
 entity_type: node
 bundle: performances
 label: 'Are you applying for a Creative Grant?'
-description: "Please read everything about <a href=\"www.afrikaburn.com/participation-forms/apply-for-creative-grant\" target=\"_blank\">Creative Grants here.</a>\r\n"
+description: "Please read everything about <a href=\"http://www.afrikaburn.com/participation-forms/apply-for-creative-grant\" target=\"_blank\">Creative Grants here.</a>\r\n"
 required: false
 translatable: true
 default_value:

@@ -447,19 +447,69 @@ content:
             selector: ''
           entity_type: node
           bundle: performances
+        f499fb22-591d-4bdd-b0e0-33654bef89ea:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
     type: string_textarea
     region: content
   field_prj_cll_collaborate:
     weight: 11
     settings:
       display_label: true
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields: {  }
     type: boolean_checkbox
     region: content
   field_prj_cll_contact:
     weight: 13
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        93f251f7-a85d-4f1c-8277-0a6de1a67e0a:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+        5b0c8416-6ae7-4c66-bbee-b4f2f3131469:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
     type: options_select
     region: content
   field_prj_cll_description:
@@ -467,7 +517,40 @@ content:
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        7d992704-c12c-47bd-89f2-13bc8402b835:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+        61159702-6f81-4238-b094-2d1998f5711d:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
     type: string_textarea
     region: content
   field_prj_cll_thread:
@@ -763,6 +846,22 @@ content:
             value: ''
             values: {  }
             value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+        84544707-639b-48e5-b3c4-8f8ad24eb81e:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
             effect: show
             effect_options: {  }
             selector: ''
