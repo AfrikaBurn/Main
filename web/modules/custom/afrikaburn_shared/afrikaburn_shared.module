@@ -25,7 +25,7 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
 
   // Add ID validation
   if (in_array($form_id, ['user_form', 'user_register_form'])) {
-    $form['#validate'][] = 'afrikaburn_shared_user_id_validate';    
+    $form['#validate'][] = 'afrikaburn_shared_user_id_validate';
   }
 
   // Fetch new quicket info on acceptance of agreements
@@ -33,18 +33,21 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
     $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_agreement_submit';
   }
 
-  module_load_include('inc', 'afrikaburn_shared', 'includes/form');
+  // Check if the current page is admin.
+  if (!\Drupal::service('router.admin_context')->isAdminRoute(\Drupal::routeMatch()->getRouteObject())) {
+    module_load_include('inc', 'afrikaburn_shared', 'includes/form');
 
-  // Get Registration and Collective if applicable
-  list($registration, $registration_title) = _get_registration();
-  list($collective, $collective_title) = _get_collective($registration);
+    // Get Registration and Collective if applicable
+    list($registration, $registration_title) = _get_registration();
+    list($collective, $collective_title) = _get_collective($registration);
 
-  // Set titles and defaults
-  static $user;
-  $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
-  _set_registration_form_title($form, $form_id, $collective_title, $registration_title);
-  _set_registration_form_defaults($form, $form_id, $user, $collective);
-  _set_collective_defaults($form, $form_id, $user);
+    // Set titles and defaults
+    static $user;
+    $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
+    _set_registration_form_title($form, $form_id, $collective_title, $registration_title);
+    _set_registration_form_defaults($form, $form_id, $user, $collective);
+    _set_collective_defaults($form, $form_id, $user);
+  }
 
 }
 
@@ -62,7 +65,7 @@ function afrikaburn_shared_entity_update($entity){
     $original_field_id_number = $original_user->get('field_id_number');
     $id_number = $field_id_number ? $field_id_number->getValue() : FALSE;
     $original_id_number = $original_field_id_number ? $original_field_id_number->getValue() : FALSE;
-    
+
     // New code and ID
     if ($id_number != $original_id_number){
       module_load_include('inc', 'afrikaburn_shared', 'includes/quicket');
@@ -144,7 +147,7 @@ function afrikaburn_shared_user_id_validate($form, FormStateInterface &$form_sta
 
       if ($existing) {
         $form_state->setErrorByName('field_id_number', t('This number is already in use.'));
-      }      
+      }
 
     }
   }
