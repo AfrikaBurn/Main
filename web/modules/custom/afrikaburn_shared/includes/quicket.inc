@@ -13,7 +13,7 @@ use Drupal\Component\Serialization\Json;
  * @param [object] $user User to fetch new code & id for
  */
 function _quicket_new($user){
-  // return _quicket($user, 'POST');
+  return _quicket($user, 'POST');
 }
 
 /**
@@ -21,11 +21,10 @@ function _quicket_new($user){
  * @param [object] $user User to fetch updated code & id for
  */
 function _quicket_update($user){
+  $field_quicket_id = $user->get('field_quicket_id');
+  $quicket_id = $field_quicket_id ? $field_quicket_id->getValue()[0]['value'] : FALSE;
 
-  // $field_quicket_id = $user->get('field_quicket_id');
-  // $quicket_id = $field_quicket_id ? $field_quicket_id->getValue()[0]['value'] : FALSE;
-
-  // return _quicket($user, 'PUT', $quicket_id);
+  return _quicket($user, 'PUT', $quicket_id);
 }
 
 /**
@@ -38,23 +37,21 @@ function _quicket($user, $method, $quicket_id = FALSE){
   $kids = 0;
 
   $id = str_replace(
-    ' ', '', 
+    ' ', '',
     array_column(
       $user
         ->get('field_id_number')
-        ->getValue(), 
+        ->getValue(),
       'value'
     )[0]
   );
 
-  $ticket_types = implode(',',
-    array_filter(
-      [
-        65400, 
-        ($kids ? 0 : 0),
-        ($teens ? 0 : 0)
-      ]
-    )
+  $ticket_types = array_filter(
+    [
+      "65400",
+      ($kids ? 0 : 0),
+      ($teens ? 0 : 0)
+    ]
   );
 
   $data = json_encode(
@@ -77,12 +74,10 @@ function _quicket($user, $method, $quicket_id = FALSE){
       'usertoken' => $settings['user_token'],
     ],
     'timeout' => 45,
-    'form_params' => [
-      'data' => json_encode($data),
-    ]
+    'body' => json_encode($data),
   ];
 
-  dpm($data);
+  dpm(json_encode($data));
 
   try{
     $client = \Drupal::httpClient();
@@ -95,16 +90,17 @@ function _quicket($user, $method, $quicket_id = FALSE){
     dpm($e);
   }
 
-  dpm($response);
-  // if ($response->getStatusCode() == 200){
-    
-  //   $result = $response->getBody()->getContents();
-  //   // $user->field_quicket_code = $result->CodeValue;
-  //   // $user->field_quicket_id = $result->CodeId;
-  //   \Drupal::logger('afrikaburn_shared')->debug('<pre>' . var_export($result, TRUE) . '</pre>');
+  if ($response && $response->getStatusCode() == 200){
 
-    // return $user->save();
-  // }
+    $result = $response->getBody()->getContents();
+    $user->field_quicket_code = $result->CodeValue;
+    $user->field_quicket_id = $result->CodeId;
+    \Drupal::logger('afrikaburn_shared')->debug('<pre>' . var_export($result, TRUE) . '</pre>');
 
-  return FALSE;  
+    dpm(var_export($result, TRUE));
+
+    return $user->save();
+  }
+
+  return FALSE;
 }
