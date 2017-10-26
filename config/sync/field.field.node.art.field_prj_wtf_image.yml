@@ -19,8 +19,8 @@ field_name: field_prj_wtf_image
 entity_type: node
 bundle: art
 label: 'Public Project image, used on the website and app'
-description: 'This is only required if you get awarded a grant. <br> It will also appear on looking for team members or stage / stage for people to share page.'
-required: false
+description: 'This will appear on the Community Directory page. </br> This is a space for community members to find additional talent or other Collectives and spaces to join. '
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''

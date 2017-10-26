@@ -1,9 +1,10 @@
-uuid: 8c10e7a9-c8d2-4933-b20f-0cf1bc062f91
+uuid: b21c9052-7bed-4813-8c9c-23105ede97a1
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
+    - core.entity_view_mode.node.notification
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_grt_art_comment
     - field.field.node.mutant_vehicles.field_grt_awarded
@@ -116,10 +117,10 @@ third_party_settings:
     default: default
 _core:
   default_config_hash: C9Fh0QjRhuwpBvMWXkPEtFOs5iom_nF-2vt1jAFIxwE
-id: node.mutant_vehicles.default
+id: node.mutant_vehicles.notification
 targetEntityType: node
 bundle: mutant_vehicles
-mode: default
+mode: notification
 content:
   field_grt_art_comment:
     weight: 187

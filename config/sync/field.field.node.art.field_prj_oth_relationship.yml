@@ -17,7 +17,7 @@ id: node.art.field_prj_oth_relationship
 field_name: field_prj_oth_relationship
 entity_type: node
 bundle: art
-label: 'What''s the name of the project that this artwork is associated with and how is it related?'
+label: 'What''s the name of the external project that this artwork is associated with, and how is it related?'
 description: "<p>Don’t forget to tell us what type of project it is (theme camp, performance, mutant vehicle, another artwork). Have you registered it or are you planning to register it?</p>\r\n<p>How do they relate and/or depend on each other? Sharing resources?  Do they need to be placed nearby?</p>"
 required: false
 translatable: false

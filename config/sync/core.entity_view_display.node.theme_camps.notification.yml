@@ -1,9 +1,10 @@
-uuid: 7ff9fd8f-5d52-4292-a376-0d3d90be5354
+uuid: 17be94f0-261f-42b3-9a63-0371b2a8a61c
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
+    - core.entity_view_mode.node.notification
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_comms
@@ -122,20 +123,13 @@ dependencies:
     - image
     - link
     - markup
-    - panelizer
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 _core:
   default_config_hash: 6_2DUknVZ0gXB6FTp65wNggLYmjyC6QCKXZBoCPjIpU
-id: node.theme_camps.default
+id: node.theme_camps.notification
 targetEntityType: node
 bundle: theme_camps
-mode: default
+mode: notification
 content:
   field_field_prj_adm_form_3:
     weight: 113
