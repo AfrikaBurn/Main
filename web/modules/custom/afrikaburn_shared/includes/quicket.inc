@@ -21,10 +21,10 @@ function _quicket_new($user){
  * @param [object] $user User to fetch updated code & id for
  */
 function _quicket_update($user){
-  $field_quicket_id = $user->get('field_quicket_id');
-  $quicket_id = $field_quicket_id ? $field_quicket_id->getValue()[0]['value'] : FALSE;
+  // $field_quicket_id = $user->get('field_quicket_id');
+  // $quicket_id = $field_quicket_id ? $field_quicket_id->getValue()[0]['value'] : FALSE;
 
-  //return _quicket($user, 'PUT', $quicket_id);
+  // return _quicket($user, 'PUT', $quicket_id);
 }
 
 /**
@@ -77,7 +77,7 @@ function _quicket($user, $method, $quicket_id = FALSE){
     'body' => json_encode($data),
   ];
 
-  dpm(json_encode($data));
+  // dpm(json_encode($data));
 
   try{
     $client = \Drupal::httpClient();
@@ -97,7 +97,7 @@ function _quicket($user, $method, $quicket_id = FALSE){
     $user->field_quicket_id = $result->CodeId;
     \Drupal::logger('afrikaburn_shared')->debug('<pre>' . var_export($result, TRUE) . '</pre>');
 
-    dpm(var_export($result, TRUE));
+    // dpm(var_export($result, TRUE));
 
     return $user->save();
   }
