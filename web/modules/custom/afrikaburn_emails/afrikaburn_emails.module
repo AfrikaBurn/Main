@@ -73,14 +73,13 @@ function _afrikaburn_emails_images(&$message, $body){
     preg_match_all($pattern, $body, $embeddable_images);
     for ($i = 0; $i < count($embeddable_images[1]); $i++) {
       $image_uri = trim(str_replace('/system/files', 'private:/', $embeddable_images[1][$i]));
+      dpm($image_uri);
+
       if (isset($processed_images[$image_uri])) {
         continue;
       }
-      $file = \Drupal::entityTypeManager()->getStorage('file')->loadByProperties(['uri' => $image_uri]);
-      dpm($image_uri);
-      dpm($file);
-
-      dpm(\Drupal::entityTypeManager()->getStorage('file')->loadByProperties(['uri' => 'system/files/artwork/concept/google-earth-view-2056.jpg']));
+      // $file = \Drupal::entityTypeManager()->getStorage('file')->loadByProperties(['uri' => $image_uri]);
+      // dpm($file);
 
       // $image_path = trim($image_path);
       // if (strpos($image_path, 'image:') === 0) {
