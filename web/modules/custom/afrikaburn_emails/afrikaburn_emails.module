@@ -73,31 +73,28 @@ function _afrikaburn_emails_images(&$message, $body){
     preg_match_all($pattern, $body, $embeddable_images);
     for ($i = 0; $i < count($embeddable_images[1]); $i++) {
       $image_uri = trim(str_replace('/system/files', 'private:/', $embeddable_images[1][$i]));
-      dpm($image_uri);
 
       if (isset($processed_images[$image_uri])) {
         continue;
       }
-      // $file = \Drupal::entityTypeManager()->getStorage('file')->loadByProperties(['uri' => $image_uri]);
-      // dpm($file);
 
-      // $image_path = trim($image_path);
-      // if (strpos($image_path, 'image:') === 0) {
-      //   $image_path = substr($image_path, 6);
-      // }
-      // $image_name = basename($image_path);
+      $image_path = $image_uri;
+      if (strpos($image_path, 'image:') === 0) {
+        $image_path = substr($image_path, 6);
+      }
+      $image_name = basename($image_path);
 
-      // if (substr($image_path, 0, 1) == '/') {
-      //   $image_path = substr($image_path, 1);
-      // }
+      if (substr($image_path, 0, 1) == '/') {
+        $image_path = substr($image_path, 1);
+      }
 
-      // $image = new stdClass();
-      // $image->uri = $image_path;
-      // $image->filename = $image_name;
-      // $image->filemime = \Drupal::service('file.mime_type.guesser')->guess($image_path);
-      // $image->cid = preg_replace('/[^0-9a-zA-Z]|\?.+$/', '', $image_name);
-      // $message['params']['images'][] = $image;
-      // $body = str_replace($image_uri, 'cid:' . $image->cid, $body);
+      $image = new stdClass();
+      $image->uri = $image_path;
+      $image->filename = $image_name;
+      $image->filemime = \Drupal::service('file.mime_type.guesser')->guess($image_path);
+      $image->cid = preg_replace('/[^0-9a-zA-Z]|\?.+$/', '', $image_name);
+      $message['params']['images'][] = $image;
+      $body = str_replace($image_uri, 'cid:' . $image->cid, $body);
       $processed_images[$image_uri] = 1;
     }
   }
