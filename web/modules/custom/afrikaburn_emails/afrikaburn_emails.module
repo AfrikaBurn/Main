@@ -80,7 +80,7 @@ function _afrikaburn_emails_images(&$message, $body){
 
       $file = \Drupal::entityTypeManager()->getStorage('file')->loadByProperties(['uri' => $image_uri]);
       dpm($image_uri);
-      dpm($files);
+      dpm($file);
 
       // $image_path = trim($image_path);
       // if (strpos($image_path, 'image:') === 0) {
