@@ -1,8 +1,9 @@
-uuid: 80752a41-47e7-468c-84e2-b66ea76bcf5c
+uuid: 83527c28-b8d9-46c6-95ce-b9ad5d0706c8
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.notification
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
@@ -22,10 +23,10 @@ third_party_settings:
     default: default
 _core:
   default_config_hash: qVtHNxqdXB9w369AO5JB5SVhflquWqFm5xfyvYLAIlM
-id: node.article.default
+id: node.article.notification
 targetEntityType: node
 bundle: article
-mode: default
+mode: notification
 content:
   body:
     type: text_default

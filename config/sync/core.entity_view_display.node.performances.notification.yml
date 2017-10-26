@@ -1,8 +1,9 @@
-uuid: 14fb8fa5-4375-41b3-8b2c-c9a51819ae69
+uuid: 792b58f1-e09c-4ca6-9922-9dba9acabdb0
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.notification
     - field.field.node.performances.field_collective
     - field.field.node.performances.field_grt_art_total
     - field.field.node.performances.field_grt_breakdown
@@ -98,7 +99,6 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_long
     - field.field.node.performances.field_prj_wtf_plan
     - field.field.node.performances.field_prj_wtf_planned
-    - field.field.node.performances.field_prj_wtf_scheduled
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
     - field.field.node.performances.field_prj_wtf_website
@@ -347,10 +347,10 @@ third_party_settings:
     default: default
 _core:
   default_config_hash: V_qwvPFePM2PgrUSCA_TfMxvFLMYvQ8aK--ZQPca2FY
-id: node.performances.default
+id: node.performances.notification
 targetEntityType: node
 bundle: performances
-mode: default
+mode: notification
 content:
   field_grt_art_total:
     weight: 82
@@ -554,13 +554,6 @@ content:
     region: content
   field_prj_wtf_plan:
     weight: 67
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_scheduled:
-    weight: 88
     label: above
     settings: {  }
     third_party_settings: {  }

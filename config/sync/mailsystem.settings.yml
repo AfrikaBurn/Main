@@ -9,4 +9,7 @@ modules:
     none:
       formatter: swiftmailer
       sender: swiftmailer
-  afrikaburn_emails: {  }
+  afrikaburn_emails:
+    ab_notification:
+      formatter: SMTPMailSystem
+      sender: swiftmailer

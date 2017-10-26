@@ -1,0 +1,9 @@
+uuid: de506323-d3f5-4ec5-9515-79a21e26b421
+langcode: en
+status: true
+dependencies: {  }
+name: node_art
+label: 'node art validation'
+entity_type: node
+bundle: art
+field_validation_rules: {  }
