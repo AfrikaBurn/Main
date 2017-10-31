@@ -36,8 +36,8 @@ function _get_collective($registration){
     $cid = array_values(array_filter(
       [
         \Drupal::request()->query->get('field_collective'),
-        $registration && $registration->field_collective 
-          ? $registration->field_collective->getValue()[0]['target_id'] 
+        $registration && $registration->field_collective
+          ? $registration->field_collective->getValue()[0]['target_id']
           : FALSE,
       ]
     ));
@@ -80,7 +80,7 @@ function _set_registration_form_title(&$form, $form_id, $collective_title, $regi
 /**
  * Sets form defaults for registration forms
  */
-function _set_registration_form_defaults(&$form, $form_id, $user, $collective){
+function _set_registration_form_defaults(&$form, $form_state, $form_id, $user, $collective){
   foreach(['node_art_', 'node_performances_', 'node_mutant_vehicles_', 'node_theme_camps_'] as $parent) {
     if (substr($form_id, 0, strlen($parent)) === $parent) {
 
@@ -108,7 +108,7 @@ function _set_collective_defaults(&$form, $form_id, $user){
     $form['field_col_members']['#access'] = $user->hasRole('administrator');
     if ($form_id == 'node_collective_form'){
       $form['field_col_admins']['widget'][0]['target_id']['#default_value'] = $user;
-      $form['field_col_members']['widget'][0]['target_id']['#default_value'] = $user;      
+      $form['field_col_members']['widget'][0]['target_id']['#default_value'] = $user;
     }
-  }  
+  }
 }

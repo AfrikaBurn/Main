@@ -30,8 +30,8 @@ class RebuildUsersForm extends FormBase {
     $form['operation'] = [
       '#type' => 'radios',
       '#options' => [
-        'reSave' => 'Rebuild email address field',
         'language' => 'Set default languages',
+        'reSave' => 'Rebuild email address field',
         'quicket' => 'Migrate existing quicket info (For migrated users with up to date agreements)',
         'short_agreement' => 'Attach updated agreements (For migrated users with outdated agreements)',
         'new_quicket' => 'Generate new quicket info (For new users with new agreements)',
@@ -51,8 +51,8 @@ class RebuildUsersForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     switch ($form_state->getValues()['operation']){
-      case 'reSave': $this->reSave(); break;
       case 'language': $this->setLanguage(); break;
+      case 'reSave': $this->reSave(); break;
       case 'quicket': $this->migrateQuicket(); break;
       case 'short_agreement': $this->attachAgreementUpdate(); break;
       case 'new_quicket': $this->generateQuicketInfo(); break;
@@ -118,10 +118,10 @@ class RebuildUsersForm extends FormBase {
           {field_data_field_quicket_id}.entity_id as uid,
           field_quicket_code_value as code,
           field_quicket_id_value as id
-        FROM 
+        FROM
           {field_data_field_quicket_code},
           {field_data_field_quicket_id}
-        WHERE 
+        WHERE
           {field_data_field_quicket_id}.entity_id = {field_data_field_quicket_code}.entity_id
       '
     );
@@ -150,10 +150,10 @@ class RebuildUsersForm extends FormBase {
 
     $uids = db_query('
       SELECT uid
-      FROM 
+      FROM
         {users} LEFT JOIN {user__field_quicket_code} ON (uid=entity_id)
-      WHERE 
-        entity_id IS NULL AND 
+      WHERE
+        entity_id IS NULL AND
         uid <= 38495 AND uid > 0
     ')->fetchCol();
 
@@ -189,10 +189,10 @@ class RebuildUsersForm extends FormBase {
 
     $uids = db_query('
       SELECT uid
-      FROM 
+      FROM
         {users} LEFT JOIN {user__field_quicket_code} ON (uid=entity_id)
-      WHERE 
-        entity_id IS NULL AND 
+      WHERE
+        entity_id IS NULL AND
         uid > 38495
     ')->fetchCol();
 

@@ -35,7 +35,7 @@ class AfrikaburnUserRebuilder extends ControllerBase {
     $user->admin_langcode = NULL;
 
     $context['results'][] = $user->save();
-    $context['message'] = 'Setting default languages';      
+    $context['message'] = 'Setting default languages';
 
   }
 
@@ -50,7 +50,7 @@ class AfrikaburnUserRebuilder extends ControllerBase {
       $user->field_quicket_id = $id;
 
       $context['results'][] = $user->save();
-      $context['message'] = 'Updating quicket codes';      
+      $context['message'] = 'Updating quicket codes';
     }
 
   }
@@ -80,11 +80,21 @@ class AfrikaburnUserRebuilder extends ControllerBase {
 
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
     if ($user) {
-    
+
       module_load_include('inc', 'afrikaburn_shared', 'includes/quicket');
-    
-      $context['results'][] = _quicket_new($user);
-      $context['message'] = 'Attaching updated agreement';      
+
+      $quicket = _quicket(
+        'POST',
+        $user->get('field_id_number')->value,
+        $user->get('field_teens')->value,
+        $user->get('field_kids')->value,
+      );
+
+      $user->field_quicket_code = $quicket['code'];
+      $user->field_quicket_id = $quicket['id'];
+
+      $context['results'][] = $user->save();
+      $context['message'] = 'Generating new quicket data';
     }
 
   }
@@ -101,7 +111,5 @@ class AfrikaburnUserRebuilder extends ControllerBase {
           )
         : t('Finished with errors.')
     );
-
   }
-
 }

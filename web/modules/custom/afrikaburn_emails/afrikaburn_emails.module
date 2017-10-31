@@ -13,6 +13,22 @@ use Drupal\smtp\Plugin\Mail;
 use Drupal\Core\Url;
 
 /**
+ * Implements hook_form_alter().
+ */
+function afrikaburn_emails_form_alter(&$form, $form_state, $form_id) {
+  // Remember form mode for sending emails
+  if (isset($form['field_form_mode'])){
+    $current_path = \Drupal::service('path.current')->getPath();
+    $path_args = explode('/', $current_path);
+    $mode = array_pop($path_args);
+    $form['field_form_mode']['widget'][0]['value'] = [
+      '#type' => 'hidden',
+      '#default_value' => $mode,
+    ];
+  }
+}
+
+/**
  * Implements hook_entity_insert().
  */
 function afrikaburn_emails_entity_insert($entity){
@@ -44,56 +60,6 @@ function afrikaburn_emails_mail($key, &$message, $params) {
 }
 
 // --- Message utilities
-
-function _afrikaburn_emails_links($body){
-  $links = [];
-  $root = \Drupal::request()->getSchemeAndHttpHost();
-  preg_match_all('/href="(\/[^"]+)"/', $body, $links);
-  foreach ($links[1] as $link){
-    $body = str_replace($link, $root . $link, $body);
-  }
-  return $body;
-}
-
-function _afrikaburn_emails_images(&$message, $body){
-
-  $patterns = array(
-    '/"(image:[^"]+)"/',
-    '/src="(\/[^"]+\.gif[^"]*)"/',
-    '/src="(\/[^"]+\.jpg[^"]*)"/',
-    '/src="(\/[^"]+\.png[^"]*)"/',
-    '/src="(\/[^"]+\.GIF[^"]*)"/',
-    '/src="(\/[^"]+\.JPG[^"]*)"/',
-    '/src="(\/[^"]+\.PNG[^"]*)"/',
-  );
-
-  $processed_images = array();
-  foreach ($patterns as $pattern) {
-    $embeddable_images = array();
-    preg_match_all($pattern, $body, $embeddable_images);
-    for ($i = 0; $i < count($embeddable_images[1]); $i++) {
-      $raw = $embeddable_images[1][$i];
-      $image_uri = trim(str_replace('/system/files', 'private:/', $raw));
-
-      if (!isset($processed_images[$image_uri])) {
-        $image_path = preg_replace('/^(image:|\/)+/', '', $image_uri);
-        $image_name = basename($image_path);
-
-        $image = new stdClass();
-        $image->uri = $image_path;
-        $image->filename = $image_name;
-        $image->filemime = \Drupal::service('file.mime_type.guesser')->guess($image_path);
-        $image->cid = preg_replace('/[^0-9a-zA-Z]|\?.+$/', '', $raw);
-
-        $message['params']['images'][] = $image;
-        $body = str_replace($raw, 'cid:' . $image->cid, $body);
-        $processed_images[$image_uri] = 1;
-      }
-    }
-  }
-
-  return $body;
-}
 
 /**
  * Sends emails to notify users of actions
@@ -157,6 +123,58 @@ function _afrikaburn_emails_notify($entity, $action){
       }
     }
   }
+}
+
+// Replace links in email
+function _afrikaburn_emails_links($body){
+  $links = [];
+  $root = \Drupal::request()->getSchemeAndHttpHost();
+  preg_match_all('/href="(\/[^"]+)"/', $body, $links);
+  foreach ($links[1] as $link){
+    // $body = str_replace($link, $root . $link, $body);
+  }
+  return $body;
+}
+
+// Replace images in email
+function _afrikaburn_emails_images(&$message, $body){
+
+  $patterns = array(
+    '/"(image:[^"]+)"/',
+    '/src="(\/[^"]+\.gif[^"]*)"/',
+    '/src="(\/[^"]+\.jpg[^"]*)"/',
+    '/src="(\/[^"]+\.png[^"]*)"/',
+    '/src="(\/[^"]+\.GIF[^"]*)"/',
+    '/src="(\/[^"]+\.JPG[^"]*)"/',
+    '/src="(\/[^"]+\.PNG[^"]*)"/',
+  );
+
+  $processed_images = array();
+  foreach ($patterns as $pattern) {
+    $embeddable_images = array();
+    preg_match_all($pattern, $body, $embeddable_images);
+    for ($i = 0; $i < count($embeddable_images[1]); $i++) {
+      $raw = $embeddable_images[1][$i];
+      $image_uri = trim(str_replace('/system/files', 'private:/', $raw));
+
+      if (!isset($processed_images[$image_uri])) {
+        $image_path = preg_replace('/^(image:|\/)+/', '', $image_uri);
+        $image_name = basename($image_path);
+
+        $image = new stdClass();
+        $image->uri = $image_path;
+        $image->filename = $image_name;
+        $image->filemime = \Drupal::service('file.mime_type.guesser')->guess($image_path);
+        $image->cid = preg_replace('/[^0-9a-zA-Z]|\?.+$/', '', $raw);
+
+        $message['params']['images'][] = $image;
+        $body = str_replace($raw, 'cid:' . $image->cid, $body);
+        $processed_images[$image_uri] = 1;
+      }
+    }
+  }
+
+  return $body;
 }
 
 // --- Recipient utilities
@@ -253,7 +271,7 @@ function _afrikaburn_emails_recipient_invitees($entity){
 
 /**
  * Retrieves a list of group member email addresses
- * @param  [object] $entity       Entity object being operated on
+ * @param  [object] $entity   Entity object being operated on
  * @return [array]            Array of email addresses
  */
 function _afrikaburn_emails_recipient_new_invitees($entity){
@@ -313,21 +331,17 @@ function _afrikaburn_emails_get_config($entity, $action){
     if (substr_count($match, '|') == 2) {
       list($key, $subject, $recipient) = explode('|', trim($match));
       $key_parts = explode(':', $key);
-      $fields = TRUE;
-      if (isset($key_parts[4])){
-        foreach(explode('&', $key_parts[4]) as $field_name){
-          $fields &= $field_name[0] == '!'
-            ? !($entity->get(str_replace('!', '', $field_name))->getValue()[0]['value'])
-            : $entity->get($field_name)->getValue()[0]['value'];
+      try{
+        if (!(isset($key_parts[4]) || $entity->hasField('field_form_mode')) || ($key_parts[4] == $entity->get('field_form_mode')->getValue()[0]['value'])){
+          $configs[] = [
+            'key' => $key_parts,
+            'subject' => $subject,
+            'template' => $config->get($key_parts[0]),
+            'recipients' => $recipient,
+          ];
         }
-      }
-      if ($fields){
-        $configs[] = [
-          'key' => $key_parts,
-          'subject' => $subject,
-          'template' => $config->get($key_parts[0]),
-          'recipients' => $recipient,
-        ];
+      } catch (Exception $e) {
+        \Drupal::logger('afrikaburn_emails')->notice(var_export($e, TRUE));
       }
     }
   }
