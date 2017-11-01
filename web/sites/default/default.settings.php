@@ -763,3 +763,20 @@ $settings['file_scan_ignore_directories'] = [
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+
+
+/**
+ * Quicket specific settings
+ */
+$settings['afrikaburn.quicket'] = [
+  'api_key'     => '###',
+  'user_token'  => '###',
+  'event_id'    => '###',
+  'valid_from'  => '2017-10-15T00:00:00Z',
+  'valid_to'    => '2018-04-30T00:00:00Z',
+  'ticket_codes' => [
+    'general' => '###',
+    'teens' => '###',
+    'kids' => '###',
+  ],
+];
