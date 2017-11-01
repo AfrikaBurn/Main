@@ -6,6 +6,7 @@ dependencies:
     - core.entity_form_mode.node.grant
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
+    - field.field.node.art.field_form_mode
     - field.field.node.art.field_grt_art_apply
     - field.field.node.art.field_grt_art_comment
     - field.field.node.art.field_grt_art_reason
@@ -35,6 +36,7 @@ dependencies:
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
+    - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_form_grant
     - field.field.node.art.field_prj_adm_form_wtf
     - field.field.node.art.field_prj_adm_latitude
@@ -127,6 +129,7 @@ dependencies:
     - field.field.node.art.field_prj_wtf_image
     - field.field.node.art.field_prj_wtf_long
     - field.field.node.art.field_prj_wtf_planned
+    - field.field.node.art.field_prj_wtf_scheduled
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
@@ -206,6 +209,14 @@ content:
     weight: 1
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_grt_art_total:
     weight: 5
@@ -415,6 +426,7 @@ hidden:
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
+  field_prj_adm_form_3: true
   field_prj_adm_form_grant: true
   field_prj_adm_form_wtf: true
   field_prj_adm_latitude: true
@@ -507,6 +519,7 @@ hidden:
   field_prj_wtf_image: true
   field_prj_wtf_long: true
   field_prj_wtf_planned: true
+  field_prj_wtf_scheduled: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true

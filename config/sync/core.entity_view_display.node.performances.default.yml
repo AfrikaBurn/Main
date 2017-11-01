@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.performances.field_collective
+    - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
     - field.field.node.performances.field_grt_breakdown
     - field.field.node.performances.field_grt_contribution
@@ -575,6 +576,7 @@ content:
     region: content
 hidden:
   field_collective: true
+  field_form_mode: true
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_notes: true

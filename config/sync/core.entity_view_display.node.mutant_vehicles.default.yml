@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_display.comment.comment.default
     - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_comment
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
@@ -873,3 +874,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_collective: true
+  field_form_mode: true

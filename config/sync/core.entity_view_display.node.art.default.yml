@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_display.comment.comment.default
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
+    - field.field.node.art.field_form_mode
     - field.field.node.art.field_grt_art_apply
     - field.field.node.art.field_grt_art_comment
     - field.field.node.art.field_grt_art_reason
@@ -1363,6 +1364,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_col_members: true
+  field_form_mode: true
   field_grt_art_reason: true
   field_grt_health: true
   field_grt_lighting: true

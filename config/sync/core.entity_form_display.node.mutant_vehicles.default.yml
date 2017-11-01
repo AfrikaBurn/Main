@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_comment
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
@@ -330,6 +331,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_form_mode:
+    weight: 68
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_grt_dmv_budget:
     type: entity_reference_paragraphs
     weight: 9

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
+    - field.field.node.art.field_form_mode
     - field.field.node.art.field_grt_art_apply
     - field.field.node.art.field_grt_art_comment
     - field.field.node.art.field_grt_art_reason
@@ -408,6 +409,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_form_mode:
+    weight: 108
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_grt_breakdown:
     type: paragraphs
     weight: 7
