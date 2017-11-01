@@ -27,6 +27,7 @@
         "drupal/cshs": "^1.0@beta",
         "drupal/csv_serialization": "^1.0",
         "drupal/custom_add_another": "^1.0@beta",
+        "drupal/dbug": "^1.0",
         "drupal/devel": "^1.0",
         "drupal/ds": "^3.1",
         "drupal/features": "^3.5",

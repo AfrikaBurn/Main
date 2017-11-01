@@ -180,7 +180,6 @@ dependencies:
     - user.role.theme
     - user.role.theme_camp_wrangler
   module:
-    - null
     - basic_auth
     - comment
     - computed_field
