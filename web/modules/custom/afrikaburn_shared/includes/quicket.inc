@@ -18,8 +18,8 @@ function _quicket($method, $id_number, $teens, $kids, $quicket_id = FALSE){
   $ticket_types = array_filter(
     [
       $settings['ticket_codes']['general'],
-      $settings['ticket_codes']['kids'],
-      $settings['ticket_codes']['teens']
+      $kids ? $settings['ticket_codes']['kids'] : 0,
+      $teens ? $settings['ticket_codes']['teens'] : 0
     ]
   );
 
@@ -70,7 +70,7 @@ function _quicket($method, $id_number, $teens, $kids, $quicket_id = FALSE){
     }
 
   } catch (Exception $e){
-    \Drupal::logger('my_module')->error('A request to quicket failed! ' . var_export($response, TRUE));
+    \Drupal::logger('my_module')->error('A request to quicket failed! ' . var_export($e, TRUE));
     return FALSE;
   }
 }
