@@ -76,7 +76,7 @@ class AfrikaburnUserRebuilder extends ControllerBase {
 
   /* ---- Set updated agreement ---- */
 
-  public static function getNewQuicketInfo($uid, $agreement, &$context){
+  public static function getNewQuicketInfo($uid, &$context){
 
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
     if ($user) {
@@ -86,8 +86,8 @@ class AfrikaburnUserRebuilder extends ControllerBase {
       $quicket = _quicket(
         'POST',
         $user->get('field_id_number')->value,
-        $user->get('field_teens')->value,
-        $user->get('field_kids')->value,
+        $user->hasField('field_teens') ? $user->get('field_teens')->value : 0,
+        $user->hasField('field_kids') ? $user->get('field_kids')->value : 0
       );
 
       $user->field_quicket_code = $quicket['code'];
