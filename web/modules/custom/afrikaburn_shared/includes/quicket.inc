@@ -70,7 +70,7 @@ function _quicket($method, $id_number, $teens, $kids, $quicket_id = FALSE){
     }
 
   } catch (Exception $e){
-    \Drupal::logger('my_module')->error('A request to quicket failed! ' . var_export($e, TRUE));
+    \Drupal::logger('my_module')->error('A request to quicket failed! ' . $e);
     return FALSE;
   }
 }
