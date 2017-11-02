@@ -190,10 +190,20 @@ jQuery(document).ready(function() {
 
   // HACKS
   // Force the "no-sidebars class if the sidebar is empty."
-  console.log(jQuery('div.sidebar').is(':empty'));
   if (jQuery.trim( jQuery('div.sidebar').html() ).length === 0) {
     jQuery('body').addClass('no-sidebars');
   }
+
+  var problemElement = jQuery('#edit-field-prj-stc-physical-value').closest('.field--name-field-prj-stc-physical').next('fieldset');
+  problemElement.addClass('hidden');
+  jQuery('#edit-field-prj-stc-physical-value').change(function() {
+
+    if(this.checked) {
+       problemElement.removeClass('hidden');
+    } else {
+      problemElement.addClass('hidden');
+    }
+});
 
 
 });
