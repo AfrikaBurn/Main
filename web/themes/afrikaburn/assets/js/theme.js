@@ -185,15 +185,25 @@ jQuery(document).ready(function() {
   jQuery(".collective-row").parent().addClass("collectives-container");
 
   var numberOfCollectives = jQuery("#my-collectives-block .view-collectives .collective-row").length;
-  jQuery("#my-collectives-block").addClass("length-" + numberOfCollectives);
-  jQuery(".block-views-blockcollectives-my-collectives-block").addClass("length-" + numberOfCollectives);
+  if (numberOfCollectives > 2) {numberOfCollectives = '3x'}
+  jQuery("body").addClass("collectives-length-" + numberOfCollectives);
 
   // HACKS
   // Force the "no-sidebars class if the sidebar is empty."
-  console.log(jQuery('div.sidebar').is(':empty'));
   if (jQuery.trim( jQuery('div.sidebar').html() ).length === 0) {
     jQuery('body').addClass('no-sidebars');
   }
+
+  var problemElement = jQuery('#edit-field-prj-stc-physical-value').closest('.field--name-field-prj-stc-physical').next('fieldset');
+  problemElement.addClass('hidden');
+  jQuery('#edit-field-prj-stc-physical-value').change(function() {
+
+    if(this.checked) {
+       problemElement.removeClass('hidden');
+    } else {
+      problemElement.addClass('hidden');
+    }
+});
 
 
 });
