@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /* 18 Oct 2017 - collective form */
 
 .field--name-field-col-invitee table,
@@ -49,16 +47,9 @@ body.path-frontpage .main-block{
   max-width: none !important;
 }
 
->>>>>>> 8ea92d5acfcde5f4d1a5126b2e914a091d224110
 .view-display-id-my_collectives_block .views-field-field-picture{
   float: none !important;
 }
-
-<<<<<<< HEAD
-.field--name-field-grt-breakdown .paragraph-type-top {
-   min-width: auto;
-   width: 25px;
-=======
 
 .field--name-field-grt-breakdown .paragraph-type-top {
    min-width: auto;
@@ -131,11 +122,7 @@ body.path-frontpage .main-block{
 .path-wranglers div.body-content table td {
     background-color: transparent;
 }
-.node-art-edit-form .field--name-field-grt-breakdown,
-.node-performances-edit-form .field--name-field-grt-breakdown {
-    display: none;
->>>>>>> 8ea92d5acfcde5f4d1a5126b2e914a091d224110
-}
+
 .node-art-grant-form .field--name-field-grt-breakdown,
 .node-performances-grant-form .field--name-field-grt-breakdown {
     display: block;
