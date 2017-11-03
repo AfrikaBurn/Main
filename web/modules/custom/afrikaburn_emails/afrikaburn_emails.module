@@ -332,7 +332,13 @@ function _afrikaburn_emails_get_config($entity, $action){
       list($key, $subject, $recipient) = explode('|', trim($match));
       $key_parts = explode(':', $key);
       try{
-        if (!(isset($key_parts[4]) || $entity->hasField('field_form_mode')) || ($key_parts[4] == $entity->get('field_form_mode')->getValue()[0]['value'])){
+
+        $check_mode = isset($key_parts[4]) && $entity->hasField('field_form_mode');
+        $matched = $check_mode
+          ? $key_parts[4] == $entity->get('field_form_mode')->getValue()[0]['value'])
+          : TRUE;
+
+        if ($matched){
           $configs[] = [
             'key' => $key_parts,
             'subject' => $subject,
