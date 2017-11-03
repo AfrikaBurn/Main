@@ -123,7 +123,13 @@ body.path-frontpage .main-block{
     background-color: transparent;
 }
 
+.page-node-type-art .field--name-field-grt-breakdown,
+.page-node-type-performances .field--name-field-grt-breakdown  {
+    display: none;
+}
+
 .node-art-grant-form .field--name-field-grt-breakdown,
 .node-performances-grant-form .field--name-field-grt-breakdown {
     display: block;
 }
+
