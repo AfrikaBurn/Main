@@ -335,7 +335,7 @@ function _afrikaburn_emails_get_config($entity, $action){
 
         $check_mode = isset($key_parts[4]) && $entity->hasField('field_form_mode');
         $matched = $check_mode
-          ? $key_parts[4] == $entity->get('field_form_mode')->getValue()[0]['value'])
+          ? $key_parts[4] == $entity->get('field_form_mode')->getValue()[0]['value']
           : TRUE;
 
         if ($matched){
