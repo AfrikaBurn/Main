@@ -85,7 +85,6 @@ third_party_settings:
       children:
         - member_for
         - field_other_burns
-        - field_agreements
       parent_name: group_root
       weight: 4
       format_type: accordion_item
@@ -118,14 +117,6 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  field_agreements:
-    type: entity_reference_label
-    weight: 6
-    region: content
-    label: above
-    settings:
-      link: false
-    third_party_settings: {  }
   field_other_burns:
     type: basic_string
     weight: 5
@@ -153,6 +144,7 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  field_agreements: true
   field_country: true
   field_date_of_birth: true
   field_district: true

@@ -180,6 +180,7 @@ dependencies:
     - user.role.theme
     - user.role.theme_camp_wrangler
   module:
+    - null
     - basic_auth
     - comment
     - computed_field
@@ -17215,11 +17216,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           fields:
-            rendered_entity: rendered_entity
             field_first_name: field_first_name
             field_last_name: field_last_name
             field_first_name_1: field_first_name_1
             field_last_name_1: field_last_name_1
+            name_1: name_1
             title: title
           plugin_id: combine
       filter_groups:
@@ -18504,11 +18505,14 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           fields:
-            rendered_entity: rendered_entity
             field_first_name: field_first_name
             field_last_name: field_last_name
+            name: name
+            mail: mail
             field_first_name_1: field_first_name_1
             field_last_name_1: field_last_name_1
+            name_1: name_1
+            mail_1: mail_1
             title: title
           plugin_id: combine
         field_grt_art_total_value:

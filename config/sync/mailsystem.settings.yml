@@ -11,5 +11,5 @@ modules:
       sender: swiftmailer
   afrikaburn_emails:
     ab_notification:
-      formatter: SMTPMailSystem
+      formatter: swiftmailer
       sender: swiftmailer
