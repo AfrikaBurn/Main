@@ -180,7 +180,6 @@ dependencies:
     - user.role.theme
     - user.role.theme_camp_wrangler
   module:
-    - null
     - basic_auth
     - comment
     - computed_field
@@ -592,10 +591,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        mail:
-          id: mail
-          table: users_field_data
-          field: mail
+        field_email:
+          id: field_email
+          table: user__field_email
+          field: field_email
           relationship: field_prj_gen_contact
           group_type: group
           admin_label: ''
@@ -641,8 +640,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: basic_string
-          settings: {  }
+          type: computed_string
+          settings:
+            sanitized: 1
+            cache_unit: '-1'
+            cache_duration: '1'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -653,8 +655,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: user
-          entity_field: mail
           plugin_id: field
         field_mobile:
           id: field_mobile
@@ -910,10 +910,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        mail_1:
-          id: mail_1
-          table: users_field_data
-          field: mail
+        field_email_1:
+          id: field_email_1
+          table: user__field_email
+          field: field_email
           relationship: field_prj_gen_lead
           group_type: group
           admin_label: ''
@@ -959,8 +959,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: basic_string
-          settings: {  }
+          type: computed_string
+          settings:
+            sanitized: 1
+            cache_unit: '-1'
+            cache_duration: '1'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -971,8 +974,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: user
-          entity_field: mail
           plugin_id: field
         field_mobile_1:
           id: field_mobile_1
@@ -1163,10 +1164,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        mail_2:
-          id: mail_2
-          table: users_field_data
-          field: mail
+        field_email_2:
+          id: field_email_2
+          table: user__field_email
+          field: field_email
           relationship: field_prj_gen_manager
           group_type: group
           admin_label: ''
@@ -1212,8 +1213,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: basic_string
-          settings: {  }
+          type: computed_string
+          settings:
+            sanitized: 1
+            cache_unit: '-1'
+            cache_duration: '1'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1224,8 +1228,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: user
-          entity_field: mail
           plugin_id: field
         field_mobile_2:
           id: field_mobile_2
@@ -11236,12 +11238,27 @@ display:
           group_type: group
           admin_label: ''
           order: ASC
-          exposed: false
+          exposed: true
           expose:
-            label: ''
+            label: Name
           entity_type: node
           entity_field: title
           plugin_id: standard
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: 'Registration date'
+          granularity: second
+          entity_type: node
+          entity_field: created
+          plugin_id: date
       header: {  }
       footer: {  }
       empty: {  }
@@ -11326,6 +11343,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -11487,6 +11506,7 @@ display:
         - 'config:field.storage.node.field_prj_wtf_short_copy'
         - 'config:field.storage.node.field_prj_wtf_website'
         - 'config:field.storage.node.field_this_is_the_amount_of_mone'
+        - 'config:field.storage.user.field_email'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
         - 'config:field.storage.user.field_mobile'
@@ -15150,6 +15170,8 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -15760,6 +15782,8 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -15921,6 +15945,7 @@ display:
         - 'config:field.storage.node.field_prj_wtf_short_copy'
         - 'config:field.storage.node.field_prj_wtf_website'
         - 'config:field.storage.node.field_this_is_the_amount_of_mone'
+        - 'config:field.storage.user.field_email'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
         - 'config:field.storage.user.field_mobile'
@@ -16072,6 +16097,9 @@ display:
         header: false
         filters: false
         filter_groups: false
+        title: false
+        sorts: true
+        arguments: false
       row:
         type: fields
         options:
@@ -17172,12 +17200,56 @@ display:
         operator: AND
         groups:
           1: AND
+      title: 'Wrangle Overview'
+      arguments:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: true
+          title: 'Wrangle {{ arguments.type }} Registration'
+          default_argument_type: node
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          glossary: false
+          limit: 0
+          case: ucfirst
+          path_case: none
+          transform_dash: false
+          break_phrase: false
+          entity_type: node
+          entity_field: type
+          plugin_id: node_type
     cache_metadata:
       max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -17360,6 +17432,7 @@ display:
         header: false
         filters: false
         filter_groups: false
+        arguments: false
       row:
         type: fields
         options:
@@ -18341,7 +18414,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: true
-          content: "<p><a href=\"/wranglers/{{ raw_arguments.type }}/download\" class=\"button\" target=\"_blank\">Download Excel</a></p>\n<p>go back to <a href=\"/wranglers/{{ raw_arguments.type }}\" class=\"button\">{{ raw_arguments.type }} Overview</a></p>\n"
+          content: "<p><a href=\"/wranglers/{{ raw_arguments.type }}/download\" class=\"button\" target=\"_blank\">Download Excel</a></p>\n<p><a href=\"/wranglers/{{ raw_arguments.type }}\" class=\"button\">{{ raw_arguments.type }} Overview</a></p>\n"
           plugin_id: text_custom
       filters:
         status:
@@ -18499,12 +18572,55 @@ display:
         operator: AND
         groups:
           1: AND
+      arguments:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: true
+          title: 'Wrangle {{ arguments.type }} grant applications'
+          default_argument_type: node
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          glossary: false
+          limit: 0
+          case: none
+          path_case: none
+          transform_dash: false
+          break_phrase: false
+          entity_type: node
+          entity_field: type
+          plugin_id: node_type
     cache_metadata:
       max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -18576,6 +18692,8 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -18737,6 +18855,7 @@ display:
         - 'config:field.storage.node.field_prj_wtf_short_copy'
         - 'config:field.storage.node.field_prj_wtf_website'
         - 'config:field.storage.node.field_this_is_the_amount_of_mone'
+        - 'config:field.storage.user.field_email'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
         - 'config:field.storage.user.field_mobile'
