@@ -206,5 +206,22 @@ function afrikaburn_shared_update_quicket($form, FormStateInterface &$form_state
  */
 function afrikaburn_shared_agreement_submit($form, $form_state){
   module_load_include('inc', 'afrikaburn_shared', 'includes/quicket');
-  _quicket_new(User::load(\Drupal::currentUser()->id()));
+
+  $user = User::load(\Drupal::currentUser()->id());
+  $new = [
+    'id' => $user->hasField('field_id_number']) ? $user->get('field_id_number')[0]['value']: 0,
+    'teens' => $user->hasField('field_teens']) ? $user->get('field_teens')[0]['value']: 0,
+    'kids' => $user->hasField('field_kids']) ? $user->get('field_kids')[0]['value'] : 0,
+  ];
+
+  $quicket = _quicket(
+    'POST',
+    $new['id'],
+    $new['teens'],
+    $new['kids']
+  );
+
+  $user->field_quicket_code = $quicket['code'];
+  $user->field_quicket_id = $quicket['id'];
+  $user->save();
 }
