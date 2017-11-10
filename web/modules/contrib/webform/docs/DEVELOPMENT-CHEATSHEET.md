@@ -78,7 +78,8 @@ drush en -y webform\
   webform_test_submissions\
   webform_test_translation\
   webform_scheduled_email_test\
-  webform_node;
+  webform_node\
+  webform_node_test_multiple;
 
 # Show the difference between the active config and the default config.
 drush features-diff webform
@@ -93,7 +94,7 @@ drush features-export -y webform_example_element
 drush features-export -y webform_example_composite
 drush features-export -y webform_example_remote_post
 drush features-export -y webform_templates
-drush features-export -y webform_testdrush cr
+drush features-export -y webform_test
 drush features-export -y webform_test_element
 drush features-export -y webform_test_handler
 drush features-export -y webform_test_handler_remote_post
@@ -103,6 +104,7 @@ drush features-export -y webform_test_submissions
 drush features-export -y webform_test_translation
 drush features-export -y webform_test_paragraphs
 drush features-export -y webform_node
+drush features-export -y webform_node_test_multiple
 drush features-export -y webform_scheduled_email_test
 drush features-export -y webform_test_block_submission_limit
 
@@ -128,6 +130,7 @@ drush webform-tidy -y --dependencies webform_test_submissions
 drush webform-tidy -y --dependencies webform_test_translation
 drush webform-tidy -y --dependencies webform_test_paragraphs
 drush webform-tidy -y --dependencies webform_node
+drush webform-tidy -y --dependencies webform_node_test_multiple
 drush webform-tidy -y --dependencies webform_scheduled_email_test
 drush webform-tidy -y --dependencies webform_test_block_submission_limit
 
@@ -149,6 +152,7 @@ drush features-import -y webform_test_submissions
 drush features-import -y webform_test_translation
 drush features-import -y webform_test_paragraphs
 drush features-import -y webform_node
+drush features-import -y webform_node_test_multiple
 drush features-import -y webform_scheduled_email_test
 drush features-import -y webform_test_block_submission_limit
 ```

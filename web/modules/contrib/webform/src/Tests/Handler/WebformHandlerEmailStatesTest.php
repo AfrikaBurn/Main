@@ -20,17 +20,6 @@ class WebformHandlerEmailStatesTest extends WebformTestBase {
   protected static $testWebforms = ['test_handler_email_states'];
 
   /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
-    parent::setUp();
-
-    // Add view own submission to anonymous so the submissions can be be
-    // converted to authenticated.
-    $this->addViewWebformSubmissionOwnPermissionToAnonymous();
-  }
-
-  /**
    * Test email states handler.
    */
   public function testEmailStates() {
@@ -52,8 +41,11 @@ class WebformHandlerEmailStatesTest extends WebformTestBase {
 
     // Check updated email.
     $this->drupalPostForm("/admin/structure/webform/manage/test_handler_email_states/submission/$sid/edit", [], t('Save'));
+
+    /**************************************************************************/
     // @todo Fix random test failure that can't be reproduced locally.
     // $this->assertRaw('Debug: Email: Submission updated');
+    /**************************************************************************/
 
     // Check deleted email.
     $this->drupalPostForm("/admin/structure/webform/manage/test_handler_email_states/submission/$sid/delete", [], t('Delete'));

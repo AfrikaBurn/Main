@@ -3,6 +3,10 @@ services:
     class: Drupal\xls_serialization\Encoder\Xls
     tags:
       - { name: encoder, format: xls }
+  xls_serialization.encoder.xlsx:
+    class: Drupal\xls_serialization\Encoder\Xlsx
+    tags:
+      - { name: encoder, format: xlsx }
   xls_serialization.subscriber:
     class: Drupal\xls_serialization\EventSubscriber\Subscriber
     tags:

@@ -5,7 +5,6 @@ namespace Drupal\xls_serialization\Encoder;
 use Drupal\Component\Serialization\Exception\InvalidDataTypeException;
 use Drupal\Component\Utility\Html;
 use Symfony\Component\Serializer\Encoder\EncoderInterface;
-use Symfony\Component\Serializer\Encoder\scalar;
 
 /**
  * Adds XLS encoder support for the Serialization API.
@@ -65,15 +64,24 @@ class Xls implements EncoderInterface {
       // Set the data.
       $this->setData($sheet, $data);
 
-      if (!empty($context['views_style_plugin']->options['xls_settings'])) {
-        $this->setSettings($context['views_style_plugin']->options['xls_settings']);
-      }
+      // Set the width of every column with data in it to AutoSize.
+      $this->setColumnsAutoSize($sheet);
 
-      // Set any metadata passed in via the context.
-      if (!empty($context['views_style_plugin']->options['xls_settings']['metadata'])) {
-        $this->setMetaData($xls->getProperties(), $context['views_style_plugin']->options['xls_settings']['metadata']);
-      }
+      if (!empty($context)) {
+        if (!empty($context['views_style_plugin']->options['xls_settings'])) {
+          $this->setSettings($context['views_style_plugin']->options['xls_settings']);
+        }
 
+        // Set any metadata passed in via the context.
+        if (!empty($context['views_style_plugin']->options['xls_settings']['metadata'])) {
+          $this->setMetaData($xls->getProperties(), $context['views_style_plugin']->options['xls_settings']['metadata']);
+        }
+
+        // Set the worksheet title based on the view title within the context.
+        if (!empty($context['views_style_plugin']->view) && !empty($context['views_style_plugin']->view->getTitle())) {
+          $sheet->setTitle($context['views_style_plugin']->view->getTitle());
+        }
+      }
       $writer = \PHPExcel_IOFactory::createWriter($xls, $this->xlsFormat);
 
       // @todo utilize a temporary file perhaps?
@@ -139,7 +147,7 @@ class Xls implements EncoderInterface {
    *     - 'f': floating point
    *     - 's': string (default)
    *     - 'd': 'date/time'
-   *     - 'b': boolean
+   *     - 'b': boolean.
    */
   protected function setMetaData(\PHPExcel_DocumentProperties $document_properties, array $metadata) {
     if (isset($metadata['creator'])) {
@@ -190,8 +198,11 @@ class Xls implements EncoderInterface {
 
   /**
    * Set sheet data.
+   *
    * @param \PHPExcel_Worksheet $sheet
+   *   The worksheet to put the data in.
    * @param array $data
+   *   The data to be put in the worksheet.
    */
   protected function setData(\PHPExcel_Worksheet $sheet, array $data) {
     foreach ($data as $i => $row) {
@@ -213,7 +224,6 @@ class Xls implements EncoderInterface {
    *
    * @return string
    *   The formatted value.
-   *
    */
   protected function formatValue($value) {
     // @todo Make these filters configurable.
@@ -231,15 +241,26 @@ class Xls implements EncoderInterface {
    *   The data array.
    * @param array $context
    *   The context options array.
+   *
    * @return string[]
    *   An array of headers to be used.
    */
   protected function extractHeaders(array $data, array $context) {
     $headers = [];
     if ($first_row = reset($data)) {
-      // @todo extract any actual labels for the headers from the context array.
-      $headers = array_keys($first_row);
+      if (!empty($context)) {
+        /** @var \Drupal\views\ViewExecutable $view */
+        $view = $context['views_style_plugin']->view;
+        $fields = $view->field;
+        foreach ($first_row as $key => $value) {
+          $headers[] = !empty($fields[$key]->options['label']) ? $fields[$key]->options['label'] : $key;
+        }
+      }
+      else {
+        $headers = array_keys($first_row);
+      }
     }
+
     return $headers;
   }
 
@@ -253,5 +274,17 @@ class Xls implements EncoderInterface {
     $this->xlsFormat = $settings['xls_format'];
   }
 
+  /**
+   * Set width of all columns with data in them in sheet to AutoSize.
+   *
+   * @param \PHPExcel_Worksheet $sheet
+   *   The worksheet to set the column width to AutoSize for.
+   */
+  protected function setColumnsAutoSize(\PHPExcel_Worksheet $sheet) {
+    foreach ($sheet->getColumnIterator() as $column) {
+      $column_index = $column->getColumnIndex();
+      $sheet->getColumnDimension($column_index)->setAutoSize(TRUE);
+    }
+  }
 
 }

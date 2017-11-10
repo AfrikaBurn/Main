@@ -41,7 +41,8 @@ abstract class PhpTestBase extends WebTestBase {
 
     // Verify that the PHP code text format was inserted.
     $php_format_id = 'php_code';
-    $this->phpCodeFormat = entity_load('filter_format', $php_format_id);
+    $this->phpCodeFormat = \Drupal::entityTypeManager()->getStorage('filter_format')->load($php_format_id);
+
     $this->assertEqual($this->phpCodeFormat->label(), 'PHP code', 'PHP code text format was created.');
 
     // Verify that the format has the PHP code filter enabled.
