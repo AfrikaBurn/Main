@@ -16,7 +16,7 @@ id: paragraph.grant_expences.field_type_of_expence
 field_name: field_type_of_expence
 entity_type: paragraph
 bundle: grant_expences
-label: 'Type of Expence'
+label: 'Type of Expense'
 description: ''
 required: true
 translatable: false

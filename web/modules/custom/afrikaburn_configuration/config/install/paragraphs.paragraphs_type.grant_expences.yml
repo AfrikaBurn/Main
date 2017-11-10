@@ -1,6 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: grant_expences
-label: 'Grant Expenses'
-behavior_plugins: {  }

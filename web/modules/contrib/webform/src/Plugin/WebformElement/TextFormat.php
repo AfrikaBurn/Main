@@ -7,7 +7,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Mail\MailFormatHelper;
 use Drupal\filter\Entity\FilterFormat;
 use Drupal\webform\Plugin\WebformElementBase;
-use Drupal\webform\WebformSubmissionConditionsValidator;
 use Drupal\webform\WebformSubmissionInterface;
 
 /**
@@ -29,22 +28,22 @@ class TextFormat extends WebformElementBase {
    * {@inheritdoc}
    */
   public function getDefaultProperties() {
-    $default_properties = parent::getDefaultProperties() + [
+    $properties = parent::getDefaultProperties() + [
       // Text format settings.
       'allowed_formats' => [],
       'hide_help' => FALSE,
     ];
     unset(
-      $default_properties['disabled'],
-      $default_properties['attributes'],
-      $default_properties['wrapper_attributes'],
-      $default_properties['title_display'],
-      $default_properties['description_display'],
-      $default_properties['field_prefix'],
-      $default_properties['field_suffix'],
-      $default_properties['help']
+      $properties['disabled'],
+      $properties['attributes'],
+      $properties['wrapper_attributes'],
+      $properties['title_display'],
+      $properties['description_display'],
+      $properties['field_prefix'],
+      $properties['field_suffix'],
+      $properties['help']
     );
-    return $default_properties;
+    return $properties;
   }
 
   /**
@@ -246,4 +245,5 @@ class TextFormat extends WebformElementBase {
     $elements = $this->getCompositeElements();
     return (isset($elements[$key])) ? TRUE : FALSE;
   }
+
 }

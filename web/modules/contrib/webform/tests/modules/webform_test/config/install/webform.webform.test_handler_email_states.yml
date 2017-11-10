@@ -19,6 +19,7 @@ css: ''
 javascript: ''
 settings:
   ajax: false
+  ajax_scroll_top: form
   page: true
   page_submit_path: ''
   page_confirm_path: ''
@@ -48,8 +49,8 @@ settings:
   wizard_progress_pages: false
   wizard_progress_percentage: false
   wizard_start_label: ''
-  wizard_complete: true
-  wizard_complete_label: ''
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
   preview: 0
   preview_label: ''
   preview_title: ''
@@ -146,6 +147,8 @@ handlers:
       debug: true
       reply_to: ''
       return_path: ''
+      sender_mail: ''
+      sender_name: ''
   email_converted:
     id: email
     label: 'Submission converted'
@@ -175,6 +178,8 @@ handlers:
       debug: true
       reply_to: ''
       return_path: ''
+      sender_mail: ''
+      sender_name: ''
   email_completed:
     id: email
     label: 'Submission completed'
@@ -204,6 +209,8 @@ handlers:
       debug: true
       reply_to: ''
       return_path: ''
+      sender_mail: ''
+      sender_name: ''
   email_updated:
     id: email
     label: 'Submission updated'
@@ -233,6 +240,8 @@ handlers:
       debug: true
       reply_to: ''
       return_path: ''
+      sender_mail: ''
+      sender_name: ''
   email_deleted:
     id: email
     label: 'Submission deleted'
@@ -262,3 +271,5 @@ handlers:
       debug: true
       reply_to: ''
       return_path: ''
+      sender_mail: ''
+      sender_name: ''

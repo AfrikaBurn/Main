@@ -1,0 +1,33 @@
+diff --git a/src/Plugin/BusinessRulesAction/SendEmail.php b/src/Plugin/BusinessRulesAction/SendEmail.php
+index a73cf91..4f30ef1 100644
+--- a/src/Plugin/BusinessRulesAction/SendEmail.php
++++ b/src/Plugin/BusinessRulesAction/SendEmail.php
+@@ -7,6 +7,7 @@ use Drupal\business_rules\Events\BusinessRulesEvent;
+ use Drupal\business_rules\ItemInterface;
+ use Drupal\business_rules\Plugin\BusinessRulesActionPlugin;
+ use Drupal\Core\Form\FormStateInterface;
++use Drupal\language\ConfigurableLanguageManagerInterface;
+ 
+ /**
+  * Class SendEmail.
+@@ -207,12 +208,15 @@ class SendEmail extends BusinessRulesActionPlugin {
+       }
+ 
+       // Send the email.
+-      $action_translated   = \Drupal::languageManager()
+-        ->getLanguageConfigOverride($langcode, 'business_rules.action.' . $action->id());
+-      $settings_translated = $action_translated->get('settings');
++      $languageManager = \Drupal::languageManager();
++      if ($languageManager instanceof ConfigurableLanguageManagerInterface) {
++        $action_translated = $languageManager->getLanguageConfigOverride($langcode, 'business_rules.action.' . $action->id());
++        $settings_translated = $action_translated->get('settings');
++      }
+ 
+-      $subject = $settings_translated['subject'];
+-      $message = $settings_translated['body'];
++      $subject = isset($settings_translated['subject']) ?
++        $settings_translated['subject'] : $action->getSettings('subject');
++      $message = isset($settings_translated['body']) ? $settings_translated['subject'] : $action->getSettings('message');
+       $subject = $this->processVariables($subject, $event_variables);
+       $message = $this->processVariables($message, $event_variables);
+ 

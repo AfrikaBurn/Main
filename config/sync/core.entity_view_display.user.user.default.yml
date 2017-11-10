@@ -7,6 +7,7 @@ dependencies:
     - field.field.user.user.field_country
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_district
+    - field.field.user.user.field_email
     - field.field.user.user.field_emr_email
     - field.field.user.user.field_emr_name
     - field.field.user.user.field_emr_telephone
@@ -20,6 +21,8 @@ dependencies:
     - field.field.user.user.field_newsletter
     - field.field.user.user.field_other_burns
     - field.field.user.user.field_participation
+    - field.field.user.user.field_quicket_code
+    - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -82,7 +85,6 @@ third_party_settings:
       children:
         - member_for
         - field_other_burns
-        - field_agreements
       parent_name: group_root
       weight: 4
       format_type: accordion_item
@@ -115,19 +117,16 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  field_agreements:
-    type: entity_reference_label
-    weight: 6
-    region: content
-    label: above
-    settings:
-      link: false
-    third_party_settings: {  }
   field_other_burns:
     type: basic_string
     weight: 5
     region: content
     label: above
+    settings: {  }
+    third_party_settings: {  }
+  masquerade:
+    weight: 2
+    region: content
     settings: {  }
     third_party_settings: {  }
   member_for:
@@ -145,9 +144,11 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  field_agreements: true
   field_country: true
   field_date_of_birth: true
   field_district: true
+  field_email: true
   field_emr_email: true
   field_emr_name: true
   field_emr_telephone: true
@@ -160,4 +161,6 @@ hidden:
   field_mobile: true
   field_newsletter: true
   field_participation: true
+  field_quicket_code: true
+  field_quicket_id: true
   field_secondary_mail: true

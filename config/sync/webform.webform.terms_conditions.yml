@@ -4,7 +4,7 @@ status: open
 dependencies: {  }
 open: null
 close: null
-uid: 22
+uid: 1
 template: false
 id: terms_conditions
 title: 'Terms & Conditions'
@@ -77,6 +77,18 @@ settings:
   results_disabled: false
   results_disabled_ignore: false
   token_update: false
+  ajax: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  submission_label: ''
+  submission_user_columns: {  }
+  preview_label: ''
+  preview_title: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  draft_multiple: false
 access:
   create:
     roles:

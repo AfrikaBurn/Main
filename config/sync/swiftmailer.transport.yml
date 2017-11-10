@@ -1,0 +1,11 @@
+transport: smtp
+smtp_host: email-smtp.us-west-2.amazonaws.com
+smtp_port: 25
+smtp_encryption: tls
+smtp_username: AKIAIR6FWAZ7FMYOEVPA
+smtp_password: AgWgwnVFTueHmgFpW/pIDTyX3u8txADXf0bMmFV+AL2t
+sendmail_path: /usr/sbin/sendmail
+sendmail_mode: bs
+spool_directory: ''
+_core:
+  default_config_hash: 0SeYZshzgoabDrbz-junYqeQOQ9BypPv2gaFcnqKy0M

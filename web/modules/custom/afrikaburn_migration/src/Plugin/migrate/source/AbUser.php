@@ -72,8 +72,11 @@ class AbUser extends DrupalSqlBase {
     $this->prepTaxField($uid, $row, 'munciple_district', '_tid');
     $this->prepComField($uid, $row);
     $this->prepField($uid, $row, 'other_burns');
-    // $this->prepField($uid, $row, 'newsletter');
     $this->prepField($uid, $row, 'website', '_url');
+
+    $row->setSourceProperty('langcode', 'en');
+    $row->setSourceProperty('preferred_langcode', 'en');
+    $row->setSourceProperty('preferred_admin_langcode', NULL);
 
     return parent::prepareRow($row);
   }

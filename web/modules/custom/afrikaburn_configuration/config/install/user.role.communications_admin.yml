@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: communications_admin
-label: 'Communications Admin'
-weight: -5
-is_admin: null

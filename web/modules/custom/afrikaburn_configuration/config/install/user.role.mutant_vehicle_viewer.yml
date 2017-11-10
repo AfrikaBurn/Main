@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: mutant_vehicle_viewer
-label: 'Mutant Vehicle Viewer'
-weight: -3
-is_admin: null

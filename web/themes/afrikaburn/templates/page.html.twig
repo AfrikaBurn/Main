@@ -122,39 +122,57 @@
     <div class="container-2">
       <div class="container-1">
         <div class="banners">
-          <div class="dummy">
-            <img src="{{ base_path ~ directory }}/assets/images/banners/dummy.png" />
-          </div>
-          <div class="slide current first">
-            <img src="{{ base_path ~ directory }}/assets/images/banners/daisies-sean-f.jpg" />
-          </div>
-          <div class="slide">
-            <img src="{{ base_path ~ directory }}/assets/images/banners/death-ride-2012b.jpg" />
-          </div>
-          <div class="slide">
-            <img src="{{ base_path ~ directory }}/assets/images/banners/earth-pods-simon-o.jpg" />
-          </div>
-          <div class="slide">
-            <img src="{{ base_path ~ directory }}/assets/images/banners/flames-clan-brendon-salzer.jpg" />
-          </div>
-          <div class="slide">
-            <img src="{{ base_path ~ directory }}/assets/images/banners/origami-2012d.jpg" />
-          </div>
-          <div class="slide">
-            <img src="{{ base_path ~ directory }}/assets/images/banners/panorama-sean-f.jpg" />
-          </div>
-          <div class="slide">
-            <img src="{{ base_path ~ directory }}/assets/images/banners/sanclan-2012f.jpg" />
-          </div>
-          <div class="slide">
-            <img src="{{ base_path ~ directory }}/assets/images/banners/stasie-kafee-2012a.jpg" />
-          </div>
-          <div class="slide">
-            <img src="{{ base_path ~ directory }}/assets/images/banners/sunset-sean-f.jpg" />
-          </div>
-          <div class="slide">
-            <img src="{{ base_path ~ directory }}/assets/images/banners/temple-2014-brendon-salzer.jpg" />
-          </div>
+          {% if logged_in %}
+            <div class="dummy">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/dummy.png" />
+            </div>
+            <div class="slide current first">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2008-Jonx-Pillemer-2.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2008-Jonx-Pillemer.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2010-Cameron-Richards.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2016-Raul-Aragao.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2017-Duncan-Rawlinson-2.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2017-Duncan-Rawlinson-3.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2017-Duncan-Rawlinson-4.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2017-Duncan-Rawlinson.jpg" />
+            </div>
+          {% else %}
+            <div class="dummy">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/dummy.png" />
+            </div>
+            <div class="slide current first">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2011-Cameron-Richards-Home-3.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2014-Jonx-Pillemer-Home-4.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2015-Mia-Dyason-Home-1.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2016-Raul-Aragao-Home-2.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2016-Steven-Morrow-Home-6.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2017-Steven-Morrow-Home-5.jpg" />
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>

@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: outreach_wrangler
-label: 'Outreach Wrangler'
-weight: 0
-is_admin: null

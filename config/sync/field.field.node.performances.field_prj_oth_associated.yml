@@ -20,8 +20,8 @@ id: node.performances.field_prj_oth_associated
 field_name: field_prj_oth_associated
 entity_type: node
 bundle: performances
-label: 'Are there any other projects associated with your performances? (If they not registered yet, please add below)'
-description: ''
+label: 'Are there any other projects associated with your artwork? Please use this field to link to other projects in your Collective.'
+description: 'If you''re associated with another project, but it''s not yet registered, will never be registered, or is not a part of your Collective, please use the next field to tell us about it.'
 required: false
 translatable: true
 default_value: {  }

@@ -7,6 +7,7 @@ dependencies:
     - field.field.user.user.field_country
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_district
+    - field.field.user.user.field_email
     - field.field.user.user.field_emr_email
     - field.field.user.user.field_emr_name
     - field.field.user.user.field_emr_telephone
@@ -20,6 +21,8 @@ dependencies:
     - field.field.user.user.field_newsletter
     - field.field.user.user.field_other_burns
     - field.field.user.user.field_participation
+    - field.field.user.user.field_quicket_code
+    - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -132,12 +135,8 @@ third_party_settings:
     group_emergency_medical_informat:
       children:
         - field_emr_name
-        - field_emr_relationship
         - field_emr_telephone
         - field_emr_email
-        - field_emr_company
-        - field_emr_medical_aid
-        - field_emr_med_telephone
       parent_name: group_root
       weight: 25
       format_type: accordion_item
@@ -280,6 +279,22 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_quicket_code:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_quicket_id:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_secondary_mail:
     weight: 3
     settings:
@@ -288,6 +303,11 @@ content:
     third_party_settings: {  }
     type: email_default
     region: content
+  google_analytics:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   language:
     weight: 4
     region: content
@@ -315,3 +335,4 @@ content:
 hidden:
   field_country: true
   field_district: true
+  field_email: true

@@ -42,6 +42,7 @@ class MemberController extends ControllerBase {
 
     $redirect = new RedirectResponse('/node/' . $cid);
     $redirect->send();
+    return [];
   }
 
   /**
@@ -80,6 +81,7 @@ class MemberController extends ControllerBase {
 
     $redirect = new RedirectResponse('/node/' . $cid);
     $redirect->send();
+    return [];
   }
 
   /**
@@ -117,6 +119,7 @@ class MemberController extends ControllerBase {
 
     $redirect = new RedirectResponse('/');
     $redirect->send();
+    return [];
   }
 
   /**
@@ -126,29 +129,45 @@ class MemberController extends ControllerBase {
 
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
     $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-    $member_index = self::memberIndex($uid, $collective, 'field_col_members');
-    $admin_index = self::memberIndex($uid, $collective, 'field_col_admins');
 
-    if (isset($user) && $collective->bundle() == 'collective'){
-      self::removeFromMembers($member_index, $collective);
-      self::removeFromAdmins($admin_index, $collective);
-      $collective->save();
+    if($collective->getOwner()->id() != $uid){
+
+      if (isset($user) && $collective->bundle() == 'collective'){
+
+      $member_index = self::memberIndex($uid, $collective, 'field_col_members');
+      $admin_index = self::memberIndex($uid, $collective, 'field_col_admins');
+
+      // Make sure we delete only one instance
+      $member_index = count ($member_index) ? [array_shift($member_index)] : [];
+      $admin_index = count ($admin_index) ? [array_shift($admin_index)] : [];
+
+        self::removeFromMembers($member_index, $collective);
+        self::removeFromAdmins($admin_index, $collective);
+        $collective->save();
+      }
+
+      drupal_set_message(
+        t(
+          '%user has been booted from %collective', 
+          [
+              '%user' => $user->getUsername(), 
+              '%collective' => $collective->getTitle(),
+          ]
+        ),
+        'status',
+        TRUE
+      );      
+    } else {
+      drupal_set_message(
+        t('You cannot boot the owner of a collective!'),
+        'status',
+        TRUE
+      );
     }
-
-    drupal_set_message(
-      t(
-        '%user has been booted from %collective', 
-        [
-            '%user' => $user->getUsername(), 
-            '%collective' => $collective->getTitle(),
-        ]
-      ),
-      'status',
-      TRUE
-    );
 
     $redirect = new RedirectResponse('/node/' . $cid);
     $redirect->send();
+    return [];
   }
 
   /**
@@ -178,6 +197,7 @@ class MemberController extends ControllerBase {
 
     $redirect = new RedirectResponse('/node/' . $cid);
     $redirect->send();
+    return [];
   }
 
   /* ---- CRUD ---- */
@@ -185,7 +205,9 @@ class MemberController extends ControllerBase {
   // Add email address to invites
   private static function addToInvites($emails, $collective) {
     foreach($emails as $email){
-      $collective->get('field_col_invitee')->appendItem(trim($email));
+      if (!count(self::inviteIndex($email, $collective))){
+        $collective->get('field_col_invitee')->appendItem(trim($email));
+      }
     }
   }
 
@@ -198,25 +220,29 @@ class MemberController extends ControllerBase {
 
   // Add user to members
   private static function addToMembers($user, $collective) {
-    $collective->get('field_col_members')->appendItem($user);
+    if (!count(self::memberIndex($user->id(), $collective, 'field_col_members'))){
+      $collective->get('field_col_members')->appendItem($user);
+    }
   }
 
   // Remove user from members
   private static function removeFromMembers($memberIndexes, $collective) {
-    foreach(array_reverse($memberIndexes) as $index){
-      $collective->get('field_col_members')->removeItem($index);    
+    if (count($memberIndexes)){
+      $collective->get('field_col_members')->removeItem(array_reverse($memberIndexes)[0]);    
     }
   }
 
   // Add user to Admins
   private static function addToAdmins($user, $collective) {
-    $collective->get('field_col_admins')->appendItem($user);
+    if (!count(self::memberIndex($user->id(), $collective, 'field_col_admins'))){
+      $collective->get('field_col_admins')->appendItem($user);
+    }
   }
 
   // Remove user from Admins
   private static function removeFromAdmins($memberIndexes, $collective) {
-    foreach(array_reverse($memberIndexes) as $index){
-      $collective->get('field_col_admins')->removeItem($index);
+    if (count($memberIndexes)){
+      $collective->get('field_col_admins')->removeItem(array_reverse($memberIndexes)[0]);    
     }
   }
 
@@ -237,11 +263,13 @@ class MemberController extends ControllerBase {
         'value'
       );
 
-      $mails = [$user->get('mail')->getValue(), $user->get('field_secondary_mail')->getValue()];
+      $mails = is_string($user)
+        ? [$user]
+        : [$user->get('mail')->getValue(), $user->get('field_secondary_mail')->getValue()];
       foreach($mails as $index=>$mail){
         if ($mail) {
           $value = array_values(array_column($mail, 'value'))[0];
-          if (in_array($value, $invitees)) {
+          if (in_array(strtolower($value), array_map('strtolower', $invitees))) {
             $indexes[$index] = $index;
           }
         }

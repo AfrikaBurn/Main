@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - node
-id: node.form_
-label: 'Form 2'
-targetEntityType: node
-cache: true

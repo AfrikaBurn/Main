@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.performances.field_collective
+    - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
     - field.field.node.performances.field_grt_breakdown
     - field.field.node.performances.field_grt_contribution
@@ -25,6 +26,7 @@ dependencies:
     - field.field.node.performances.field_prj_adm_notes
     - field.field.node.performances.field_prj_adm_ranger_comment
     - field.field.node.performances.field_prj_adm_review
+    - field.field.node.performances.field_prj_adm_wrangler
     - field.field.node.performances.field_prj_brn_agree
     - field.field.node.performances.field_prj_brn_burning
     - field.field.node.performances.field_prj_brn_f2
@@ -97,6 +99,7 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_long
     - field.field.node.performances.field_prj_wtf_plan
     - field.field.node.performances.field_prj_wtf_planned
+    - field.field.node.performances.field_prj_wtf_scheduled
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
     - field.field.node.performances.field_prj_wtf_website
@@ -114,6 +117,7 @@ dependencies:
     - image
     - link
     - markup
+    - paragraphs
     - path
 third_party_settings:
   field_group:
@@ -225,6 +229,7 @@ third_party_settings:
       children:
         - field_prj_wtf_image
         - field_prj_wtf_planned
+        - field_prj_wtf_scheduled
         - field_prj_wtf_website
         - field_prj_cll_collaborate
         - field_prj_cll_description
@@ -283,7 +288,7 @@ third_party_settings:
         - group_offsite_building
         - group_onsite_building
       parent_name: group_the_st
-      weight: 28
+      weight: 29
       format_type: fieldset
       format_settings:
         label: Dimensions
@@ -359,6 +364,28 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_form_mode:
+    weight: 67
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_grt_breakdown:
+    type: paragraphs
+    weight: 7
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
   field_muncipal_district:
     weight: 38
     settings:
@@ -384,6 +411,15 @@ content:
           bundle: performances
     type: cshs
     region: content
+  field_prj_adm_wrangler:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_brn_burning:
     type: boolean_checkbox
     weight: 0
@@ -420,27 +456,110 @@ content:
             selector: ''
           entity_type: node
           bundle: performances
+        f499fb22-591d-4bdd-b0e0-33654bef89ea:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
     type: string_textarea
     region: content
   field_prj_cll_collaborate:
-    weight: 10
+    weight: 11
     settings:
       display_label: true
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields: {  }
     type: boolean_checkbox
     region: content
   field_prj_cll_contact:
     weight: 13
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        93f251f7-a85d-4f1c-8277-0a6de1a67e0a:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+        5b0c8416-6ae7-4c66-bbee-b4f2f3131469:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
     type: options_select
     region: content
   field_prj_cll_description:
-    weight: 11
+    weight: 12
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        7d992704-c12c-47bd-89f2-13bc8402b835:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+        61159702-6f81-4238-b094-2d1998f5711d:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
     type: string_textarea
     region: content
   field_prj_cll_thread:
@@ -741,6 +860,22 @@ content:
             selector: ''
           entity_type: node
           bundle: performances
+        84544707-639b-48e5-b3c4-8f8ad24eb81e:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
     type: options_select
     region: content
   field_prj_snd_sound:
@@ -934,8 +1069,16 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
-  field_prj_wtf_website:
+  field_prj_wtf_scheduled:
     weight: 9
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_prj_wtf_website:
+    weight: 10
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -981,7 +1124,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_grt_art_total: true
-  field_grt_breakdown: true
   field_grt_contribution: true
   field_grt_f1: true
   field_grt_lighting: true

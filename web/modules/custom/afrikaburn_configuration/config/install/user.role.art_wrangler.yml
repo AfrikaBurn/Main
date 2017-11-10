@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: art_wrangler
-label: 'Art Wrangler'
-weight: -8
-is_admin: null

@@ -84,7 +84,7 @@ function multiple_fields_remove_button_field_widget_form_alter(&$element, FormSt
     $language = isset($element['#language']) ? $element['#language'] : Language::LANGCODE_NOT_SPECIFIED;
     $delta = isset($element['#delta']) ? $element['#delta'] : 0;
 
-    $parents = $element['#field_parents'] ?: [];
+    $parents = isset($element['#field_parents']) ? $element['#field_parents'] : [];
     $widget_state = WidgetBase::getWidgetState($parents, $field_name, $form_state);
 
     // Get parent which will we use into Remove Button Element.
