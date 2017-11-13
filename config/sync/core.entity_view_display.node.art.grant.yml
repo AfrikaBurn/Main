@@ -1,9 +1,10 @@
-uuid: 69c5c5bf-20f3-4f0e-85b5-8a90bb141faf
+uuid: 824ebe90-9a9a-4476-a54a-19453bda9218
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
+    - core.entity_view_mode.node.grant
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
@@ -435,10 +436,10 @@ third_party_settings:
     default: default
 _core:
   default_config_hash: F2XD_eUMlwsnh64FXbom-cxJT8e3efAGLdsgfXOFMac
-id: node.art.default
+id: node.art.grant
 targetEntityType: node
 bundle: art
-mode: default
+mode: grant
 content:
   field_collective:
     type: entity_reference_label

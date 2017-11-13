@@ -874,3 +874,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_collective: true
+  field_form_mode: true
