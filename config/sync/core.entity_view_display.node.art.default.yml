@@ -139,6 +139,7 @@ dependencies:
   module:
     - comment
     - datetime
+    - ds
     - empty_fields
     - entity_reference_revisions
     - field_group
@@ -481,7 +482,11 @@ content:
     settings:
       view_mode: default
       link: ''
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ds_limit: ''
   field_grt_contribution:
     type: number_integer
     weight: 12

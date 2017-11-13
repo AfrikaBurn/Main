@@ -83,7 +83,7 @@ display:
           id: wid
           entity_type: null
           entity_field: null
-          plugin_id: numeric
+          plugin_id: standard
           relationship: none
           group_type: group
           admin_label: ''
@@ -128,14 +128,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ','
-          format_plural: false
-          format_plural_string: "1\x03@count"
-          prefix: ''
-          suffix: ''
       filters: {  }
       sorts: {  }
       header: {  }
@@ -143,6 +135,7 @@ display:
       empty: {  }
       relationships: {  }
       arguments: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:

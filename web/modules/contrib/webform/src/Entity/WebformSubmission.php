@@ -12,7 +12,6 @@ use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
-use Drupal\webform\Plugin\Field\FieldType\WebformEntityReferenceItem;
 use Drupal\webform\WebformInterface;
 use Drupal\webform\WebformSubmissionInterface;
 
@@ -50,7 +49,8 @@ use Drupal\webform\WebformSubmissionInterface;
  *   entity_keys = {
  *     "id" = "sid",
  *     "bundle" = "webform_id",
- *     "uuid" = "uuid"
+ *     "uuid" = "uuid",
+ *     "langcode" = "langcode"
  *   },
  *   links = {
  *     "canonical" = "/admin/structure/webform/manage/{webform}/submission/{webform_submission}",
@@ -63,7 +63,7 @@ use Drupal\webform\WebformSubmissionInterface;
  *     "resend-form" = "/admin/structure/webform/manage/{webform}/submission/{webform_submission}/resend",
  *     "duplicate-form" = "/admin/structure/webform/manage/{webform}/submission/{webform_submission}/duplicate",
  *     "delete-form" = "/admin/structure/webform/manage/{webform}/submission/{webform_submission}/delete",
- *     "collection" = "/admin/structure/webform/results/manage/list"
+ *     "collection" = "/admin/structure/webform/submissions/manage/list"
  *   },
  *   permission_granularity = "bundle"
  * )
@@ -340,13 +340,26 @@ class WebformSubmission extends ContentEntityBase implements WebformSubmissionIn
   /**
    * {@inheritdoc}
    */
-  public function getData($key = NULL) {
-    if ($key !== NULL) {
-      return (isset($this->data[$key])) ? $this->data[$key] : NULL;
+  public function getElementData($key) {
+    return (isset($this->data[$key])) ? $this->data[$key] : NULL;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setElementData($key, $value) {
+    // Make sure the element exists before setting its value.
+    if ($this->getWebform()->getElement($key)) {
+      $this->data[$key] = $value;
     }
-    else {
-      return $this->data;
-    }
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getData() {
+    return $this->data;
   }
 
   /**
@@ -360,13 +373,8 @@ class WebformSubmission extends ContentEntityBase implements WebformSubmissionIn
   /**
    * {@inheritdoc}
    */
-  public function getOriginalData($key = NULL) {
-    if ($key !== NULL) {
-      return (isset($this->originalData[$key])) ? $this->originalData[$key] : NULL;
-    }
-    else {
-      return $this->originalData;
-    }
+  public function getOriginalData() {
+    return $this->originalData;
   }
 
   /**
@@ -630,7 +638,11 @@ class WebformSubmission extends ContentEntityBase implements WebformSubmissionIn
       $source_entity = \Drupal::entityTypeManager()
         ->getStorage($values['entity_type'])
         ->load($values['entity_id']);
-      if ($webform_field_name = WebformEntityReferenceItem::getEntityWebformFieldName($source_entity)) {
+
+      /** @var \Drupal\webform\WebformEntityReferenceManagerInterface $entity_reference_manager */
+      $entity_reference_manager = \Drupal::service('webform.entity_reference_manager');
+
+      if ($webform_field_name = $entity_reference_manager->getFieldName($source_entity)) {
         if ($source_entity->$webform_field_name->target_id == $webform->id() && $source_entity->$webform_field_name->default_data) {
           $values['data'] += Yaml::decode($source_entity->$webform_field_name->default_data);
         }

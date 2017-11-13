@@ -6,6 +6,8 @@ dependencies:
     - field.storage.paragraph.field_cost_type
     - paragraphs.paragraphs_type.grant_expences
     - taxonomy.vocabulary.cost_type
+  content:
+    - 'taxonomy_term:cost_type:49f8c499-f2be-49ee-bed6-6a246beb64d1'
   module:
     - custom_add_another
 third_party_settings:
@@ -20,7 +22,9 @@ label: 'Price type'
 description: ''
 required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    target_uuid: 49f8c499-f2be-49ee-bed6-6a246beb64d1
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
