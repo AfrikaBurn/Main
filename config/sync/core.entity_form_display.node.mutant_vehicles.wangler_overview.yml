@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.node.wangler_overview
     - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_comment
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
@@ -16,6 +17,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_grt_status
     - field.field.node.mutant_vehicles.field_grt_total
     - field.field.node.mutant_vehicles.field_grt_transport
+    - field.field.node.mutant_vehicles.field_mutant_drivers
     - field.field.node.mutant_vehicles.field_prj_adm_comms
     - field.field.node.mutant_vehicles.field_prj_adm_form_grant
     - field.field.node.mutant_vehicles.field_prj_adm_form_wtf
@@ -1081,6 +1083,12 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 6
@@ -1094,6 +1102,13 @@ content:
     weight: 3
     region: content
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
@@ -1120,3 +1135,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_collective: true
+  field_form_mode: true
+  field_mutant_drivers: true

@@ -6,6 +6,7 @@ dependencies:
     - core.entity_form_mode.node.wangler_overview
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
+    - field.field.node.art.field_form_mode
     - field.field.node.art.field_grt_art_apply
     - field.field.node.art.field_grt_art_comment
     - field.field.node.art.field_grt_art_reason
@@ -35,6 +36,8 @@ dependencies:
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
+    - field.field.node.art.field_prj_adm_form_3
+    - field.field.node.art.field_prj_adm_form_grant
     - field.field.node.art.field_prj_adm_form_wtf
     - field.field.node.art.field_prj_adm_latitude
     - field.field.node.art.field_prj_adm_longitude
@@ -126,6 +129,7 @@ dependencies:
     - field.field.node.art.field_prj_wtf_image
     - field.field.node.art.field_prj_wtf_long
     - field.field.node.art.field_prj_wtf_planned
+    - field.field.node.art.field_prj_wtf_scheduled
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
@@ -342,6 +346,12 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 5
@@ -355,6 +365,13 @@ content:
     weight: 3
     region: content
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
@@ -382,6 +399,7 @@ content:
 hidden:
   field_col_members: true
   field_collective: true
+  field_form_mode: true
   field_grt_art_apply: true
   field_grt_art_comment: true
   field_grt_art_reason: true
@@ -411,6 +429,7 @@ hidden:
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
+  field_prj_adm_form_3: true
   field_prj_adm_form_grant: true
   field_prj_adm_form_wtf: true
   field_prj_adm_latitude: true
@@ -497,6 +516,7 @@ hidden:
   field_prj_wtf_image: true
   field_prj_wtf_long: true
   field_prj_wtf_planned: true
+  field_prj_wtf_scheduled: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true

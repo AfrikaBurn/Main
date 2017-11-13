@@ -6,6 +6,8 @@ dependencies:
     - field.storage.paragraph.field_type_of_expence
     - paragraphs.paragraphs_type.grant_expences
     - taxonomy.vocabulary.type_of_expence
+  content:
+    - 'taxonomy_term:type_of_expence:81b48c63-2bcd-4db1-be20-47bfd45f2ada'
   module:
     - custom_add_another
 third_party_settings:
@@ -20,7 +22,9 @@ label: 'Type of Expense'
 description: ''
 required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    target_uuid: 81b48c63-2bcd-4db1-be20-47bfd45f2ada
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
