@@ -12,7 +12,6 @@ use Drupal\webform\Plugin\WebformElement\WebformManagedFileBase as WebformManage
  */
 abstract class WebformCompositeBase extends FormElement {
 
-
   /**
    * {@inheritdoc}
    */
@@ -20,6 +19,7 @@ abstract class WebformCompositeBase extends FormElement {
     $class = get_class($this);
     return [
       '#input' => TRUE,
+      '#access' => TRUE,
       '#process' => [
         [$class, 'processWebformComposite'],
         [$class, 'processAjaxForm'],
@@ -101,7 +101,7 @@ abstract class WebformCompositeBase extends FormElement {
       }
 
       // Make sure to remove any #options reference on textfields
-      // To prevnnt "An illegal choice has been detected." error
+      // To prevnnt "An illegal choice has been detected." error.
       // @see FormValidator::performRequiredValidation()
       if ($composite_element['#type'] == 'textfield') {
         unset($composite_element['#options']);
@@ -149,9 +149,9 @@ abstract class WebformCompositeBase extends FormElement {
         $composite_element['#default_value'] = $element['#value'][$composite_key];
       }
 
-      // Never require hidden composite elements.
-      if (isset($composite_element['#access']) && $composite_element['#access'] == FALSE) {
-        unset($composite_element['#required']);
+      // If the element's #access is FALSE, apply it to all sub elements.
+      if ($element['#access'] === FALSE) {
+        $composite_element['#access'] = FALSE;
       }
 
       // Initialize, prepare, and populate composite sub-element.
@@ -204,4 +204,5 @@ abstract class WebformCompositeBase extends FormElement {
       $form_state->setValueForElement($element, NULL);
     }
   }
+
 }

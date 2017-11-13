@@ -108,7 +108,7 @@ class XlsTest extends UnitTestCase {
   /**
    * Helper function to retrieve an xls object for a xls file.
    *
-   * @param $xls
+   * @param object $xls
    *   The xls file contents.
    * @param string $format
    *   The format the xls file is in. Defaults to 'xls'.

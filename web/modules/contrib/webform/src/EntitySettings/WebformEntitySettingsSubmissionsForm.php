@@ -4,7 +4,6 @@ namespace Drupal\webform\EntitySettings;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
-use Drupal\user\Entity\User;
 use Drupal\webform\WebformInterface;
 use Drupal\webform\WebformSubmissionStorageInterface;
 use Drupal\webform\WebformTokenManagerInterface;
@@ -73,10 +72,6 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
 
     /** @var \Drupal\webform\WebformSubmissionStorageInterface $webform_submission_storage */
     $webform_submission_storage = $this->entityTypeManager->getStorage('webform_submission');
-
-    // Make sure used can view own submission.
-    $anonymous_user = User::getAnonymousUser();
-    $anonymous_user_has_view_own_access = $anonymous_user->hasPermission('view own webform submission') || $webform->checkAccessRules('view_own', $anonymous_user);
 
     $default_settings = $this->config('webform.settings')->get('settings');
     $settings = $webform->getSettings();
@@ -165,7 +160,7 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
     ];
     $form['submission_behaviors']['form_convert_anonymous'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Convert anonymous user drafts and submissions to authenticated user.'),
+      '#title' => $this->t('Convert anonymous user drafts and submissions to authenticated user'),
       '#description' => $this->t('If checked, drafts and submissions created by an anonymous user will be reassigned to their user account when they login.'),
       '#return_value' => TRUE,
       '#default_value' => $settings['form_convert_anonymous'],
@@ -176,20 +171,6 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
       ],
       '#weight' => -98,
     ];
-    if (!$anonymous_user_has_view_own_access) {
-      $t_args = [':href' => $webform->toUrl('settings-access')->toString()];
-      $form['submission_behaviors']['form_convert_anonymous_message'] = [
-        '#type' => 'webform_message',
-        '#message_type' => 'error',
-        '#message_message' => $this->t('Anonymous users must be able to <a href=":href">view own webform submissions</a> to be able to convert anonymous user drafts and submissions to authenticated user.', $t_args),
-        '#states' => [
-          'visible' => [
-            ':input[name="form_convert_anonymous"]' => ['checked' => TRUE],
-          ],
-        ],
-        '#weight' => -97,
-      ];
-    }
     $behavior_elements = [
       // Form specific behaviors.
       'form_previous_submissions' => [
@@ -198,13 +179,15 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
       ],
       'token_update' => [
         'title' => $this->t('Allow users to update a submission using a secure token.'),
-        'form_description' => $this->t("If checked users will be able to update a submission using the webform's URL appended with the submission's (secure) token. The URL to update a submission will be available when viewing a submission's information and can be inserted into the an email using the [webform_submission:update-url] token. Only webforms that are open to new submissions can be updated using the secure token."),
+        'form_description' => $this->t("If checked users will be able to update a submission using the webform's URL appended with the submission's (secure) token.") . ' ' .
+          $this->t("The 'tokenized' URL to update a submission will be available when viewing a submission's information and can be inserted into an email using the [webform_submission:update-url] token.") . ' '  .
+          $this->t('Only webforms that are open to new submissions can be updated using the secure token.'),
       ],
       // Global behaviors.
       // @see \Drupal\webform\Form\WebformAdminSettingsForm
       'submission_log' => [
         'title' => $this->t('Log submission events'),
-        'all_description' => $this->t('All submission event are being logged for all webforms.'),
+        'all_description' => $this->t('All submission event are being logged for all webforms'),
         'form_description' => $this->t('If checked, events will be logged for submissions to this webforms.'),
       ],
     ];
@@ -212,7 +195,7 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
     $form['submission_behaviors']['token_update_warning'] = [
       '#type' => 'webform_message',
       '#message_type' => 'warning',
-      '#message_message' => $this->t("Webform submission's accessed using the (secure) token will by-pass all webform submsission access rules."),
+      '#message_message' => $this->t("Submissions accessed using the (secure) token will by-pass all webform submission access rules."),
       '#states' => [
         'visible' => [
           ':input[name="token_update"]' => ['checked' => TRUE],
@@ -252,7 +235,7 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
     $form['submission_limits']['user'] = [
       '#type' => 'details',
       '#title' => $this->t('Per user'),
-      '#description' => $this->t('Limit the number of submissions per user. A user is identified by their user login if logged-in, or by their Cookie if anonymous.'),
+      '#description' => $this->t('Limit the number of submissions per user. A user is identified by their user id if logged-in, or by their Cookie if anonymous.'),
     ];
     $form['submission_limits']['user']['limit_user'] = [
       '#type' => 'number',
@@ -317,19 +300,6 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
         WebformInterface::DRAFT_ALL => $this->t('Authenticated and anonymous users'),
       ],
     ];
-    if (!$anonymous_user_has_view_own_access) {
-      $t_args = [':href' => $webform->toUrl('settings-access')->toString()];
-      $form['draft_settings']['draft_anonymous_message'] = [
-        '#type' => 'webform_message',
-        '#message_type' => 'error',
-        '#message_message' => $this->t('Anonymous users must be able to <a href=":href">view own webform submissions</a> to be able to automatically save drafts.', $t_args),
-        '#states' => [
-          'visible' => [
-            ':input[name="draft"]' => ['value' => WebformInterface::DRAFT_ALL],
-          ],
-        ],
-      ];
-    }
     $form['draft_settings']['draft_message'] = [
       '#type' => 'webform_message',
       '#message_type' => 'warning',
@@ -344,8 +314,6 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
         ],
       ],
     ];
-
-
     $form['draft_settings']['draft_container'] = [
       '#type' => 'container',
       '#states' => [
@@ -356,8 +324,8 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
     ];
     $form['draft_settings']['draft_container']['draft_multiple'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Allow users to save multiple drafts.'),
-      "#description" => $this->t('If checked, users will be able saved and resume multiple drafts.'),
+      '#title' => $this->t('Allow users to save multiple drafts'),
+      "#description" => $this->t('If checked, users will be able save and resume multiple drafts.'),
       '#return_value' => TRUE,
       '#default_value' => $settings['draft_multiple'],
     ];

@@ -23,7 +23,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 abstract class WebformHandlerBase extends PluginBase implements WebformHandlerInterface {
 
   /**
-   * The webform .
+   * The webform.
    *
    * @var \Drupal\webform\WebformInterface
    */
@@ -109,7 +109,7 @@ abstract class WebformHandlerBase extends PluginBase implements WebformHandlerIn
    *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
-   * @param LoggerChannelFactoryInterface $logger_factory
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
    *   The logger factory.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The configuration factory.
@@ -488,6 +488,15 @@ abstract class WebformHandlerBase extends PluginBase implements WebformHandlerIn
    * {@inheritdoc}
    */
   public function postSave(WebformSubmissionInterface $webform_submission, $update = TRUE) {}
+
+  /****************************************************************************/
+  // Preprocessing methods.
+  /****************************************************************************/
+
+  /**
+   * {@inheritdoc}
+   */
+  public function preprocessConfirmation(array &$variables) {}
 
   /****************************************************************************/
   // Handler methods.

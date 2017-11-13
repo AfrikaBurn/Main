@@ -7,8 +7,6 @@
 
 namespace Drupal\php\Plugin\Filter;
 
-use Drupal\Core\Annotation\Translation;
-use Drupal\filter\Annotation\Filter;
 use Drupal\filter\FilterProcessResult;
 use Drupal\filter\Plugin\FilterBase;
 

@@ -50,7 +50,7 @@ webform.admin.translation:
     theme:
       css/webform.admin.translation.css: {}
 
-# Admin.
+# Add-ons.
 
 webform.addons:
   version: VERSION
@@ -62,6 +62,16 @@ webform.addons:
     - webform/webform.element.details.toggle
     - webform/webform.element.details.save
     - webform/webform.promotions
+
+# About.
+
+webform.about:
+  version: VERSION
+  css:
+    theme:
+      css/webform.about.css: {}
+  dependencies:
+    - webform/webform.help
 
 # Ajax.
 
@@ -116,6 +126,13 @@ webform.confirmation.modal:
     - core/jquery.once
     - webform/webform.confirmation
 
+# Contextual
+
+webform.contextual:
+  version: VERSION
+  js:
+    js/webform.contextual.js:  {}
+
 # Help.
 
 webform.help:
@@ -130,6 +147,20 @@ webform.help:
     - core/jquery
     - core/jquery.once
     - core/jquery.ui.accordion
+
+# More.
+
+webform.element.more:
+  version: VERSION
+  css:
+    component:
+      css/webform.element.more.css: {}
+  js:
+    js/webform.element.more.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
 
 # Navigation.
 
@@ -251,14 +282,37 @@ webform.form.unsaved:
     - core/jquery.once
     - core/drupal
 
-# Element.
-
-webform.element.buttons:
+webform.form.wizard:
   version: VERSION
   js:
-    js/webform.element.buttons.js: {}
+    js/webform.form.wizard.js:  {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+
+# Element.
+
+# Drupal 8.3.x and below
+webform.element.buttons.buttonset:
+  version: VERSION
+  js:
+    js/webform.element.buttons.buttonset.js: {}
   dependencies:
     - core/jquery.ui.button
+
+# Drupal 8.4.x and above
+webform.element.buttons.checkboxradio:
+  version: VERSION
+  js:
+    # Issue #2906737: With the new jquery 3 checkboxradio and selectmenu error.
+    # @see https://www.drupal.org/node/2906737
+    /core/assets/vendor/jquery.ui/ui/form-reset-mixin-min.js: { minified: true }
+    /core/assets/vendor/jquery.ui/ui/escape-selector-min.js: { minified: true }
+    /core/assets/vendor/jquery.ui/ui/widgets/checkboxradio-min.js: { minified: true }
+    js/webform.element.buttons.checkboxradio.js: {}
+  dependencies:
+    - core/jquery.ui.checkboxradio
 
 webform.element.chosen:
   version: VERSION
@@ -300,6 +354,16 @@ webform.element.codemirror.html:
   dependencies:
     - webform/libraries.codemirror.html
 
+webform.element.codemirror.htmlmixed:
+  version: VERSION
+  css:
+    component:
+      css/webform.element.codemirror.css: {}
+  js:
+    js/webform.element.codemirror.js: {weight: -1}
+  dependencies:
+    - webform/libraries.codemirror.htmlmixed
+
 webform.element.codemirror.css:
   version: VERSION
   css:
@@ -330,6 +394,16 @@ webform.element.codemirror.php:
   dependencies:
     - webform/libraries.codemirror.php
 
+webform.element.codemirror.twig:
+  version: VERSION
+  css:
+    component:
+      css/webform.element.codemirror.css: {}
+  js:
+    js/webform.element.codemirror.js: {weight: -1}
+  dependencies:
+    - webform/libraries.codemirror.twig
+
 webform.element.color:
   version: VERSION
   css:
@@ -347,11 +421,23 @@ webform.element.composite:
     component:
       css/webform.element.composite.css: {}
 
-webform.element.composite_telephone:
+webform.element.composite.telephone:
   version: VERSION
   css:
     component:
-      css/webform.element.composite_telephone.css: {}
+      css/webform.element.composite.telephone.css: {}
+
+webform.element.composite.admin:
+  version: VERSION
+  css:
+    component:
+      css/webform.element.composite.admin.css: {}
+  js:
+    js/webform.element.composite.admin.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
 
 webform.element.counter:
   version: VERSION
@@ -428,6 +514,12 @@ webform.element.html_editor:
     - core/drupalSettings
     - core/jquery
     - core/jquery.once
+
+webform.element.horizontal_rule:
+  version: VERSION
+  css:
+    component:
+      css/webform.element.horizontal_rule.css: {}
 
 webform.element.icheck:
   version: VERSION
@@ -711,6 +803,7 @@ libraries.codemirror.text:
   js:
     /libraries/codemirror/lib/codemirror.js: {weight: -1}
     /libraries/codemirror/addon/runmode/runmode.js: {}
+    /libraries/codemirror/addon/display/placeholder.js: {}
 
 libraries.codemirror.yaml:
   version: *webform_codemirror_version
@@ -730,6 +823,18 @@ libraries.codemirror.html:
     /libraries/codemirror/mode/htmlmixed/htmlmixed.js: {}
   dependencies:
     - webform/libraries.codemirror.text
+
+libraries.codemirror.htmlmixed:
+  version: *webform_codemirror_version
+  license: *webform_codemirror_license
+  cdn: *webform_codemirror_cdn
+  js:
+    /libraries/codemirror/mode/xml/xml.js: {}
+    /libraries/codemirror/mode/htmlmixed/htmlmixed.js: {}
+  dependencies:
+    - webform/libraries.codemirror.text
+    - webform/libraries.codemirror.css
+    - webform/libraries.codemirror.js
 
 libraries.codemirror.css:
   version: *webform_codemirror_version
@@ -760,17 +865,26 @@ libraries.codemirror.php:
   dependencies:
     - webform/libraries.codemirror.text
 
+libraries.codemirror.twig:
+  version: *webform_codemirror_version
+  license: *webform_codemirror_license
+  cdn: *webform_codemirror_cdn
+  js:
+    /libraries/codemirror/mode/twig/twig.js: {}
+  dependencies:
+    - webform/libraries.codemirror.text
+
 libraries.jquery.word-and-character-counter:
   remote: https://github.com/qwertypants/jQuery-Word-and-Character-Counter-Plugin
-  version: '2.3.5'
+  version: '2.5.1'
   license:
     name: MIT
     url: http://opensource.org/licenses/mit-license.php
     gpl-compatible: true
   cdn:
-    /libraries/jquery.word-and-character-counter/: https://cdn.rawgit.com/qwertypants/jQuery-Word-and-Character-Counter-Plugin/2.3.5/
+    /libraries/jquery.word-and-character-counter/: https://cdn.rawgit.com/qwertypants/jQuery-Word-and-Character-Counter-Plugin/2.5.1/
   js:
-    /libraries/jquery.word-and-character-counter/word-and-character-counter.min.js: {}
+    /libraries/jquery.word-and-character-counter/jquery.word-and-character-counter.min.js: {}
   dependencies:
     - core/jquery
 

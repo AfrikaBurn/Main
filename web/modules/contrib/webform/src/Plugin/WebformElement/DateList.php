@@ -24,7 +24,7 @@ class DateList extends DateBase {
    * {@inheritdoc}
    */
   public function getDefaultProperties() {
-    return parent::getDefaultProperties() + [
+    return [
       // Date settings.
       'date_part_order' => [
         'year',
@@ -39,9 +39,8 @@ class DateList extends DateBase {
       'date_year_range' => '1900:2050',
       'date_year_range_reverse' => FALSE,
       'date_increment' => 1,
-    ];
+    ] + parent::getDefaultProperties();
   }
-
 
   /**
    * {@inheritdoc}
@@ -152,6 +151,7 @@ class DateList extends DateBase {
     ];
     $form['date']['date_text_parts'] = [
       '#type' => 'checkboxes',
+      '#options_display' => 'side_by_side',
       '#title' => $this->t('Date text parts'),
       '#description' => $this->t("Select date parts that should be presented as text fields instead of drop-down selectors."),
       '#options' => [
@@ -181,6 +181,7 @@ class DateList extends DateBase {
       '#description' => $this->t('The increment to use for minutes and seconds'),
       '#min' => 1,
       '#size' => 4,
+      '#weight' => 10,
     ];
     return $form;
   }
@@ -206,11 +207,10 @@ class DateList extends DateBase {
     parent::setConfigurationFormDefaultValue($form, $element_properties, $property_element, $property_name);
   }
 
-
   /**
-   * After build hander for Date elements.
+   * After build handler for Datelist element.
    */
-  public static function afterBuild(array $element, \Drupal\Core\Form\FormStateInterface $form_state) {
+  public static function afterBuild(array $element, FormStateInterface $form_state) {
     // Reverse years from min:max to max:min.
     // @see \Drupal\Core\Datetime\Element\DateElementBase::datetimeRangeYears
     if (!empty($element['#date_year_range_reverse']) && isset($element['year']) && isset($element['year']['#options'])) {
