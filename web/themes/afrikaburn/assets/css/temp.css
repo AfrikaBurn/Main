@@ -1,12 +1,6 @@
 /* 14 Nov 2017 - Grant Print layout */
 
 @media print {
-  .field--name-field-prj-gen-concept .field__item{
-    display: none;
-  }
-  .field--name-field-prj-gen-concept .field__item:first-child{
-    display: block;
-  }
  
   .field--name-field-prj-gen-concept{ 
     page-break-after: always;
@@ -27,20 +21,21 @@
   }
 
   .field-group-accordion-wrapper > div{
-    width: 35%; float: left;
+    width: 30%; 
     display: inline-block;
-    page-break-after: always;
     margin: 0 0 50px 10px;
+    vertical-align: top;
   }
 
   .field-group-accordion-wrapper > h3{
-    width: 15%; float: left;
+    display: inline-block;
+    width: 15%;
     margin: 0 0 50px 10px;
+    vertical-align: top;
   }
 
   .field-group-accordion-wrapper > *:nth-child(4n+1){
     page-break-before: always;
-    clear: left;
   }
 
   .field-group-accordion-wrapper > h3:last-of-type,
