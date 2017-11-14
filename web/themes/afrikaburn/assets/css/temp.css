@@ -1,3 +1,85 @@
+/* 14 Nov 2017 - Grant Print layout */
+
+@media print {
+  .field--name-field-prj-gen-concept .field__item{
+    display: none;
+  }
+  .field--name-field-prj-gen-concept .field__item:first-child{
+    display: block;
+  }
+ 
+  .field--name-field-prj-gen-concept{ 
+    page-break-after: always;
+  }
+
+  .paragraph {
+    display: flex;
+  }
+  .paragraph .field__item {
+    border-bottom: none;
+    padding-left: 0;
+    overflow-wrap: break-word;
+    display: inline-block;
+  }
+
+  .field-group-accordion-wrapper{
+    display: table;
+  }
+
+  .field-group-accordion-wrapper > div{
+    width: 35%; float: left;
+    display: inline-block;
+    page-break-after: always;
+    margin: 0 0 50px 10px;
+  }
+
+  .field-group-accordion-wrapper > h3{
+    width: 15%; float: left;
+    margin: 0 0 50px 10px;
+  }
+
+  .field-group-accordion-wrapper > *:nth-child(4n+1){
+    page-break-before: always;
+    clear: left;
+  }
+
+  .field-group-accordion-wrapper > h3:last-of-type,
+  .field-group-accordion-wrapper > div:last-of-type{
+    page-break-before: always;
+    clear: both;
+    width: 100%; 
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-grt-brk-description {
+    width: 24%;
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-field-specifications {
+    width: 14%;
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-field-quantity {
+    width: 7%;
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-price-total- {
+    width: 10%;
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-cost-type {
+    width: 10%;
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-type-of-expence {
+    width: 14%;
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-other {
+    max-width: 14%;
+  }
+
+}
+
 /* 18 Oct 2017 - collective form */
 
 .field--name-field-col-invitee table,

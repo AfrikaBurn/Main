@@ -167,7 +167,7 @@ third_party_settings:
         - group_grant
         - group_admin
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: accordion
       format_settings:
         effect: none
@@ -442,12 +442,14 @@ mode: default
 content:
   field_collective:
     type: entity_reference_label
-    weight: 0
+    weight: 1
     region: content
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
   field_grt_art_apply:
     type: boolean
     weight: 87
@@ -786,7 +788,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_bio:
     type: basic_string
-    weight: 7
+    weight: 8
     region: content
     label: above
     settings: {  }
@@ -806,7 +808,7 @@ content:
     region: content
   field_prj_gen_contact:
     type: entity_reference_label
-    weight: 1
+    weight: 2
     region: content
     label: above
     settings:
@@ -828,14 +830,14 @@ content:
     third_party_settings: {  }
   field_prj_gen_external:
     type: basic_string
-    weight: 9
+    weight: 10
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_prj_gen_fundraiser:
     type: entity_reference_label
-    weight: 5
+    weight: 6
     region: content
     label: above
     settings:
@@ -843,7 +845,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_fundraising:
     type: boolean
-    weight: 4
+    weight: 5
     region: content
     label: above
     settings:
@@ -853,7 +855,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_history:
     type: basic_string
-    weight: 8
+    weight: 9
     region: content
     label: above
     settings: {  }
@@ -867,14 +869,14 @@ content:
     third_party_settings: {  }
   field_prj_gen_lead:
     type: entity_reference_label
-    weight: 2
+    weight: 3
     region: content
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_prj_gen_location:
-    weight: 6
+    weight: 7
     label: above
     settings:
       link: true
@@ -883,7 +885,7 @@ content:
     region: content
   field_prj_gen_manager:
     type: entity_reference_label
-    weight: 3
+    weight: 4
     region: content
     label: above
     settings:
@@ -1323,7 +1325,7 @@ content:
       link: true
     third_party_settings: {  }
   field_prj_wtf_scheduled:
-    weight: 196
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -1362,11 +1364,6 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-  links:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_col_members: true
   field_form_mode: true
@@ -1386,3 +1383,4 @@ hidden:
   field_prj_adm_comms: true
   field_prj_oth_unregistered: true
   field_prj_wtf_categories: true
+  links: true
