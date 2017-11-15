@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.wrangler_overview
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
+    - field.field.node.art.field_form_mode
     - field.field.node.art.field_grt_art_apply
     - field.field.node.art.field_grt_art_comment
     - field.field.node.art.field_grt_art_reason
@@ -30,7 +31,6 @@ dependencies:
     - field.field.node.art.field_grt_tec_reason
     - field.field.node.art.field_grt_tec_total
     - field.field.node.art.field_grt_tool
-    - field.field.node.art.field_grt_total
     - field.field.node.art.field_grt_transport
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
@@ -124,10 +124,12 @@ dependencies:
     - field.field.node.art.field_prj_stg_stage
     - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
+    - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
     - field.field.node.art.field_prj_wtf_long
     - field.field.node.art.field_prj_wtf_planned
+    - field.field.node.art.field_prj_wtf_scheduled
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
@@ -472,6 +474,7 @@ content:
 hidden:
   field_col_members: true
   field_collective: true
+  field_form_mode: true
   field_grt_art_apply: true
   field_grt_art_comment: true
   field_grt_art_reason: true
@@ -495,7 +498,6 @@ hidden:
   field_grt_tec_reason: true
   field_grt_tec_total: true
   field_grt_tool: true
-  field_grt_total: true
   field_grt_transport: true
   field_muncipal_district: true
   field_prj_adm_comms: true
@@ -579,10 +581,12 @@ hidden:
   field_prj_stg_stage: true
   field_prj_stg_tread: true
   field_prj_stg_type: true
+  field_prj_total_cost: true
   field_prj_wtf_categories: true
   field_prj_wtf_image: true
   field_prj_wtf_long: true
   field_prj_wtf_planned: true
+  field_prj_wtf_scheduled: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true

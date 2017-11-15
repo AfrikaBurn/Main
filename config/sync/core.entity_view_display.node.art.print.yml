@@ -31,7 +31,6 @@ dependencies:
     - field.field.node.art.field_grt_tec_reason
     - field.field.node.art.field_grt_tec_total
     - field.field.node.art.field_grt_tool
-    - field.field.node.art.field_grt_total
     - field.field.node.art.field_grt_transport
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
@@ -125,6 +124,7 @@ dependencies:
     - field.field.node.art.field_prj_stg_stage
     - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
+    - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
     - field.field.node.art.field_prj_wtf_long
@@ -136,6 +136,7 @@ dependencies:
     - field.field.node.art.field_this_is_the_amount_of_mone
     - node.type.art
   module:
+    - computed_field
     - ds
     - empty_fields
     - entity_reference_revisions
@@ -190,6 +191,7 @@ third_party_settings:
     group_wrangler_2:
       children:
         - field_prj_gen_description
+        - field_prj_wtf_scheduled
         - field_prj_gen_story
         - field_prj_gen_immortal
       parent_name: group_overview
@@ -414,7 +416,7 @@ bundle: art
 mode: print
 content:
   field_grt_art_total:
-    weight: 1
+    weight: 0
     label: above
     settings:
       thousand_separator: ''
@@ -485,15 +487,6 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_grt_total:
-    type: number_integer
-    weight: 0
-    region: content
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
   field_prj_brn_burning:
     weight: 44
     label: above
@@ -533,14 +526,14 @@ content:
     region: content
   field_prj_gen_immortal:
     type: basic_string
-    weight: 194
+    weight: 193
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_prj_gen_story:
     type: basic_string
-    weight: 191
+    weight: 192
     region: content
     label: above
     settings: {  }
@@ -636,6 +629,17 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
+  field_prj_total_cost:
+    type: computed_integer
+    weight: 1
+    region: content
+    label: above
+    settings:
+      cache_unit: -1
+      cache_duration: 1
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
   field_prj_wtf_planned:
     type: entity_reference_label
     weight: 98
@@ -646,7 +650,7 @@ content:
     third_party_settings: {  }
   field_prj_wtf_scheduled:
     type: basic_string
-    weight: 2
+    weight: 191
     region: content
     label: above
     settings: {  }

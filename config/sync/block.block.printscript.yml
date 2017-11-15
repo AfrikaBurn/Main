@@ -1,4 +1,4 @@
-uuid: 10148b0c-2276-4054-8544-faf8a233c102
+uuid: bf2491b2-c11b-44bb-acd0-4874aa143397
 langcode: en
 status: true
 dependencies:
@@ -11,8 +11,8 @@ dependencies:
     - afrikaburn
 id: printscript
 theme: afrikaburn
-region: content
-weight: 0
+region: page_title
+weight: -20
 provider: null
 plugin: 'block_content:6b45a62c-f3d6-4411-bd51-2a054ad8f4e7'
 settings:
