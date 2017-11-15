@@ -87,6 +87,14 @@ function afrikaburn_shared_views_pre_view(\Drupal\views\ViewExecutable $view, $d
   }
 }
 
+function computed_field_field_prj_total_cost_compute($entity_type_manager, $entity, $fields, $delta){
+  $total = 0;
+  foreach($fields['field_grt_breakdown'] as $expense){
+    $total += $expense['subform']['field_price_total_'][0]['value'];
+  }
+  return $total;
+}
+
 /* ---- Validators ---- */
 
 /**

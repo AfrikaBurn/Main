@@ -30,7 +30,6 @@ dependencies:
     - field.field.node.art.field_grt_tec_reason
     - field.field.node.art.field_grt_tec_total
     - field.field.node.art.field_grt_tool
-    - field.field.node.art.field_grt_total
     - field.field.node.art.field_grt_transport
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
@@ -124,6 +123,7 @@ dependencies:
     - field.field.node.art.field_prj_stg_stage
     - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
+    - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
     - field.field.node.art.field_prj_wtf_long
@@ -137,6 +137,7 @@ dependencies:
     - node.type.art
   module:
     - comment
+    - computed_field
     - conditional_fields
     - content_moderation
     - cshs
@@ -1083,6 +1084,12 @@ content:
           bundle: art
     type: options_buttons
     region: content
+  field_prj_total_cost:
+    weight: 122
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
+    region: content
   field_prj_wtf_area:
     weight: 67
     settings: {  }
@@ -1194,7 +1201,6 @@ hidden:
   field_grt_tec_reason: true
   field_grt_tec_total: true
   field_grt_tool: true
-  field_grt_total: true
   field_grt_transport: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
