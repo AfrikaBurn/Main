@@ -94,6 +94,7 @@ dependencies:
     - field.field.node.performances.field_prj_stc_safety
     - field.field.node.performances.field_prj_stc_structural
     - field.field.node.performances.field_prj_stc_weight
+    - field.field.node.performances.field_prj_total_cost
     - field.field.node.performances.field_prj_wtf_categories
     - field.field.node.performances.field_prj_wtf_image
     - field.field.node.performances.field_prj_wtf_long
@@ -108,6 +109,7 @@ dependencies:
     - node.type.performances
   module:
     - comment
+    - computed_field
     - conditional_fields
     - content_moderation
     - cshs
@@ -1054,6 +1056,12 @@ content:
           entity_type: node
           bundle: performances
     type: number
+    region: content
+  field_prj_total_cost:
+    weight: 122
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
     region: content
   field_prj_wtf_image:
     weight: 7
