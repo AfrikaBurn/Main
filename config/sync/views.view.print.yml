@@ -172,7 +172,20 @@ display:
           group: 1
       sorts: {  }
       title: ''
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "<script>\n(()=> {\nsetTimeout(\n  () => {\n    window.print();\n  }, 3000\n);\n})();\n</script>"
+            format: php_code
+          plugin_id: text
       footer: {  }
       empty: {  }
       relationships: {  }
@@ -225,6 +238,15 @@ display:
       tags:
         - 'config:core.entity_view_display.node.agreement.default'
         - 'config:core.entity_view_display.node.agreement.teaser'
+        - 'config:core.entity_view_display.node.art.default'
+        - 'config:core.entity_view_display.node.art.notification'
+        - 'config:core.entity_view_display.node.art.print'
+        - 'config:core.entity_view_display.node.art.teaser'
+        - 'config:core.entity_view_display.node.art.wrangler_overview'
+        - 'config:core.entity_view_display.node.article.default'
+        - 'config:core.entity_view_display.node.article.notification'
+        - 'config:core.entity_view_display.node.article.rss'
+        - 'config:core.entity_view_display.node.article.teaser'
         - 'config:core.entity_view_display.node.collective.default'
         - 'config:core.entity_view_display.node.collective.full'
         - 'config:core.entity_view_display.node.collective.teaser'
@@ -241,15 +263,6 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.notification'
         - 'config:core.entity_view_display.node.theme_camps.teaser'
         - 'config:core.entity_view_display.node.theme_camps.wrangler_overview'
-        - 'config:core.entity_view_display.node.art.default'
-        - 'config:core.entity_view_display.node.art.notification'
-        - 'config:core.entity_view_display.node.art.print'
-        - 'config:core.entity_view_display.node.art.teaser'
-        - 'config:core.entity_view_display.node.art.wrangler_overview'
-        - 'config:core.entity_view_display.node.article.default'
-        - 'config:core.entity_view_display.node.article.notification'
-        - 'config:core.entity_view_display.node.article.rss'
-        - 'config:core.entity_view_display.node.article.teaser'
   page:
     display_plugin: page
     id: page

@@ -95,6 +95,7 @@ dependencies:
     - field.field.node.performances.field_prj_stc_safety
     - field.field.node.performances.field_prj_stc_structural
     - field.field.node.performances.field_prj_stc_weight
+    - field.field.node.performances.field_prj_total_cost
     - field.field.node.performances.field_prj_wtf_categories
     - field.field.node.performances.field_prj_wtf_image
     - field.field.node.performances.field_prj_wtf_long
@@ -107,6 +108,7 @@ dependencies:
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - node.type.performances
   module:
+    - computed_field
     - content_moderation
     - field_group
     - markup
@@ -151,14 +153,14 @@ third_party_settings:
       label: Grant
     group_expense_totals_by_type:
       children:
-        - field_grt_materials
-        - field_grt_tool
-        - field_grt_services
-        - field_grt_location
-        - field_grt_transport
         - field_grt_lighting
+        - field_grt_location
+        - field_grt_materials
         - field_grt_pyrotechnics
+        - field_grt_services
         - field_grt_specify
+        - field_grt_tool
+        - field_grt_transport
       parent_name: group_grant
       weight: 6
       format_type: fieldset
@@ -242,6 +244,12 @@ content:
     region: content
     settings:
       placeholder: ''
+    third_party_settings: {  }
+  field_prj_total_cost:
+    type: computed_number_widget
+    weight: 0
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_this_is_the_amount_of_mone:
     type: string_textarea
