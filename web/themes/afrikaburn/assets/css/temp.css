@@ -12,8 +12,8 @@
 /* 14 Nov 2017 - Grant Print layout */
 
 @media print {
- 
-  .field--name-field-prj-gen-concept{ 
+
+  .field--name-field-prj-gen-concept{
     page-break-after: always;
   }
 
@@ -32,7 +32,7 @@
   }
 
   .field-group-accordion-wrapper > div{
-    width: 30%; 
+    width: 30%;
     display: inline-block;
     margin: 0 0 50px 10px;
     vertical-align: top;
@@ -53,7 +53,7 @@
   .field-group-accordion-wrapper > div:last-of-type{
     page-break-before: always;
     clear: both;
-    width: 100%; 
+    width: 100%;
   }
 
   .field--name-field-grt-breakdown .field--name-field-grt-brk-description {
