@@ -1,3 +1,14 @@
+/* 17 Nov Collective page -   */
+
+.sidebar .view-collective-registrations .views-field-nothing{
+  padding-left: 36px;
+  list-style-type: disc;
+  list-style-position: inside;
+  display: list-item;
+  margin-top: -20px;
+}
+
+
 /* 14 Nov 2017 - Grant Print layout */
 
 @media print {
