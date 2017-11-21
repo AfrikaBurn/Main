@@ -8,6 +8,14 @@
   margin-top: -20px;
 }
 
+.field--name-field-col-posts h3,
+.field--name-field-col-posts .comment__permalink{
+  display: none;
+}
+
+.field--name-field-col-posts nav{
+ text-align: right;
+}
 
 /* 14 Nov 2017 - Grant Print layout */
 
