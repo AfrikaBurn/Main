@@ -124,6 +124,9 @@ dependencies:
     - field.field.node.art.field_prj_stg_stage
     - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
+    - field.field.node.art.field_prj_sup_address
+    - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
@@ -140,7 +143,6 @@ dependencies:
     - comment
     - computed_field
     - datetime
-    - ds
     - empty_fields
     - entity_reference_revisions
     - field_group
@@ -1290,6 +1292,30 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+  field_prj_sup_address:
+    weight: 198
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_prj_sup_details:
+    weight: 199
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_prj_sup_h1:
+    weight: 197
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_total_cost:
     weight: 196
     label: above

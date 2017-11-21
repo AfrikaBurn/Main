@@ -42,6 +42,28 @@ variant_settings:
       weight: 0
       uuid: 698f7a98-d2b6-4dc4-ac03-8aeb09f91d90
       context_mapping: {  }
+    ea87919d-a970-4280-b142-d43473d5742b:
+      id: 'views_block:wrangler_members-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: ea87919d-a970-4280-b142-d43473d5742b
+      context_mapping: {  }
+    af0bf680-27d6-4529-9e40-b20322e6e588:
+      id: 'views_block:wrangler_members-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: af0bf680-27d6-4529-9e40-b20322e6e588
+      context_mapping: {  }
   id: panels_variant
   uuid: 6ea6f9c5-c369-47d4-9b86-29c25279e728
   label: null

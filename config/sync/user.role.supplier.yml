@@ -1,0 +1,11 @@
+uuid: 0704cc73-471c-4fd2-b568-cee41da64bd8
+langcode: en
+status: true
+dependencies: {  }
+id: supplier
+label: Supplier
+weight: 6
+is_admin: null
+permissions:
+  - 'edit field_sup_invoice'
+  - 'view field_sup_invoice'

@@ -48,10 +48,12 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_gen_story
     - field.field.node.mutant_vehicles.field_prj_gen_year
     - field.field.node.mutant_vehicles.field_prj_lgh_description
+    - field.field.node.mutant_vehicles.field_prj_lgh_f1
     - field.field.node.mutant_vehicles.field_prj_lgh_lighter
     - field.field.node.mutant_vehicles.field_prj_lgh_night
     - field.field.node.mutant_vehicles.field_prj_lgh_projection
     - field.field.node.mutant_vehicles.field_prj_lnt_comments
+    - field.field.node.mutant_vehicles.field_prj_lnt_f1
     - field.field.node.mutant_vehicles.field_prj_lnt_handled
     - field.field.node.mutant_vehicles.field_prj_lnt_historic
     - field.field.node.mutant_vehicles.field_prj_lnt_images
@@ -83,6 +85,9 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_stage
     - field.field.node.mutant_vehicles.field_prj_stg_tread
     - field.field.node.mutant_vehicles.field_prj_stg_type
+    - field.field.node.mutant_vehicles.field_prj_sup_address
+    - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_h1
     - field.field.node.mutant_vehicles.field_prj_trl_area
     - field.field.node.mutant_vehicles.field_prj_trl_capasity
     - field.field.node.mutant_vehicles.field_prj_trl_communicate
@@ -441,14 +446,12 @@ content:
     type: basic_string
     region: content
   field_prj_gen_owner:
-    weight: 190
+    weight: 195
     label: above
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      link: true
     third_party_settings: {  }
-    type: boolean
+    type: entity_reference_label
     region: content
   field_prj_gen_story:
     weight: 108
@@ -472,6 +475,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
+  field_prj_lgh_f1:
+    weight: 196
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_prj_lgh_lighter:
     weight: 122
@@ -504,6 +514,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
+  field_prj_lnt_f1:
+    weight: 197
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_prj_lnt_handled:
     weight: 143
@@ -752,6 +769,30 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_prj_sup_address:
+    weight: 193
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_prj_sup_details:
+    weight: 194
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_prj_sup_h1:
+    weight: 192
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_prj_trl_area:
     weight: 135

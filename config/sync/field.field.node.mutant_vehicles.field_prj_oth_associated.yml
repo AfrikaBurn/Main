@@ -18,7 +18,7 @@ id: node.mutant_vehicles.field_prj_oth_associated
 field_name: field_prj_oth_associated
 entity_type: node
 bundle: mutant_vehicles
-label: 'Are there any other projects associated with your Theme Camp? (If they not registered yet, please add below)'
+label: 'Are there any other projects associated with your Mutant Vehicle? (If they not registered yet, please add below)'
 description: ''
 required: false
 translatable: true

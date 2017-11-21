@@ -123,6 +123,9 @@ dependencies:
     - field.field.node.art.field_prj_stg_stage
     - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
+    - field.field.node.art.field_prj_sup_address
+    - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
@@ -1239,6 +1242,9 @@ hidden:
   field_prj_snd_comment: true
   field_prj_snd_description: true
   field_prj_snd_person: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true
   field_prj_wtf_categories: true
   field_prj_wtf_long: true
   field_prj_wtf_short: true
