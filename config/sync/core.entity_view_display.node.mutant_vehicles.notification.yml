@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_display.comment.comment.default
     - core.entity_view_mode.node.notification
     - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_comment
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
@@ -44,7 +45,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_gen_lead
     - field.field.node.mutant_vehicles.field_prj_gen_location
     - field.field.node.mutant_vehicles.field_prj_gen_mutating
-    - field.field.node.mutant_vehicles.field_prj_gen_owner
     - field.field.node.mutant_vehicles.field_prj_gen_story
     - field.field.node.mutant_vehicles.field_prj_gen_year
     - field.field.node.mutant_vehicles.field_prj_lgh_description
@@ -83,6 +83,9 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_stage
     - field.field.node.mutant_vehicles.field_prj_stg_tread
     - field.field.node.mutant_vehicles.field_prj_stg_type
+    - field.field.node.mutant_vehicles.field_prj_sup_address
+    - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_h1
     - field.field.node.mutant_vehicles.field_prj_trl_area
     - field.field.node.mutant_vehicles.field_prj_trl_capasity
     - field.field.node.mutant_vehicles.field_prj_trl_communicate
@@ -439,16 +442,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-    region: content
-  field_prj_gen_owner:
-    weight: 190
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
     region: content
   field_prj_gen_story:
     weight: 108
@@ -875,3 +868,6 @@ content:
 hidden:
   field_collective: true
   field_form_mode: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true

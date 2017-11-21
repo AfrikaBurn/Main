@@ -47,10 +47,12 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_gen_story
     - field.field.node.mutant_vehicles.field_prj_gen_year
     - field.field.node.mutant_vehicles.field_prj_lgh_description
+    - field.field.node.mutant_vehicles.field_prj_lgh_f1
     - field.field.node.mutant_vehicles.field_prj_lgh_lighter
     - field.field.node.mutant_vehicles.field_prj_lgh_night
     - field.field.node.mutant_vehicles.field_prj_lgh_projection
     - field.field.node.mutant_vehicles.field_prj_lnt_comments
+    - field.field.node.mutant_vehicles.field_prj_lnt_f1
     - field.field.node.mutant_vehicles.field_prj_lnt_handled
     - field.field.node.mutant_vehicles.field_prj_lnt_historic
     - field.field.node.mutant_vehicles.field_prj_lnt_images
@@ -82,6 +84,9 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_stage
     - field.field.node.mutant_vehicles.field_prj_stg_tread
     - field.field.node.mutant_vehicles.field_prj_stg_type
+    - field.field.node.mutant_vehicles.field_prj_sup_address
+    - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_h1
     - field.field.node.mutant_vehicles.field_prj_trl_area
     - field.field.node.mutant_vehicles.field_prj_trl_capasity
     - field.field.node.mutant_vehicles.field_prj_trl_communicate
@@ -187,9 +192,9 @@ third_party_settings:
       label: Safety
     group_acc_night_driving:
       children:
+        - field_prj_lgh_f1
         - field_prj_lgh_night
         - field_prj_lgh_description
-        - field_prj_lgh_projection
         - field_prj_lgh_lighter
       parent_name: group_acc_project_overview
       weight: 23
@@ -246,6 +251,7 @@ third_party_settings:
         - field_prj_trl_capasity
         - field_prj_trl_communicate
         - field_prj_trl_markup
+        - field_prj_lgh_projection
       parent_name: group_acc_project_overview
       weight: 26
       format_type: accordion_item
@@ -258,6 +264,7 @@ third_party_settings:
       label: Trailer
     group_acc_moop:
       children:
+        - field_prj_lnt_f1
         - field_prj_lnt_handled
         - field_prj_lnt_historic
         - field_prj_lnt_representative
@@ -481,9 +488,11 @@ content:
   field_prj_gen_owner:
     weight: 23
     settings:
-      display_label: true
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: boolean_checkbox
+    type: entity_reference_autocomplete
     region: content
   field_prj_gen_story:
     weight: 28
@@ -501,36 +510,82 @@ content:
     type: number
     region: content
   field_prj_lgh_description:
-    weight: 63
+    weight: 124
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_prj_lgh_f1:
+    weight: 122
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_lgh_lighter:
-    weight: 65
+    weight: 126
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_prj_lgh_night:
-    weight: 61
+    weight: 123
     settings:
       display_label: true
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields: {  }
     type: boolean_checkbox
     region: content
   field_prj_lgh_projection:
-    weight: 64
+    weight: 14
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        e2a7dd13-352a-4212-8165-d518422e118b:
+          dependee: field_prj_lgh_night
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        4dd3f2fb-cdd2-47a6-b4cf-3257abd29880:
+          dependee: field_prj_trl_area
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
     type: string_textarea
     region: content
+  field_prj_lnt_f1:
+    weight: 127
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_lnt_handled:
-    weight: 7
+    weight: 128
     settings:
       rows: 5
       placeholder: ''
@@ -538,13 +593,13 @@ content:
     type: string_textarea
     region: content
   field_prj_lnt_historic:
-    weight: 8
+    weight: 129
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_prj_lnt_representative:
-    weight: 9
+    weight: 130
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -707,7 +762,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_trl_capasity:
-    weight: 12
+    weight: 11
     settings:
       rows: 5
       placeholder: ''
@@ -715,7 +770,7 @@ content:
     type: string_textarea
     region: content
   field_prj_trl_communicate:
-    weight: 13
+    weight: 12
     settings:
       rows: 5
       placeholder: ''
@@ -731,26 +786,26 @@ content:
     type: string_textarea
     region: content
   field_prj_trl_markup:
-    weight: 14
+    weight: 13
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_prj_trl_passengers:
-    weight: 11
+    weight: 10
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_prj_trl_size:
-    weight: 9
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_prj_trl_walkers:
-    weight: 10
+    weight: 9
     settings:
       display_label: true
     third_party_settings: {  }
@@ -856,6 +911,9 @@ hidden:
   field_prj_lnt_type: true
   field_prj_saf_comment: true
   field_prj_stg_tread: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true
   field_prj_wtf_long: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true

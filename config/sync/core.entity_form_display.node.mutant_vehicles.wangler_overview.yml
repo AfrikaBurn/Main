@@ -48,10 +48,12 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_gen_story
     - field.field.node.mutant_vehicles.field_prj_gen_year
     - field.field.node.mutant_vehicles.field_prj_lgh_description
+    - field.field.node.mutant_vehicles.field_prj_lgh_f1
     - field.field.node.mutant_vehicles.field_prj_lgh_lighter
     - field.field.node.mutant_vehicles.field_prj_lgh_night
     - field.field.node.mutant_vehicles.field_prj_lgh_projection
     - field.field.node.mutant_vehicles.field_prj_lnt_comments
+    - field.field.node.mutant_vehicles.field_prj_lnt_f1
     - field.field.node.mutant_vehicles.field_prj_lnt_handled
     - field.field.node.mutant_vehicles.field_prj_lnt_historic
     - field.field.node.mutant_vehicles.field_prj_lnt_images
@@ -83,6 +85,9 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_stage
     - field.field.node.mutant_vehicles.field_prj_stg_tread
     - field.field.node.mutant_vehicles.field_prj_stg_type
+    - field.field.node.mutant_vehicles.field_prj_sup_address
+    - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_h1
     - field.field.node.mutant_vehicles.field_prj_trl_area
     - field.field.node.mutant_vehicles.field_prj_trl_capasity
     - field.field.node.mutant_vehicles.field_prj_trl_communicate
@@ -116,10 +121,6 @@ third_party_settings:
     group_project_overview:
       children:
         - group_overview
-        - group_the_project
-        - group_safety
-        - group_night_driving
-        - group_sound
         - group_flame_effects_
         - group_trailer
         - group_moop
@@ -132,7 +133,7 @@ third_party_settings:
       format_type: tabs
       format_settings:
         label: 'Project Overview'
-        direction: vertical
+        direction: horizontal
         id: ''
         classes: ''
       label: 'Project Overview'
@@ -140,12 +141,16 @@ third_party_settings:
       children:
         - path
         - field_prj_gen_year
+        - group_the_project
         - field_prj_gen_contact
+        - group_safety
         - field_prj_gen_lead
-        - field_prj_gen_owner
+        - group_night_driving
+        - group_sound
         - field_prj_gen_fundraising
         - field_prj_gen_fundraiser
         - field_prj_gen_location
+        - field_prj_gen_owner
       parent_name: group_project_overview
       weight: 7
       format_type: tab
@@ -164,16 +169,23 @@ third_party_settings:
         - field_prj_gen_mutating
         - field_prj_gen_concept
         - field_prj_gen_doc
-      parent_name: group_project_overview
+      parent_name: group_overview
       weight: 8
-      format_type: tab
+      format_type: html_element
       format_settings:
-        id: ''
-        classes: ''
+        label: Image
         formatter: closed
         description: ''
         required_fields: true
-      label: 'The Project'
+        id: ''
+        classes: wrangler_ovr_1
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
+      label: Image
     group_safety:
       children:
         - field_prj_saf_passengers
@@ -182,32 +194,46 @@ third_party_settings:
         - field_prj_saf_other
         - field_prj_saf_mark
         - field_prj_saf_comment
-      parent_name: group_project_overview
+      parent_name: group_overview
       weight: 9
-      format_type: tab
+      format_type: html_element
       format_settings:
-        id: ''
-        classes: ''
+        label: 'Title and Details'
         formatter: closed
         description: ''
         required_fields: true
-      label: Safety
+        id: ''
+        classes: wrangler_ovr_2
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
+      label: 'Title and Details'
     group_night_driving:
       children:
         - field_prj_lgh_night
         - field_prj_lgh_description
         - field_prj_lgh_projection
         - field_prj_lgh_lighter
-      parent_name: group_project_overview
+      parent_name: group_overview
       weight: 10
-      format_type: tab
+      format_type: html_element
       format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
+        label: 'Wrangler and Comments'
+        formatter: open
         description: ''
         required_fields: true
-      label: 'Night Driving'
+        id: ''
+        classes: wrangler_ovr_4
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
+      label: 'Wrangler and Comments'
     group_sound:
       children:
         - field_prj_snd_sound
@@ -218,16 +244,23 @@ third_party_settings:
         - field_prj_snd_agree
         - field_prj_snd_person
         - field_prj_snd_comment
-      parent_name: group_project_overview
+      parent_name: group_overview
       weight: 11
-      format_type: tab
+      format_type: html_element
       format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
+        label: 'Project Description'
+        formatter: open
         description: ''
         required_fields: true
-      label: Sound
+        id: ''
+        classes: wrangler_ovr_5
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
+      label: 'Project Description'
     group_flame_effects_:
       children:
         - field_prj_brn_burning
@@ -601,8 +634,8 @@ content:
   field_prj_gen_concept:
     weight: 19
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
+      progress_indicator: throbber
     third_party_settings: {  }
     type: image_image
     region: content
@@ -671,13 +704,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
-    region: content
-  field_prj_gen_owner:
-    weight: 10
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
     region: content
   field_prj_gen_story:
     weight: 16
@@ -1137,3 +1163,9 @@ hidden:
   field_collective: true
   field_form_mode: true
   field_mutant_drivers: true
+  field_prj_gen_owner: true
+  field_prj_lgh_f1: true
+  field_prj_lnt_f1: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true

@@ -44,7 +44,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_gen_lead
     - field.field.node.mutant_vehicles.field_prj_gen_location
     - field.field.node.mutant_vehicles.field_prj_gen_mutating
-    - field.field.node.mutant_vehicles.field_prj_gen_owner
     - field.field.node.mutant_vehicles.field_prj_gen_story
     - field.field.node.mutant_vehicles.field_prj_gen_year
     - field.field.node.mutant_vehicles.field_prj_lgh_description
@@ -83,6 +82,9 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_stage
     - field.field.node.mutant_vehicles.field_prj_stg_tread
     - field.field.node.mutant_vehicles.field_prj_stg_type
+    - field.field.node.mutant_vehicles.field_prj_sup_address
+    - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_h1
     - field.field.node.mutant_vehicles.field_prj_trl_area
     - field.field.node.mutant_vehicles.field_prj_trl_capasity
     - field.field.node.mutant_vehicles.field_prj_trl_communicate
@@ -672,13 +674,6 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_prj_gen_owner:
-    weight: 10
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_prj_gen_story:
     weight: 16
     settings:
@@ -1137,3 +1132,6 @@ hidden:
   field_collective: true
   field_form_mode: true
   field_mutant_drivers: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true

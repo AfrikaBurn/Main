@@ -110,6 +110,9 @@ dependencies:
     - field.field.node.theme_camps.field_prj_stg_stage
     - field.field.node.theme_camps.field_prj_stg_tread
     - field.field.node.theme_camps.field_prj_stg_type
+    - field.field.node.theme_camps.field_prj_sup_address
+    - field.field.node.theme_camps.field_prj_sup_details
+    - field.field.node.theme_camps.field_prj_sup_h1
     - field.field.node.theme_camps.field_prj_wtf_categories
     - field.field.node.theme_camps.field_prj_wtf_image
     - field.field.node.theme_camps.field_prj_wtf_long
@@ -125,6 +128,7 @@ dependencies:
     - field_group
     - image
     - markup
+    - paragraphs
     - path
 third_party_settings:
   field_group:
@@ -137,6 +141,7 @@ third_party_settings:
         - group_sound
         - group_moop
         - group_wtf
+        - group_supplier_details
       parent_name: ''
       weight: 9
       format_type: accordion
@@ -286,6 +291,21 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'WTF Guide and Community'
+    group_supplier_details:
+      children:
+        - field_prj_sup_address
+        - field_prj_sup_details
+        - field_prj_sup_h1
+      parent_name: group_overview_registration
+      weight: 22
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Supplier details'
 _core:
   default_config_hash: pagN6qP-fLg_L4YNYJ-bcH8Or0qqy7b__fqTBhXzqsA
 id: node.theme_camps.form_
@@ -865,6 +885,32 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_prj_sup_address:
+    type: string_textfield
+    weight: 20
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_sup_details:
+    type: entity_reference_paragraphs
+    weight: 30
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_prj_sup_h1:
+    type: markup
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_prj_wtf_image:
     weight: 69
     settings:

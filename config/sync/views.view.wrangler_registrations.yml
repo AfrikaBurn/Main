@@ -1,6 +1,6 @@
 uuid: 7d68f691-4369-4f7c-9337-1642dd852aba
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
@@ -60,7 +60,6 @@ dependencies:
     - field.storage.node.field_prj_gen_history
     - field.storage.node.field_prj_gen_immortal
     - field.storage.node.field_prj_gen_location
-    - field.storage.node.field_prj_gen_owner
     - field.storage.node.field_prj_gen_profit
     - field.storage.node.field_prj_gen_story
     - field.storage.node.field_prj_gen_year
@@ -706,71 +705,6 @@ display:
           type: string
           settings:
             link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_prj_gen_owner:
-          id: field_prj_gen_owner
-          table: node__field_prj_gen_owner
-          field: field_prj_gen_owner
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Mutant Vehicle Owner?'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: true
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: boolean
-          settings:
-            format: default
-            format_custom_true: ''
-            format_custom_false: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -11402,7 +11336,6 @@ display:
         - 'config:field.storage.node.field_prj_gen_history'
         - 'config:field.storage.node.field_prj_gen_immortal'
         - 'config:field.storage.node.field_prj_gen_location'
-        - 'config:field.storage.node.field_prj_gen_owner'
         - 'config:field.storage.node.field_prj_gen_profit'
         - 'config:field.storage.node.field_prj_gen_story'
         - 'config:field.storage.node.field_prj_gen_year'
@@ -12133,7 +12066,6 @@ display:
         - 'config:field.storage.node.field_prj_gen_history'
         - 'config:field.storage.node.field_prj_gen_immortal'
         - 'config:field.storage.node.field_prj_gen_location'
-        - 'config:field.storage.node.field_prj_gen_owner'
         - 'config:field.storage.node.field_prj_gen_profit'
         - 'config:field.storage.node.field_prj_gen_story'
         - 'config:field.storage.node.field_prj_gen_year'
@@ -16147,7 +16079,6 @@ display:
         - 'config:field.storage.node.field_prj_gen_history'
         - 'config:field.storage.node.field_prj_gen_immortal'
         - 'config:field.storage.node.field_prj_gen_location'
-        - 'config:field.storage.node.field_prj_gen_owner'
         - 'config:field.storage.node.field_prj_gen_profit'
         - 'config:field.storage.node.field_prj_gen_story'
         - 'config:field.storage.node.field_prj_gen_year'
@@ -20267,7 +20198,6 @@ display:
         - 'config:field.storage.node.field_prj_gen_history'
         - 'config:field.storage.node.field_prj_gen_immortal'
         - 'config:field.storage.node.field_prj_gen_location'
-        - 'config:field.storage.node.field_prj_gen_owner'
         - 'config:field.storage.node.field_prj_gen_profit'
         - 'config:field.storage.node.field_prj_gen_story'
         - 'config:field.storage.node.field_prj_gen_year'
