@@ -1,4 +1,4 @@
-uuid: 9ae1ab7a-eb6e-44a8-8bc5-ec0310b694c2
+uuid: 39a4bc39-c90a-4cc9-8d92-22e2c8d21541
 langcode: en
 status: true
 dependencies:
@@ -15,15 +15,20 @@ id: node.mutant_vehicles.field_prj_gen_owner
 field_name: field_prj_gen_owner
 entity_type: node
 bundle: mutant_vehicles
-label: 'Is this the mutant Vehicle Owner?'
+label: 'Who is the owner'
 description: ''
-required: false
+required: true
 translatable: false
-default_value:
-  -
-    value: 0
+default_value: {  }
 default_value_callback: ''
 settings:
-  on_label: 'Yes'
-  off_label: 'No'
-field_type: boolean
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

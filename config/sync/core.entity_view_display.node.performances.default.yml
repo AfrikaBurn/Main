@@ -95,6 +95,9 @@ dependencies:
     - field.field.node.performances.field_prj_stc_safety
     - field.field.node.performances.field_prj_stc_structural
     - field.field.node.performances.field_prj_stc_weight
+    - field.field.node.performances.field_prj_sup_address
+    - field.field.node.performances.field_prj_sup_details
+    - field.field.node.performances.field_prj_sup_h1
     - field.field.node.performances.field_prj_total_cost
     - field.field.node.performances.field_prj_wtf_categories
     - field.field.node.performances.field_prj_wtf_image
@@ -111,8 +114,6 @@ dependencies:
     - comment
     - computed_field
     - datetime
-    - ds
-    - empty_fields
     - entity_reference_revisions
     - field_group
     - file
@@ -891,6 +892,30 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+  field_prj_sup_address:
+    weight: 112
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_prj_sup_details:
+    weight: 113
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_prj_sup_h1:
+    weight: 111
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_total_cost:
     weight: 55
     label: above
