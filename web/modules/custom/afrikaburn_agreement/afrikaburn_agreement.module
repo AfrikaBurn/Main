@@ -7,6 +7,8 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\HttpFoundation\Request;
+use \Drupal\user\Entity\User;
+
 
 /* ---- Form alters ---- */
 
@@ -48,7 +50,6 @@ function afrikaburn_agreement_form_user_form_alter(&$form, $form_state, $form_id
 
     $form['field_agreements']['widget'][] = $form['field_agreements']['widget'][0];
     foreach($aids as $index=>$aid){
-      \Drupal::entityTypeManager()->getStorage('node')->load($aid);
       $form['field_agreements']['widget'][$index]['target_id']['#default_value'] = \Drupal::entityTypeManager()->getStorage('node')->load($aid);
     }
 
@@ -74,12 +75,19 @@ function afrikaburn_agreement_supplier($form, $form_state){
       ->condition('type', 'agreement')
       ->condition('title', 'Supplier agreement', '=')
       ->execute()
-  );
+  )[0];
 
   $user = User::load(\Drupal::currentUser()->id());
+  $agreements = $user->hasField('field_agreements') ? array_column($user->get('field_agreements')->getValue(), 'target_id') : [];
   $suppliers = $user->hasField('field_prj_sup_details') ? $user->get('field_prj_sup_details') : [];
 
-  dpm($suppliers);
+  if (!in_array($aid, $agreements)){
+    $user->get('field_agreements')->appendItem(
+      \Drupal::entityTypeManager()->getStorage('node')->load($aid) 
+    );
+    $user->save();
+  }
+
 }
 
 /**
