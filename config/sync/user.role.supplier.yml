@@ -7,5 +7,7 @@ label: Supplier
 weight: 6
 is_admin: null
 permissions:
+  - 'access contextual links'
+  - 'access in-place editing'
   - 'edit field_sup_invoice'
   - 'view field_sup_invoice'

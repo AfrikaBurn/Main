@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment.default
     - core.entity_view_mode.node.wrangler_overview
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_comment
+    - field.field.node.mutant_vehicles.field_grt_art_total
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
     - field.field.node.mutant_vehicles.field_grt_dmv_budget
@@ -104,17 +104,14 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
     - field.field.node.mutant_vehicles.field_prj_wtf_website
     - node.type.mutant_vehicles
+    - responsive_image.styles.wangler_preview
   module:
-    - comment
     - computed_field
-    - entity_reference_revisions
+    - ds
+    - empty_fields
     - field_group
-    - file
-    - image
-    - link
-    - markup
-    - options
     - panelizer
+    - responsive_image
     - user
 third_party_settings:
   panelizer:
@@ -124,9 +121,10 @@ third_party_settings:
     default: default
   field_group:
     group_project_overview:
-      children: {  }
+      children:
+        - group_overview
       parent_name: ''
-      weight: 20
+      weight: 0
       format_type: tabs
       format_settings:
         id: ''
@@ -134,8 +132,12 @@ third_party_settings:
         direction: horizontal
       label: 'Project Overview'
     group_overview:
-      children: {  }
-      parent_name: ''
+      children:
+        - group_1_image
+        - group_2_title_and_details
+        - group_4_wrangler_and_comments
+        - group_5_project_description
+      parent_name: group_project_overview
       weight: 20
       format_type: tab
       format_settings:
@@ -145,8 +147,9 @@ third_party_settings:
         description: ''
       label: Overview
     group_1_image:
-      children: {  }
-      parent_name: ''
+      children:
+        - field_prj_gen_concept
+      parent_name: group_overview
       weight: 20
       format_type: html_element
       format_settings:
@@ -160,9 +163,17 @@ third_party_settings:
         speed: fast
       label: '1 Image'
     group_2_title_and_details:
-      children: {  }
-      parent_name: ''
-      weight: 20
+      children:
+        - field_collective
+        - field_prj_adm_registration
+        - field_grt_art_total
+        - field_prj_adm_review
+        - field_prj_brn_burning
+        - field_prj_gen_base
+        - field_prj_gen_location
+        - field_prj_snd_sound
+      parent_name: group_overview
+      weight: 21
       format_type: html_element
       format_settings:
         id: ''
@@ -175,9 +186,11 @@ third_party_settings:
         speed: fast
       label: '2 Title and Details'
     group_4_wrangler_and_comments:
-      children: {  }
-      parent_name: ''
-      weight: 20
+      children:
+        - field_prj_adm_wrangler
+        - field_prj_adm_notes
+      parent_name: group_overview
+      weight: 22
       format_type: html_element
       format_settings:
         id: ''
@@ -189,6 +202,104 @@ third_party_settings:
         effect: none
         speed: fast
       label: '4 Wrangler and Comments'
+    group_5_project_description:
+      children:
+        - field_prj_gen_description
+        - field_grt_art_comment
+        - field_prj_saf_other
+        - field_prj_snd_soop
+        - field_prj_snd_safety
+        - field_prj_snd_person
+        - field_prj_snd_description
+        - field_prj_snd_comment
+        - field_prj_snd_agree
+        - field_prj_saf_passengers
+        - field_prj_saf_mark
+        - field_prj_stg_description
+        - field_prj_saf_guide
+        - field_prj_saf_comment
+        - field_prj_saf_access
+        - field_prj_oth_other
+        - field_prj_oth_grant
+        - field_prj_oth_associated
+        - field_prj_oth_agree
+        - field_prj_lnt_type
+        - field_prj_stg_contact
+        - field_prj_stg_stage
+        - field_prj_lnt_score
+        - field_prj_trl_passengers
+        - field_prj_wtf_website
+        - field_prj_wtf_short_copy
+        - field_prj_wtf_short
+        - field_prj_wtf_long
+        - field_prj_wtf_image
+        - field_prj_wtf_categories
+        - field_prj_trl_walkers
+        - field_prj_trl_size
+        - field_prj_trl_markup
+        - field_prj_stg_tread
+        - field_prj_trl_describe
+        - field_prj_trl_communicate
+        - field_prj_trl_capasity
+        - field_prj_trl_area
+        - field_prj_sup_h1
+        - field_prj_sup_details
+        - field_prj_sup_address
+        - field_prj_stg_type
+        - field_prj_lnt_signoff
+        - field_prj_lnt_representative
+        - field_grt_awarded
+        - field_mutant_drivers
+        - field_prj_cll_collaborate
+        - field_prj_brn_plan
+        - field_prj_brn_person
+        - field_prj_brn_desc
+        - field_prj_adm_ranger_comment
+        - field_prj_adm_form_wtf
+        - field_prj_adm_form_grant
+        - field_prj_adm_comms
+        - field_grt_transport
+        - field_prj_cll_description
+        - field_grt_total
+        - field_grt_status
+        - field_grt_services
+        - field_grt_other_description
+        - field_grt_other
+        - field_grt_materials
+        - field_grt_dmv_budget
+        - field_grt_contribution
+        - field_prj_cll_contact
+        - field_prj_cll_thread
+        - field_prj_lnt_publish
+        - field_prj_lgh_f1
+        - field_prj_lnt_images
+        - field_prj_lnt_historic
+        - field_prj_lnt_handled
+        - field_prj_lnt_f1
+        - field_prj_lnt_comments
+        - field_prj_lgh_projection
+        - field_prj_lgh_night
+        - field_prj_lgh_lighter
+        - field_prj_lgh_description
+        - field_prj_gen_contact
+        - field_prj_gen_year
+        - field_prj_gen_story
+        - field_prj_gen_owner
+        - field_prj_gen_mutating
+        - field_prj_gen_lead
+        - field_prj_gen_fundraising
+        - field_prj_gen_fundraiser
+        - field_prj_gen_doc
+        - links
+      parent_name: group_overview
+      weight: 23
+      format_type: fieldset
+      format_settings:
+        label: ''
+        description: ''
+        id: ''
+        classes: wrangler_ovr_5
+      label: ''
 _core:
   default_config_hash: C9Fh0QjRhuwpBvMWXkPEtFOs5iom_nF-2vt1jAFIxwE
 id: node.mutant_vehicles.wrangler_overview
@@ -196,164 +307,44 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: wrangler_overview
 content:
-  field_grt_art_comment:
-    weight: 187
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
+  field_collective:
+    type: entity_reference_label
+    weight: 0
     region: content
-  field_grt_awarded:
-    weight: 188
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_grt_contribution:
-    weight: 184
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_grt_dmv_budget:
-    type: entity_reference_revisions_entity_view
-    weight: 179
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    region: content
-  field_grt_materials:
-    weight: 180
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_grt_other:
-    weight: 185
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_grt_other_description:
-    weight: 186
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_grt_services:
-    weight: 181
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_grt_status:
-    weight: 189
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+  field_grt_art_total:
+    type: number_integer
+    weight: 2
     region: content
-  field_grt_total:
-    weight: 183
     label: above
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_grt_transport:
-    weight: 182
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_mutant_drivers:
-    weight: 191
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_adm_comms:
-    weight: 176
-    label: above
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    type: comment_default
-    region: content
-  field_prj_adm_form_grant:
-    weight: 177
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_adm_form_wtf:
-    weight: 178
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   field_prj_adm_notes:
-    weight: 171
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_adm_ranger_comment:
-    weight: 175
+    weight: 174
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_adm_registration:
-    weight: 174
+    weight: 1
     label: above
     settings:
-      sanitized: true
-      cache_unit: -1
-      cache_duration: 1
-    third_party_settings: {  }
+      sanitized: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
     type: computed_string
     region: content
   field_prj_adm_review:
-    weight: 172
+    weight: 3
     label: above
     settings:
       link: true
@@ -365,623 +356,121 @@ content:
     label: above
     settings:
       link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_brn_burning:
-    weight: 131
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_brn_desc:
-    weight: 134
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_brn_person:
-    weight: 133
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_brn_plan:
-    weight: 132
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_cll_collaborate:
-    weight: 158
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_cll_contact:
-    weight: 160
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_cll_description:
-    weight: 159
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_cll_thread:
-    weight: 161
-    label: above
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    type: comment_default
-    region: content
-  field_prj_gen_base:
-    weight: 109
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
     type: entity_reference_label
     region: content
   field_prj_gen_concept:
     weight: 111
     label: above
     settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_prj_gen_contact:
-    weight: 102
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
+      responsive_image_style: wangler_preview
+      image_link: content
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+      ds:
+        ds_limit: '1'
+    type: responsive_image
     region: content
   field_prj_gen_description:
-    weight: 107
+    weight: 177
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_prj_gen_doc:
-    weight: 112
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: file_default
-    region: content
-  field_prj_gen_fundraiser:
-    weight: 105
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_gen_fundraising:
-    weight: 104
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_gen_lead:
-    weight: 103
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_gen_location:
-    weight: 106
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_gen_mutating:
-    weight: 110
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_gen_owner:
-    weight: 195
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_gen_story:
-    weight: 108
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_gen_year:
-    weight: 101
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_prj_lgh_description:
-    weight: 120
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_lgh_f1:
-    weight: 196
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_lgh_lighter:
-    weight: 122
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_lgh_night:
-    weight: 119
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_lgh_projection:
-    weight: 121
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_lnt_comments:
-    weight: 147
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_lnt_f1:
-    weight: 197
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_lnt_handled:
-    weight: 143
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_lnt_historic:
-    weight: 144
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_lnt_images:
-    weight: 148
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_prj_lnt_publish:
-    weight: 150
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_lnt_representative:
-    weight: 151
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_lnt_score:
-    weight: 146
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_lnt_signoff:
-    weight: 145
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_lnt_type:
-    weight: 149
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_oth_agree:
-    weight: 169
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_oth_associated:
-    weight: 168
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_oth_grant:
-    weight: 170
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_oth_other:
-    weight: 167
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_saf_access:
-    weight: 115
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_saf_comment:
-    weight: 118
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_saf_guide:
-    weight: 114
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_saf_mark:
-    weight: 117
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_saf_other:
-    weight: 116
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_saf_passengers:
-    weight: 113
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
-  field_prj_snd_agree:
-    weight: 128
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_snd_comment:
-    weight: 130
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_snd_description:
-    weight: 125
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_snd_level:
-    weight: 124
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_snd_person:
-    weight: 129
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_snd_safety:
-    weight: 126
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_snd_soop:
-    weight: 127
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_snd_sound:
-    weight: 123
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_stg_contact:
-    weight: 165
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_stg_description:
-    weight: 164
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_stg_stage:
-    weight: 162
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_stg_tread:
-    weight: 166
-    label: above
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    type: comment_default
-    region: content
-  field_prj_stg_type:
-    weight: 163
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_sup_address:
-    weight: 193
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_prj_sup_details:
-    weight: 194
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: content
-  field_prj_sup_h1:
-    weight: 192
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_trl_area:
-    weight: 135
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_trl_capasity:
-    weight: 140
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_trl_communicate:
-    weight: 141
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_trl_describe:
-    weight: 136
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_trl_markup:
-    weight: 142
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_trl_passengers:
-    weight: 139
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_prj_trl_size:
-    weight: 137
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
-  field_prj_trl_walkers:
-    weight: 138
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_wtf_categories:
-    weight: 156
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_wtf_image:
-    weight: 155
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_prj_wtf_long:
-    weight: 154
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_short:
-    weight: 152
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_short_copy:
-    weight: 153
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_website:
-    weight: 157
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: content
-  links:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
-  field_collective: true
   field_form_mode: true
+  field_grt_art_comment: true
+  field_grt_awarded: true
+  field_grt_contribution: true
+  field_grt_dmv_budget: true
+  field_grt_materials: true
+  field_grt_other: true
+  field_grt_other_description: true
+  field_grt_services: true
+  field_grt_status: true
+  field_grt_total: true
+  field_grt_transport: true
+  field_mutant_drivers: true
+  field_prj_adm_comms: true
+  field_prj_adm_form_grant: true
+  field_prj_adm_form_wtf: true
+  field_prj_adm_ranger_comment: true
+  field_prj_brn_burning: true
+  field_prj_brn_desc: true
+  field_prj_brn_person: true
+  field_prj_brn_plan: true
+  field_prj_cll_collaborate: true
+  field_prj_cll_contact: true
+  field_prj_cll_description: true
+  field_prj_cll_thread: true
+  field_prj_gen_base: true
+  field_prj_gen_contact: true
+  field_prj_gen_doc: true
+  field_prj_gen_fundraiser: true
+  field_prj_gen_fundraising: true
+  field_prj_gen_lead: true
+  field_prj_gen_location: true
+  field_prj_gen_mutating: true
+  field_prj_gen_owner: true
+  field_prj_gen_story: true
+  field_prj_gen_year: true
+  field_prj_lgh_description: true
+  field_prj_lgh_f1: true
+  field_prj_lgh_lighter: true
+  field_prj_lgh_night: true
+  field_prj_lgh_projection: true
+  field_prj_lnt_comments: true
+  field_prj_lnt_f1: true
+  field_prj_lnt_handled: true
+  field_prj_lnt_historic: true
+  field_prj_lnt_images: true
+  field_prj_lnt_publish: true
+  field_prj_lnt_representative: true
+  field_prj_lnt_score: true
+  field_prj_lnt_signoff: true
+  field_prj_lnt_type: true
+  field_prj_oth_agree: true
+  field_prj_oth_associated: true
+  field_prj_oth_grant: true
+  field_prj_oth_other: true
+  field_prj_saf_access: true
+  field_prj_saf_comment: true
+  field_prj_saf_guide: true
+  field_prj_saf_mark: true
+  field_prj_saf_other: true
+  field_prj_saf_passengers: true
+  field_prj_snd_agree: true
+  field_prj_snd_comment: true
+  field_prj_snd_description: true
+  field_prj_snd_level: true
+  field_prj_snd_person: true
+  field_prj_snd_safety: true
+  field_prj_snd_soop: true
+  field_prj_snd_sound: true
+  field_prj_stg_contact: true
+  field_prj_stg_description: true
+  field_prj_stg_stage: true
+  field_prj_stg_tread: true
+  field_prj_stg_type: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true
+  field_prj_trl_area: true
+  field_prj_trl_capasity: true
+  field_prj_trl_communicate: true
+  field_prj_trl_describe: true
+  field_prj_trl_markup: true
+  field_prj_trl_passengers: true
+  field_prj_trl_size: true
+  field_prj_trl_walkers: true
+  field_prj_wtf_categories: true
+  field_prj_wtf_image: true
+  field_prj_wtf_long: true
+  field_prj_wtf_short: true
+  field_prj_wtf_short_copy: true
+  field_prj_wtf_website: true
+  links: true
