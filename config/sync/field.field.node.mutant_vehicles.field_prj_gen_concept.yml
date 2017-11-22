@@ -18,7 +18,7 @@ entity_type: node
 bundle: mutant_vehicles
 label: 'Please upload concept images or photos'
 description: 'Please upload any images of your Mutant Vehicle. If you would like to upload other document types please use the box below. '
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''

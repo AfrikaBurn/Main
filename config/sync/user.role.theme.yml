@@ -9,6 +9,8 @@ label: 'Theme Camp Admin'
 weight: 5
 is_admin: null
 permissions:
+  - 'access contextual links'
+  - 'access in-place editing'
   - 'create field_comment'
   - 'create field_ddt_eligible'
   - 'create field_grt_art_comment'
