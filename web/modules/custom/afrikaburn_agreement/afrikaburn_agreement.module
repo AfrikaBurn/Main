@@ -8,8 +8,28 @@
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+/* ---- Form alters ---- */
+
 /**
  * Implements hook_form_alter().
+ */
+function afrikaburn_agreement_form_alter(&$form, $form_state, $form_id) {
+
+  // Attach supplier agreement
+  foreach(['node_art_', 'node_performances_', 'node_mutant_vehicles_', 'node_theme_camps_'] as $parent) {
+    if (substr($form_id, 0, strlen($parent)) === $parent) {
+      $form['actions']['submit']['#submit'][] = 'afrikaburn_agreement_supplier';
+    }
+  }
+
+  // Fetch new quicket info on acceptance of agreements
+  if (isset($form['#webform_id']) && in_array($form['#webform_id'], ['update', 'introduction'])){
+    $form['actions']['submit']['#submit'][] = 'afrikaburn_agreement_submit';
+  }
+}
+
+/**
+ * Implements hook_form_FROM_ID_alter().
  * Hooked to add default agreements to users.
  */
 function afrikaburn_agreement_form_user_form_alter(&$form, $form_state, $form_id){
@@ -38,4 +58,51 @@ function afrikaburn_agreement_form_user_form_alter(&$form, $form_state, $form_id
     $user = \Drupal::currentUser();
     $form['field_agreements']['#access'] = $user->hasPermission('administer users');
   }
+
+}
+
+/* ---- Submit handlers ---- */
+
+/**
+ * Attaches supplier agreement.
+ */
+function afrikaburn_agreement_supplier($form, $form_state){
+
+  $aid = array_values(
+    \Drupal::entityQuery('node')
+      ->condition('status', 1)
+      ->condition('type', 'agreement')
+      ->condition('title', 'Supplier agreement', '=')
+      ->execute()
+  );
+
+  $user = User::load(\Drupal::currentUser()->id());
+  $suppliers = $user->hasField('field_prj_sup_details') ? $user->get('field_prj_sup_details') : [];
+
+  dpm($suppliers);
+}
+
+/**
+ * Agreement submission handler.
+ */
+function afrikaburn_agreement_submit($form, $form_state){
+  module_load_include('inc', 'afrikaburn_shared', 'includes/quicket');
+
+  $user = User::load(\Drupal::currentUser()->id());
+  $new = [
+    'id' => $user->hasField('field_id_number') ? $user->get('field_id_number')->getValue()[0]['value']: 0,
+    'teens' => $user->hasField('field_teens') ? $user->get('field_teens')->getValue()[0]['value']: 0,
+    'kids' => $user->hasField('field_kids') ? $user->get('field_kids')->getValue()[0]['value'] : 0,
+  ];
+
+  $quicket = _quicket(
+    'POST',
+    $new['id'],
+    $new['teens'],
+    $new['kids']
+  );
+
+  $user->field_quicket_code = $quicket['code'];
+  $user->field_quicket_id = $quicket['id'];
+  $user->save();
 }

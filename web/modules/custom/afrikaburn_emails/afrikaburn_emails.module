@@ -124,17 +124,6 @@ function _afrikaburn_emails_notify($entity, $action){
   }
 }
 
-// Replace links in email
-function _afrikaburn_emails_links($body){
-  $links = [];
-  $root = \Drupal::request()->getSchemeAndHttpHost();
-  preg_match_all('/href="(\/[^"]+)"/', $body, $links);
-  foreach ($links[1] as $link){
-    // $body = str_replace($link, $root . $link, $body);
-  }
-  return $body;
-}
-
 // Replace images in email
 function _afrikaburn_emails_images(&$message, $body){
 
@@ -306,6 +295,21 @@ function _afrikaburn_emails_recipient_new_invitees($entity){
   }
 
   return array_diff($newbs, $originals);
+}
+
+function _afrikaburn_emails_recipient_suppliers($entity){
+  $addresses = [];
+  $field_prj_sup_details = $entity->get('field_prj_sup_details');
+  if ($field_prj_sup_details){
+    dpm($field_prj_sup_details);
+    // $suppliers = array_column(
+    //   $field_prj_sup_details->getValue(),
+    //   'value'
+    // );
+    // if (is_array($invitees)){
+    //   $addresses = array_combine($invitees, $invitees);
+    // }
+  }
 }
 
 // --- Config Utilities
