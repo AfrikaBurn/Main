@@ -179,7 +179,7 @@ function _afrikaburn_emails_addresses($entity, $recipients){
 
   foreach(explode(',', $recipients) as $recipient){
     $recipient = trim($recipient);
-    if (in_array($recipient, ['author', 'group', 'invitees', 'new_invitees'])) {
+    if (in_array($recipient, ['author', 'group', 'invitees', 'new_invitees', 'suppliers'])) {
       $function = '_afrikaburn_emails_recipient_' . $recipient;
       $addresses += $function($entity);
     } else {
@@ -299,17 +299,28 @@ function _afrikaburn_emails_recipient_new_invitees($entity){
 
 function _afrikaburn_emails_recipient_suppliers($entity){
   $addresses = [];
-  $field_prj_sup_details = $entity->get('field_prj_sup_details');
-  if ($field_prj_sup_details){
-    dpm($field_prj_sup_details);
-    // $suppliers = array_column(
-    //   $field_prj_sup_details->getValue(),
-    //   'value'
-    // );
-    // if (is_array($invitees)){
-    //   $addresses = array_combine($invitees, $invitees);
-    // }
+  $field_prj_sup_details = $entity->hasField('field_prj_sup_details') ? $entity->get('field_prj_sup_details') : FALSE;
+
+  $existing = db_query('
+    SELECT
+      DISTINCT(field_sup_email_value)
+    FROM
+      {paragraphs_item}, {node__field_prj_sup_details}, {paragraph__field_sup_email}
+    WHERE
+      {paragraphs_item}.id = {node__field_prj_sup_details}.field_prj_sup_details_target_id  AND
+      {node__field_prj_sup_details}.field_prj_sup_details_target_id = {paragraph__field_sup_email}.entity_id AND
+      {node__field_prj_sup_details}.entity_id != :id',
+    [':id' => $entity->nid->value]
+  )->fetchCol();
+
+  foreach ($field_prj_sup_details as $supplier){
+    $mail = $supplier->entity->field_sup_email->value;
+    if (!in_array($mail, $existing)){
+      $addresses[$mail] = $mail;
+    }
   }
+
+  return $addresses;
 }
 
 // --- Config Utilities

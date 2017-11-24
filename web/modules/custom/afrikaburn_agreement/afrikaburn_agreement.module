@@ -18,9 +18,11 @@ use \Drupal\user\Entity\User;
 function afrikaburn_agreement_form_alter(&$form, $form_state, $form_id) {
 
   // Attach supplier agreement
-  foreach(['node_art_', 'node_performances_', 'node_mutant_vehicles_', 'node_theme_camps_'] as $parent) {
-    if (substr($form_id, 0, strlen($parent)) === $parent) {
-      $form['actions']['submit']['#submit'][] = 'afrikaburn_agreement_supplier';
+  if (preg_match('/\/supplier$/', \Drupal::service('path.current')->getPath())){
+    foreach(['node_art_', 'node_performances_', 'node_mutant_vehicles_', 'node_theme_camps_'] as $parent) {
+      if (substr($form_id, 0, strlen($parent)) === $parent) {
+        // $form['actions']['submit']['#submit'][] = 'afrikaburn_agreement_supplier';
+      }
     }
   }
 
@@ -83,7 +85,7 @@ function afrikaburn_agreement_supplier($form, $form_state){
 
   if (!in_array($aid, $agreements)){
     $user->get('field_agreements')->appendItem(
-      \Drupal::entityTypeManager()->getStorage('node')->load($aid) 
+      \Drupal::entityTypeManager()->getStorage('node')->load($aid)
     );
     $user->save();
   }
