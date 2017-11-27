@@ -297,7 +297,11 @@ function _afrikaburn_emails_recipient_new_invitees($entity){
   return array_diff($newbs, $originals);
 }
 
-function _afrikaburn_emails_recipient_suppliers($entity){
+/**
+ * Retrieves a list of suppliers email addresses
+ * @param  [object] $entity   Entity object being operated on
+ * @return [array]            Array of email addresses
+ */function _afrikaburn_emails_recipient_suppliers($entity){
   $addresses = [];
   $field_prj_sup_details = $entity->hasField('field_prj_sup_details') ? $entity->get('field_prj_sup_details') : FALSE;
 

@@ -39,6 +39,7 @@ class CollectiveAdminCheck implements AccessInterface {
       'performances' => 'art_admin',
       'mutant_vehicles' => 'mutant_vehicle_admin',
       'theme_camps' => 'theme_camp_admin',
+      'collective' => 'authenticated',
     ];
 
     if ($node && in_array($bundle, array_keys($roles))){
@@ -68,10 +69,10 @@ class CollectiveAdminCheck implements AccessInterface {
   private function isAdmin($uid, $collective){
     $admins = $collective
       ->get('field_col_admins')
-      ->referencedEntities();    
+      ->referencedEntities();
     foreach ($admins as $admin) {
       if ($admin->id() == $uid){
-        return TRUE;          
+        return TRUE;
       }
     }
     return FALSE;
