@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_comment
+    - field.field.node.mutant_vehicles.field_grt_art_total
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
     - field.field.node.mutant_vehicles.field_grt_dmv_budget
@@ -104,7 +105,6 @@ dependencies:
     - image.style.thumbnail
     - node.type.mutant_vehicles
   module:
-    - content_moderation
     - cshs
     - field_group
     - file
@@ -338,17 +338,9 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_form_mode:
-    weight: 68
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_grt_dmv_budget:
     type: entity_reference_paragraphs
-    weight: 9
+    weight: 8
     region: content
     settings:
       title: Paragraph
@@ -487,12 +479,9 @@ content:
     region: content
   field_prj_gen_owner:
     weight: 23
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_gen_story:
     weight: 28
@@ -678,14 +667,6 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_prj_snd_comment:
-    type: string_textarea
-    weight: 8
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   field_prj_snd_description:
     weight: 10
     settings:
@@ -833,12 +814,6 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
-  moderation_state:
-    type: moderation_state_default
-    weight: 100
-    settings: {  }
-    region: content
-    third_party_settings: {  }
   path:
     type: path
     weight: 5
@@ -852,13 +827,6 @@ content:
     weight: 3
     region: content
     third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 121
-    third_party_settings: {  }
-    region: content
   sticky:
     type: boolean_checkbox
     settings:
@@ -884,7 +852,9 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_form_mode: true
   field_grt_art_comment: true
+  field_grt_art_total: true
   field_grt_awarded: true
   field_grt_contribution: true
   field_grt_materials: true
@@ -910,6 +880,7 @@ hidden:
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
   field_prj_saf_comment: true
+  field_prj_snd_comment: true
   field_prj_stg_tread: true
   field_prj_sup_address: true
   field_prj_sup_details: true
@@ -917,3 +888,5 @@ hidden:
   field_prj_wtf_long: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
+  moderation_state: true
+  status: true

@@ -239,3 +239,6 @@ body.path-frontpage .main-block{
     padding-left: 0;
     overflow-wrap: break-word;
 }
+.path-wranglers div.body-content div.field__item img {
+    max-width: 100%;
+}

@@ -572,7 +572,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="http://dev.afrikaburn.com/node/{{ nid }}/edit/supplier">Register suppliers</a>'
+            text: '<a href="/node/{{ nid }}/edit/supplier">Register suppliers</a>'
             make_link: false
             path: ''
             absolute: false
@@ -967,9 +967,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            art: art
             mutant_vehicles: mutant_vehicles
-            performances: performances
           group: 1
           exposed: false
           expose:
