@@ -224,7 +224,7 @@ class RebuildUsersForm extends FormBase {
       FROM
         {users} LEFT JOIN {user__field_quicket_id} ON (uid=entity_id)
       WHERE
-        field_quicket_id_value > 0
+        field_quicket_id_value < 467078
     ')->fetchCol();
 
     $batch = [
