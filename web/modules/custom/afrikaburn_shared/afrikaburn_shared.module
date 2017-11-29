@@ -57,7 +57,7 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
 function afrikaburn_shared_form_user_form_alter(&$form, $form_state, $form_id){
   switch ($form_id){
     case 'user_form': $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_update_quicket'; break;
-    case 'user_register_form': $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_new_quicket'; break;
+    // case 'user_register_form': $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_new_quicket'; break;
   }
 }
 
@@ -150,6 +150,28 @@ function afrikaburn_shared_user_id_validate($form, FormStateInterface &$form_sta
 
 /* ---- Submit handlers ---- */
 
+function afrikaburn_shared_agreed($user){
+  $all_agreements = TRUE;
+
+  if (count($user->field_agreements)) {
+    foreach($user->field_agreements->referencedEntities() as $agreement){
+      $aid = $agreement->id();
+      foreach($agreement->field_agreement_terms->referencedEntities() as $webform){
+        $done = db_select('webform_submission')
+          ->condition('uid', $user->id())
+          ->condition('entity_id', $aid)
+          ->condition('webform_id', $webform->id())
+          ->countQuery()
+            ->execute()
+            ->fetchField();
+        $all_agreements =& $done;
+      }
+    }
+  }
+
+  return $all_agreements;
+}
+
 /**
  * User registration form.
  */
@@ -157,6 +179,11 @@ function afrikaburn_shared_new_quicket($form, FormStateInterface &$form_state) {
 
   $values = $form_state->getValues();
   $user = \Drupal\user\Entity\User::load($form_state->getValues()['uid']);
+
+  if (!afrikaburn_shared_agreed($user)) {
+    drupal_set_message('Not all agreements have been accepted for this user, and therefore no quicket code is being requested!', 'warning');
+    return;
+  }
 
   module_load_include('inc', 'afrikaburn_shared', 'includes/quicket');
   $quicket = _quicket(
@@ -179,6 +206,11 @@ function afrikaburn_shared_update_quicket($form, FormStateInterface &$form_state
   $values = $form_state->getValues();
   $user = \Drupal\user\Entity\User::load($form_state->getValues()['uid']);
   $quicket_id = $user->get('field_quicket_id')->getValue()[0]['value'];
+
+  if (!afrikaburn_shared_agreed($user)) {
+    drupal_set_message('Not all agreements have been accepted for this user, and therefore no quicket code is being requested!', 'warning');
+    return;
+  }
 
   $new = [
     'id' => isset($values['field_id_number']) ? $values['field_id_number'][0]['value']: 0,
