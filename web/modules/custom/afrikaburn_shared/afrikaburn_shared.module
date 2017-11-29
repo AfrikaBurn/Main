@@ -57,7 +57,7 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
 function afrikaburn_shared_form_user_form_alter(&$form, $form_state, $form_id){
   switch ($form_id){
     case 'user_form': $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_update_quicket'; break;
-    // case 'user_register_form': $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_new_quicket'; break;
+    case 'user_register_form': $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_new_quicket'; break;
   }
 }
 
