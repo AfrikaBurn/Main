@@ -219,13 +219,21 @@ class RebuildUsersForm extends FormBase {
    */
   public function fixQuicketInfo(){
 
-    $uids = db_query('
-      SELECT uid
+    $uids = db_query("
+      SELECT
+        {users}.uid
       FROM
-        {users} LEFT JOIN {user__field_quicket_id} ON (uid=entity_id)
+        ({users} JOIN {users_field_data} ON {users}.uid = {users_field_data}.uid)
+        LEFT JOIN {user__field_quicket_id} ON {users}.uid = {user__field_quicket_id}.entity_id
       WHERE
-        field_quicket_id_value < 467078
-    ')->fetchCol();
+        (
+          {user__field_quicket_id}.entity_id IS NULL OR
+          {user__field_quicket_id}.field_quicket_id_value = '' OR
+          {user__field_quicket_id}.field_quicket_id_value IS NULL
+        ) AND
+        {users_field_data}.changed > 1511690400 AND
+        {users_field_data}.created < 1511690400;"
+    )->fetchCol();
 
     $batch = [
       'title' => t('Generating new quicket IDs...'),
