@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_comment
+    - field.field.node.mutant_vehicles.field_grt_art_total
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
     - field.field.node.mutant_vehicles.field_grt_dmv_budget
@@ -23,7 +24,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_adm_form_wtf
     - field.field.node.mutant_vehicles.field_prj_adm_notes
     - field.field.node.mutant_vehicles.field_prj_adm_ranger_comment
-    - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
     - field.field.node.mutant_vehicles.field_prj_brn_burning
@@ -44,13 +44,17 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_gen_lead
     - field.field.node.mutant_vehicles.field_prj_gen_location
     - field.field.node.mutant_vehicles.field_prj_gen_mutating
+    - field.field.node.mutant_vehicles.field_prj_gen_owner
     - field.field.node.mutant_vehicles.field_prj_gen_story
     - field.field.node.mutant_vehicles.field_prj_gen_year
     - field.field.node.mutant_vehicles.field_prj_lgh_description
+    - field.field.node.mutant_vehicles.field_prj_lgh_f1
     - field.field.node.mutant_vehicles.field_prj_lgh_lighter
     - field.field.node.mutant_vehicles.field_prj_lgh_night
     - field.field.node.mutant_vehicles.field_prj_lgh_projection
+    - field.field.node.mutant_vehicles.field_prj_lnt_agree
     - field.field.node.mutant_vehicles.field_prj_lnt_comments
+    - field.field.node.mutant_vehicles.field_prj_lnt_f1
     - field.field.node.mutant_vehicles.field_prj_lnt_handled
     - field.field.node.mutant_vehicles.field_prj_lnt_historic
     - field.field.node.mutant_vehicles.field_prj_lnt_images
@@ -254,6 +258,7 @@ hidden:
   field_collective: true
   field_form_mode: true
   field_grt_art_comment: true
+  field_grt_art_total: true
   field_grt_awarded: true
   field_grt_status: true
   field_mutant_drivers: true
@@ -262,7 +267,6 @@ hidden:
   field_prj_adm_form_wtf: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
-  field_prj_adm_registration: true
   field_prj_adm_review: true
   field_prj_adm_wrangler: true
   field_prj_brn_burning: true
@@ -283,13 +287,17 @@ hidden:
   field_prj_gen_lead: true
   field_prj_gen_location: true
   field_prj_gen_mutating: true
+  field_prj_gen_owner: true
   field_prj_gen_story: true
   field_prj_gen_year: true
   field_prj_lgh_description: true
+  field_prj_lgh_f1: true
   field_prj_lgh_lighter: true
   field_prj_lgh_night: true
   field_prj_lgh_projection: true
+  field_prj_lnt_agree: true
   field_prj_lnt_comments: true
+  field_prj_lnt_f1: true
   field_prj_lnt_handled: true
   field_prj_lnt_historic: true
   field_prj_lnt_images: true

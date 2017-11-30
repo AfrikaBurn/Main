@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_comment
+    - field.field.node.mutant_vehicles.field_grt_art_total
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
     - field.field.node.mutant_vehicles.field_grt_dmv_budget
@@ -52,6 +53,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_lgh_lighter
     - field.field.node.mutant_vehicles.field_prj_lgh_night
     - field.field.node.mutant_vehicles.field_prj_lgh_projection
+    - field.field.node.mutant_vehicles.field_prj_lnt_agree
     - field.field.node.mutant_vehicles.field_prj_lnt_comments
     - field.field.node.mutant_vehicles.field_prj_lnt_f1
     - field.field.node.mutant_vehicles.field_prj_lnt_handled
@@ -105,8 +107,8 @@ dependencies:
     - image.style.thumbnail
     - node.type.mutant_vehicles
   module:
+    - autocomplete_deluxe
     - comment
-    - computed_field
     - content_moderation
     - cshs
     - field_group
@@ -137,20 +139,22 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Project Overview'
+      region: content
     group_overview:
       children:
         - path
         - field_prj_gen_year
-        - group_the_project
         - field_prj_gen_contact
-        - group_safety
         - field_prj_gen_lead
-        - group_night_driving
-        - group_sound
         - field_prj_gen_fundraising
         - field_prj_gen_fundraiser
         - field_prj_gen_location
         - field_prj_gen_owner
+        - group_the_project
+        - group_safety
+        - group_night_driving
+        - group_sound
+        - field_prj_adm_registration
       parent_name: group_project_overview
       weight: 7
       format_type: tab
@@ -161,6 +165,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Overview
+      region: content
     group_the_project:
       children:
         - field_prj_gen_description
@@ -186,6 +191,7 @@ third_party_settings:
         speed: fast
         attributes: ''
       label: Image
+      region: content
     group_safety:
       children:
         - field_prj_saf_passengers
@@ -211,6 +217,7 @@ third_party_settings:
         speed: fast
         attributes: ''
       label: 'Title and Details'
+      region: content
     group_night_driving:
       children:
         - field_prj_lgh_night
@@ -234,6 +241,7 @@ third_party_settings:
         speed: fast
         attributes: ''
       label: 'Wrangler and Comments'
+      region: content
     group_sound:
       children:
         - field_prj_snd_sound
@@ -261,6 +269,7 @@ third_party_settings:
         speed: fast
         attributes: ''
       label: 'Project Description'
+      region: content
     group_flame_effects_:
       children:
         - field_prj_brn_burning
@@ -277,6 +286,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Flame effects'
+      region: hidden
     group_trailer:
       children:
         - field_prj_trl_area
@@ -297,6 +307,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Trailer
+      region: hidden
     group_moop:
       children:
         - field_prj_lnt_handled
@@ -318,6 +329,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Moop
+      region: hidden
     group_wtf_guide_and_activities:
       children:
         - field_prj_wtf_short
@@ -345,6 +357,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'WTF Guide and Activities'
+      region: hidden
     group_almost_done_:
       children:
         - field_prj_oth_other
@@ -361,12 +374,12 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Almost done!'
+      region: hidden
     group_admin:
       children:
         - field_prj_adm_notes
         - field_prj_adm_review
         - field_prj_adm_wrangler
-        - field_prj_adm_registration
         - field_prj_adm_ranger_comment
         - field_prj_adm_comms
         - field_prj_adm_form_grant
@@ -381,6 +394,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Admin
+      region: hidden
     group_grants:
       children:
         - field_grt_dmv_budget
@@ -404,6 +418,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Grants
+      region: content
 _core:
   default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
 id: node.mutant_vehicles.wangler_overview
@@ -540,11 +555,13 @@ content:
     type: string_textarea
     region: content
   field_prj_adm_registration:
-    weight: 9
-    settings: {  }
-    third_party_settings: {  }
-    type: computed_string_widget
+    type: string_textfield
+    weight: 1
     region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_adm_review:
     weight: 7
     settings:
@@ -705,6 +722,23 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_prj_gen_owner:
+    type: autocomplete_deluxe
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      size: 60
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
   field_prj_gen_story:
     weight: 16
     settings:
@@ -1162,9 +1196,10 @@ content:
 hidden:
   field_collective: true
   field_form_mode: true
+  field_grt_art_total: true
   field_mutant_drivers: true
-  field_prj_gen_owner: true
   field_prj_lgh_f1: true
+  field_prj_lnt_agree: true
   field_prj_lnt_f1: true
   field_prj_sup_address: true
   field_prj_sup_details: true
