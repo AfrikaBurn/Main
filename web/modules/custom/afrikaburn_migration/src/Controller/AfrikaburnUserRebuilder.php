@@ -90,10 +90,12 @@ class AfrikaburnUserRebuilder extends ControllerBase {
         $user->hasField('field_kids') ? $user->get('field_kids')->value : 0
       );
 
-      $user->field_quicket_code = $quicket['code'];
-      $user->field_quicket_id = $quicket['id'];
+      if ($quicket){
+        $user->field_quicket_code = $quicket['code'];
+        $user->field_quicket_id = $quicket['id'];
+      }
 
-      $context['results'][] = $user->save();
+      $context['results'][] = $quicket && $user->save();
       $context['message'] = 'Generating new quicket data';
     }
 
