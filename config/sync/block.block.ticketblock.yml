@@ -1,0 +1,20 @@
+uuid: 9577f483-3ac3-436e-8af8-3933ee0619ef
+langcode: en
+status: true
+dependencies:
+  module:
+    - afrikaburn_shared
+  theme:
+    - afrikaburn
+id: ticketblock
+theme: afrikaburn
+region: status_messages
+weight: 0
+provider: null
+plugin: ticket_block
+settings:
+  id: ticket_block
+  label: 'Ticket Block'
+  provider: afrikaburn_shared
+  label_display: '0'
+visibility: {  }
