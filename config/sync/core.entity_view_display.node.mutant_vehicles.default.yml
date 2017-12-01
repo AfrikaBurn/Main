@@ -53,6 +53,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_lgh_lighter
     - field.field.node.mutant_vehicles.field_prj_lgh_night
     - field.field.node.mutant_vehicles.field_prj_lgh_projection
+    - field.field.node.mutant_vehicles.field_prj_lnt_agree
     - field.field.node.mutant_vehicles.field_prj_lnt_comments
     - field.field.node.mutant_vehicles.field_prj_lnt_f1
     - field.field.node.mutant_vehicles.field_prj_lnt_handled
@@ -106,8 +107,8 @@ dependencies:
     - node.type.mutant_vehicles
   module:
     - comment
-    - computed_field
     - entity_reference_revisions
+    - field_group
     - file
     - image
     - link
@@ -121,6 +122,221 @@ third_party_settings:
     custom: false
     allow: false
     default: default
+  field_group:
+    group_project_overview:
+      children:
+        - group_overview
+        - group_the_project
+        - group_safety
+        - group_nigh
+        - group_sound
+        - group_flame
+        - group_trailer
+        - group_moop
+        - group_wtf_guide_and_activities
+        - group_almost_done_
+        - group_suppliers
+        - group_grant
+      parent_name: ''
+      weight: 0
+      format_type: accordion
+      format_settings:
+        id: ''
+        classes: ''
+        effect: none
+      label: 'Project Overview'
+      region: content
+    group_overview:
+      children:
+        - field_prj_gen_year
+        - field_prj_gen_contact
+        - field_prj_gen_lead
+        - field_prj_gen_owner
+        - field_prj_gen_fundraising
+        - field_prj_gen_fundraiser
+        - field_prj_gen_location
+        - field_mutant_drivers
+        - field_collective
+      parent_name: group_project_overview
+      weight: 10
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: Overview
+      region: content
+    group_the_project:
+      children:
+        - field_prj_gen_description
+        - field_prj_gen_story
+        - field_prj_gen_base
+        - field_prj_gen_mutating
+        - field_prj_gen_concept
+        - field_prj_gen_doc
+      parent_name: group_project_overview
+      weight: 20
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: 'The Project'
+      region: content
+    group_safety:
+      children:
+        - field_prj_saf_guide
+        - field_prj_saf_passengers
+        - field_prj_saf_access
+        - field_prj_saf_other
+        - field_prj_saf_mark
+        - field_prj_saf_comment
+      parent_name: group_project_overview
+      weight: 30
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: Safety
+      region: content
+    group_nigh:
+      children:
+        - field_prj_lgh_f1
+        - field_prj_lgh_night
+        - field_prj_lgh_description
+        - field_prj_lgh_lighter
+      parent_name: group_project_overview
+      weight: 40
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: 'Night Driving'
+      region: content
+    group_sound:
+      children:
+        - field_prj_snd_sound
+        - field_prj_snd_level
+        - field_prj_snd_description
+        - field_prj_snd_safety
+        - field_prj_snd_soop
+        - field_prj_snd_agree
+        - field_prj_snd_person
+        - field_prj_snd_comment
+      parent_name: group_project_overview
+      weight: 50
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: Sound
+      region: content
+    group_flame:
+      children:
+        - field_prj_brn_burning
+        - field_prj_brn_plan
+        - field_prj_brn_person
+        - field_prj_brn_desc
+      parent_name: group_project_overview
+      weight: 60
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: 'Flame effects'
+      region: content
+    group_trailer:
+      children:
+        - field_prj_lgh_projection
+        - field_prj_trl_area
+        - field_prj_trl_describe
+        - field_prj_trl_size
+        - field_prj_trl_walkers
+        - field_prj_trl_passengers
+        - field_prj_trl_capasity
+        - field_prj_trl_communicate
+        - field_prj_trl_markup
+        - field_prj_lnt_handled
+      parent_name: group_project_overview
+      weight: 70
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: Trailer
+      region: content
+    group_moop:
+      children: {  }
+      parent_name: group_project_overview
+      weight: 80
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: Moop
+      region: content
+    group_wtf_guide_and_activities:
+      children: {  }
+      parent_name: group_project_overview
+      weight: 90
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: 'WTF Guide and Activities'
+      region: content
+    group_almost_done_:
+      children: {  }
+      parent_name: group_project_overview
+      weight: 100
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: 'Almost done!'
+      region: content
+    group_suppliers:
+      children: {  }
+      parent_name: group_project_overview
+      weight: 110
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: Suppliers
+      region: content
+    group_grant:
+      children: {  }
+      parent_name: group_project_overview
+      weight: 120
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: Grant
+      region: content
 _core:
   default_config_hash: C9Fh0QjRhuwpBvMWXkPEtFOs5iom_nF-2vt1jAFIxwE
 id: node.mutant_vehicles.default
@@ -128,6 +344,13 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: default
 content:
+  field_collective:
+    type: entity_reference_entity_id
+    weight: 111
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_grt_art_comment:
     weight: 187
     label: above
@@ -233,7 +456,7 @@ content:
     type: number_integer
     region: content
   field_mutant_drivers:
-    weight: 191
+    weight: 110
     label: above
     settings:
       link: true
@@ -284,14 +507,12 @@ content:
     type: basic_string
     region: content
   field_prj_adm_registration:
-    weight: 174
+    weight: 200
     label: above
     settings:
-      sanitized: true
-      cache_unit: -1
-      cache_duration: 1
+      link_to_entity: false
     third_party_settings: {  }
-    type: computed_string
+    type: string
     region: content
   field_prj_adm_review:
     weight: 172
@@ -456,7 +677,7 @@ content:
     type: basic_string
     region: content
   field_prj_gen_owner:
-    weight: 195
+    weight: 103
     label: above
     settings:
       link: true
@@ -471,7 +692,7 @@ content:
     type: basic_string
     region: content
   field_prj_gen_year:
-    weight: 101
+    weight: 5
     label: above
     settings:
       thousand_separator: ''
@@ -487,7 +708,7 @@ content:
     type: basic_string
     region: content
   field_prj_lgh_f1:
-    weight: 196
+    weight: 118
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -517,6 +738,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
+  field_prj_lnt_agree:
+    weight: 199
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_prj_lnt_comments:
     weight: 147
@@ -647,7 +878,7 @@ content:
     type: basic_string
     region: content
   field_prj_saf_guide:
-    weight: 114
+    weight: 113
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -668,7 +899,7 @@ content:
     type: basic_string
     region: content
   field_prj_saf_passengers:
-    weight: 113
+    weight: 114
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -918,11 +1149,6 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  links:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
-  field_collective: true
   field_form_mode: true
+  links: true

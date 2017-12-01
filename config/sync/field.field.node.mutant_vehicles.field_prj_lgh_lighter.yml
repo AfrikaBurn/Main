@@ -17,7 +17,7 @@ entity_type: node
 bundle: mutant_vehicles
 label: 'Who is the person in your team in charge of lighting?'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''

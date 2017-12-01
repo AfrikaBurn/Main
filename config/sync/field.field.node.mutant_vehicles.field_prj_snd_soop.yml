@@ -25,6 +25,6 @@ default_value:
 default_value_callback: ''
 settings:
   markup:
-    value: "<p><img alt=\"Soop Map\" data-entity-type=\"file\" data-entity-uuid=\"c2b5a543-e181-49a3-8fa1-848829afc8da\" height=\"323\" src=\"/sites/default/files/inline-images/Screen%20Shot%202016-10-06%20at%201.23.09%20PMb.jpg\" width=\"496\" /></p>\r\n"
-    format: basic_html
+    value: "<p><img alt=\"Sound area map\" data-entity-type=\"file\" data-entity-uuid=\"e58c2f2d-95c0-4fa2-8e68-76f2c7bb5665\" src=\"/sites/default/files/inline-images/Screen%20Shot%202016-10-06%20at%201.23.09%20PMb.jpg\" /></p>\r\n"
+    format: full_html
 field_type: markup

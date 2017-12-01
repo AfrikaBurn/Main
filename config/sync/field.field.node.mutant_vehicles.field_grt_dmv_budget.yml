@@ -36,4 +36,7 @@ settings:
       mutant_grant_expense:
         enabled: true
         weight: 4
+      supplier_details:
+        weight: 6
+        enabled: false
 field_type: entity_reference_revisions

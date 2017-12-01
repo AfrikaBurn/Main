@@ -242,3 +242,31 @@ body.path-frontpage .main-block{
 .path-wranglers div.body-content div.field__item img {
     max-width: 100%;
 }
+
+
+.form-checkboxes .multiple-fields-remove-button {
+    display: none;
+}
+
+.page-node-type-mutant-vehicles .field--name-field-collective,
+.node-add-mutant_vehicles .field--name-field-collective,
+.page-node-type-mutant-vehicles .field--name-field-prj-gen-year,
+.node-add-mutant_vehicles .field--name-field-prj-gen-year,
+.page-node-type-mutant-vehicles .field--name-field-grt-dmv-budget ,
+.node-add-mutant_vehicles .field--name-field-grt-dmv-budget {
+    display: none;
+}
+
+.node-mutant-vehicles-grant-form .field--name-field-grt-dmv-budget {
+  display: block;
+}
+
+#field-grt-dmv-budget-values {
+    width: 100%;
+}
+
+
+.node-mutant-vehicles-grant-form .paragraphs-subform {
+    display: flex;  
+    flex-wrap: wrap;
+}
