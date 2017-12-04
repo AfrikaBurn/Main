@@ -53,6 +53,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_lgh_lighter
     - field.field.node.mutant_vehicles.field_prj_lgh_night
     - field.field.node.mutant_vehicles.field_prj_lgh_projection
+    - field.field.node.mutant_vehicles.field_prj_lnt_agree
     - field.field.node.mutant_vehicles.field_prj_lnt_comments
     - field.field.node.mutant_vehicles.field_prj_lnt_f1
     - field.field.node.mutant_vehicles.field_prj_lnt_handled
@@ -106,7 +107,6 @@ dependencies:
     - node.type.mutant_vehicles
     - responsive_image.styles.wangler_preview
   module:
-    - computed_field
     - ds
     - empty_fields
     - field_group
@@ -131,6 +131,7 @@ third_party_settings:
         classes: ''
         direction: horizontal
       label: 'Project Overview'
+      region: content
     group_overview:
       children:
         - group_1_image
@@ -146,6 +147,7 @@ third_party_settings:
         formatter: open
         description: ''
       label: Overview
+      region: content
     group_1_image:
       children:
         - field_prj_gen_concept
@@ -162,6 +164,7 @@ third_party_settings:
         effect: none
         speed: fast
       label: '1 Image'
+      region: content
     group_2_title_and_details:
       children:
         - field_collective
@@ -185,6 +188,7 @@ third_party_settings:
         effect: none
         speed: fast
       label: '2 Title and Details'
+      region: content
     group_4_wrangler_and_comments:
       children:
         - field_prj_adm_wrangler
@@ -202,6 +206,7 @@ third_party_settings:
         effect: none
         speed: fast
       label: '4 Wrangler and Comments'
+      region: content
     group_5_project_description:
       children:
         - field_prj_gen_description
@@ -300,6 +305,7 @@ third_party_settings:
         id: ''
         classes: wrangler_ovr_5
       label: ''
+      region: content
 _core:
   default_config_hash: C9Fh0QjRhuwpBvMWXkPEtFOs5iom_nF-2vt1jAFIxwE
 id: node.mutant_vehicles.wrangler_overview
@@ -317,7 +323,7 @@ content:
     third_party_settings: {  }
   field_grt_art_total:
     type: number_integer
-    weight: 2
+    weight: 3
     region: content
     label: above
     settings:
@@ -325,26 +331,24 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
   field_prj_adm_notes:
-    weight: 174
+    weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_adm_registration:
+    type: string
     weight: 1
+    region: content
     label: above
     settings:
-      sanitized: '1'
-      cache_unit: '-1'
-      cache_duration: '1'
+      link_to_entity: false
     third_party_settings:
       empty_fields:
         handler: nbsp
-    type: computed_string
-    region: content
   field_prj_adm_review:
-    weight: 3
+    weight: 4
     label: above
     settings:
       link: true
@@ -352,10 +356,10 @@ content:
     type: entity_reference_label
     region: content
   field_prj_adm_wrangler:
-    weight: 173
+    weight: 3
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings:
       empty_fields:
         handler: nbsp
@@ -375,7 +379,7 @@ content:
     type: responsive_image
     region: content
   field_prj_gen_description:
-    weight: 177
+    weight: 2
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -423,6 +427,7 @@ hidden:
   field_prj_lgh_lighter: true
   field_prj_lgh_night: true
   field_prj_lgh_projection: true
+  field_prj_lnt_agree: true
   field_prj_lnt_comments: true
   field_prj_lnt_f1: true
   field_prj_lnt_handled: true

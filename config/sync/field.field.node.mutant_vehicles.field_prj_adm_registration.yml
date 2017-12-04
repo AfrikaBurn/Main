@@ -1,4 +1,4 @@
-uuid: b8dd0b72-f91b-45a7-9106-e4572265a90a
+uuid: 6a40455c-4fd3-49dc-b6d6-e28db6e1579a
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_prj_adm_registration
     - node.type.mutant_vehicles
   module:
-    - computed_field
     - custom_add_another
 third_party_settings:
   custom_add_another:
@@ -20,10 +19,7 @@ label: 'Registration number'
 description: ''
 required: false
 translatable: false
-default_value:
-  -
-    value: ''
+default_value: {  }
 default_value_callback: ''
-settings:
-  code: '$value = date("ymd");'
-field_type: computed_string
+settings: {  }
+field_type: string

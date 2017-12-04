@@ -14,6 +14,7 @@ dependencies:
     - field.field.user.user.field_first_name
     - field.field.user.user.field_gender
     - field.field.user.user.field_id_number
+    - field.field.user.user.field_kids_and_teens
     - field.field.user.user.field_last_name
     - field.field.user.user.field_links
     - field.field.user.user.field_location
@@ -27,11 +28,13 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - conditional_fields
     - cshs
     - datetime
     - field_group
     - image
     - link
+    - paragraphs
     - path
     - telephone
     - user
@@ -45,6 +48,7 @@ third_party_settings:
         - group_history
         - group_contact
         - group_emergency_medical_informat
+        - group_minors
       parent_name: ''
       weight: 0
       format_type: accordion
@@ -54,9 +58,9 @@ third_party_settings:
         id: ''
         classes: ''
       label: Root
+      region: content
     group_account:
       children:
-        - user_picture
         - account
         - language
         - field_agreements
@@ -70,8 +74,10 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Account
+      region: content
     group_identity:
       children:
+        - user_picture
         - field_first_name
         - field_last_name
         - field_gender
@@ -87,6 +93,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Identity
+      region: content
     group_location:
       children:
         - field_location
@@ -101,6 +108,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Location
+      region: content
     group_contact:
       children:
         - contact
@@ -118,6 +126,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Contact
+      region: content
     group_history:
       children:
         - field_participation
@@ -132,6 +141,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: History
+      region: content
     group_emergency_medical_informat:
       children:
         - field_emr_name
@@ -147,6 +157,21 @@ third_party_settings:
         required_fields: true
         description: ''
       label: 'Emergency medical information'
+      region: content
+    group_minors:
+      children:
+        - field_kids_and_teens
+      parent_name: group_root
+      weight: 80
+      format_type: accordion_item
+      format_settings:
+        label: 'Kids and Teens (Minors)'
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: kids-and-teens
+      label: 'Kids and Teens (Minors)'
+      region: content
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
 id: user.user.default
@@ -174,7 +199,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_date_of_birth:
-    weight: 31
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -204,29 +229,65 @@ content:
     region: content
   field_first_name:
     type: string_textfield
-    weight: 11
+    weight: 3
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_gender:
-    weight: 13
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
+  field_guardian_doc:
+    weight: 4
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        93ce2f31-4614-4f49-ad83-f882a47d4c10:
+          dependee: field_guardian
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: true
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: user
+          bundle: user
+    type: markup
+    region: content
   field_id_number:
-    weight: 15
+    weight: 6
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_kids_and_teens:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Minors
+      title_plural: 'Another Minor'
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: minors
+    third_party_settings:
+      conditional_fields: {  }
+    region: content
   field_last_name:
     type: string_textfield
-    weight: 12
+    weight: 4
     region: content
     settings:
       size: 60
@@ -271,6 +332,14 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_parent:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings:
+      conditional_fields: {  }
+    type: boolean_checkbox
+    region: content
   field_participation:
     weight: 28
     settings:
@@ -280,7 +349,7 @@ content:
     type: string_textarea
     region: content
   field_quicket_code:
-    weight: 3
+    weight: 4
     settings:
       size: 60
       placeholder: ''
@@ -288,7 +357,7 @@ content:
     type: string_textfield
     region: content
   field_quicket_id:
-    weight: 4
+    weight: 5
     settings:
       size: 60
       placeholder: ''
@@ -304,7 +373,7 @@ content:
     type: email_default
     region: content
   google_analytics:
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -315,7 +384,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }

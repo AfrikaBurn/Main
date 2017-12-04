@@ -27,7 +27,7 @@ function _quicket($method, $id_number, $teens, $kids, $quicket_id = FALSE){
   $data = json_encode(
     [
       'EventId' => $settings['event_id'],
-      'TicketTypes' =>  $ticket_types,
+      'TicketTypes' =>  array_values($ticket_types),
       'IsPercentage' => FALSE,
       'DiscountAmount' => 0.0,
       'NumUses' => 2 + $kids + $teens,

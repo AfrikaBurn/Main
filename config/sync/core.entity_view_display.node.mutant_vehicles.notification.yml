@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_comment
+    - field.field.node.mutant_vehicles.field_grt_art_total
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
     - field.field.node.mutant_vehicles.field_grt_dmv_budget
@@ -24,7 +25,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_adm_form_wtf
     - field.field.node.mutant_vehicles.field_prj_adm_notes
     - field.field.node.mutant_vehicles.field_prj_adm_ranger_comment
-    - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
     - field.field.node.mutant_vehicles.field_prj_brn_burning
@@ -45,13 +45,17 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_gen_lead
     - field.field.node.mutant_vehicles.field_prj_gen_location
     - field.field.node.mutant_vehicles.field_prj_gen_mutating
+    - field.field.node.mutant_vehicles.field_prj_gen_owner
     - field.field.node.mutant_vehicles.field_prj_gen_story
     - field.field.node.mutant_vehicles.field_prj_gen_year
     - field.field.node.mutant_vehicles.field_prj_lgh_description
+    - field.field.node.mutant_vehicles.field_prj_lgh_f1
     - field.field.node.mutant_vehicles.field_prj_lgh_lighter
     - field.field.node.mutant_vehicles.field_prj_lgh_night
     - field.field.node.mutant_vehicles.field_prj_lgh_projection
+    - field.field.node.mutant_vehicles.field_prj_lnt_agree
     - field.field.node.mutant_vehicles.field_prj_lnt_comments
+    - field.field.node.mutant_vehicles.field_prj_lnt_f1
     - field.field.node.mutant_vehicles.field_prj_lnt_handled
     - field.field.node.mutant_vehicles.field_prj_lnt_historic
     - field.field.node.mutant_vehicles.field_prj_lnt_images
@@ -103,7 +107,6 @@ dependencies:
     - node.type.mutant_vehicles
   module:
     - comment
-    - computed_field
     - entity_reference_revisions
     - file
     - image
@@ -270,16 +273,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-    region: content
-  field_prj_adm_registration:
-    weight: 174
-    label: above
-    settings:
-      sanitized: true
-      cache_unit: -1
-      cache_duration: 1
-    third_party_settings: {  }
-    type: computed_string
     region: content
   field_prj_adm_review:
     weight: 172
@@ -868,6 +861,11 @@ content:
 hidden:
   field_collective: true
   field_form_mode: true
+  field_grt_art_total: true
+  field_prj_gen_owner: true
+  field_prj_lgh_f1: true
+  field_prj_lnt_agree: true
+  field_prj_lnt_f1: true
   field_prj_sup_address: true
   field_prj_sup_details: true
   field_prj_sup_h1: true
