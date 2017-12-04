@@ -297,9 +297,9 @@ function afrikaburn_shared_agreement_submit($form, $form_state){
   $minors = $user->field_kids_and_teens;
   foreach($minors as $target) {
     $minor = $target->entity;
-    if (isset($minor)){
+    if ($minor->hasField('field_minor_date_of_birth')){
       $date = strtotime($minor->get('field_minor_date_of_birth')->value);
-      $age = (time() - $date->getTimestamp()) / 31556926;
+      $age = (time() - $date) / 31556926;
       if ($age < 14) {
         $new['kids']++;
       } else {
