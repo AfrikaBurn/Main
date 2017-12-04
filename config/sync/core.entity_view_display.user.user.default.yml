@@ -13,7 +13,6 @@ dependencies:
     - field.field.user.user.field_emr_telephone
     - field.field.user.user.field_first_name
     - field.field.user.user.field_gender
-    - field.field.user.user.field_guardian
     - field.field.user.user.field_guardian_doc
     - field.field.user.user.field_id_number
     - field.field.user.user.field_kids_and_teens
@@ -23,8 +22,6 @@ dependencies:
     - field.field.user.user.field_mobile
     - field.field.user.user.field_newsletter
     - field.field.user.user.field_other_burns
-    - field.field.user.user.field_parent
-    - field.field.user.user.field_parent_doc
     - field.field.user.user.field_participation
     - field.field.user.user.field_quicket_code
     - field.field.user.user.field_quicket_id
@@ -124,16 +121,6 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  field_guardian:
-    weight: 8
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   field_guardian_doc:
     weight: 10
     label: above
@@ -166,13 +153,6 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
-    region: content
-  field_parent_doc:
-    weight: 9
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
     region: content
   masquerade:
     weight: 2

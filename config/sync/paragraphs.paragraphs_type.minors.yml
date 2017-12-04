@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: minors
-label: Minors
+label: 'Underaged participant'
 icon_uuid: null
 description: 'List all children and teenagers coming with you.'
 behavior_plugins: {  }

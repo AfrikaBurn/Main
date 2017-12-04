@@ -17,8 +17,8 @@ id: user.user.field_kids_and_teens
 field_name: field_kids_and_teens
 entity_type: user
 bundle: user
-label: 'Kids and Teens'
-description: 'All participants under the age of 18 coming with you must be listed here.'
+label: 'List your underaged charges that intend to attend Afrikaburn '
+description: ''
 required: false
 translatable: false
 default_value: {  }
