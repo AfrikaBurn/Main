@@ -161,19 +161,15 @@ third_party_settings:
     group_minors:
       children:
         - field_kids_and_teens
-        - field_parent
-        - field_parent_doc
-        - field_guardian
-        - field_guardian_doc
       parent_name: group_root
       weight: 80
       format_type: accordion_item
       format_settings:
-        id: ''
-        classes: ''
+        label: 'Kids and Teens (Minors)'
         formatter: closed
         required_fields: true
-        description: ''
+        id: ''
+        classes: kids-and-teens
       label: 'Kids and Teens (Minors)'
       region: content
 _core:
