@@ -40,11 +40,9 @@ class TicketBlock extends BlockBase {
           : '<div class="messages messages--warning">
               Tickets cannot be bought without an updated profile and the appropriate agreements in place.<br />
               <ul>
-                <li>Is your profile complete? Check the ID number and date of birth fields.</li>
-                <li>Have you logged in since creating an account?</li>
-                <li>If you have been presented with terms and conditions, did you accept them?</li>
-                <li>If you have been presented with the Introduction or Updates to how we do stuff, have you read and accepted them?</li>
-                <li>Have you updated your profile?</li>
+                <li>Have you logged in since creating an account and accepted the T&Cs?</li>
+                <li>Have you updated your profile? Click save and correct the errors until it saves.</li>
+                <li>Is your profile complete? Check your ID number and date of birth fields.</li>
                 <li>Still no joy? <a href="mailto:support@afrikaburn.com">Contact an administrator</a>!</li>
               </ul>
              </div>',

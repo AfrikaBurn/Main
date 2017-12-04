@@ -16,9 +16,9 @@
             function checkAge(){
               var age = Date.now() - Date.parse($('#edit-field-date-of-birth-0-value-date').val())
               if (age >= 883593928000) {
-                $('#ui-id-15').show();
+                $('.kids-and-teens').show().prev().show();
               } else {
-                $('#ui-id-15').hide();
+                $('.kids-and-teens').hide().prev().hide();
               }
             }
 
