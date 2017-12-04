@@ -15,12 +15,14 @@ use \Drupal\user\Entity\User;
  */
 function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
 
-  // Redirect to front page after password reset
   if ($form_id == 'user_form') {
+    // Redirect to front page after password reset
     if (preg_match('/user\/reset/', \Drupal::request()->server->get('HTTP_REFERER'))) {
       $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
       $response->send();
     }
+    // Hide children fields for under 28s
+    $form['#attached']['library'][] = 'afrikaburn_shared/form';
   }
 
   // Add ID validation
