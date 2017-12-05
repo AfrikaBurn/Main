@@ -21,8 +21,6 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
       $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
       $response->send();
     }
-    // Hide children fields for under 28s
-    $form['#attached']['library'][] = 'afrikaburn_shared/form';
   }
 
   // Add ID validation
@@ -59,7 +57,12 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
 function afrikaburn_shared_form_user_form_alter(&$form, $form_state, $form_id){
   switch ($form_id){
     case 'user_form': $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_update_quicket'; break;
-    // case 'user_register_form': $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_new_quicket'; break;
+    case 'user_register_form':
+      // Hide children fields for under 28s
+      $form['#attached']['library'][] = 'afrikaburn_shared/form';
+      // Make minors non required
+      unset($form['field_kids_and_teens']['widget'][0]);
+      break;
   }
 }
 
@@ -110,11 +113,13 @@ function afrikaburn_shared_user_validate($form, FormStateInterface &$form_state)
   foreach($minors as $minor) {
     if (isset($minor['subform'])){
       $date = $minor['subform']['field_minor_date_of_birth'][0]['value'];
-      if (isset($date)){
-        $age = (time() - $date->getTimestamp()) / 31556926;
-        if ($age < 0 || $age > 18) {
-          $form_state->setErrorByName('field_kids_and_teens][' . $index . '][subform][field_minor_date_of_birth][0', t('Minors must be between the age of 0 and 18!'));
-        }
+      if (isset($date) ){
+        dpm($date);
+        // $age = (time() - $date->getTimestamp()) / 31556926;
+
+        // if ($age < 0 || $age > 18) {
+        //   $form_state->setErrorByName('field_kids_and_teens][' . $index . '][subform][field_minor_date_of_birth][0', t('Minors must be between the age of 0 and 18!'));
+        // }
       }
       $index++;
     }
@@ -192,32 +197,6 @@ function afrikaburn_shared_agreed($user){
 }
 
 /**
- * User registration form.
- */
-// function afrikaburn_shared_new_quicket($form, FormStateInterface &$form_state) {
-
-//   $values = $form_state->getValues();
-//   $user = \Drupal\user\Entity\User::load($form_state->getValues()['uid']);
-
-//   if (!afrikaburn_shared_agreed($user)) {
-//     drupal_set_message('Not all agreements have been accepted for this user, and therefore no quicket code is being requested!', 'warning');
-//     return;
-//   }
-
-//   module_load_include('inc', 'afrikaburn_shared', 'includes/quicket');
-//   $quicket = _quicket(
-//     'POST',
-//     isset($values['field_id_number']) ? $values['field_id_number'][0]['value']: NULL,
-//     isset($values['field_teens']) ? $values['field_teens'][0]['value']: 0,
-//     isset($values['field_kids']) ? $values['field_kids'][0]['value'] : 0
-//   );
-
-//   $user->field_quicket_code = $quicket['code'];
-//   $user->field_quicket_id = $quicket['id'];
-//   $user->save();
-// }
-
-/**
  * User edit submission handler.
  */
 function afrikaburn_shared_update_quicket($form, FormStateInterface &$form_state) {
@@ -261,8 +240,6 @@ function afrikaburn_shared_update_quicket($form, FormStateInterface &$form_state
     $new['kids'],
     $quicket_id
   );
-
-  dpm($quicket);
 
   if (!$quicket) {
     $quicket = _quicket(
