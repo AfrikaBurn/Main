@@ -17,7 +17,7 @@ field_name: field_consent_form
 entity_type: paragraph
 bundle: minors
 label: 'Completed consent form'
-description: 'Please download, complete and upload a scan or clear photograph of the [consent form].'
+description: 'Please download, complete and upload a scan or clear photograph of the <a href="/modules/custom/afrikaburn_shared/minor-indemnity.pdf" target="_blank">indemnity form</a>.'
 required: true
 translatable: false
 default_value: {  }
