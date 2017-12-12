@@ -26,6 +26,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
+    - field.field.node.mutant_vehicles.field_prj_brn_agree
     - field.field.node.mutant_vehicles.field_prj_brn_burning
     - field.field.node.mutant_vehicles.field_prj_brn_desc
     - field.field.node.mutant_vehicles.field_prj_brn_person
@@ -67,6 +68,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_oth_associated
     - field.field.node.mutant_vehicles.field_prj_oth_grant
     - field.field.node.mutant_vehicles.field_prj_oth_other
+    - field.field.node.mutant_vehicles.field_prj_oth_unregistered
     - field.field.node.mutant_vehicles.field_prj_saf_access
     - field.field.node.mutant_vehicles.field_prj_saf_comment
     - field.field.node.mutant_vehicles.field_prj_saf_guide
@@ -219,6 +221,7 @@ third_party_settings:
         - field_prj_brn_plan
         - field_prj_brn_person
         - field_prj_brn_desc
+        - field_prj_brn_agree
       parent_name: group_acc_project_overview
       weight: 8
       format_type: accordion_item
@@ -273,6 +276,7 @@ third_party_settings:
     group_acc_wtf_guide:
       children:
         - field_prj_wtf_short
+        - field_prj_wtf_long
         - field_prj_wtf_image
         - field_prj_wtf_categories
         - field_prj_wtf_website
@@ -298,6 +302,7 @@ third_party_settings:
       children:
         - field_prj_oth_other
         - field_prj_oth_associated
+        - field_prj_oth_unregistered
         - field_prj_oth_agree
         - field_prj_oth_grant
       parent_name: group_acc_project_overview
@@ -402,6 +407,46 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_prj_brn_agree:
+    weight: 13
+    settings:
+      display_label: true
+    third_party_settings:
+      conditional_fields:
+        afd92654-5901-49f0-8e37-9f19689a07e0:
+          dependee: field_prj_brn_burning
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        ad114d60-3041-4ac8-8646-37cd839ee4a4:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    type: boolean_checkbox
+    region: content
   field_prj_brn_burning:
     weight: 9
     settings:
@@ -531,14 +576,14 @@ content:
     type: string_textarea
     region: content
   field_prj_cll_collaborate:
-    weight: 4
+    weight: 5
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_cll_contact:
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -577,7 +622,7 @@ content:
     type: options_select
     region: content
   field_prj_cll_description:
-    weight: 5
+    weight: 6
     settings:
       rows: 5
       placeholder: ''
@@ -843,22 +888,6 @@ content:
       placeholder: ''
     third_party_settings:
       conditional_fields:
-        e2a7dd13-352a-4212-8165-d518422e118b:
-          dependee: field_prj_lgh_night
-          settings:
-            state: '!visible'
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: 1
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: mutant_vehicles
         4dd3f2fb-cdd2-47a6-b4cf-3257abd29880:
           dependee: field_prj_trl_area
           settings:
@@ -869,23 +898,7 @@ content:
             value: ''
             values: {  }
             value_form:
-              value: 1
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: mutant_vehicles
-        c752c6e0-9ac9-4124-8cf1-5786050adf50:
-          dependee: field_prj_lgh_night
-          settings:
-            state: required
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: 1
+              value: true
             effect: show
             effect_options: {  }
             selector: ''
@@ -943,7 +956,7 @@ content:
     type: options_select
     region: content
   field_prj_oth_agree:
-    weight: 24
+    weight: 25
     settings:
       display_label: true
     third_party_settings: {  }
@@ -959,7 +972,7 @@ content:
     type: entity_reference_autocomplete_tags
     region: content
   field_prj_oth_grant:
-    weight: 25
+    weight: 26
     settings:
       display_label: true
     third_party_settings: {  }
@@ -972,6 +985,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
+  field_prj_oth_unregistered:
+    weight: 24
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_prj_saf_access:
     weight: 65
@@ -987,23 +1008,7 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings:
-      conditional_fields:
-        2f6cd4b3-86dc-4a57-a696-c03affd12c8d:
-          dependee: field_prj_trl_area
-          settings:
-            state: required
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: 1
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: mutant_vehicles
+      conditional_fields: {  }
     type: string_textarea
     region: content
   field_prj_saf_mark:
@@ -1257,7 +1262,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_stg_contact:
-    weight: 10
+    weight: 11
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -1296,7 +1301,7 @@ content:
     type: options_select
     region: content
   field_prj_stg_description:
-    weight: 9
+    weight: 10
     settings:
       rows: 5
       placeholder: ''
@@ -1337,14 +1342,14 @@ content:
     type: string_textarea
     region: content
   field_prj_stg_stage:
-    weight: 7
+    weight: 8
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_stg_type:
-    weight: 8
+    weight: 9
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -1639,19 +1644,27 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_wtf_categories:
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_prj_wtf_image:
-    weight: 1
+    weight: 2
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
     region: content
+  field_prj_wtf_long:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_wtf_short:
     type: string_textarea
     weight: 0
@@ -1661,7 +1674,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_wtf_website:
-    weight: 3
+    weight: 4
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -1735,7 +1748,6 @@ hidden:
   field_prj_sup_address: true
   field_prj_sup_details: true
   field_prj_sup_h1: true
-  field_prj_wtf_long: true
   field_prj_wtf_short_copy: true
   moderation_state: true
   status: true

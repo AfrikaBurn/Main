@@ -87,11 +87,11 @@ third_party_settings:
       weight: 20
       format_type: accordion_item
       format_settings:
+        label: Identity
+        formatter: open
+        required_fields: true
         id: ''
         classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
       label: Identity
       region: content
     group_location:

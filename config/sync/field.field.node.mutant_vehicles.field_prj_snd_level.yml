@@ -16,7 +16,7 @@ id: node.mutant_vehicles.field_prj_snd_level
 field_name: field_prj_snd_level
 entity_type: node
 bundle: mutant_vehicles
-label: 'Please select the level of your sound component'
+label: 'Please select the level of your sound component *'
 description: "<b>Level 1</b> - Normal car stereo without sub woofers. This level permits you to play in most areas unless it's a silent zone near the Temple or other artworks. <br> <br> <b>Level 2</b> - Loud amplified sound. This can only be played in special areas within the Binnekring and deep Tankwa. Be very aware of quiet zones and artworks and which way your speakers point. <br> <br> <b>Level 3</b>  - Large club or stadium size sound. These system can only be played at full volume in Sound Zones with speakers pointing away from the Binnekring. <br>  <br> Please consult the Sound Zone map you'll receive when you do your final licensing for clarity on sound levels and zones. <br>\r\n"
 required: false
 translatable: true

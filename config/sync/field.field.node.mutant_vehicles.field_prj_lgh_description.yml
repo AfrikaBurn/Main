@@ -15,7 +15,7 @@ id: node.mutant_vehicles.field_prj_lgh_description
 field_name: field_prj_lgh_description
 entity_type: node
 bundle: mutant_vehicles
-label: 'Describe your lighting'
+label: 'Describe your lighting *'
 description: ''
 required: false
 translatable: true

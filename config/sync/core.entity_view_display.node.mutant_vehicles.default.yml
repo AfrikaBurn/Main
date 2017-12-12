@@ -27,6 +27,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
+    - field.field.node.mutant_vehicles.field_prj_brn_agree
     - field.field.node.mutant_vehicles.field_prj_brn_burning
     - field.field.node.mutant_vehicles.field_prj_brn_desc
     - field.field.node.mutant_vehicles.field_prj_brn_person
@@ -68,6 +69,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_oth_associated
     - field.field.node.mutant_vehicles.field_prj_oth_grant
     - field.field.node.mutant_vehicles.field_prj_oth_other
+    - field.field.node.mutant_vehicles.field_prj_oth_unregistered
     - field.field.node.mutant_vehicles.field_prj_saf_access
     - field.field.node.mutant_vehicles.field_prj_saf_comment
     - field.field.node.mutant_vehicles.field_prj_saf_guide
@@ -245,6 +247,7 @@ third_party_settings:
         - field_prj_brn_plan
         - field_prj_brn_person
         - field_prj_brn_desc
+        - field_prj_brn_agree
       parent_name: group_project_overview
       weight: 60
       format_type: accordion_item
@@ -529,6 +532,16 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_prj_brn_agree:
+    weight: 135
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_prj_brn_burning:
     weight: 131
@@ -862,6 +875,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
+  field_prj_oth_unregistered:
+    weight: 201
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_prj_saf_access:
     weight: 115

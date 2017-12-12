@@ -24,8 +24,8 @@ default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: 'consent/[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'png gif jpg jpeg'
-  max_filesize: ''
+  file_extensions: 'png gif jpg jpeg pdf'
+  max_filesize: '3 MB'
   max_resolution: ''
   min_resolution: ''
   alt_field: false

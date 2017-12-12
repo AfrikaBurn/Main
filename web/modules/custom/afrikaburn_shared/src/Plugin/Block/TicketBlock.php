@@ -35,9 +35,9 @@ class TicketBlock extends BlockBase {
         $quicket_code
           ? '<div class="messages messages--status">
               <ul>
-              Remeber to list all kids or teens (anyone under 18) <a href="/user/'.$uid.'/edit">on your profile</a>.
-              <p><a href="https://www.quicket.co.za/events/' . $settings['event_id'].'-#/?dc=' . $quicket_code . '" target="_blank" class="button">BUY TICKETS</a></p>
-              If you\'re having trouble with the link to buy tickets, use this code on the <a href="https://www.quicket.co.za/events/31279-afrikaburn-2018/#/"  target="_blank">Quicket event page</a>: ' . $quicket_code . '
+              Remember to list all kids or teens (anyone under 18) <a href="/user/'.$uid.'/edit">on your profile</a>.
+              <p><a href="https://www.quicket.co.za/events/' . $settings['event_id'].'-#/?dc=' . $quicket_code . '" target="_blank" class="button">BUY MAYDAY TICKETS</a></p>
+              NOTE: General ticket sales are presently closed, the next round is on Feb 27 2018.
             </div>'
           : '<div class="messages messages--warning">
               Tickets cannot be bought without an updated profile and the appropriate agreements in place.<br />

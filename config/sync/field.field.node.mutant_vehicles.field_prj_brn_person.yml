@@ -15,7 +15,7 @@ id: node.mutant_vehicles.field_prj_brn_person
 field_name: field_prj_brn_person
 entity_type: node
 bundle: mutant_vehicles
-label: 'If you plan to burn your piece, you''ll need a designated Pyro Co-ordinator (This can be you).'
+label: 'Who is your Pyro Co-Ordinator for the Flame Effects? (This can be you) *'
 description: ''
 required: false
 translatable: true

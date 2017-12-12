@@ -10,7 +10,7 @@ dependencies:
     - link
 third_party_settings:
   custom_add_another:
-    custom_add_another: ''
+    custom_add_another: 'Add anther Website link'
     custom_remove: ''
 id: node.mutant_vehicles.field_prj_wtf_website
 field_name: field_prj_wtf_website

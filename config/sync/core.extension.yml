@@ -41,6 +41,7 @@ module:
   editor: 0
   editor_advanced_link: 0
   empty_fields: 0
+  entity_reference: 0
   entity_reference_revisions: 0
   features: 0
   features_ui: 0

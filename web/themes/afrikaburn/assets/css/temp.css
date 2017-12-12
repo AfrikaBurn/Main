@@ -1,3 +1,24 @@
+/* 11 Dec Commuity view */
+
+.view-community-projects .views-field-field-prj-wtf-image{
+  float: left;
+  margin: 0 20px 0 0;
+}
+
+.view-community-projects .views-row{
+  clear: both;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.view-community-projects .views-row:after{
+  clear: both;
+  display: block;
+  margin-bottom: 40px;
+  content: '.';
+  visibility: hidden;
+}
+
 /* 17 Nov Collective page -   */
 
 .sidebar .view-collective-registrations .views-field-nothing{

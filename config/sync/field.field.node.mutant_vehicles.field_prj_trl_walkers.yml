@@ -15,7 +15,7 @@ id: node.mutant_vehicles.field_prj_trl_walkers
 field_name: field_prj_trl_walkers
 entity_type: node
 bundle: mutant_vehicles
-label: 'Do you understand why you must have walkers and/or conductors for your mutant vehicle (if applicable)?'
+label: 'Do you understand why you must have walkers and/or conductors for your mutant vehicle (if applicable)? *'
 description: ''
 required: false
 translatable: false

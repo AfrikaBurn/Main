@@ -15,7 +15,7 @@ id: node.mutant_vehicles.field_prj_lgh_projection
 field_name: field_prj_lgh_projection
 entity_type: node
 bundle: mutant_vehicles
-label: 'Describe the lighting of your trailer and A-frame'
+label: 'Describe the lighting of your trailer and A-frame *'
 description: ''
 required: false
 translatable: true
