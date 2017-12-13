@@ -15,7 +15,7 @@ id: paragraph.minors.field_minor_name
 field_name: field_minor_name
 entity_type: paragraph
 bundle: minors
-label: Name
+label: 'First Name of minor or child'
 description: ''
 required: true
 translatable: false

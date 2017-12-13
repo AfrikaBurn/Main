@@ -16,8 +16,8 @@ field_name: field_minor_id
 entity_type: paragraph
 bundle: minors
 label: 'SA ID or International Passport number'
-description: ''
-required: true
+description: 'If available'
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
