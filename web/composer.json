@@ -5,7 +5,7 @@
         "ckeditor/image": "4.7.2",
         "ckeditor/link": "4.6.2",
         "codemirror/codemirror": "5.27.4",
-        "drush/drush": "~8",
+        "drush/drush": "^8.1",
         "jquery/geocomplete": "1.7.0",
         "jquery/icheck": "1.0.2 ",
         "jquery/image-picker": "0.3.0",

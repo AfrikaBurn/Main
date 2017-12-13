@@ -7,7 +7,7 @@
 
 namespace Drupal\php\Tests\Condition;
 
-use \Drupal\KernelTests\KernelTestBase;
+use Drupal\simpletest\KernelTestBase;
 
 /**
  * Tests that the PHP Condition, provided by php module, is working properly.
@@ -48,7 +48,7 @@ class PhpConditionTest extends KernelTestBase {
       ->setConfig('php', '<?php return TRUE; ?>');
     $this->assertTrue($condition->execute(), 'PHP condition passes as expected.');
     // Check for the proper summary.
-    self::assertEquals($condition->summary(), 'When the given PHP evaluates as TRUE.');
+    $this->assertEqual($condition->summary(), 'When the given PHP evaluates as TRUE.');
 
     // Set the PHP snippet to return FALSE.
     $condition->setConfig('php', '<?php return FALSE; ?>');
@@ -57,14 +57,14 @@ class PhpConditionTest extends KernelTestBase {
     // Negate the condition.
     $condition->setConfig('negate', TRUE);
     // Check for the proper summary.
-    self::assertEquals($condition->summary(), 'When the given PHP evaluates as FALSE.');
+    $this->assertEqual($condition->summary(), 'When the given PHP evaluates as FALSE.');
 
     // Reverse the negation.
     $condition->setConfig('negate', FALSE);
     // Set and empty snippet.
     $condition->setConfig('php', FALSE);
     // Check for the proper summary.
-    self::assertEquals($condition->summary(), 'No PHP code has been provided.');
+    $this->assertEqual($condition->summary(), 'No PHP code has been provided.');
   }
 
 }
