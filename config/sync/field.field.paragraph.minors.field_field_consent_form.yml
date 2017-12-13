@@ -17,7 +17,7 @@ field_name: field_field_consent_form
 entity_type: paragraph
 bundle: minors
 label: 'Completed consent form'
-description: "<p>Please download, complete and upload a scan or clear photograph of the either the:</p>\r\n<p>Parent / guardian minor indemnity form, for bring there own minor or child<a href=\"https://www.afrikaburn.com/wp-content/uploads/2017/12/Minor-Indemnity-Form.pdf\" target=\"_blank\">available here</a>.</p>\r\n<p>or</p>\r\n<p>Guardian indemnity form for allowing some one else to bring your minor or child <a href=\"https://www.afrikaburn.com/wp-content/uploads/2017/12/Minor-Agreement-of-Consent-and-Indemnity-Form.pdf\" target=\"_blank\">available here</a>.</p>"
+description: ''
 required: true
 translatable: false
 default_value: {  }

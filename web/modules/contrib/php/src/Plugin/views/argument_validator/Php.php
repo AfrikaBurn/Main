@@ -7,9 +7,7 @@
 
 namespace Drupal\php\Plugin\views\argument_validator;
 
-use Drupal\Core\Annotation\Translation;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\views\Annotation\ViewsArgumentValidator;
 use Drupal\views\Plugin\views\argument_validator\ArgumentValidatorPluginBase;
 
 
@@ -41,9 +39,9 @@ class Php extends ArgumentValidatorPluginBase {
     parent::buildOptionsForm($form, $form_state);
     $form['code'] = [
       '#type' => 'textarea',
-      '#title' => t('PHP validate code'),
+      '#title' => $this->t('PHP validate code'),
       '#default_value' => $this->options['code'],
-      '#description' => t('Enter PHP code that returns TRUE or FALSE. No return is the same as FALSE, so be SURE to return something if you do not want to declare the argument invalid. Do not use &lt;?php ?&gt;. The argument to validate will be "$argument" and the view will be "$view". You may change the argument by setting "$handler->argument". You may change the title used for substitutions for this argument by setting "$handler->validated_title".'),
+      '#description' => $this->t('Enter PHP code that returns TRUE or FALSE. No return is the same as FALSE, so be SURE to return something if you do not want to declare the argument invalid. Do not use &lt;?php ?&gt;. The argument to validate will be "$argument" and the view will be "$view". You may change the argument by setting "$handler->argument". You may change the title used for substitutions for this argument by setting "$handler->validated_title".'),
     ];
 
     $this->checkAccess($form, 'code');

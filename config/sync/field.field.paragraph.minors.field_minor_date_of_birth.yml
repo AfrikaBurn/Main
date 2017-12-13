@@ -16,7 +16,7 @@ id: paragraph.minors.field_minor_date_of_birth
 field_name: field_minor_date_of_birth
 entity_type: paragraph
 bundle: minors
-label: 'Date of birth'
+label: 'Date of birth of child/minor'
 description: ''
 required: true
 translatable: false

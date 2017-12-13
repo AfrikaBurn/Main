@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.minors.field_field_consent_form
     - field.field.paragraph.minors.field_legal_guardian
     - field.field.paragraph.minors.field_minor_date_of_birth
+    - field.field.paragraph.minors.field_minor_form
     - field.field.paragraph.minors.field_minor_id
     - field.field.paragraph.minors.field_minor_last_name
     - field.field.paragraph.minors.field_minor_name
@@ -13,6 +14,7 @@ dependencies:
   module:
     - datetime
     - file
+    - markup
 id: paragraph.minors.default
 targetEntityType: paragraph
 bundle: minors
@@ -43,6 +45,13 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_minor_form:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_minor_id:
     weight: 3

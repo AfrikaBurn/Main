@@ -17,7 +17,7 @@ id: user.user.field_kids_and_teens
 field_name: field_kids_and_teens
 entity_type: user
 bundle: user
-label: 'List your underaged charges that intend to attend Afrikaburn '
+label: 'List you minor (between 15 & 18 yrs) OR child (14 yrs & younger) here. '
 description: ''
 required: false
 translatable: false
