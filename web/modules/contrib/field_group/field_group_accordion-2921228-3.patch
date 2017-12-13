@@ -1,0 +1,12 @@
+diff --git a/src/Element/Accordion.php b/src/Element/Accordion.php
+index 3addbeb..6d45449 100644
+--- a/src/Element/Accordion.php
++++ b/src/Element/Accordion.php
+@@ -42,6 +42,7 @@ class Accordion extends RenderElement {
+ 
+     // Add the jQuery UI accordion.
+     $element['#attached']['library'][] = 'field_group/formatter.accordion';
++    $element['#attached']['library'][] = 'field_group/core';
+ 
+     // Add the effect class.
+     if (isset($element['#effect'])) {

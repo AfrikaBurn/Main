@@ -15,7 +15,7 @@ id: node.mutant_vehicles.field_prj_snd_sound
 field_name: field_prj_snd_sound
 entity_type: node
 bundle: mutant_vehicles
-label: 'Does it have sound effects?'
+label: 'Does it have a sound system, or sound effects'
 description: ''
 required: false
 translatable: true

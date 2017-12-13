@@ -1,0 +1,33 @@
+uuid: 39b6949c-9aa4-4bd0-927a-9452518aaf88
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.collective_registrations
+  module:
+    - node
+    - views
+  theme:
+    - afrikaburn
+id: views_block__collective_registrations_block_1
+theme: afrikaburn
+region: sidebar
+weight: -21
+provider: null
+plugin: 'views_block:collective_registrations-block_1'
+settings:
+  id: 'views_block:collective_registrations-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

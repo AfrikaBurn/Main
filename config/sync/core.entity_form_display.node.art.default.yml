@@ -30,7 +30,6 @@ dependencies:
     - field.field.node.art.field_grt_tec_reason
     - field.field.node.art.field_grt_tec_total
     - field.field.node.art.field_grt_tool
-    - field.field.node.art.field_grt_total
     - field.field.node.art.field_grt_transport
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
@@ -124,6 +123,10 @@ dependencies:
     - field.field.node.art.field_prj_stg_stage
     - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
+    - field.field.node.art.field_prj_sup_address
+    - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_h1
+    - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
     - field.field.node.art.field_prj_wtf_long
@@ -132,11 +135,14 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
+    - field.field.node.art.field_sup_comment
+    - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - image.style.thumbnail
     - node.type.art
   module:
     - comment
+    - computed_field
     - conditional_fields
     - content_moderation
     - cshs
@@ -173,6 +179,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Overview
+      region: content
     group_the_project:
       children:
         - field_prj_gen_description
@@ -190,6 +197,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'The Project'
+      region: content
     group_the_structure:
       children:
         - group_dimensions
@@ -204,6 +212,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'The Structure'
+      region: content
     group_dimensions:
       children:
         - field_prj_stc_size
@@ -223,6 +232,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Dimensions
+      region: content
     group_building_transport_install:
       children:
         - group_offsite_building
@@ -236,6 +246,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Building, Transport, Installation'
+      region: content
     group_offsite_building:
       children:
         - field_muncipal_district
@@ -250,6 +261,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Offsite building'
+      region: content
     group_onsite_building:
       children:
         - field_prj_prp_erection
@@ -263,6 +275,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Onsite building'
+      region: content
     group_lighting:
       children:
         - field_prj_lgh_f1
@@ -277,6 +290,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Lighting
+      region: content
     group_sound:
       children:
         - field_prj_snd_f1
@@ -292,6 +306,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Sound
+      region: content
     group_moop:
       children:
         - field_prj_lnt_handled
@@ -310,6 +325,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Leave No Trace'
+      region: content
     group_wtf_guide_and_community:
       children:
         - field_prj_wtf_image
@@ -335,6 +351,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'WTF Guide and Community'
+      region: content
     group_other:
       children:
         - field_prj_oth_other
@@ -352,6 +369,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Other
+      region: content
     group_burn:
       children:
         - field_prj_brn_f2
@@ -368,6 +386,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Burn
+      region: content
     group_project_registration:
       children:
         - group_overview
@@ -387,6 +406,7 @@ third_party_settings:
         classes: ''
         effect: none
       label: 'Project Registration'
+      region: content
 _core:
   default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
 id: node.art.default
@@ -410,73 +430,25 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_form_mode:
-    weight: 108
+    weight: 8
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_grt_art_total:
-    third_party_settings:
-      conditional_fields:
-        eaabe952-5e3e-4105-9d71-1768e660fcb8:
-          dependee: field_grt_short
-          settings:
-            state: required
-            condition: value
-            grouping: AND
-            values_set: 3
-            value: ''
-            values: "Yes\r\nNo"
-            value_form: null
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
-        35eccb4e-442c-466c-ade6-0b1f9279d30f:
-          dependee: field_this_is_the_amount_of_mone
-          settings:
-            state: required
-            condition: '!empty'
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: null
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
-    weight: 109
-    settings:
-      placeholder: ''
-    type: number
-    region: content
   field_grt_breakdown:
-    type: paragraphs
+    type: entity_reference_paragraphs
     weight: 7
     region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
-      closed_mode: summary
-      autocollapse: none
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
-  field_grt_contribution:
-    third_party_settings:
-      conditional_fields: {  }
-    weight: 110
-    settings:
-      placeholder: ''
-    type: number
-    region: content
   field_muncipal_district:
     weight: 12
     settings:
@@ -553,12 +525,13 @@ content:
           dependee: field_prj_brn_burning
           settings:
             state: required
-            condition: checked
+            condition: value
             grouping: AND
             values_set: 1
             value: ''
             values: {  }
-            value_form: {  }
+            value_form:
+              value: 1
             effect: show
             effect_options: {  }
             selector: ''
@@ -624,14 +597,14 @@ content:
           dependee: field_prj_cll_collaborate
           settings:
             state: required
-            condition: checked
+            condition: value
             grouping: AND
             values_set: 1
             value: ''
             values: {  }
             value_form:
               -
-                value: '0'
+                value: '1'
             effect: show
             effect_options: {  }
             selector: ''
@@ -867,6 +840,14 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_prj_oth_unregistered:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_plc_area:
     weight: 35
     settings: {  }
@@ -954,12 +935,13 @@ content:
           dependee: field_prj_snd_sound
           settings:
             state: required
-            condition: checked
+            condition: value
             grouping: AND
             values_set: 1
             value: ''
             values: {  }
-            value_form: {  }
+            value_form:
+              value: 1
             effect: show
             effect_options: {  }
             selector: ''
@@ -1129,6 +1111,12 @@ content:
           bundle: art
     type: options_buttons
     region: content
+  field_prj_total_cost:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
+    region: content
   field_prj_wtf_area:
     weight: 67
     settings: {  }
@@ -1165,6 +1153,12 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 9
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 4
@@ -1178,6 +1172,13 @@ content:
     weight: 2
     region: content
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 10
+    third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
@@ -1207,6 +1208,8 @@ hidden:
   field_grt_art_apply: true
   field_grt_art_comment: true
   field_grt_art_reason: true
+  field_grt_art_total: true
+  field_grt_contribution: true
   field_grt_f1: true
   field_grt_health: true
   field_grt_lighting: true
@@ -1225,7 +1228,6 @@ hidden:
   field_grt_tec_reason: true
   field_grt_tec_total: true
   field_grt_tool: true
-  field_grt_total: true
   field_grt_transport: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
@@ -1256,7 +1258,6 @@ hidden:
   field_prj_lnt_score: true
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
-  field_prj_oth_unregistered: true
   field_prj_plc_f1: true
   field_prj_plc_location_extra: true
   field_prj_saf_comment: true
@@ -1264,8 +1265,13 @@ hidden:
   field_prj_snd_comment: true
   field_prj_snd_description: true
   field_prj_snd_person: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true
   field_prj_wtf_categories: true
   field_prj_wtf_long: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
+  field_sup_comment: true
+  field_sup_review: true
   field_this_is_the_amount_of_mone: true

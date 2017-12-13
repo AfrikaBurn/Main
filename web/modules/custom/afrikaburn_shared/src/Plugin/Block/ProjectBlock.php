@@ -37,9 +37,9 @@ class ProjectBlock extends BlockBase {
             <li><a href="/node/add/theme_camps?field_collective=' . $cid . '" class="button">A Theme camp</a></li>' . '
             <li><a href="/node/add/mutant_vehicles?field_collective=' . $cid . '" class="button">A Mutant Vehicle</a></li>' . '
           </ul>
-          <h2>Then</h2>
+          <h2>You may also</h2>
           <ul>
-            <li><a href="https://www.afrikaburn.com/the-event/artworks/creative-grants" class="button">Apply for a grant</a></li>
+            <li><a href="/grant-application/select-project" class="button">Apply for a grant</a></li>
           </ul>
         ',
         '#cache' => [

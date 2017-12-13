@@ -1,3 +1,120 @@
+/* 11 Dec Commuity view */
+
+.view-community-projects .views-field-field-prj-wtf-image{
+  float: left;
+  margin: 0 20px 0 0;
+}
+
+.view-community-projects .views-row{
+  clear: both;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.view-community-projects .views-row:after{
+  clear: both;
+  display: block;
+  margin-bottom: 40px;
+  content: '.';
+  visibility: hidden;
+}
+
+/* 17 Nov Collective page -   */
+
+.sidebar .view-collective-registrations .views-field-nothing{
+  padding-left: 36px;
+  list-style-type: disc;
+  list-style-position: inside;
+  display: list-item;
+  margin-top: -20px;
+}
+
+.field--name-field-col-posts h3,
+.field--name-field-col-posts .comment__permalink{
+  display: none;
+}
+
+.field--name-field-col-posts nav{
+  text-align: right;
+}
+
+/* 14 Nov 2017 - Grant Print layout */
+
+@media print {
+
+  .field--name-field-prj-gen-concept{
+    page-break-after: always;
+  }
+
+  .paragraph {
+    display: flex;
+  }
+  .paragraph .field__item {
+    border-bottom: none;
+    padding-left: 0;
+    overflow-wrap: break-word;
+    display: inline-block;
+  }
+
+  .field-group-accordion-wrapper{
+    display: table;
+  }
+
+  .field-group-accordion-wrapper > div{
+    width: 30%;
+    display: inline-block;
+    margin: 0 0 50px 10px;
+    vertical-align: top;
+  }
+
+  .field-group-accordion-wrapper > h3{
+    display: inline-block;
+    width: 15%;
+    margin: 0 0 50px 10px;
+    vertical-align: top;
+  }
+
+  .field-group-accordion-wrapper > *:nth-child(4n+1){
+    page-break-before: always;
+  }
+
+  .field-group-accordion-wrapper > h3:last-of-type,
+  .field-group-accordion-wrapper > div:last-of-type{
+    page-break-before: always;
+    clear: both;
+    width: 100%;
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-grt-brk-description {
+    width: 24%;
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-field-specifications {
+    width: 14%;
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-field-quantity {
+    width: 7%;
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-price-total- {
+    width: 10%;
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-cost-type {
+    width: 10%;
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-type-of-expence {
+    width: 14%;
+  }
+
+  .field--name-field-grt-breakdown .field--name-field-other {
+    max-width: 14%;
+  }
+
+}
+
 /* 18 Oct 2017 - collective form */
 
 .field--name-field-col-invitee table,
@@ -142,4 +259,35 @@ body.path-frontpage .main-block{
     border-bottom: none;
     padding-left: 0;
     overflow-wrap: break-word;
+}
+.path-wranglers div.body-content div.field__item img {
+    max-width: 100%;
+}
+
+
+.form-checkboxes .multiple-fields-remove-button {
+    display: none;
+}
+
+.page-node-type-mutant-vehicles .field--name-field-collective,
+.node-add-mutant_vehicles .field--name-field-collective,
+.page-node-type-mutant-vehicles .field--name-field-prj-gen-year,
+.node-add-mutant_vehicles .field--name-field-prj-gen-year,
+.page-node-type-mutant-vehicles .field--name-field-grt-dmv-budget ,
+.node-add-mutant_vehicles .field--name-field-grt-dmv-budget {
+    display: none;
+}
+
+.node-mutant-vehicles-grant-form .field--name-field-grt-dmv-budget {
+  display: block;
+}
+
+#field-grt-dmv-budget-values {
+    width: 100%;
+}
+
+
+.node-mutant-vehicles-grant-form .paragraphs-subform {
+    display: flex;  
+    flex-wrap: wrap;
 }

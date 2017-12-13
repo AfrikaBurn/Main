@@ -23,8 +23,8 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: '[date:custom:Y]-[date:custom:m]'
-  file_extensions: txt
+  file_directory: mutant_vehicles
+  file_extensions: 'doc docx pdf odt xls xlsx ods'
   max_filesize: '3 MB'
   description_field: false
   handler: 'default:file'

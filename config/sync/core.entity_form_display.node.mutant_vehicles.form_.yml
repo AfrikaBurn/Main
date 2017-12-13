@@ -5,7 +5,9 @@ dependencies:
   config:
     - core.entity_form_mode.node.form_
     - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_comment
+    - field.field.node.mutant_vehicles.field_grt_art_total
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
     - field.field.node.mutant_vehicles.field_grt_dmv_budget
@@ -16,12 +18,12 @@ dependencies:
     - field.field.node.mutant_vehicles.field_grt_status
     - field.field.node.mutant_vehicles.field_grt_total
     - field.field.node.mutant_vehicles.field_grt_transport
+    - field.field.node.mutant_vehicles.field_mutant_drivers
     - field.field.node.mutant_vehicles.field_prj_adm_comms
     - field.field.node.mutant_vehicles.field_prj_adm_form_grant
     - field.field.node.mutant_vehicles.field_prj_adm_form_wtf
     - field.field.node.mutant_vehicles.field_prj_adm_notes
     - field.field.node.mutant_vehicles.field_prj_adm_ranger_comment
-    - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
     - field.field.node.mutant_vehicles.field_prj_brn_burning
@@ -46,10 +48,13 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_gen_story
     - field.field.node.mutant_vehicles.field_prj_gen_year
     - field.field.node.mutant_vehicles.field_prj_lgh_description
+    - field.field.node.mutant_vehicles.field_prj_lgh_f1
     - field.field.node.mutant_vehicles.field_prj_lgh_lighter
     - field.field.node.mutant_vehicles.field_prj_lgh_night
     - field.field.node.mutant_vehicles.field_prj_lgh_projection
+    - field.field.node.mutant_vehicles.field_prj_lnt_agree
     - field.field.node.mutant_vehicles.field_prj_lnt_comments
+    - field.field.node.mutant_vehicles.field_prj_lnt_f1
     - field.field.node.mutant_vehicles.field_prj_lnt_handled
     - field.field.node.mutant_vehicles.field_prj_lnt_historic
     - field.field.node.mutant_vehicles.field_prj_lnt_images
@@ -81,6 +86,9 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_stage
     - field.field.node.mutant_vehicles.field_prj_stg_tread
     - field.field.node.mutant_vehicles.field_prj_stg_type
+    - field.field.node.mutant_vehicles.field_prj_sup_address
+    - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_h1
     - field.field.node.mutant_vehicles.field_prj_trl_area
     - field.field.node.mutant_vehicles.field_prj_trl_capasity
     - field.field.node.mutant_vehicles.field_prj_trl_communicate
@@ -495,13 +503,6 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_prj_gen_owner:
-    weight: 18
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_prj_gen_story:
     weight: 28
     settings:
@@ -850,6 +851,12 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 5
@@ -863,6 +870,13 @@ content:
     weight: 3
     region: content
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
@@ -889,7 +903,9 @@ content:
     third_party_settings: {  }
 hidden:
   field_collective: true
+  field_form_mode: true
   field_grt_art_comment: true
+  field_grt_art_total: true
   field_grt_awarded: true
   field_grt_contribution: true
   field_grt_dmv_budget: true
@@ -900,16 +916,20 @@ hidden:
   field_grt_status: true
   field_grt_total: true
   field_grt_transport: true
+  field_mutant_drivers: true
   field_prj_adm_comms: true
   field_prj_adm_form_grant: true
   field_prj_adm_form_wtf: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
-  field_prj_adm_registration: true
   field_prj_adm_review: true
   field_prj_adm_wrangler: true
   field_prj_cll_thread: true
+  field_prj_gen_owner: true
+  field_prj_lgh_f1: true
+  field_prj_lnt_agree: true
   field_prj_lnt_comments: true
+  field_prj_lnt_f1: true
   field_prj_lnt_images: true
   field_prj_lnt_publish: true
   field_prj_lnt_score: true
@@ -917,6 +937,9 @@ hidden:
   field_prj_lnt_type: true
   field_prj_saf_comment: true
   field_prj_stg_tread: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true
   field_prj_wtf_long: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true

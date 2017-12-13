@@ -31,7 +31,6 @@ dependencies:
     - field.field.node.art.field_grt_tec_reason
     - field.field.node.art.field_grt_tec_total
     - field.field.node.art.field_grt_tool
-    - field.field.node.art.field_grt_total
     - field.field.node.art.field_grt_transport
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
@@ -125,6 +124,10 @@ dependencies:
     - field.field.node.art.field_prj_stg_stage
     - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
+    - field.field.node.art.field_prj_sup_address
+    - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_h1
+    - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
     - field.field.node.art.field_prj_wtf_long
@@ -133,11 +136,14 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
+    - field.field.node.art.field_sup_comment
+    - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - image.style.medium
     - node.type.art
   module:
     - comment
+    - computed_field
     - datetime
     - empty_fields
     - entity_reference_revisions
@@ -166,7 +172,7 @@ third_party_settings:
         - group_grant
         - group_admin
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: accordion
       format_settings:
         effect: none
@@ -408,7 +414,6 @@ third_party_settings:
         - field_grt_breakdown
         - field_grt_contribution
         - field_this_is_the_amount_of_mone
-        - field_grt_total
         - field_grt_art_total
         - field_grt_short
         - field_grt_short_desc
@@ -441,12 +446,14 @@ mode: default
 content:
   field_collective:
     type: entity_reference_label
-    weight: 0
+    weight: 1
     region: content
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
   field_grt_art_apply:
     type: boolean
     weight: 87
@@ -481,7 +488,11 @@ content:
     settings:
       view_mode: default
       link: ''
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ds_limit: ''
   field_grt_contribution:
     type: number_integer
     weight: 12
@@ -545,15 +556,6 @@ content:
     region: content
     label: above
     settings: {  }
-    third_party_settings: {  }
-  field_grt_total:
-    type: number_integer
-    weight: 14
-    region: content
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
     third_party_settings: {  }
   field_muncipal_district:
     type: entity_reference_label
@@ -781,7 +783,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_bio:
     type: basic_string
-    weight: 7
+    weight: 8
     region: content
     label: above
     settings: {  }
@@ -801,7 +803,7 @@ content:
     region: content
   field_prj_gen_contact:
     type: entity_reference_label
-    weight: 1
+    weight: 2
     region: content
     label: above
     settings:
@@ -823,14 +825,14 @@ content:
     third_party_settings: {  }
   field_prj_gen_external:
     type: basic_string
-    weight: 9
+    weight: 10
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_prj_gen_fundraiser:
     type: entity_reference_label
-    weight: 5
+    weight: 6
     region: content
     label: above
     settings:
@@ -838,7 +840,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_fundraising:
     type: boolean
-    weight: 4
+    weight: 5
     region: content
     label: above
     settings:
@@ -848,7 +850,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_history:
     type: basic_string
-    weight: 8
+    weight: 9
     region: content
     label: above
     settings: {  }
@@ -862,14 +864,14 @@ content:
     third_party_settings: {  }
   field_prj_gen_lead:
     type: entity_reference_label
-    weight: 2
+    weight: 3
     region: content
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_prj_gen_location:
-    weight: 6
+    weight: 7
     label: above
     settings:
       link: true
@@ -878,7 +880,7 @@ content:
     region: content
   field_prj_gen_manager:
     type: entity_reference_label
-    weight: 3
+    weight: 4
     region: content
     label: above
     settings:
@@ -1291,6 +1293,41 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+  field_prj_sup_address:
+    weight: 198
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_prj_sup_details:
+    weight: 199
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_prj_sup_h1:
+    weight: 197
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_total_cost:
+    weight: 196
+    label: above
+    settings:
+      cache_unit: -1
+      cache_duration: 1
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: computed_integer
+    region: content
   field_prj_wtf_image:
     type: image
     weight: 97
@@ -1318,7 +1355,7 @@ content:
       link: true
     third_party_settings: {  }
   field_prj_wtf_scheduled:
-    weight: 196
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -1350,16 +1387,26 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+  field_sup_comment:
+    weight: 201
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_sup_review:
+    weight: 200
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_this_is_the_amount_of_mone:
     type: basic_string
     weight: 13
     region: content
     label: above
-    settings: {  }
-    third_party_settings: {  }
-  links:
-    weight: 0
-    region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
@@ -1381,3 +1428,4 @@ hidden:
   field_prj_adm_comms: true
   field_prj_oth_unregistered: true
   field_prj_wtf_categories: true
+  links: true

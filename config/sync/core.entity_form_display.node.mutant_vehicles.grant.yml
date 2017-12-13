@@ -5,7 +5,9 @@ dependencies:
   config:
     - core.entity_form_mode.node.grant
     - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_comment
+    - field.field.node.mutant_vehicles.field_grt_art_total
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
     - field.field.node.mutant_vehicles.field_grt_dmv_budget
@@ -22,7 +24,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_adm_form_wtf
     - field.field.node.mutant_vehicles.field_prj_adm_notes
     - field.field.node.mutant_vehicles.field_prj_adm_ranger_comment
-    - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
     - field.field.node.mutant_vehicles.field_prj_brn_burning
@@ -47,10 +48,13 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_gen_story
     - field.field.node.mutant_vehicles.field_prj_gen_year
     - field.field.node.mutant_vehicles.field_prj_lgh_description
+    - field.field.node.mutant_vehicles.field_prj_lgh_f1
     - field.field.node.mutant_vehicles.field_prj_lgh_lighter
     - field.field.node.mutant_vehicles.field_prj_lgh_night
     - field.field.node.mutant_vehicles.field_prj_lgh_projection
+    - field.field.node.mutant_vehicles.field_prj_lnt_agree
     - field.field.node.mutant_vehicles.field_prj_lnt_comments
+    - field.field.node.mutant_vehicles.field_prj_lnt_f1
     - field.field.node.mutant_vehicles.field_prj_lnt_handled
     - field.field.node.mutant_vehicles.field_prj_lnt_historic
     - field.field.node.mutant_vehicles.field_prj_lnt_images
@@ -82,6 +86,9 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_stage
     - field.field.node.mutant_vehicles.field_prj_stg_tread
     - field.field.node.mutant_vehicles.field_prj_stg_type
+    - field.field.node.mutant_vehicles.field_prj_sup_address
+    - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_h1
     - field.field.node.mutant_vehicles.field_prj_trl_area
     - field.field.node.mutant_vehicles.field_prj_trl_capasity
     - field.field.node.mutant_vehicles.field_prj_trl_communicate
@@ -203,6 +210,12 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
@@ -210,6 +223,13 @@ content:
     weight: 4
     region: content
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
@@ -236,7 +256,9 @@ content:
     third_party_settings: {  }
 hidden:
   field_collective: true
+  field_form_mode: true
   field_grt_art_comment: true
+  field_grt_art_total: true
   field_grt_awarded: true
   field_grt_status: true
   field_mutant_drivers: true
@@ -245,7 +267,6 @@ hidden:
   field_prj_adm_form_wtf: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
-  field_prj_adm_registration: true
   field_prj_adm_review: true
   field_prj_adm_wrangler: true
   field_prj_brn_burning: true
@@ -270,10 +291,13 @@ hidden:
   field_prj_gen_story: true
   field_prj_gen_year: true
   field_prj_lgh_description: true
+  field_prj_lgh_f1: true
   field_prj_lgh_lighter: true
   field_prj_lgh_night: true
   field_prj_lgh_projection: true
+  field_prj_lnt_agree: true
   field_prj_lnt_comments: true
+  field_prj_lnt_f1: true
   field_prj_lnt_handled: true
   field_prj_lnt_historic: true
   field_prj_lnt_images: true
@@ -305,6 +329,9 @@ hidden:
   field_prj_stg_stage: true
   field_prj_stg_tread: true
   field_prj_stg_type: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true
   field_prj_trl_area: true
   field_prj_trl_capasity: true
   field_prj_trl_communicate: true

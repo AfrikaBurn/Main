@@ -16,7 +16,7 @@ id: node.mutant_vehicles.field_prj_trl_size
 field_name: field_prj_trl_size
 entity_type: node
 bundle: mutant_vehicles
-label: 'Trailer size'
+label: 'Trailer size *'
 description: "Trailers are dangerous and can cause serious injury and death, as the driver cannot monitor them properly. Please describe the trailer(s) and how you plan to prevent injury. Pay special attention if visibility is inhibited and remember: heavy or dangerous vehicles and trailers must have walkers/conductors. \r\n"
 required: false
 translatable: false

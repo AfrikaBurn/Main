@@ -35,6 +35,7 @@ class RebuildUsersForm extends FormBase {
         'quicket' => 'Migrate existing quicket info (For migrated users with up to date agreements)',
         'short_agreement' => 'Attach updated agreements (For migrated users with outdated agreements)',
         'new_quicket' => 'Generate new quicket info (For new users with new agreements)',
+        'fix_quicket' => 'Generate new quicket info (For new users with old/broken ids)',
       ],
     ];
 
@@ -56,6 +57,7 @@ class RebuildUsersForm extends FormBase {
       case 'quicket': $this->migrateQuicket(); break;
       case 'short_agreement': $this->attachAgreementUpdate(); break;
       case 'new_quicket': $this->generateQuicketInfo(); break;
+      case 'fix_quicket': $this->fixQuicketInfo(); break;
       default: return 'Unknown option!';
     }
   }
@@ -198,6 +200,43 @@ class RebuildUsersForm extends FormBase {
 
     $batch = [
       'title' => t('Generating new quicket information...'),
+      'operations' => [],
+      'finished' => '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::finished',
+    ];
+
+    foreach($uids as $uid){
+      $batch['operations'][] = [
+        '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::getNewQuicketInfo',
+        [$uid]
+      ];
+    }
+
+    batch_set($batch);
+  }
+
+  /**
+   * Fetches new quicket information for profiles with old ids
+   */
+  public function fixQuicketInfo(){
+
+    $uids = db_query("
+      SELECT
+        {users}.uid
+      FROM
+        ({users} JOIN {users_field_data} ON {users}.uid = {users_field_data}.uid)
+        LEFT JOIN {user__field_quicket_id} ON {users}.uid = {user__field_quicket_id}.entity_id
+      WHERE
+        (
+          {user__field_quicket_id}.entity_id IS NULL OR
+          {user__field_quicket_id}.field_quicket_id_value = '' OR
+          {user__field_quicket_id}.field_quicket_id_value IS NULL
+        ) AND
+        {users_field_data}.changed > 1511690400 AND
+        {users_field_data}.created < 1511690400;"
+    )->fetchCol();
+
+    $batch = [
+      'title' => t('Generating new quicket IDs...'),
       'operations' => [],
       'finished' => '\Drupal\afrikaburn_migration\Controller\AfrikaburnUserRebuilder::finished',
     ];

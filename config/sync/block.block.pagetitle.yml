@@ -9,7 +9,7 @@ dependencies:
 id: pagetitle
 theme: afrikaburn
 region: page_title
-weight: 0
+weight: -21
 provider: null
 plugin: page_title_block
 settings:

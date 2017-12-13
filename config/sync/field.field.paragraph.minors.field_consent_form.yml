@@ -1,0 +1,43 @@
+uuid: 7308286d-282d-4520-b71c-3bbe22feafcc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_consent_form
+    - paragraphs.paragraphs_type.minors
+  module:
+    - custom_add_another
+    - image
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.minors.field_consent_form
+field_name: field_consent_form
+entity_type: paragraph
+bundle: minors
+label: 'Completed consent form'
+description: 'Please download, complete and upload a scan or clear photograph of the <a href="/modules/custom/afrikaburn_shared/minor-indemnity.pdf" target="_blank">indemnity form</a>.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'consent/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg pdf'
+  max_filesize: '3 MB'
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

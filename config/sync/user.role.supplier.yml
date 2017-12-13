@@ -1,0 +1,27 @@
+uuid: 0704cc73-471c-4fd2-b568-cee41da64bd8
+langcode: en
+status: true
+dependencies: {  }
+id: supplier
+label: Supplier
+weight: 6
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access in-place editing'
+  - 'create field_prj_adm_review'
+  - 'create field_sup_comment'
+  - 'create field_sup_review'
+  - 'edit field_prj_adm_review'
+  - 'edit field_sup_comment'
+  - 'edit field_sup_invoice'
+  - 'edit field_sup_review'
+  - 'edit own field_prj_adm_review'
+  - 'edit own field_sup_comment'
+  - 'edit own field_sup_review'
+  - 'view field_prj_adm_review'
+  - 'view field_sup_comment'
+  - 'view field_sup_invoice'
+  - 'view field_sup_review'
+  - 'view own field_sup_comment'
+  - 'view own field_sup_review'

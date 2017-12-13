@@ -15,7 +15,7 @@ id: node.mutant_vehicles.field_prj_brn_plan
 field_name: field_prj_brn_plan
 entity_type: node
 bundle: mutant_vehicles
-label: 'Describe your Mutant''s flame effects.'
+label: 'Describe your Mutant''s flame effects. *'
 description: ''
 required: false
 translatable: true

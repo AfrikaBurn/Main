@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.form_
+    - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
+    - field.field.node.art.field_form_mode
     - field.field.node.art.field_grt_art_apply
     - field.field.node.art.field_grt_art_comment
     - field.field.node.art.field_grt_art_reason
@@ -12,19 +14,29 @@ dependencies:
     - field.field.node.art.field_grt_breakdown
     - field.field.node.art.field_grt_contribution
     - field.field.node.art.field_grt_f1
+    - field.field.node.art.field_grt_health
+    - field.field.node.art.field_grt_lighting
+    - field.field.node.art.field_grt_location
+    - field.field.node.art.field_grt_materials
     - field.field.node.art.field_grt_more
     - field.field.node.art.field_grt_other
     - field.field.node.art.field_grt_other_description
+    - field.field.node.art.field_grt_pyrotechnics
+    - field.field.node.art.field_grt_services
     - field.field.node.art.field_grt_short
     - field.field.node.art.field_grt_short_desc
+    - field.field.node.art.field_grt_specify
     - field.field.node.art.field_grt_tec_apply
     - field.field.node.art.field_grt_tec_comment
     - field.field.node.art.field_grt_tec_reason
     - field.field.node.art.field_grt_tec_total
-    - field.field.node.art.field_grt_total
+    - field.field.node.art.field_grt_tool
+    - field.field.node.art.field_grt_transport
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_comms
     - field.field.node.art.field_prj_adm_form_2
+    - field.field.node.art.field_prj_adm_form_3
+    - field.field.node.art.field_prj_adm_form_grant
     - field.field.node.art.field_prj_adm_form_wtf
     - field.field.node.art.field_prj_adm_latitude
     - field.field.node.art.field_prj_adm_longitude
@@ -112,10 +124,12 @@ dependencies:
     - field.field.node.art.field_prj_stg_stage
     - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
+    - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
     - field.field.node.art.field_prj_wtf_long
     - field.field.node.art.field_prj_wtf_planned
+    - field.field.node.art.field_prj_wtf_scheduled
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
@@ -597,6 +611,12 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 4
@@ -610,6 +630,13 @@ content:
     weight: 2
     region: content
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
@@ -627,7 +654,9 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_col_members: true
   field_collective: true
+  field_form_mode: true
   field_grt_art_apply: true
   field_grt_art_comment: true
   field_grt_art_reason: true
@@ -635,19 +664,29 @@ hidden:
   field_grt_breakdown: true
   field_grt_contribution: true
   field_grt_f1: true
+  field_grt_health: true
+  field_grt_lighting: true
+  field_grt_location: true
+  field_grt_materials: true
   field_grt_more: true
   field_grt_other: true
   field_grt_other_description: true
+  field_grt_pyrotechnics: true
+  field_grt_services: true
   field_grt_short: true
   field_grt_short_desc: true
+  field_grt_specify: true
   field_grt_tec_apply: true
   field_grt_tec_comment: true
   field_grt_tec_reason: true
   field_grt_tec_total: true
-  field_grt_total: true
+  field_grt_tool: true
+  field_grt_transport: true
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
+  field_prj_adm_form_3: true
+  field_prj_adm_form_grant: true
   field_prj_adm_form_wtf: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
@@ -702,10 +741,12 @@ hidden:
   field_prj_stg_stage: true
   field_prj_stg_tread: true
   field_prj_stg_type: true
+  field_prj_total_cost: true
   field_prj_wtf_categories: true
   field_prj_wtf_image: true
   field_prj_wtf_long: true
   field_prj_wtf_planned: true
+  field_prj_wtf_scheduled: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
