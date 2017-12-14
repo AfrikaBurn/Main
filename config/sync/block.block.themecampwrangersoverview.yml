@@ -1,0 +1,25 @@
+uuid: b2bd214b-1e63-4d34-8f48-54707c4eaca8
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:da31640e-ffc1-4f97-8c0d-59e2a99188c9'
+  module:
+    - block_content
+  theme:
+    - bartik
+id: themecampwrangersoverview
+theme: bartik
+region: sidebar_second
+weight: -6
+provider: null
+plugin: 'block_content:da31640e-ffc1-4f97-8c0d-59e2a99188c9'
+settings:
+  id: 'block_content:da31640e-ffc1-4f97-8c0d-59e2a99188c9'
+  label: 'Theme Camp Wrangers overview'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

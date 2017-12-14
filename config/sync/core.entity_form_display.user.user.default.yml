@@ -1,0 +1,407 @@
+uuid: 3db5986f-7c4e-44ba-a8bb-8053a0ef8e1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_agreements
+    - field.field.user.user.field_country
+    - field.field.user.user.field_date_of_birth
+    - field.field.user.user.field_district
+    - field.field.user.user.field_email
+    - field.field.user.user.field_emr_email
+    - field.field.user.user.field_emr_name
+    - field.field.user.user.field_emr_telephone
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_gender
+    - field.field.user.user.field_id_number
+    - field.field.user.user.field_kids_and_teens
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_links
+    - field.field.user.user.field_location
+    - field.field.user.user.field_mobile
+    - field.field.user.user.field_newsletter
+    - field.field.user.user.field_other_burns
+    - field.field.user.user.field_participation
+    - field.field.user.user.field_quicket_code
+    - field.field.user.user.field_quicket_id
+    - field.field.user.user.field_secondary_mail
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - conditional_fields
+    - cshs
+    - datetime
+    - field_group
+    - image
+    - link
+    - paragraphs
+    - path
+    - telephone
+    - user
+third_party_settings:
+  field_group:
+    group_root:
+      children:
+        - group_identity
+        - group_account
+        - group_location
+        - group_history
+        - group_contact
+        - group_emergency_medical_informat
+        - group_minors
+      parent_name: ''
+      weight: 0
+      format_type: accordion
+      format_settings:
+        label: Root
+        effect: none
+        id: ''
+        classes: ''
+      label: Root
+      region: content
+    group_account:
+      children:
+        - account
+        - language
+        - field_agreements
+      parent_name: group_root
+      weight: 21
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Account
+      region: content
+    group_identity:
+      children:
+        - user_picture
+        - field_first_name
+        - field_last_name
+        - field_gender
+        - field_id_number
+        - field_date_of_birth
+      parent_name: group_root
+      weight: 20
+      format_type: accordion_item
+      format_settings:
+        label: Identity
+        formatter: open
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Identity
+      region: content
+    group_location:
+      children:
+        - field_location
+        - timezone
+      parent_name: group_root
+      weight: 22
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Location
+      region: content
+    group_contact:
+      children:
+        - contact
+        - field_secondary_mail
+        - field_mobile
+        - field_links
+        - field_newsletter
+      parent_name: group_root
+      weight: 24
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Contact
+      region: content
+    group_history:
+      children:
+        - field_participation
+        - field_other_burns
+      parent_name: group_root
+      weight: 23
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: History
+      region: content
+    group_emergency_medical_informat:
+      children:
+        - field_emr_name
+        - field_emr_telephone
+        - field_emr_email
+      parent_name: group_root
+      weight: 25
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Emergency medical information'
+      region: content
+    group_minors:
+      children:
+        - field_kids_and_teens
+      parent_name: group_root
+      weight: 80
+      format_type: accordion_item
+      format_settings:
+        label: 'Kids and Teens (Minors)'
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: kids-and-teens
+      label: 'Kids and Teens (Minors)'
+      region: content
+_core:
+  default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  contact:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_agreements:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_date_of_birth:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_emr_email:
+    weight: 50
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_emr_name:
+    weight: 46
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_emr_telephone:
+    weight: 49
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_first_name:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_gender:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_guardian_doc:
+    weight: 4
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        93ce2f31-4614-4f49-ad83-f882a47d4c10:
+          dependee: field_guardian
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: true
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: user
+          bundle: user
+    type: markup
+    region: content
+  field_id_number:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_kids_and_teens:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Minors
+      title_plural: 'Another Minor'
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: minors
+    third_party_settings:
+      conditional_fields: {  }
+    region: content
+  field_last_name:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_links:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_location:
+    weight: 32
+    settings:
+      force_deepest: '1'
+      parent: '0'
+      level_labels: ''
+    third_party_settings: {  }
+    type: cshs
+    region: content
+  field_mobile:
+    weight: 4
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_newsletter:
+    weight: 6
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_other_burns:
+    weight: 30
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_parent:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings:
+      conditional_fields: {  }
+    type: boolean_checkbox
+    region: content
+  field_participation:
+    weight: 28
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_quicket_code:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_quicket_id:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_secondary_mail:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  google_analytics:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  language:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  timezone:
+    weight: 33
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: image_image
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_country: true
+  field_district: true
+  field_email: true

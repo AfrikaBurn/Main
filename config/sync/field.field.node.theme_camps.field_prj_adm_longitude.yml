@@ -1,0 +1,31 @@
+uuid: f2227f5c-2319-4acb-952a-a55ad7d1c6c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_adm_longitude
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: byJMEXOTk9urkacgDgB9vWf93cuCh_eM_dt2zVzekuY
+id: node.theme_camps.field_prj_adm_longitude
+field_name: field_prj_adm_longitude
+entity_type: node
+bundle: theme_camps
+label: 'Placement Location GPS – Longitude'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float
