@@ -15,7 +15,7 @@ id: node.mutant_vehicles.field_prj_cll_contact
 field_name: field_prj_cll_contact
 entity_type: node
 bundle: mutant_vehicles
-label: 'Team contact person to be alerted to member requests'
+label: 'Team contact person to be alerted to member requests *'
 description: "Interested collaborators will contact you directly.\r\n"
 required: false
 translatable: true

@@ -15,7 +15,7 @@ id: node.mutant_vehicles.field_prj_trl_capasity
 field_name: field_prj_trl_capasity
 entity_type: node
 bundle: mutant_vehicles
-label: 'How will your passengers get on and off the trailer?'
+label: 'How will your passengers get on and off the trailer? *'
 description: ''
 required: false
 translatable: false

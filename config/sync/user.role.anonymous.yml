@@ -12,5 +12,6 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'create field_id_number'
   - 'search content'
   - 'use user.register form mode'

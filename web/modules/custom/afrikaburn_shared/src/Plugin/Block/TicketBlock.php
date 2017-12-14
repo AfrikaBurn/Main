@@ -21,19 +21,33 @@ class TicketBlock extends BlockBase {
    */
   public function build() {
 
-    $settings = Settings::get('afrikaburn.quicket');
+    module_load_include('module', 'afrikaburn_shared', 'afrikaburn_shared');
 
+    $settings = Settings::get('afrikaburn.quicket');
     $path_user = \Drupal::routeMatch()->getParameter('user');
-    $user = $path_user
-      ? \Drupal::entityTypeManager()->getStorage('user')->load($path_user->uid->value)
-      : \Drupal::entityTypeManager()->getStorage('user')->load(\Drupal::currentUser()->id());
+    $uid = $path_user ? $path_user->uid->value : \Drupal::currentUser()->id();
+    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
     $quicket_code = $user->get('field_quicket_code')->value;
+    $agreements = afrikaburn_shared_agreed($user);
 
     return [
       '#markup' =>
         $quicket_code
-          ? '<div class="messages messages--status">Buy your ticket using this code: <a href="https://www.quicket.co.za/events/'.$settings['event_id'].'-#/?dc=' . $quicket_code . '" target="_blank">'.$quicket_code.'</a></div>'
-          : '<div class="messages messages--warning">Tickets cannot be bought without the appropriate agreements in place</div>',
+          ? '<div class="messages messages--status">
+              <ul>
+              Remember to list all kids or teens (anyone under 18) <a href="/user/'.$uid.'/edit">on your profile</a>.
+              <p><a href="https://www.quicket.co.za/events/' . $settings['event_id'].'-#/?dc=' . $quicket_code . '" target="_blank" class="button">BUY MAYDAY TICKETS</a></p>
+              NOTE: General ticket sales are presently closed, the next round is on Feb 27 2018.
+            </div>'
+          : '<div class="messages messages--warning">
+              Tickets cannot be bought without an updated profile and the appropriate agreements in place.<br />
+              <ul>
+                '. ($agreements ? '<li>Have you logged in since creating an account and accepted the T&Cs?</li>' : '') . '
+                <li>Have you updated your profile? Click save and correct the errors until it saves.</li>
+                <li>Is your profile complete? Check your ID number and date of birth fields.</li>
+                <li>Still no joy? <a href="mailto:support@afrikaburn.com">Contact an administrator</a>!</li>
+              </ul>
+             </div>',
       '#cache' => [
         'max-age' => 0,
       ],

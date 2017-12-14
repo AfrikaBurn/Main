@@ -15,8 +15,8 @@ id: node.mutant_vehicles.field_prj_lnt_handled
 field_name: field_prj_lnt_handled
 entity_type: node
 bundle: mutant_vehicles
-label: 'How will MOOP be handled?'
-description: "It’s your responsibility to remove your piece once the event is over, and ensure that no trace remains. Nothing. Nada. Zilch. Zip. Zero. Fokol.<br>\r\nIf you're burning it, it's also your responsibility to remove all burn debris left on your site (including ash, charcoal, nails, screws, wire and staples etc). \r\n"
+label: 'How will you prevent MOOP?'
+description: "It’s your responsibility to remove your piece once the event is over, and ensure that no trace remains. Nothing. Nada. Zilch. Zip. Zero. Fokol.<br>\r\n"
 required: true
 translatable: true
 default_value: {  }

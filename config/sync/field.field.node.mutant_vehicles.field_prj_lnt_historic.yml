@@ -17,8 +17,8 @@ field_name: field_prj_lnt_historic
 entity_type: node
 bundle: mutant_vehicles
 label: 'Moop Map score in 2017'
-description: "If you were part of a Theme Camp in 2016 what was your MOOP map rating?<br>\r\nRed, Yellow, Green\r\n"
-required: false
+description: "If you were part of a Theme Camp in 2017 what was your MOOP map rating?<br>\r\nRed, Yellow, Green\r\n"
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''

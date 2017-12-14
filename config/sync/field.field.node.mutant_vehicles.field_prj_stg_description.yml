@@ -15,7 +15,7 @@ id: node.mutant_vehicles.field_prj_stg_description
 field_name: field_prj_stg_description
 entity_type: node
 bundle: mutant_vehicles
-label: 'Provide a description of the space and performers you are looking for'
+label: 'Provide a description of the space and performers you are looking for *'
 description: ''
 required: false
 translatable: true

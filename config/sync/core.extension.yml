@@ -25,6 +25,7 @@ module:
   config_update_ui: 0
   contact: 0
   content_moderation: 0
+  contentimport: 0
   contextual: 0
   cshs: 0
   csv_serialization: 0
@@ -40,6 +41,7 @@ module:
   editor: 0
   editor_advanced_link: 0
   empty_fields: 0
+  entity_reference: 0
   entity_reference_revisions: 0
   features: 0
   features_ui: 0

@@ -10,10 +10,10 @@ third_party_settings:
     parent: ''
 _core:
   default_config_hash: ePDYjDqQ-sgz-LZrdevjxgPj6Zi0QE9R32GDGZlui3Q
-name: Artwork
+name: Artworks
 type: art
 description: ''
 help: ''
-new_revision: true
+new_revision: false
 preview_mode: 0
 display_submitted: false

@@ -1,3 +1,24 @@
+/* 11 Dec Commuity view */
+
+.view-community-projects .views-field-field-prj-wtf-image{
+  float: left;
+  margin: 0 20px 0 0;
+}
+
+.view-community-projects .views-row{
+  clear: both;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.view-community-projects .views-row:after{
+  clear: both;
+  display: block;
+  margin-bottom: 40px;
+  content: '.';
+  visibility: hidden;
+}
+
 /* 17 Nov Collective page -   */
 
 .sidebar .view-collective-registrations .views-field-nothing{
@@ -241,4 +262,42 @@ body.path-frontpage .main-block{
 }
 .path-wranglers div.body-content div.field__item img {
     max-width: 100%;
+}
+
+
+.form-checkboxes .multiple-fields-remove-button {
+    display: none;
+}
+
+.page-node-type-mutant-vehicles .field--name-field-collective,
+.node-add-mutant_vehicles .field--name-field-collective,
+.page-node-type-mutant-vehicles .field--name-field-prj-gen-year,
+.node-add-mutant_vehicles .field--name-field-prj-gen-year,
+.page-node-type-mutant-vehicles .field--name-field-grt-dmv-budget ,
+.node-add-mutant_vehicles .field--name-field-grt-dmv-budget {
+    display: none;
+}
+
+.node-mutant-vehicles-grant-form .field--name-field-grt-dmv-budget {
+  display: block;
+}
+
+#field-grt-dmv-budget-values {
+    width: 100%;
+}
+
+
+.node-mutant-vehicles-grant-form .paragraphs-subform {
+    display: flex;  
+    flex-wrap: wrap;
+}
+
+
+.field--name-field-legal-guardian input {
+    width: 20px;
+    min-width: 20px;
+    max-width: 20px;
+}
+.field--name-field-minor-date-of-birth .label.js-form-required.form-required {
+    text-transform: unset;
 }

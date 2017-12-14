@@ -15,7 +15,7 @@ id: node.mutant_vehicles.field_prj_cll_description
 field_name: field_prj_cll_description
 entity_type: node
 bundle: mutant_vehicles
-label: 'Tell our community about your project'
+label: 'Tell our community about your project *'
 description: "Who are you as a collective. What’s your project about. What kind of collaboration are you looking for. Anything that you feel is relevant and will help you get the participation that you need. Try to be brief.\r\n"
 required: false
 translatable: true

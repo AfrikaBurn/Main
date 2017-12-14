@@ -1,7 +1,8 @@
 {
     "require": {
-        "ckeditor/fakeobjects": "4.6.2",
-        "ckeditor/image": "4.6.2",
+        "ckeditor/autogrow": "4.7.2",
+        "ckeditor/fakeobjects": "4.7.2",
+        "ckeditor/image": "4.7.2",
         "ckeditor/link": "4.6.2",
         "codemirror/codemirror": "5.27.4",
         "drush/drush": "^8.1",
@@ -17,22 +18,41 @@
         "jquery/word-and-character-counter": "2.5.1",
         "progress-tracker/progress-tracker": "1.4.0",
         "signature_pad/signature_pad": "2.3.0",
-        "symfony/console": "^3.3",
-        "swiftmailer/swiftmailer": "^6.0"
+        "swiftmailer/swiftmailer": "^6.0",
+        "symfony/console": "^3.3"
     },
     "repositories": {
+        "ckeditor.autogrow": {
+            "_webform": true,
+            "type": "package",
+            "package": {
+                "name": "ckeditor/autogrow",
+                "version": "4.7.2",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "ckeditor.autogrow"
+                },
+                "dist": {
+                    "url": "https://download.ckeditor.com/autogrow/releases/autogrow_4.7.2.zip",
+                    "type": "zip"
+                },
+                "require": {
+                    "composer/installers": "~1.0"
+                }
+            }
+        },
         "ckeditor.fakeobjects": {
             "_webform": true,
             "type": "package",
             "package": {
                 "name": "ckeditor/fakeobjects",
-                "version": "4.6.2",
+                "version": "4.7.2",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "ckeditor.fakeobjects"
                 },
                 "dist": {
-                    "url": "https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.6.2.zip",
+                    "url": "https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.7.2.zip",
                     "type": "zip"
                 },
                 "require": {
@@ -45,13 +65,13 @@
             "type": "package",
             "package": {
                 "name": "ckeditor/image",
-                "version": "4.6.2",
+                "version": "4.7.2",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "ckeditor.image"
                 },
                 "dist": {
-                    "url": "https://download.ckeditor.com/image/releases/image_4.6.2.zip",
+                    "url": "https://download.ckeditor.com/image/releases/image_4.7.2.zip",
                     "type": "zip"
                 },
                 "require": {

@@ -135,6 +135,8 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
+    - field.field.node.art.field_sup_comment
+    - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - image.style.thumbnail
     - node.type.art
@@ -177,6 +179,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Overview
+      region: content
     group_the_project:
       children:
         - field_prj_gen_description
@@ -194,6 +197,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'The Project'
+      region: content
     group_the_structure:
       children:
         - group_dimensions
@@ -208,6 +212,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'The Structure'
+      region: content
     group_dimensions:
       children:
         - field_prj_stc_size
@@ -227,6 +232,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Dimensions
+      region: content
     group_building_transport_install:
       children:
         - group_offsite_building
@@ -240,6 +246,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Building, Transport, Installation'
+      region: content
     group_offsite_building:
       children:
         - field_muncipal_district
@@ -254,6 +261,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Offsite building'
+      region: content
     group_onsite_building:
       children:
         - field_prj_prp_erection
@@ -267,6 +275,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Onsite building'
+      region: content
     group_lighting:
       children:
         - field_prj_lgh_f1
@@ -281,6 +290,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Lighting
+      region: content
     group_sound:
       children:
         - field_prj_snd_f1
@@ -296,6 +306,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Sound
+      region: content
     group_moop:
       children:
         - field_prj_lnt_handled
@@ -314,6 +325,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Leave No Trace'
+      region: content
     group_wtf_guide_and_community:
       children:
         - field_prj_wtf_image
@@ -339,6 +351,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'WTF Guide and Community'
+      region: content
     group_other:
       children:
         - field_prj_oth_other
@@ -356,6 +369,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Other
+      region: content
     group_burn:
       children:
         - field_prj_brn_f2
@@ -372,6 +386,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Burn
+      region: content
     group_project_registration:
       children:
         - group_overview
@@ -391,6 +406,7 @@ third_party_settings:
         classes: ''
         effect: none
       label: 'Project Registration'
+      region: content
 _core:
   default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
 id: node.art.default
@@ -824,6 +840,14 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_prj_oth_unregistered:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_plc_area:
     weight: 35
     settings: {  }
@@ -1088,7 +1112,7 @@ content:
     type: options_buttons
     region: content
   field_prj_total_cost:
-    weight: 122
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: computed_number_widget
@@ -1131,7 +1155,7 @@ content:
     region: content
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 9
     settings: {  }
     region: content
     third_party_settings: {  }
@@ -1152,7 +1176,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 121
+    weight: 10
     third_party_settings: {  }
     region: content
   sticky:
@@ -1234,7 +1258,6 @@ hidden:
   field_prj_lnt_score: true
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
-  field_prj_oth_unregistered: true
   field_prj_plc_f1: true
   field_prj_plc_location_extra: true
   field_prj_saf_comment: true
@@ -1249,4 +1272,6 @@ hidden:
   field_prj_wtf_long: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
+  field_sup_comment: true
+  field_sup_review: true
   field_this_is_the_amount_of_mone: true
