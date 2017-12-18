@@ -114,12 +114,11 @@ function afrikaburn_shared_user_validate($form, FormStateInterface &$form_state)
     if (isset($minor['subform'])){
       $date = $minor['subform']['field_minor_date_of_birth'][0]['value'];
       if (isset($date) ){
-        dpm($date);
-        // $age = (time() - $date->getTimestamp()) / 31556926;
+        $age = (time() - $date->getTimestamp()) / 31556926;
 
-        // if ($age < 0 || $age > 18) {
-        //   $form_state->setErrorByName('field_kids_and_teens][' . $index . '][subform][field_minor_date_of_birth][0', t('Minors must be between the age of 0 and 18!'));
-        // }
+        if ($age < 0 || $age > 18) {
+          $form_state->setErrorByName('field_kids_and_teens][' . $index . '][subform][field_minor_date_of_birth][0', t('Minors must be between the age of 0 and 18!'));
+        }
       }
       $index++;
     }
