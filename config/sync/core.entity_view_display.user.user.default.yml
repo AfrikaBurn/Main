@@ -13,7 +13,6 @@ dependencies:
     - field.field.user.user.field_emr_telephone
     - field.field.user.user.field_first_name
     - field.field.user.user.field_gender
-    - field.field.user.user.field_guardian_doc
     - field.field.user.user.field_id_number
     - field.field.user.user.field_kids_and_teens
     - field.field.user.user.field_last_name
