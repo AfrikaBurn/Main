@@ -130,36 +130,6 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Project Registration'
-    group_overview:
-      children:
-        - group_the_
-        - group_the_st
-        - group_lighting
-        - group_sound
-        - group_burn
-        - group_moop
-        - group_wtf
-        - group_other
-        - field_collective
-        - field_prj_gen_fundraising
-        - field_prj_gen_manager
-        - field_prj_gen_location
-        - field_prj_gen_lead
-        - field_prj_gen_history
-        - field_prj_gen_fundraiser
-        - field_prj_gen_external
-        - field_prj_gen_contact
-        - field_prj_gen_bio
-      parent_name: ''
-      weight: 57
-      format_type: accordion_item
-      format_settings:
-        label: Overview
-        formatter: open
-        required_fields: true
-        id: ''
-        classes: ui-accordion-header
-      label: Overview
     group_the_:
       children:
         - field_prj_gen_concept
@@ -176,20 +146,6 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'The Project'
-    group_the_st:
-      children:
-        - group_dimensions
-        - field_prj_stc_physical
-      parent_name: group_overview
-      weight: 12
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: 'The Structure'
     group_sound:
       children:
         - field_prj_snd_level
