@@ -36,8 +36,8 @@ class TicketBlock extends BlockBase {
           ? '<div class="messages messages--status">
               <ul>
               Remember to list all kids or teens (anyone under 18) <a href="/user/'.$uid.'/edit">on your profile</a>.
-              <p><a href="https://www.quicket.co.za/events/' . $settings['event_id'].'-#/?dc=' . $quicket_code . '" target="_blank" class="button">BUY MAYDAY TICKETS</a></p>
-              NOTE: General ticket sales are presently closed, the next round is on Feb 27 2018.
+              <p><a href="https://www.quicket.co.za/events/' . $settings['event_id'].'-#/?dc=' . $quicket_code . '" target="_blank" class="button">BUY TICKETS</a></p>
+              NOTE: General ticket sales are presently closed. Only Mayday and tickets for minors are currently available. The next round of general ticket sales is on Feb 27 2018.
             </div>'
           : '<div class="messages messages--warning">
               Tickets cannot be bought without an updated profile and the appropriate agreements in place.<br />
