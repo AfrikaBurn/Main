@@ -113,7 +113,7 @@ function afrikaburn_shared_user_validate($form, FormStateInterface &$form_state)
   foreach($minors as $minor) {
     if (isset($minor['subform'])){
       $date = $minor['subform']['field_minor_date_of_birth'][0]['value'];
-      if (isset($date) ){
+      if (isset($date) && !is_array($date)){
         $age = (time() - $date->getTimestamp()) / 31556926;
 
         if ($age < 0 || $age > 18) {
