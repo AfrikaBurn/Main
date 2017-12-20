@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.minors.field_field_consent_form
+    - field.field.paragraph.minors.field_consent_form
     - field.field.paragraph.minors.field_legal_guardian
     - field.field.paragraph.minors.field_minor_date_of_birth
     - field.field.paragraph.minors.field_minor_form
@@ -20,8 +20,8 @@ targetEntityType: paragraph
 bundle: minors
 mode: default
 content:
-  field_field_consent_form:
-    weight: 5
+  field_consent_form:
+    weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }

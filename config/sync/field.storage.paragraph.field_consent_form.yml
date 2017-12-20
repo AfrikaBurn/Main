@@ -1,4 +1,4 @@
-uuid: d4df4524-f172-4afc-be18-f043ad23720c
+uuid: 6e2c34fe-5c7f-44d5-98d3-59317972e67f
 langcode: en
 status: true
 dependencies:
@@ -9,8 +9,8 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: custom
-id: paragraph.field_field_consent_form
-field_name: field_field_consent_form
+id: paragraph.field_consent_form
+field_name: field_consent_form
 entity_type: paragraph
 type: file
 settings:

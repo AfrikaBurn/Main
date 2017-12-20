@@ -24,8 +24,10 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_adm_form_wtf
     - field.field.node.mutant_vehicles.field_prj_adm_notes
     - field.field.node.mutant_vehicles.field_prj_adm_ranger_comment
+    - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
+    - field.field.node.mutant_vehicles.field_prj_brn_agree
     - field.field.node.mutant_vehicles.field_prj_brn_burning
     - field.field.node.mutant_vehicles.field_prj_brn_desc
     - field.field.node.mutant_vehicles.field_prj_brn_person
@@ -67,6 +69,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_oth_associated
     - field.field.node.mutant_vehicles.field_prj_oth_grant
     - field.field.node.mutant_vehicles.field_prj_oth_other
+    - field.field.node.mutant_vehicles.field_prj_oth_unregistered
     - field.field.node.mutant_vehicles.field_prj_saf_access
     - field.field.node.mutant_vehicles.field_prj_saf_comment
     - field.field.node.mutant_vehicles.field_prj_saf_guide
@@ -123,38 +126,6 @@ third_party_settings:
         classes: ''
         effect: none
       label: 'Project Overview'
-    group_acc_overview:
-      children:
-        - group_acc_the_project
-        - group_acc_safety
-        - group_acc_night_driving
-        - group_acc_sound
-        - group_acc_flame_effects
-        - group_acc_trailer
-        - group_acc_moop
-        - group_acc_wtf_guide
-        - group_acc_almost_done
-        - field_collective
-        - field_prj_gen_owner
-        - field_prj_snd_comment
-        - field_prj_gen_year
-        - field_prj_gen_location
-        - field_grt_dmv_budget
-        - field_prj_gen_lead
-        - field_prj_gen_fundraising
-        - field_prj_gen_fundraiser
-        - field_prj_gen_contact
-        - field_mutant_drivers
-      parent_name: ''
-      weight: 42
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: open
-        required_fields: true
-        description: ''
-      label: Overview
     group_acc_the_project:
       children:
         - field_prj_gen_base
@@ -447,8 +418,10 @@ hidden:
   field_prj_adm_form_wtf: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
+  field_prj_adm_registration: true
   field_prj_adm_review: true
   field_prj_adm_wrangler: true
+  field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_desc: true
   field_prj_brn_person: true
@@ -490,6 +463,7 @@ hidden:
   field_prj_oth_associated: true
   field_prj_oth_grant: true
   field_prj_oth_other: true
+  field_prj_oth_unregistered: true
   field_prj_saf_access: true
   field_prj_saf_comment: true
   field_prj_saf_guide: true
