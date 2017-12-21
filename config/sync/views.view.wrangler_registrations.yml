@@ -169,6 +169,7 @@ dependencies:
     - node.type.mutant_vehicles
     - node.type.performances
     - node.type.theme_camps
+    - taxonomy.vocabulary.artwork_size
     - user.role.administrator
     - user.role.art_admin
     - user.role.art_wrangler
@@ -190,6 +191,7 @@ dependencies:
     - options
     - rest
     - serialization
+    - taxonomy
     - user
     - views_data_export
     - views_field_view
@@ -17236,6 +17238,69 @@ display:
             field_last_name_1: field_last_name_1
             title: title
           plugin_id: combine
+        field_prj_stc_size_target_id:
+          id: field_prj_stc_size_target_id
+          table: node__field_prj_stc_size
+          field: field_prj_stc_size_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_prj_stc_size_target_id_op
+            label: 'Project size'
+            description: ''
+            use_operator: false
+            operator: field_prj_stc_size_target_id_op
+            identifier: field_prj_stc_size_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              art_wrangler: '0'
+              art_admin: '0'
+              communications_wrangler: '0'
+              communications_admin: '0'
+              leave_no_trace_moop: '0'
+              mutant_vehicle_viewer: '0'
+              mutant_vehicle_wrangler: '0'
+              mutant_vehicle_admin: '0'
+              outreach_wrangler: '0'
+              outreach_admin: '0'
+              administrator: '0'
+              support_wrangler: '0'
+              support_admin: '0'
+              theme_camp_wrangler: '0'
+              theme: '0'
+              supplier: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: artwork_size
+          hierarchy: false
+          error_message: true
+          parent: 0
+          level_labels: ''
+          force_deepest: false
+          plugin_id: taxonomy_index_tid
       filter_groups:
         operator: AND
         groups:
@@ -17290,6 +17355,7 @@ display:
         - url
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
+        - user
         - 'user.node_grants:view'
         - user.roles
       tags:

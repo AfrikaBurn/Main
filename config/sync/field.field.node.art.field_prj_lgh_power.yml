@@ -19,7 +19,7 @@ entity_type: node
 bundle: art
 label: 'Please describe your light output devices and power sources'
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
