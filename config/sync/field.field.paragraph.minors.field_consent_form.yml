@@ -16,7 +16,7 @@ id: paragraph.minors.field_consent_form
 field_name: field_consent_form
 entity_type: paragraph
 bundle: minors
-label: 'Comleted consent form'
+label: 'Completed consent form'
 description: ''
 required: true
 translatable: false
