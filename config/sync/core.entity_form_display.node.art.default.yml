@@ -473,6 +473,44 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_prj_brn_agree:
+    third_party_settings:
+      conditional_fields:
+        cbeb9082-15ab-48f5-a7f3-11496a1ca4d6:
+          dependee: field_prj_brn_burning
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+        5f5c77a9-32a4-4263-be02-e7f25e7145da:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 112
+    settings:
+      display_label: true
+    type: boolean_checkbox
+    region: content
   field_prj_brn_burning:
     type: boolean_checkbox
     weight: 106
@@ -480,6 +518,45 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_prj_brn_desc:
+    third_party_settings:
+      conditional_fields:
+        7ca4bf33-5108-49da-ba54-48dcb12e68f8:
+          dependee: field_prj_brn_burning
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+        c33e529d-38dc-466c-ac5d-a516402d4563:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 111
+    settings:
+      rows: 5
+      placeholder: ''
+    type: string_textarea
+    region: content
   field_prj_brn_f1:
     type: markup
     weight: 105
@@ -525,7 +602,7 @@ content:
           dependee: field_prj_brn_burning
           settings:
             state: required
-            condition: value
+            condition: checked
             grouping: AND
             values_set: 1
             value: ''
@@ -538,6 +615,160 @@ content:
           entity_type: node
           bundle: art
     type: string_textarea
+    region: content
+  field_prj_brn_perimeter:
+    third_party_settings:
+      conditional_fields:
+        58ba7994-edd1-4975-bbd9-76a40c9f9b73:
+          dependee: field_prj_brn_burning
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+        0a2c056b-2a6d-4575-9a1d-23065ca05a39:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 113
+    settings:
+      placeholder: ''
+    type: number
+    region: content
+  field_prj_brn_person:
+    third_party_settings:
+      conditional_fields:
+        8e29e8e6-766c-4725-977d-7422f89f28c8:
+          dependee: field_prj_brn_burning
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+        9a6f5345-d92e-4c24-b554-3381dc9daee7:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 114
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    type: entity_reference_autocomplete
+    region: content
+  field_prj_brn_plan:
+    third_party_settings:
+      conditional_fields:
+        77c9e7e4-93e4-4899-8aad-a576a741a9ca:
+          dependee: field_prj_brn_burning
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+        f92bbb29-2d52-4b79-ba5d-43ac6b74d56b:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 116
+    settings:
+      rows: 5
+      placeholder: ''
+    type: string_textarea
+    region: content
+  field_prj_brn_time:
+    third_party_settings:
+      conditional_fields:
+        5133da0b-1d53-4e3a-a54d-1f01aaaa73d2:
+          dependee: field_prj_brn_burning
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+        ea1ffe3b-04de-4eb4-b8b7-04b27f1cf1e6:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 115
+    settings: {  }
+    type: datetime_default
     region: content
   field_prj_cll_collaborate:
     weight: 47
@@ -899,11 +1130,88 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_prj_snd_agree:
+    third_party_settings:
+      conditional_fields:
+        2ec851e0-3676-4942-8c12-f59151c8c8a8:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+        4adda661-4381-4351-b214-ebb3c0f0d4fa:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 108
+    settings:
+      display_label: true
+    type: boolean_checkbox
+    region: content
   field_prj_snd_area:
     weight: 43
     settings: {  }
     third_party_settings: {  }
     type: markup
+    region: content
+  field_prj_snd_description:
+    third_party_settings:
+      conditional_fields:
+        08c572d1-f463-4122-a3c0-3fc37eefc0e1:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+        8fe5f983-e2d9-4695-8659-b77bcc441999:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 109
+    settings:
+      rows: 5
+      placeholder: ''
+    type: string_textarea
     region: content
   field_prj_snd_f1:
     weight: 31
@@ -948,6 +1256,46 @@ content:
           entity_type: node
           bundle: art
     type: options_select
+    region: content
+  field_prj_snd_person:
+    third_party_settings:
+      conditional_fields:
+        cadcad56-327a-4968-8e0c-481a2e00f1f8:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+        8372a14b-03ba-44a9-a2eb-b78beb664458:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 110
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    type: entity_reference_autocomplete
     region: content
   field_prj_snd_sound:
     weight: 32
@@ -1239,12 +1587,6 @@ hidden:
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
-  field_prj_brn_agree: true
-  field_prj_brn_desc: true
-  field_prj_brn_perimeter: true
-  field_prj_brn_person: true
-  field_prj_brn_plan: true
-  field_prj_brn_time: true
   field_prj_brn_time_adm: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
@@ -1261,10 +1603,7 @@ hidden:
   field_prj_plc_f1: true
   field_prj_plc_location_extra: true
   field_prj_saf_comment: true
-  field_prj_snd_agree: true
   field_prj_snd_comment: true
-  field_prj_snd_description: true
-  field_prj_snd_person: true
   field_prj_sup_address: true
   field_prj_sup_details: true
   field_prj_sup_h1: true

@@ -16,7 +16,7 @@ id: paragraph.minors.field_consent_form
 field_name: field_consent_form
 entity_type: paragraph
 bundle: minors
-label: 'Comleted consent form'
+label: 'Completed consent form'
 description: ''
 required: true
 translatable: false
@@ -24,7 +24,7 @@ default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: 'consent/[uid]'
-  file_extensions: 'txt jpg jpeg png pdf'
+  file_extensions: 'jpg jpeg png pdf'
   max_filesize: '3 mb'
   description_field: false
   handler: 'default:file'

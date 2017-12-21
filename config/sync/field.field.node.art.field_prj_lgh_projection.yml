@@ -19,7 +19,7 @@ entity_type: node
 bundle: art
 label: 'Are you planning any sort of projection, 3D mapping, laser, etc?'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

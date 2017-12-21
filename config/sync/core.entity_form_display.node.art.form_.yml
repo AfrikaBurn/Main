@@ -124,6 +124,9 @@ dependencies:
     - field.field.node.art.field_prj_stg_stage
     - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
+    - field.field.node.art.field_prj_sup_address
+    - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
@@ -133,6 +136,8 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
+    - field.field.node.art.field_sup_comment
+    - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - node.type.art
   module:
@@ -152,7 +157,7 @@ third_party_settings:
         - group_moop
         - group_other
       parent_name: ''
-      weight: 5
+      weight: 0
       format_type: accordion
       format_settings:
         label: 'Project Registration'
@@ -160,6 +165,7 @@ third_party_settings:
         id: ''
         classes: js-wizard
       label: 'Project Registration'
+      region: content
     group_lighting:
       children:
         - field_prj_lgh_f2
@@ -179,6 +185,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Lighting
+      region: content
     group_sound:
       children:
         - field_prj_snd_f1
@@ -197,6 +204,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Sound
+      region: content
     group_burn:
       children:
         - field_prj_brn_f2
@@ -218,6 +226,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Burn
+      region: content
     group_moop:
       children:
         - field_prj_lnt_helpers
@@ -236,11 +245,11 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Leave No Trace'
+      region: content
     group_other:
       children:
-        - field_prj_oth_other
-        - field_prj_oth_associated
         - field_prj_oth_relationship
+        - field_prj_oth_other
         - field_prj_oth_grant
         - field_prj_oth_unregistered
       parent_name: group_project_registration
@@ -253,6 +262,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Other
+      region: content
     group_placement:
       children:
         - field_prj_plc_f1
@@ -267,6 +277,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: Placement
+      region: content
 _core:
   default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
 id: node.art.form_
@@ -276,9 +287,17 @@ mode: form_
 content:
   created:
     type: datetime_timestamp
-    weight: 1
+    weight: 3
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_prj_adm_area:
     weight: 78
@@ -392,13 +411,10 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_lgh_lighter:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 59
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_prj_lgh_policy:
     type: markup
@@ -474,15 +490,6 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_oth_associated:
-    weight: 15
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_prj_oth_grant:
     weight: 18
     settings:
@@ -491,7 +498,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_oth_other:
-    weight: 14
+    weight: 17
     settings:
       rows: 5
       placeholder: ''
@@ -499,7 +506,7 @@ content:
     type: string_textarea
     region: content
   field_prj_oth_relationship:
-    weight: 17
+    weight: 16
     settings:
       rows: 5
       placeholder: ''
@@ -613,13 +620,13 @@ content:
     region: content
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 7
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 4
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -627,26 +634,27 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 2
+    weight: 4
     region: content
     third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 121
-    third_party_settings: {  }
-    region: content
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 3
+    weight: 5
     region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 0
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
@@ -656,7 +664,6 @@ content:
 hidden:
   field_col_members: true
   field_collective: true
-  field_form_mode: true
   field_grt_art_apply: true
   field_grt_art_comment: true
   field_grt_art_reason: true
@@ -721,6 +728,7 @@ hidden:
   field_prj_lnt_score: true
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
+  field_prj_oth_associated: true
   field_prj_oth_unregistered: true
   field_prj_prp_duration: true
   field_prj_prp_erection: true
@@ -741,6 +749,9 @@ hidden:
   field_prj_stg_stage: true
   field_prj_stg_tread: true
   field_prj_stg_type: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true
   field_prj_wtf_image: true
@@ -750,5 +761,7 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_sup_comment: true
+  field_sup_review: true
   field_this_is_the_amount_of_mone: true
-  title: true
+  status: true
