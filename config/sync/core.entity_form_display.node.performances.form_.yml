@@ -95,6 +95,10 @@ dependencies:
     - field.field.node.performances.field_prj_stc_safety
     - field.field.node.performances.field_prj_stc_structural
     - field.field.node.performances.field_prj_stc_weight
+    - field.field.node.performances.field_prj_sup_address
+    - field.field.node.performances.field_prj_sup_details
+    - field.field.node.performances.field_prj_sup_h1
+    - field.field.node.performances.field_prj_total_cost
     - field.field.node.performances.field_prj_wtf_categories
     - field.field.node.performances.field_prj_wtf_image
     - field.field.node.performances.field_prj_wtf_long
@@ -133,6 +137,7 @@ third_party_settings:
         id: ''
         classes: js-wizard
       label: 'Project Registration'
+      region: content
     group_sound:
       children:
         - field_prj_snd_sound
@@ -150,6 +155,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Sound
+      region: content
     group_burn:
       children:
         - field_prj_brn_burning
@@ -167,6 +173,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Burn
+      region: content
     group_moop:
       children:
         - field_prj_lnt_handled
@@ -184,6 +191,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Leave No Trace'
+      region: content
     group_wtf:
       children:
         - field_prj_wtf_image
@@ -203,6 +211,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'WTF Guide and Community'
+      region: content
     group_lighting:
       children:
         - field_prj_lgh_f2
@@ -221,6 +230,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Lighting
+      region: content
 _core:
   default_config_hash: GszY5o7FPcrv2Z8_LMFChqNpGZCA9kaS3WAz3lVtB0o
 id: node.performances.form_
@@ -233,6 +243,14 @@ content:
     weight: 1
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 1000
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_prj_brn_agree:
     weight: 51
@@ -464,13 +482,6 @@ content:
     weight: 2
     region: content
     third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 121
-    third_party_settings: {  }
-    region: content
   sticky:
     type: boolean_checkbox
     settings:
@@ -489,7 +500,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_collective: true
-  field_form_mode: true
   field_grt_art_total: true
   field_grt_breakdown: true
   field_grt_contribution: true
@@ -554,6 +564,10 @@ hidden:
   field_prj_stc_safety: true
   field_prj_stc_structural: true
   field_prj_stc_weight: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true
+  field_prj_total_cost: true
   field_prj_wtf_categories: true
   field_prj_wtf_long: true
   field_prj_wtf_plan: true
@@ -561,4 +575,5 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_this_is_the_amount_of_mone: true
+  status: true
   title: true
