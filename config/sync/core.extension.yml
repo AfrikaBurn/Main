@@ -52,6 +52,7 @@ module:
   field_validation: 0
   file: 0
   filter: 0
+  filter_perms: 0
   form_mode_manager: 0
   formblock: 0
   google_analytics: 0

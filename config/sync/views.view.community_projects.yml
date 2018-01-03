@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_prj_cll_description
     - field.storage.node.field_prj_wtf_image
-    - field.storage.user.field_email
     - image.style.large
     - node.type.art
     - node.type.collective
@@ -14,7 +13,7 @@ dependencies:
     - node.type.theme_camps
     - user.role.authenticated
   module:
-    - computed_field
+    - contact
     - image
     - node
     - user
@@ -280,18 +279,18 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_email:
-          id: field_email
-          table: user__field_email
-          field: field_email
+        contact:
+          id: contact
+          table: users
+          field: contact
           relationship: field_prj_gen_contact
           group_type: group
           admin_label: ''
           label: ''
           exclude: false
           alter:
-            alter_text: true
-            text: '<a href="mailto:{{ field_email__value }}">Contact this project</a>'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -328,23 +327,9 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: computed_string
-          settings:
-            sanitized: 0
-            cache_unit: '-1'
-            cache_duration: '1'
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
+          text: 'Contact this project'
+          entity_type: user
+          plugin_id: contact_link
       filters:
         status:
           value: '1'
@@ -489,7 +474,7 @@ display:
           relationship: none
           group_type: group
           admin_label: 'field_prj_gen_contact: User'
-          required: false
+          required: true
           plugin_id: standard
       arguments: {  }
       display_extenders: {  }
@@ -505,7 +490,6 @@ display:
       tags:
         - 'config:field.storage.node.field_prj_cll_description'
         - 'config:field.storage.node.field_prj_wtf_image'
-        - 'config:field.storage.user.field_email'
   page_1:
     display_plugin: page
     id: page_1
@@ -526,4 +510,3 @@ display:
       tags:
         - 'config:field.storage.node.field_prj_cll_description'
         - 'config:field.storage.node.field_prj_wtf_image'
-        - 'config:field.storage.user.field_email'
