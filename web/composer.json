@@ -1,19 +1,20 @@
 {
     "require": {
         "ckeditor/autogrow": "4.7.2",
+        "ckeditor/codemirror": "v1.17.3",
         "ckeditor/fakeobjects": "4.7.2",
         "ckeditor/image": "4.7.2",
         "ckeditor/link": "4.6.2",
-        "codemirror/codemirror": "5.27.4",
+        "codemirror/codemirror": "5.31.0",
         "drush/drush": "^8.1",
         "jquery/geocomplete": "1.7.0",
         "jquery/icheck": "1.0.2 ",
         "jquery/image-picker": "0.3.0",
-        "jquery/inputmask": "3.3.7",
-        "jquery/intl-tel-input": "12.0.0",
+        "jquery/inputmask": "3.3.10",
+        "jquery/intl-tel-input": "12.1.0",
         "jquery/rateit": "1.1.1",
-        "jquery/select2": "4.0.3",
-        "jquery/timepicker": "1.11.11 ",
+        "jquery/select2": "4.0.5",
+        "jquery/timepicker": "1.11.12",
         "jquery/toggles": "4.0.0",
         "jquery/word-and-character-counter": "2.5.1",
         "progress-tracker/progress-tracker": "1.4.0",
@@ -34,6 +35,25 @@
                 },
                 "dist": {
                     "url": "https://download.ckeditor.com/autogrow/releases/autogrow_4.7.2.zip",
+                    "type": "zip"
+                },
+                "require": {
+                    "composer/installers": "~1.0"
+                }
+            }
+        },
+        "ckeditor.codemirror": {
+            "_webform": true,
+            "type": "package",
+            "package": {
+                "name": "ckeditor/codemirror",
+                "version": "v1.17.3",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "ckeditor.codemirror"
+                },
+                "dist": {
+                    "url": "https://github.com/w8tcha/CKEditor-CodeMirror-Plugin/releases/download/v1.17.3/CKEditor-CodeMirror-Plugin.zip",
                     "type": "zip"
                 },
                 "require": {
@@ -103,13 +123,13 @@
             "type": "package",
             "package": {
                 "name": "codemirror/codemirror",
-                "version": "5.27.4",
+                "version": "5.31.0",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "codemirror"
                 },
                 "dist": {
-                    "url": "https://github.com/components/codemirror/archive/5.27.4.zip",
+                    "url": "https://github.com/components/codemirror/archive/5.31.0.zip",
                     "type": "zip"
                 },
                 "require": {
@@ -179,13 +199,13 @@
             "type": "package",
             "package": {
                 "name": "jquery/inputmask",
-                "version": "3.3.7",
+                "version": "3.3.10",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "jquery.inputmask"
                 },
                 "dist": {
-                    "url": "https://github.com/RobinHerbots/jquery.inputmask/archive/3.3.7.zip",
+                    "url": "https://github.com/RobinHerbots/jquery.inputmask/archive/3.3.10.zip",
                     "type": "zip"
                 },
                 "require": {
@@ -198,13 +218,13 @@
             "type": "package",
             "package": {
                 "name": "jquery/intl-tel-input",
-                "version": "12.0.0",
+                "version": "12.1.0",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "jquery.intl-tel-input"
                 },
                 "dist": {
-                    "url": "https://github.com/jackocnr/intl-tel-input/archive/v12.0.0.zip",
+                    "url": "https://github.com/jackocnr/intl-tel-input/archive/v12.1.0.zip",
                     "type": "zip"
                 },
                 "require": {
@@ -236,13 +256,13 @@
             "type": "package",
             "package": {
                 "name": "jquery/select2",
-                "version": "4.0.3",
+                "version": "4.0.5",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "jquery.select2"
                 },
                 "dist": {
-                    "url": "https://github.com/select2/select2/archive/4.0.3.zip",
+                    "url": "https://github.com/select2/select2/archive/4.0.5.zip",
                     "type": "zip"
                 },
                 "require": {
@@ -255,13 +275,13 @@
             "type": "package",
             "package": {
                 "name": "jquery/timepicker",
-                "version": "1.11.11 ",
+                "version": "1.11.12",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "jquery.timepicker"
                 },
                 "dist": {
-                    "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.11.zip",
+                    "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.12.zip",
                     "type": "zip"
                 },
                 "require": {
