@@ -2736,8 +2736,7 @@
             "homepage": "https://www.drupal.org/project/filter_perms",
             "support": {
                 "source": "http://cgit.drupalcode.org/filter_perms"
-            },
-            "time": "2016-07-27 19:01:11"
+            }
         },
         {
             "name": "drupal/form_mode_control",
@@ -4128,8 +4127,7 @@
             "homepage": "https://www.drupal.org/project/term_csv_export_import",
             "support": {
                 "source": "http://cgit.drupalcode.org/term_csv_export_import"
-            },
-            "time": "2017-11-14 16:04:03"
+            }
         },
         {
             "name": "drupal/token",
