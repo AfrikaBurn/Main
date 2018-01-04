@@ -1,9 +1,12 @@
+uuid: 35e321ce-b80c-4f0e-9ac2-3f7a7c92fb64
 langcode: en
 status: open
 dependencies:
   enforced:
     module:
       - webform
+_core:
+  default_config_hash: s9QwNFnXhcTFmBZLjD5-7dOwcHv3Bh2dfsGN-cR7TgY
 open: null
 close: null
 uid: null
@@ -126,6 +129,10 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
 handlers:
   email_confirmation:
     id: email
@@ -153,6 +160,7 @@ handlers:
       exclude_empty: true
       html: true
       attachments: false
+      twig: false
       debug: false
       reply_to: ''
       return_path: ''
@@ -184,11 +192,9 @@ handlers:
       exclude_empty: true
       html: true
       attachments: false
+      twig: false
       debug: false
       reply_to: ''
       return_path: ''
       sender_mail: ''
       sender_name: ''
-uuid: 35e321ce-b80c-4f0e-9ac2-3f7a7c92fb64
-_core:
-  default_config_hash: s9QwNFnXhcTFmBZLjD5-7dOwcHv3Bh2dfsGN-cR7TgY

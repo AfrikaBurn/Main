@@ -127,5 +127,9 @@ access:
   delete_own:
     roles: {  }
     users: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
 handlers: {  }
 uuid: 46e99a79-5d02-4dba-b58a-52d286cfe72c
