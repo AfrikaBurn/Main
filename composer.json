@@ -35,6 +35,7 @@
         "drupal/field_group": "3.0-beta1",
         "drupal/field_permissions": "^1.0@beta",
         "drupal/field_validation": "^1.0@alpha",
+        "drupal/filter_perms": "1.x-dev",
         "drupal/form_mode_control": "^2.0@RC",
         "drupal/form_mode_manager": "^1.1",
         "drupal/formblock": "^1.0@beta",
@@ -58,6 +59,7 @@
         "drupal/token": "^1.0",
         "drupal/token_filter": "^1.0@beta",
         "drupal/typed_data": "^1.0@alpha",
+        "drupal/xls_serialization": "^1.0@beta",
         "drush/drush": "~8.0",
         "webflo/drupal-finder": "^0.3.0",
         "webmozart/path-util": "^2.3"
