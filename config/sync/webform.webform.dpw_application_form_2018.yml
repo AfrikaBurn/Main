@@ -145,6 +145,10 @@ access:
       - dpw
     users: {  }
     permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
 handlers:
   email:
     id: email
@@ -160,7 +164,7 @@ handlers:
       to_options: {  }
       cc_mail: dpw@afrikaburn.com
       cc_options: {  }
-      bcc_mail: ''
+      bcc_mail: shared@afrikaburn.com
       bcc_options: {  }
       from_mail: default
       from_options: {  }
@@ -172,6 +176,7 @@ handlers:
       exclude_empty: true
       html: true
       attachments: false
+      twig: false
       debug: false
       reply_to: ''
       return_path: ''
