@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b44b3f49ab1c3daa29b919f520f64a5a",
+    "content-hash": "bd9e8fb2ad39f10a4e77e7ee513fd313",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1657,7 +1657,7 @@
                 },
                 "drupal": {
                     "version": "8.x-3.2",
-                    "datestamp": "1512038284",
+                    "datestamp": "1502102944",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -1909,8 +1909,8 @@
                     "homepage": "https://www.drupal.org/user/2802285"
                 },
                 {
-                    "name": "purushotam.rai",
-                    "homepage": "https://www.drupal.org/user/3193859"
+                    "name": "jkempff",
+                    "homepage": "https://www.drupal.org/user/1394922"
                 },
                 {
                     "name": "valderama",
@@ -2685,6 +2685,56 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/field_validation"
             }
+        },
+        {
+            "name": "drupal/filter_perms",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/filter_perms",
+                "reference": "f491dd73fd876f6de0b2252c6b9bf18e0e27b357"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1469645939",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "cYu",
+                    "homepage": "https://www.drupal.org/user/202205"
+                },
+                {
+                    "name": "deekayen",
+                    "homepage": "https://www.drupal.org/user/972"
+                },
+                {
+                    "name": "willzyx",
+                    "homepage": "https://www.drupal.org/user/1043862"
+                }
+            ],
+            "description": "Provides role and module filters to simplify the user permissions page.",
+            "homepage": "https://www.drupal.org/project/filter_perms",
+            "support": {
+                "source": "http://cgit.drupalcode.org/filter_perms"
+            },
+            "time": "2016-07-27 19:01:11"
         },
         {
             "name": "drupal/form_mode_control",
@@ -4257,6 +4307,54 @@
             }
         },
         {
+            "name": "drupal/xls_serialization",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/xls_serialization",
+                "reference": "8.x-1.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/xls_serialization-8.x-1.0-beta1.zip",
+                "reference": "8.x-1.0-beta1",
+                "shasum": "01195cf9e021e3720aefc676cd4f6e930a90a2f7"
+            },
+            "require": {
+                "drupal/core": "*",
+                "phpoffice/phpexcel": "^1.8"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta1",
+                    "datestamp": "1510162384",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "jhedstrom",
+                    "homepage": "https://www.drupal.org/user/208732"
+                }
+            ],
+            "description": "Provides Excel as a serialization format.",
+            "homepage": "https://www.drupal.org/project/xls_serialization",
+            "support": {
+                "source": "http://cgit.drupalcode.org/xls_serialization"
+            }
+        },
+        {
             "name": "drush/drush",
             "version": "8.1.15",
             "source": {
@@ -5150,6 +5248,63 @@
                 }
             ],
             "time": "2016-01-25T08:17:30+00:00"
+        },
+        {
+            "name": "phpoffice/phpexcel",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PHPExcel.git",
+                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
+                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
+                "shasum": ""
+            },
+            "require": {
+                "ext-xml": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPExcel": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Maarten Balliauw",
+                    "homepage": "http://blog.maartenballiauw.be"
+                },
+                {
+                    "name": "Mark Baker"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "http://blog.rootslabs.net"
+                },
+                {
+                    "name": "Erik Tilt"
+                }
+            ],
+            "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+            "homepage": "http://phpexcel.codeplex.com",
+            "keywords": [
+                "OpenXML",
+                "excel",
+                "php",
+                "spreadsheet",
+                "xls",
+                "xlsx"
+            ],
+            "time": "2015-05-01T07:00:55+00:00"
         },
         {
             "name": "psr/cache",
@@ -8904,6 +9059,7 @@
         "drupal/custom_add_another": 10,
         "drupal/field_permissions": 10,
         "drupal/field_validation": 15,
+        "drupal/filter_perms": 20,
         "drupal/form_mode_control": 5,
         "drupal/formblock": 10,
         "drupal/markup": 10,
@@ -8912,7 +9068,8 @@
         "drupal/swiftmailer": 10,
         "drupal/term_csv_export_import": 20,
         "drupal/token_filter": 10,
-        "drupal/typed_data": 15
+        "drupal/typed_data": 15,
+        "drupal/xls_serialization": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
