@@ -1660,7 +1660,7 @@
                 },
                 "drupal": {
                     "version": "8.x-3.2",
-                    "datestamp": "1502102944",
+                    "datestamp": "1512038284",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -1912,8 +1912,8 @@
                     "homepage": "https://www.drupal.org/user/2802285"
                 },
                 {
-                    "name": "jkempff",
-                    "homepage": "https://www.drupal.org/user/1394922"
+                    "name": "purushotam.rai",
+                    "homepage": "https://www.drupal.org/user/3193859"
                 },
                 {
                     "name": "valderama",
@@ -2775,6 +2775,10 @@
                 "GPL-2.0+"
             ],
             "authors": [
+                {
+                    "name": "Idriss.BS",
+                    "homepage": "https://www.drupal.org/user/3156165"
+                },
                 {
                     "name": "eme",
                     "homepage": "https://www.drupal.org/user/542492"
