@@ -123,5 +123,9 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
 handlers: {  }
 uuid: 3469425d-ac3a-4cb7-a0f4-f0c8975ec83c
