@@ -146,6 +146,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Project Registration'
+      region: content
     group_overview:
       children:
         - title
@@ -169,6 +170,7 @@ third_party_settings:
         id: ''
         classes: ui-accordion-header
       label: Overview
+      region: content
     group_the_:
       children:
         - field_prj_gen_description
@@ -185,6 +187,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'The Project'
+      region: content
     group_the_st:
       children:
         - field_prj_stc_physical
@@ -199,6 +202,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'The Structure'
+      region: content
     group_sound:
       children:
         - field_prj_snd_sound
@@ -213,6 +217,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Sound
+      region: content
     group_moop:
       children:
         - field_prj_lnt_handled
@@ -230,6 +235,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Leave No Trace'
+      region: content
     group_wtf:
       children:
         - field_prj_wtf_image
@@ -250,6 +256,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'WTF Guide and Community'
+      region: content
     group_other:
       children:
         - field_prj_oth_other
@@ -268,6 +275,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Other
+      region: content
     group_onsite_building:
       children:
         - field_prj_prp_duration
@@ -281,6 +289,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Onsite building'
+      region: content
     group_dimensions:
       children:
         - field_prj_stc_height
@@ -302,6 +311,7 @@ third_party_settings:
         id: ''
         classes: wizard-dimensions
       label: Dimensions
+      region: content
     group_offsite_building:
       children:
         - field_muncipal_district
@@ -318,6 +328,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Offsite building'
+      region: content
     group_lighting:
       children:
         - field_prj_lgh_f1
@@ -332,6 +343,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: Lighting
+      region: content
     group_burn:
       children:
         - field_prj_brn_burning
@@ -347,6 +359,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Burn
+      region: content
 _core:
   default_config_hash: GszY5o7FPcrv2Z8_LMFChqNpGZCA9kaS3WAz3lVtB0o
 id: node.performances.default
@@ -1145,6 +1158,11 @@ content:
       size: 60
       placeholder: ''
     region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   field_grt_art_total: true

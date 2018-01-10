@@ -9,7 +9,7 @@ dependencies:
 id: afrikaburn_powered
 theme: afrikaburn
 region: status_messages
-weight: -2
+weight: -6
 provider: null
 plugin: system_powered_by_block
 settings:

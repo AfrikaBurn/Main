@@ -9,7 +9,7 @@ dependencies:
 id: afrikaburn_messages
 theme: afrikaburn
 region: status_messages
-weight: -16
+weight: -22
 provider: null
 plugin: system_messages_block
 settings:

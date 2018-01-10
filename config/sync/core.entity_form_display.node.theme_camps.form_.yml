@@ -120,9 +120,11 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_short
     - field.field.node.theme_camps.field_prj_wtf_short_copy
     - field.field.node.theme_camps.field_prj_wtf_website
+    - field.field.node.theme_camps.field_stretch_tent_dimen
     - image.style.thumbnail
     - node.type.theme_camps
   module:
+    - computed_field
     - conditional_fields
     - content_moderation
     - field_group
@@ -151,6 +153,7 @@ third_party_settings:
         id: ''
         classes: js-wizard
       label: 'Overview registration'
+      region: content
     group_the_project:
       children:
         - field_prj_gen_concept
@@ -167,6 +170,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'The Project'
+      region: content
     group_safety:
       children:
         - field_prj_saf_guide
@@ -185,6 +189,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Safety
+      region: content
     group_placement:
       children:
         - field_prj_plc_binnekring
@@ -225,6 +230,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Placement
+      region: content
     group_lighting:
       children:
         - field_prj_lgh_description
@@ -241,6 +247,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Lighting
+      region: content
     group_sound:
       children:
         - field_prj_snd_sound
@@ -260,6 +267,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Sound
+      region: content
     group_moop:
       children:
         - field_prj_lnt_handled
@@ -276,6 +284,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Leave No Trace'
+      region: content
     group_wtf:
       children:
         - field_prj_wtf_planned
@@ -291,11 +300,12 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'WTF Guide and Community'
+      region: content
     group_supplier_details:
       children:
+        - field_prj_sup_h1
         - field_prj_sup_address
         - field_prj_sup_details
-        - field_prj_sup_h1
       parent_name: group_overview_registration
       weight: 22
       format_type: accordion_item
@@ -306,6 +316,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: 'Supplier details'
+      region: content
 _core:
   default_config_hash: pagN6qP-fLg_L4YNYJ-bcH8Or0qqy7b__fqTBhXzqsA
 id: node.theme_camps.form_
@@ -394,21 +405,15 @@ content:
     region: content
   field_prj_lnt_historic:
     weight: 17
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_lnt_representative:
     weight: 18
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_plc_artwork_d:
     weight: 28
@@ -632,21 +637,15 @@ content:
     region: content
   field_prj_saf_markup:
     weight: 17
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_saf_person:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 18
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_prj_snd_agree:
     weight: 19
@@ -803,10 +802,7 @@ content:
     region: content
   field_prj_snd_person:
     weight: 20
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings:
       conditional_fields:
         e97d8c4c-5c8d-4231-bc4b-ed4ab7bc5112:
@@ -839,7 +835,7 @@ content:
             selector: ''
           entity_type: node
           bundle: theme_camps
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_snd_soop:
     weight: 18
@@ -925,6 +921,12 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_stretch_tent_dimen:
+    type: computed_number_widget
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
     weight: 100
@@ -974,6 +976,11 @@ content:
       size: 60
       placeholder: ''
     region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   field_field_prj_adm_form_3: true
