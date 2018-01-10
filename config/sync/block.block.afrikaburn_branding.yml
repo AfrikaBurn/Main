@@ -9,7 +9,7 @@ dependencies:
 id: afrikaburn_branding
 theme: afrikaburn
 region: status_messages
-weight: -6
+weight: -9
 provider: null
 plugin: system_branding_block
 settings:

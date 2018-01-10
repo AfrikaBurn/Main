@@ -11,7 +11,7 @@ dependencies:
 id: afrikaburn_artregestationoverview
 theme: afrikaburn
 region: status_messages
-weight: -11
+weight: -14
 provider: null
 plugin: 'block_content:6bdc871a-d2f7-49db-bfe9-33334fa63d2a'
 settings:

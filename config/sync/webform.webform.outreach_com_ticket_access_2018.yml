@@ -1,0 +1,184 @@
+uuid: f56e233b-bfcb-43c6-a484-343754c3d62a
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+uid: 1
+template: false
+id: outreach_com_ticket_access_2018
+title: 'Outreach Communoity Ticket Access 2018'
+description: 'I love your work Tim darling'
+category: Application
+elements: "accessible_tickets:\n  '#type': webform_markup\n  '#markup': \"<p>These tickets acknowledge the reality in South Africa that many economically disadvantaged individuals would never be able to partake in AfrikaBurn if they had to pay for any other kind of ticket. If you have someone working with you on a project, or know someone who would like to be part of our event but cannot afford the other options, this would be a route to participation.</p>\\n\\n<p><strong>YOU WILL NEED TO UPLOAD A COPY OF A PAY SLIP, A BANK STATEMENT OR AN AFFITDAVIT FOR EACH INDIVIDUAL YOU ARE APPLYING FOR</strong></p>\\n\\n<p><strong>YOU WILL BE REQUIRED TO SIGN AN AGREEMENT IF YOU ARE AWARDED TRANSPORT AND OR WELFARE GRANT</strong></p>\"\nquestion1:\n  '#type': webform_markup\n  '#markup': '<h5>Question 1: Applicant Details</h5>'\nusername_display:\n  '#type': webform_computed_token\n  '#help': 'Full Name:'\n  '#mode': html\n  '#value': '[current-user:field_first_name] [current-user:field_last_name]'\n  '#store': true\nfirst_name:\n  '#type': webform_computed_token\n  '#display_on': view\n  '#mode': html\n  '#value': '[current-user:field_first_name] [current-user:field_last_name]'\n  '#store': true\nmobile:\n  '#type': webform_computed_token\n  '#display_on': view\n  '#value': '[current-user:field_mobile]'\n  '#store': true\nemail:\n  '#type': webform_computed_token\n  '#display_on': view\n  '#value': '[current-user:field_email] or [current-user:field_secondary_mail]'\n  '#store': true\nid_passport:\n  '#type': webform_computed_token\n  '#display_on': view\n  '#value': '[current-user:field_id_number]'\n  '#store': true\nimage:\n  '#type': webform_computed_token\n  '#display_on': view\n  '#mode': html\n  '#value': '<img>[current-user:user_picture:medium]</img>'\n  '#store': true\n"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_login: false
+  form_login_message: ''
+  submission_label: ''
+  submission_log: false
+  submission_user_columns: {  }
+  submission_login: false
+  submission_login_message: ''
+  submission_exception_message: ''
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_start_label: ''
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles:
+      - art_admin
+      - communications_admin
+      - leave_no_trace_moop
+      - mutant_vehicle_admin
+      - outreach_admin
+      - administrator
+      - support_wrangler
+      - support_admin
+      - theme
+      - supplier
+      - dpw
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles:
+      - administrator
+      - support_wrangler
+      - support_admin
+      - dpw
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles:
+      - administrator
+      - dpw
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles:
+      - administrator
+      - dpw
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[current-user:field_email]'
+      to_options: {  }
+      cc_mail: dpw@afrikaburn.com
+      cc_options: {  }
+      bcc_mail: shared@afrikaburn.com
+      bcc_options: {  }
+      from_mail: default
+      from_options: {  }
+      from_name: 'AfrikaBurn DPW Submission for [current-user:field_first_name] [current-user:field_last_name]'
+      subject: default
+      body: default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
