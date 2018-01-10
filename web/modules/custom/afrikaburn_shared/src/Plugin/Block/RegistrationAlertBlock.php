@@ -15,7 +15,7 @@ use Drupal\views\Views;
  *   category = @Translation("Registration Alert Block"),
  * )
  */
-class InviteBlock extends BlockBase {
+class RegistrationAlertBlock extends BlockBase {
 
   /**
    * {@inheritdoc}
