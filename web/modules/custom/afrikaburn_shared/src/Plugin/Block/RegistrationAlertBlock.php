@@ -32,7 +32,7 @@ class RegistrationAlertBlock extends BlockBase {
       'alert' => $view->total_rows == 0
         ? [
           '#type' => 'markup',
-          '#markup' => '<img src="' . drupal_get_path('module', 'afrikaburn_shared') . '/tribe-project-prompt.png" />',
+          '#markup' => '<img src="/' . drupal_get_path('module', 'afrikaburn_shared') . '/tribe-project-prompt.png" />',
         ] : [],
 
       '#cache' => [
