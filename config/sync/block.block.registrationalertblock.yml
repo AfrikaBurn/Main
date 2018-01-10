@@ -5,6 +5,7 @@ dependencies:
   module:
     - afrikaburn_shared
     - ctools
+    - system
   theme:
     - afrikaburn
 id: registrationalertblock
@@ -26,3 +27,8 @@ visibility:
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: /node/add/collective
+    negate: true
+    context_mapping: {  }
