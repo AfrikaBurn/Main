@@ -9,7 +9,7 @@ dependencies:
 id: afrikaburn_breadcrumbs
 theme: afrikaburn
 region: content
-weight: -18
+weight: -17
 provider: null
 plugin: system_breadcrumb_block
 settings:

@@ -10,7 +10,7 @@ dependencies:
 id: ticketblock
 theme: afrikaburn
 region: status_messages
-weight: 0
+weight: -20
 provider: null
 plugin: ticket_block
 settings:
