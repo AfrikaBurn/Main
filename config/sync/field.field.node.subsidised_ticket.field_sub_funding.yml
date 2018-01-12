@@ -15,8 +15,8 @@ id: node.subsidised_ticket.field_sub_funding
 field_name: field_sub_funding
 entity_type: node
 bundle: subsidised_ticket
-label: 'Additional funding'
-description: 'The ticket to AfrikaBurn is a small part of what it costs to get to the Burn. How do you intend funding the rest of the expenses associated with attending the Burn?'
+label: 'The ticket to AfrikaBurn is a small part of what it costs to get to the Burn. How do you plan funding the rest of the expenses?'
+description: ''
 required: true
 translatable: false
 default_value: {  }

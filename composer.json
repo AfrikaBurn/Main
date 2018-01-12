@@ -21,6 +21,7 @@
         "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/Page_manager": "^4.0@beta",
         "drupal/admin_toolbar": "^1.19",
+        "drupal/auto_entitylabel": "^2.1@beta",
         "drupal/conditional_fields": "^1.0@alpha",
         "drupal/console": "~1.0",
         "drupal/contentimport": "^3.2",
