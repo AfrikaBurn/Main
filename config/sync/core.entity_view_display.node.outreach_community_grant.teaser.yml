@@ -1,0 +1,18 @@
+uuid: 15438938-eabb-45f8-a920-8ee86bc54875
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.outreach_community_grant
+  module:
+    - user
+id: node.outreach_community_grant.teaser
+targetEntityType: node
+bundle: outreach_community_grant
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden: {  }
