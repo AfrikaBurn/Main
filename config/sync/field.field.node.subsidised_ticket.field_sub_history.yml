@@ -15,8 +15,8 @@ id: node.subsidised_ticket.field_sub_history
 field_name: field_sub_history
 entity_type: node
 bundle: subsidised_ticket
-label: 'AfrikaBurn history'
-description: 'How many times have you been to AfrikaBurn? Please state if this is your first time.'
+label: 'How many times have you been to AfrikaBurn? Please state if this is your first time.'
+description: ''
 required: true
 translatable: false
 default_value: {  }

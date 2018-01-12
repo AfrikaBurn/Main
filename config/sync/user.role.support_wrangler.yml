@@ -11,6 +11,7 @@ is_admin: null
 permissions:
   - 'access contextual links'
   - 'access in-place editing'
+  - 'administer users'
   - 'create field_comment'
   - 'create field_ddt_eligible'
   - 'create field_grt_art_comment'
