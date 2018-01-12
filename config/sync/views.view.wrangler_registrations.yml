@@ -17236,6 +17236,7 @@ display:
             field_last_name: field_last_name
             field_first_name_1: field_first_name_1
             field_last_name_1: field_last_name_1
+            name_1: name_1
             title: title
           plugin_id: combine
         field_prj_stc_size_target_id:
@@ -18766,8 +18767,12 @@ display:
           fields:
             field_first_name: field_first_name
             field_last_name: field_last_name
+            name: name
+            mail: mail
             field_first_name_1: field_first_name_1
             field_last_name_1: field_last_name_1
+            name_1: name_1
+            mail_1: mail_1
             title: title
           plugin_id: combine
         field_grt_art_total_value:
