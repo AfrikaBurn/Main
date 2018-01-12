@@ -1,0 +1,30 @@
+uuid: 7a513d60-86cf-4657-8bc3-0884ae9511aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocg_applicants_intro
+    - node.type.outreach_community_grant
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.outreach_community_grant.field_ocg_applicants_intro
+field_name: field_ocg_applicants_intro
+entity_type: node
+bundle: outreach_community_grant
+label: Applicants
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>Complete the following for all individuals applying (Including yourself, if applicable)</p>\r\n"
+    format: basic_html
+field_type: markup

@@ -1,0 +1,62 @@
+uuid: da0370c4-a332-4979-a86f-8a9c8fcc3301
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.outreach_community_grant.field_applicants
+    - field.field.node.outreach_community_grant.field_introduction
+    - field.field.node.outreach_community_grant.field_ocg_applicants_intro
+    - field.field.node.outreach_community_grant.field_ocg_email
+    - field.field.node.outreach_community_grant.field_ocg_name
+    - node.type.outreach_community_grant
+  module:
+    - entity_reference_revisions
+    - markup
+    - user
+id: node.outreach_community_grant.default
+targetEntityType: node
+bundle: outreach_community_grant
+mode: default
+content:
+  field_applicants:
+    type: entity_reference_revisions_entity_view
+    weight: 104
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_introduction:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_ocg_applicants_intro:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_ocg_email:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_ocg_name:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

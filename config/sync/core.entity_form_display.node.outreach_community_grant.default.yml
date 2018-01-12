@@ -1,0 +1,69 @@
+uuid: c887a95f-e9b3-47f3-a570-e2d0f9f417eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.outreach_community_grant.field_applicants
+    - field.field.node.outreach_community_grant.field_introduction
+    - field.field.node.outreach_community_grant.field_ocg_applicants_intro
+    - field.field.node.outreach_community_grant.field_ocg_email
+    - field.field.node.outreach_community_grant.field_ocg_name
+    - node.type.outreach_community_grant
+  module:
+    - markup
+    - paragraphs
+id: node.outreach_community_grant.default
+targetEntityType: node
+bundle: outreach_community_grant
+mode: default
+content:
+  field_applicants:
+    type: entity_reference_paragraphs
+    weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: outreach_grant_applicant
+    third_party_settings: {  }
+    region: content
+  field_introduction:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_ocg_applicants_intro:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_ocg_email:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_ocg_name:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  moderation_state: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  title: true
+  uid: true
+  url_redirects: true

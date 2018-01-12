@@ -1,0 +1,48 @@
+uuid: 5cb98b55-4c53-4f94-b00d-d97b1d925996
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_applicants
+    - node.type.outreach_community_grant
+    - paragraphs.paragraphs_type.outreach_grant_applicant
+  module:
+    - custom_add_another
+    - entity_reference_revisions
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.outreach_community_grant.field_applicants
+field_name: field_applicants
+entity_type: node
+bundle: outreach_community_grant
+label: Applicants
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      outreach_grant_applicant: outreach_grant_applicant
+    target_bundles_drag_drop:
+      grant_expences:
+        weight: 6
+        enabled: false
+      minors:
+        weight: 7
+        enabled: false
+      mutant_grant_expense:
+        weight: 8
+        enabled: false
+      outreach_grant_applicant:
+        enabled: true
+        weight: 9
+      supplier_details:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions
