@@ -143,8 +143,8 @@ dependencies:
     - node.type.art
   module:
     - comment
-    - computed_field
     - datetime
+    - ds
     - empty_fields
     - entity_reference_revisions
     - field_group
@@ -179,6 +179,7 @@ third_party_settings:
         classes: ''
         id: ''
       label: Overview
+      region: hidden
     group_wrangler_1:
       children:
         - field_collective
@@ -200,6 +201,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: Overview
+      region: hidden
     group_wrangler_2:
       children:
         - field_prj_gen_description
@@ -216,6 +218,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'The Project'
+      region: hidden
     group_wrangler_4:
       children:
         - field_prj_stc_size
@@ -240,6 +243,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'The Structure'
+      region: hidden
     group_wrangler_5:
       children:
         - field_prj_saf_comment
@@ -252,6 +256,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: Safety
+      region: hidden
     group_placement:
       children:
         - field_prj_plc_f1
@@ -267,6 +272,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Placement
+      region: hidden
     group_lighting:
       children:
         - field_prj_lgh_f1
@@ -286,6 +292,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Lighting
+      region: hidden
     group_sound:
       children:
         - field_prj_snd_f1
@@ -304,6 +311,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Sound
+      region: hidden
     group_burn:
       children:
         - field_prj_brn_f2
@@ -326,6 +334,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Burn
+      region: hidden
     group_moop:
       children:
         - field_prj_lnt_handled
@@ -348,6 +357,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Leave No Trace'
+      region: hidden
     group_wtf_guide_and_community:
       children:
         - field_prj_wtf_short
@@ -374,6 +384,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: 'WTF Guide and Community'
+      region: hidden
     group_other:
       children:
         - field_prj_oth_other
@@ -390,6 +401,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Other
+      region: hidden
     group_admin:
       children:
         - field_prj_adm_wrangler
@@ -408,6 +420,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Admin
+      region: hidden
     group_grant:
       children:
         - field_grt_f1
@@ -432,6 +445,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Grant
+      region: hidden
   panelizer:
     enable: false
     custom: false
@@ -1293,41 +1307,6 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-  field_prj_sup_address:
-    weight: 198
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_prj_sup_details:
-    weight: 199
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: content
-  field_prj_sup_h1:
-    weight: 197
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_total_cost:
-    weight: 196
-    label: above
-    settings:
-      cache_unit: -1
-      cache_duration: 1
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: computed_integer
-    region: content
   field_prj_wtf_image:
     type: image
     weight: 97
@@ -1354,13 +1333,6 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-  field_prj_wtf_scheduled:
-    weight: 3
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
   field_prj_wtf_short:
     type: basic_string
     weight: 94
@@ -1387,21 +1359,6 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-  field_sup_comment:
-    weight: 201
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_sup_review:
-    weight: 200
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_this_is_the_amount_of_mone:
     type: basic_string
     weight: 13
@@ -1427,5 +1384,12 @@ hidden:
   field_grt_transport: true
   field_prj_adm_comms: true
   field_prj_oth_unregistered: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true
+  field_prj_total_cost: true
   field_prj_wtf_categories: true
+  field_prj_wtf_scheduled: true
+  field_sup_comment: true
+  field_sup_review: true
   links: true

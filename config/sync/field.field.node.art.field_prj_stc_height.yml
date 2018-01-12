@@ -19,7 +19,7 @@ entity_type: node
 bundle: art
 label: 'Height in metres'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
