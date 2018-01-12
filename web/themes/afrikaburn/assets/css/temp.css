@@ -314,3 +314,9 @@ body.path-frontpage .main-block{
     display: none;
 }
 
+
+#edit-field-sub-proof-of-income summary {
+    font-weight: bolder;
+    font-size: 110%;
+}
+
