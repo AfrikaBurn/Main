@@ -152,6 +152,7 @@ permissions:
   - 'view own field_sub_history'
   - 'view own field_sub_id'
   - 'view own field_sub_income'
+  - 'view own field_sub_motivation'
   - 'view own field_sub_personal'
   - 'view own field_sub_proof_of_income'
   - 'view own field_sub_transferable'

@@ -15,8 +15,8 @@ id: node.subsidised_ticket.field_sub_contributions
 field_name: field_sub_contributions
 entity_type: node
 bundle: subsidised_ticket
-label: 'Previous contributions'
-description: 'Have you participated in past AfrikaBurn events and if so, how did you participate? Did you volunteer? Were you involved in any creative projects? What was your gift?'
+label: 'Have you participated in past AfrikaBurn events and if so, how did you participate?'
+description: 'Did you volunteer? Were you involved in any creative projects? What was your gift?'
 required: true
 translatable: false
 default_value: {  }
