@@ -15,7 +15,7 @@ id: node.subsidised_ticket.field_sub_income
 field_name: field_sub_income
 entity_type: node
 bundle: subsidised_ticket
-label: 'How do you financially support yourself, what is your monthly income if you get one?'
+label: 'How do you financially support yourself? What is your monthly income? (if you earn one)'
 description: ''
 required: true
 translatable: false

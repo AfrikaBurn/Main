@@ -1,3 +1,8 @@
+/* 12 Feb Community Grants */
+#edit-applicants-items .form-type-textfield{
+  width: 100px;
+}
+
 /* 11 Dec Commuity view */
 
 .view-community-projects .views-field-field-prj-wtf-image{
@@ -301,3 +306,11 @@ body.path-frontpage .main-block{
 .field--name-field-minor-date-of-birth .label.js-form-required.form-required {
     text-transform: unset;
 }
+
+#edit-field-prj-cll-collaborate div:first-child {
+    display: none;
+}
+#edit-field-prj-stg-stage div:first-child {
+    display: none;
+}
+
