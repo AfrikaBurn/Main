@@ -136,7 +136,6 @@ dependencies:
     - field_group
     - image
     - markup
-    - paragraphs
     - path
 third_party_settings:
   field_group:
@@ -149,9 +148,8 @@ third_party_settings:
         - group_sound
         - group_moop
         - group_wtf
-        - group_supplier_details
       parent_name: ''
-      weight: 9
+      weight: 11
       format_type: accordion
       format_settings:
         label: 'Overview registration'
@@ -313,22 +311,6 @@ third_party_settings:
         classes: ''
       label: 'WTF Guide and Community'
       region: content
-    group_supplier_details:
-      children:
-        - field_prj_sup_h1
-        - field_prj_sup_address
-        - field_prj_sup_details
-      parent_name: group_overview_registration
-      weight: 22
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
-      label: 'Supplier details'
-      region: content
 _core:
   default_config_hash: pagN6qP-fLg_L4YNYJ-bcH8Or0qqy7b__fqTBhXzqsA
 id: node.theme_camps.form_
@@ -338,13 +320,13 @@ mode: form_
 content:
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_collective:
     type: entity_reference_autocomplete
-    weight: 10
+    weight: 1
     region: content
     settings:
       match_operator: CONTAINS
@@ -361,18 +343,18 @@ content:
     third_party_settings: {  }
   field_prj_gen_header2:
     type: markup
-    weight: 6
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_gen_header3:
     type: markup
-    weight: 7
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_gen_profit:
-    weight: 8
+    weight: 10
     settings:
       display_label: true
     third_party_settings: {  }
@@ -667,11 +649,10 @@ content:
     type: number
     region: content
   field_prj_saf_gas:
-    type: boolean_checkbox
+    type: options_buttons
     weight: 5
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
   field_prj_saf_guide:
     weight: 1
@@ -933,32 +914,6 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_prj_sup_address:
-    type: string_textfield
-    weight: 20
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_sup_details:
-    type: entity_reference_paragraphs
-    weight: 30
-    region: content
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-  field_prj_sup_h1:
-    type: markup
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_prj_wtf_image:
     weight: 69
     settings:
@@ -981,13 +936,13 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 13
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -995,26 +950,26 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 3
+    weight: 5
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 121
+    weight: 14
     third_party_settings: {  }
     region: content
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 2
     region: content
     settings:
       size: 60
@@ -1022,7 +977,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
@@ -1030,7 +985,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -1089,6 +1044,9 @@ hidden:
   field_prj_stg_stage: true
   field_prj_stg_tread: true
   field_prj_stg_type: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true
   field_prj_wtf_categories: true
   field_prj_wtf_long: true
   field_prj_wtf_short: true
