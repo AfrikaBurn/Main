@@ -499,10 +499,49 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_prj_plc_motivation:
+    third_party_settings:
+      conditional_fields:
+        6619e0d3-d6f8-4f3d-bd12-4b8087431030:
+          dependee: field_prj_plc_binnekring
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: null
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: theme_camps
+        7388afdc-4384-4135-9683-70af5b34f24a:
+          dependee: field_prj_plc_binnekring
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: null
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: theme_camps
+    weight: 37
+    settings:
+      rows: 5
+      placeholder: ''
+    type: string_textarea
+    region: content
   field_prj_saf_cage:
     third_party_settings:
       conditional_fields:
-        beab9a92-04d1-4b7a-9fc8-e99fa9b77cad:
+        59685ce3-1e05-42cd-8968-680a9c82200c:
           dependee: field_prj_saf_gas
           settings:
             state: visible
@@ -770,7 +809,6 @@ hidden:
   field_prj_plc_location: true
   field_prj_plc_location_extra: true
   field_prj_plc_map: true
-  field_prj_plc_motivation: true
   field_prj_plc_people: true
   field_prj_plc_portaloos: true
   field_prj_plc_public_d: true
