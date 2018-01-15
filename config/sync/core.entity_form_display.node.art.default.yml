@@ -502,7 +502,7 @@ content:
           dependee: field_prj_brn_burning
           settings:
             state: required
-            condition: checked
+            condition: value
             grouping: AND
             values_set: 1
             value: ''
