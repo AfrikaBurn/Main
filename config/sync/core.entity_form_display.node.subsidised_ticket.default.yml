@@ -163,6 +163,14 @@ content:
     weight: 3
     region: content
     third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 0
@@ -177,5 +185,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  title: true
+hidden: {  }
