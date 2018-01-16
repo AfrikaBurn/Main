@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - afrikaburn_shared
+    - system
     - user
   theme:
     - afrikaburn
@@ -26,3 +27,8 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+  request_path:
+    id: request_path
+    pages: '/wranglers/*'
+    negate: true
+    context_mapping: {  }
