@@ -63,10 +63,12 @@ dependencies:
     - field.field.node.theme_camps.field_prj_oth_move
     - field.field.node.theme_camps.field_prj_oth_mv
     - field.field.node.theme_camps.field_prj_oth_unregistered
+    - field.field.node.theme_camps.field_prj_plc_artwork
     - field.field.node.theme_camps.field_prj_plc_artwork_d
     - field.field.node.theme_camps.field_prj_plc_artwork_w
     - field.field.node.theme_camps.field_prj_plc_binnekring
     - field.field.node.theme_camps.field_prj_plc_camp_d
+    - field.field.node.theme_camps.field_prj_plc_camp_w
     - field.field.node.theme_camps.field_prj_plc_caravan
     - field.field.node.theme_camps.field_prj_plc_cars
     - field.field.node.theme_camps.field_prj_plc_fire
@@ -91,10 +93,14 @@ dependencies:
     - field.field.node.theme_camps.field_prj_plc_tent_d
     - field.field.node.theme_camps.field_prj_plc_tent_w
     - field.field.node.theme_camps.field_prj_plc_trailers
+    - field.field.node.theme_camps.field_prj_saf_18
     - field.field.node.theme_camps.field_prj_saf_access
+    - field.field.node.theme_camps.field_prj_saf_cage
     - field.field.node.theme_camps.field_prj_saf_comment
     - field.field.node.theme_camps.field_prj_saf_extinguish
+    - field.field.node.theme_camps.field_prj_saf_gas
     - field.field.node.theme_camps.field_prj_saf_guide
+    - field.field.node.theme_camps.field_prj_saf_mark
     - field.field.node.theme_camps.field_prj_saf_markup
     - field.field.node.theme_camps.field_prj_saf_person
     - field.field.node.theme_camps.field_prj_snd_agree
@@ -601,6 +607,13 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
+  field_prj_plc_artwork:
+    weight: 119
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_plc_artwork_d:
     weight: 35
     label: above
@@ -631,6 +644,15 @@ content:
     region: content
   field_prj_plc_camp_d:
     weight: 29
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_prj_plc_camp_w:
+    weight: 120
     label: above
     settings:
       thousand_separator: ''
@@ -847,12 +869,32 @@ content:
     third_party_settings: {  }
     type: number_integer
     region: content
+  field_prj_saf_18:
+    weight: 124
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_prj_saf_access:
     weight: 23
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
+  field_prj_saf_cage:
+    weight: 123
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_prj_saf_comment:
     weight: 85
@@ -870,12 +912,29 @@ content:
     third_party_settings: {  }
     type: number_integer
     region: content
+  field_prj_saf_gas:
+    weight: 122
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_prj_saf_guide:
     weight: 20
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
+  field_prj_saf_mark:
+    weight: 121
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_prj_saf_markup:
     weight: 24

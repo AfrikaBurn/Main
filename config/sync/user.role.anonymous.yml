@@ -13,7 +13,6 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'create field_consent_form'
-  - 'create field_id_number'
   - 'edit own field_consent_form'
   - 'search content'
   - 'use user.register form mode'
