@@ -3,6 +3,11 @@
   width: 100px;
 }
 
+#webform-submission-community-access-grant-add-form .webform-multiple-tabledrag-toggle-weight,
+#edit-applicants-items .webform-multiple-table--handle{
+  display: none;
+}
+
 /* 11 Dec Commuity view */
 
 .view-community-projects .views-field-field-prj-wtf-image{
