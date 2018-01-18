@@ -243,6 +243,7 @@ hidden:
   field_emr_name: true
   field_emr_telephone: true
   field_gender: true
+  field_kids_and_teens: true
   field_links: true
   field_location: true
   field_newsletter: true

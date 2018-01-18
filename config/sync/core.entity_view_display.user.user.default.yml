@@ -28,20 +28,25 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - datetime
     - entity_reference_revisions
     - field_group
     - image
-    - markup
+    - link
+    - options
     - panelizer
+    - taxonomy
     - user
 third_party_settings:
   field_group:
     group_root:
       children:
-        - group_contact
         - group_identity
         - group_account
+        - group_location
         - group_history
+        - group_contact
+        - group_er_med
       parent_name: ''
       weight: 0
       format_type: accordion
@@ -50,8 +55,28 @@ third_party_settings:
         classes: ''
         effect: none
       label: Root
+      region: content
     group_identity:
-      children: {  }
+      children:
+        - field_first_name
+        - field_last_name
+        - field_gender
+        - field_id_number
+        - field_date_of_birth
+      parent_name: group_root
+      weight: 1
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: Identity
+      region: content
+    group_account:
+      children:
+        - user_picture
+        - field_secondary_mail
       parent_name: group_root
       weight: 2
       format_type: accordion_item
@@ -60,10 +85,11 @@ third_party_settings:
         classes: ''
         formatter: closed
         description: ''
-      label: Identity
-    group_account:
+      label: Account
+      region: content
+    group_location:
       children:
-        - user_picture
+        - field_location
       parent_name: group_root
       weight: 3
       format_type: accordion_item
@@ -72,22 +98,13 @@ third_party_settings:
         classes: ''
         formatter: closed
         description: ''
-      label: Account
-    group_location:
-      children: {  }
-      parent_name: ''
-      weight: 1
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
       label: Location
+      region: content
     group_history:
       children:
-        - member_for
+        - field_participation
         - field_other_burns
+        - member_for
       parent_name: group_root
       weight: 4
       format_type: accordion_item
@@ -97,10 +114,14 @@ third_party_settings:
         formatter: closed
         description: ''
       label: History
+      region: content
     group_contact:
-      children: {  }
+      children:
+        - field_mobile
+        - field_links
+        - field_newsletter
       parent_name: group_root
-      weight: 1
+      weight: 5
       format_type: accordion_item
       format_settings:
         id: ''
@@ -108,6 +129,22 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Contact
+      region: content
+    group_er_med:
+      children:
+        - field_emr_name
+        - field_emr_email
+        - field_emr_telephone
+      parent_name: group_root
+      weight: 6
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: 'Emergency Medical Information'
+      region: content
   panelizer:
     enable: false
     custom: false
@@ -120,6 +157,53 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_date_of_birth:
+    type: datetime_custom
+    weight: 5
+    region: content
+    label: above
+    settings:
+      date_format: 'Y-m-d\TH:i:s'
+      timezone_override: ''
+    third_party_settings: {  }
+  field_emr_email:
+    type: basic_string
+    weight: 2
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_emr_name:
+    type: string
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_emr_telephone:
+    type: string
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_first_name:
+    type: string
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_gender:
+    type: list_key
+    weight: 3
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_guardian_doc:
     weight: 10
     label: above
@@ -127,6 +211,14 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_id_number:
+    type: string
+    weight: 4
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_kids_and_teens:
     type: entity_reference_revisions_entity_view
     weight: 6
@@ -136,9 +228,54 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
+  field_last_name:
+    type: string
+    weight: 2
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_links:
+    type: link
+    weight: 2
+    region: content
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_location:
+    type: entity_reference_rss_category
+    weight: 0
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_mobile:
+    type: string
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_newsletter:
+    type: boolean
+    weight: 3
+    region: content
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
   field_other_burns:
     type: basic_string
-    weight: 5
+    weight: 2
     region: content
     label: above
     settings: {  }
@@ -153,19 +290,28 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
+  field_participation:
+    type: basic_string
+    weight: 1
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_secondary_mail:
+    type: basic_string
+    weight: 3
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   masquerade:
     weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
-  member_for:
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   user_picture:
     type: image
-    weight: 5
+    weight: 2
     region: content
     settings:
       image_style: thumbnail
@@ -175,21 +321,8 @@ content:
 hidden:
   field_agreements: true
   field_country: true
-  field_date_of_birth: true
   field_district: true
   field_email: true
-  field_emr_email: true
-  field_emr_name: true
-  field_emr_telephone: true
-  field_first_name: true
-  field_gender: true
-  field_id_number: true
-  field_last_name: true
-  field_links: true
-  field_location: true
-  field_mobile: true
-  field_newsletter: true
-  field_participation: true
   field_quicket_code: true
   field_quicket_id: true
-  field_secondary_mail: true
+  member_for: true

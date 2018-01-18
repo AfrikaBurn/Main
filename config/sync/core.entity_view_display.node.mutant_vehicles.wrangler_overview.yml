@@ -403,6 +403,7 @@ hidden:
   field_prj_adm_form_grant: true
   field_prj_adm_form_wtf: true
   field_prj_adm_ranger_comment: true
+  field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_desc: true
   field_prj_brn_person: true
@@ -442,6 +443,7 @@ hidden:
   field_prj_oth_associated: true
   field_prj_oth_grant: true
   field_prj_oth_other: true
+  field_prj_oth_unregistered: true
   field_prj_saf_access: true
   field_prj_saf_comment: true
   field_prj_saf_guide: true
