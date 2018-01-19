@@ -222,7 +222,7 @@ function afrikaburn_shared_update_quicket($form, FormStateInterface &$form_state
       $date = $minor['subform']['field_minor_date_of_birth'][0]['value'];
       if (isset($date)){
         $age = (time() - $date->getTimestamp()) / 31556926;
-        if ($age < 14) {
+        if ($age < 15) {
           $new['kids']++;
         } else {
           $new['teens']++;
