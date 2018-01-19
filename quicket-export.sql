@@ -1,0 +1,14 @@
+SELECT
+field_quicket_code_value,
+field_quicket_id_value,
+field_id_number_value,
+mail
+FROM
+d8_newuser__field_quicket_id,
+d8_newuser__field_quicket_code,
+d8_newuser__field_id_number,
+d8_newusers_field_data
+WHERE
+d8_newuser__field_quicket_code.entity_id = d8_newuser__field_quicket_id.entity_id AND
+d8_newuser__field_quicket_id.entity_id = d8_newuser__field_id_number.entity_id AND
+d8_newuser__field_id_number.entity_id = d8_newusers_field_data.uid
