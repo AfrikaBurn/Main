@@ -54,6 +54,7 @@ permissions:
   - 'edit own field_field_consent_form'
   - 'edit own field_grt_breakdown'
   - 'edit own field_grt_dmv_budget'
+  - 'edit own field_id_number'
   - 'edit own field_prj_gen_concept'
   - 'edit own field_prj_gen_doc'
   - 'edit own field_sub_contributions'
