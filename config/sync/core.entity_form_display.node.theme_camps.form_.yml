@@ -6,6 +6,7 @@ dependencies:
     - core.entity_form_mode.node.form_
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_adm_form_3
+    - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_form_mode
     - field.field.node.theme_camps.field_prj_adm_comms
     - field.field.node.theme_camps.field_prj_adm_form_2
@@ -93,7 +94,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_plc_tent_d
     - field.field.node.theme_camps.field_prj_plc_tent_w
     - field.field.node.theme_camps.field_prj_plc_trailers
-    - field.field.node.theme_camps.field_prj_saf_18
     - field.field.node.theme_camps.field_prj_saf_access
     - field.field.node.theme_camps.field_prj_saf_cage
     - field.field.node.theme_camps.field_prj_saf_comment
@@ -168,11 +168,11 @@ third_party_settings:
       weight: 15
       format_type: accordion_item
       format_settings:
+        label: 'The Project'
+        formatter: open
+        required_fields: true
         id: ''
         classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
       label: 'The Project'
       region: content
     group_safety:
@@ -183,7 +183,6 @@ third_party_settings:
         - field_prj_saf_mark
         - field_prj_saf_gas
         - field_prj_saf_cage
-        - field_prj_saf_18
         - field_prj_saf_markup
         - field_prj_saf_person
         - field_prj_saf_comment
@@ -208,6 +207,7 @@ third_party_settings:
         - field_prj_plc_camp_w
         - field_prj_plc_tent_w
         - field_prj_plc_tent_d
+        - field_field_prj_plc_marquis
         - field_prj_plc_people
         - field_prj_plc_artwork
         - field_prj_plc_artwork_w
@@ -333,6 +333,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_field_prj_plc_marquis:
+    type: boolean_checkbox
+    weight: 27
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_prj_gen_concept:
     type: image_image
     weight: 18
@@ -411,19 +418,19 @@ content:
     region: content
   field_prj_plc_artwork:
     type: markup
-    weight: 28
+    weight: 29
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_plc_artwork_d:
-    weight: 30
+    weight: 31
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_prj_plc_artwork_w:
-    weight: 29
+    weight: 30
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -451,35 +458,35 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_plc_caravan:
-    weight: 37
+    weight: 38
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_prj_plc_cars:
-    weight: 34
+    weight: 35
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_prj_plc_fire:
-    weight: 31
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
-  field_prj_plc_flame_d:
     weight: 32
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
-  field_prj_plc_flame_w:
+  field_prj_plc_flame_d:
     weight: 33
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_prj_plc_flame_w:
+    weight: 34
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -493,14 +500,14 @@ content:
     type: number
     region: content
   field_prj_plc_large:
-    weight: 41
+    weight: 42
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_prj_plc_layout:
-    weight: 48
+    weight: 49
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -508,13 +515,13 @@ content:
     type: image_image
     region: content
   field_prj_plc_location:
-    weight: 45
+    weight: 46
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_prj_plc_location_extra:
-    weight: 47
+    weight: 48
     settings:
       rows: 5
       placeholder: ''
@@ -522,7 +529,7 @@ content:
     type: string_textarea
     region: content
   field_prj_plc_map:
-    weight: 46
+    weight: 47
     settings: {  }
     third_party_settings: {  }
     type: markup
@@ -536,14 +543,14 @@ content:
     type: string_textarea
     region: content
   field_prj_plc_people:
-    weight: 27
+    weight: 28
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_prj_plc_portaloos:
-    weight: 43
+    weight: 44
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -557,35 +564,35 @@ content:
     type: number
     region: content
   field_prj_plc_recreational:
-    weight: 36
+    weight: 37
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_prj_plc_showers:
-    weight: 44
+    weight: 45
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_prj_plc_sleep:
-    weight: 38
+    weight: 39
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_prj_plc_stretch_d:
-    weight: 40
+    weight: 41
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_prj_plc_stretch_w:
-    weight: 39
+    weight: 40
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -593,7 +600,7 @@ content:
     region: content
   field_prj_plc_tanks:
     type: number
-    weight: 42
+    weight: 43
     region: content
     settings:
       placeholder: ''
@@ -613,19 +620,12 @@ content:
     type: number
     region: content
   field_prj_plc_trailers:
-    weight: 35
+    weight: 36
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
-  field_prj_saf_18:
-    type: boolean_checkbox
-    weight: 7
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_prj_saf_access:
     weight: 3
     settings:
