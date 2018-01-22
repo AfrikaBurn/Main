@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_display.comment.comment.default
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_adm_form_3
+    - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_form_mode
     - field.field.node.theme_camps.field_prj_adm_comms
     - field.field.node.theme_camps.field_prj_adm_form_2
@@ -93,7 +94,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_plc_tent_d
     - field.field.node.theme_camps.field_prj_plc_tent_w
     - field.field.node.theme_camps.field_prj_plc_trailers
-    - field.field.node.theme_camps.field_prj_saf_18
     - field.field.node.theme_camps.field_prj_saf_access
     - field.field.node.theme_camps.field_prj_saf_cage
     - field.field.node.theme_camps.field_prj_saf_comment
@@ -152,6 +152,16 @@ mode: default
 content:
   field_field_prj_adm_form_3:
     weight: 113
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_field_prj_plc_marquis:
+    weight: 124
     label: above
     settings:
       format: default
@@ -868,16 +878,6 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
-    region: content
-  field_prj_saf_18:
-    weight: 124
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
     region: content
   field_prj_saf_access:
     weight: 23
