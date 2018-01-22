@@ -333,3 +333,6 @@ body.path-frontpage .main-block{
     font-size: 110%;
 }
 
+#edit-field-prj-saf-gas div:first-child {
+    display: none;
+}
