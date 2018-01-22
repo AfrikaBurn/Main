@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_adm_form_3
     - field.field.node.theme_camps.field_field_prj_plc_marquis
+    - field.field.node.theme_camps.field_field_prj_plc_stretch_m
     - field.field.node.theme_camps.field_form_mode
     - field.field.node.theme_camps.field_prj_adm_comms
     - field.field.node.theme_camps.field_prj_adm_form_2
@@ -288,6 +289,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_field_prj_plc_stretch_m:
+    weight: 36
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
+    region: content
   field_form_mode:
     weight: 10
     settings:
