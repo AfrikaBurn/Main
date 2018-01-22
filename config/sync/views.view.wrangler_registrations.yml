@@ -15400,12 +15400,90 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '>'
+          operator: '>='
           value:
             min: ''
             max: ''
             value: '0'
-          group: 1
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        field_grt_total_value:
+          id: field_grt_total_value
+          table: node__field_grt_total
+          field: field_grt_total_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: '0'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        field_prj_total_cost_value:
+          id: field_prj_total_cost_value
+          table: node__field_prj_total_cost
+          field: field_prj_total_cost_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: '0'
+          group: 2
           exposed: false
           expose:
             operator_id: ''
@@ -15436,6 +15514,7 @@ display:
         operator: AND
         groups:
           1: AND
+          2: OR
       relationships:
         field_prj_gen_contact:
           id: field_prj_gen_contact
@@ -18983,7 +19062,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '>'
+          operator: '>='
           value:
             min: ''
             max: ''
@@ -19022,7 +19101,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '>'
+          operator: '>='
           value:
             min: ''
             max: ''
@@ -19061,7 +19140,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '>'
+          operator: '>='
           value:
             min: ''
             max: ''
