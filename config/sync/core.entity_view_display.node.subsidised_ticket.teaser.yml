@@ -15,4 +15,17 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_sub_comment: true
+  field_sub_contributions: true
+  field_sub_expenses: true
+  field_sub_funding: true
+  field_sub_gift: true
+  field_sub_history: true
+  field_sub_id: true
+  field_sub_income: true
+  field_sub_motivation: true
+  field_sub_personal: true
+  field_sub_proof_of_income: true
+  field_sub_review: true
+  field_sub_transferable: true

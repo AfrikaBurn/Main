@@ -18,7 +18,7 @@ field_name: field_prj_plc_tent_d
 entity_type: node
 bundle: theme_camps
 label: 'Public Space - Stretch tent dimentions – depth'
-description: ''
+description: 'If your tent is larger than 500m² will need to be signed of by an engineer'
 required: false
 translatable: false
 default_value: {  }

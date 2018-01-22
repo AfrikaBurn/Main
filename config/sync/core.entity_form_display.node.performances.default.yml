@@ -259,11 +259,11 @@ third_party_settings:
       region: content
     group_other:
       children:
+        - field_prj_oth_associated
+        - field_prj_oth_grant
         - field_prj_oth_other
         - field_prj_oth_relationship
-        - field_prj_oth_associated
         - field_prj_oth_mv
-        - field_prj_oth_grant
         - field_prj_oth_unregistered
       parent_name: group_project
       weight: 28
@@ -737,14 +737,14 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_prj_oth_grant:
-    weight: 66
+    weight: 65
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_oth_mv:
-    weight: 65
+    weight: 68
     settings:
       rows: 5
       placeholder: ''
@@ -752,7 +752,7 @@ content:
     type: string_textarea
     region: content
   field_prj_oth_other:
-    weight: 61
+    weight: 66
     settings:
       rows: 5
       placeholder: ''
@@ -760,7 +760,7 @@ content:
     type: string_textarea
     region: content
   field_prj_oth_relationship:
-    weight: 63
+    weight: 67
     settings:
       rows: 5
       placeholder: ''
