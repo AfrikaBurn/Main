@@ -151,6 +151,7 @@ third_party_settings:
         - field_prj_gen_bio
         - field_prj_gen_fundraising
         - field_prj_gen_fundraiser
+        - field_prj_gen_history
       parent_name: group_overview_registrationew
       weight: 1
       format_type: accordion_item
@@ -282,7 +283,7 @@ content:
     third_party_settings: {  }
   field_collective:
     type: entity_reference_autocomplete
-    weight: 21
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
@@ -369,7 +370,7 @@ content:
     type: comment_default
     region: content
   field_prj_gen_bio:
-    weight: 26
+    weight: 8
     settings:
       rows: 5
       placeholder: ''
@@ -377,14 +378,14 @@ content:
     type: string_textarea
     region: content
   field_prj_gen_commodification:
-    weight: 17
+    weight: 6
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_gen_concept:
-    weight: 18
+    weight: 7
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -392,13 +393,13 @@ content:
     type: image_image
     region: content
   field_prj_gen_contact:
-    weight: 24
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_prj_gen_description:
-    weight: 15
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
@@ -406,13 +407,13 @@ content:
     type: string_textarea
     region: content
   field_prj_gen_fundraiser:
-    weight: 28
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_prj_gen_fundraising:
-    weight: 27
+    weight: 9
     settings:
       display_label: true
     third_party_settings: {  }
@@ -431,7 +432,7 @@ content:
     type: markup
     region: content
   field_prj_gen_history:
-    weight: 3
+    weight: 11
     settings:
       rows: 5
       placeholder: ''
@@ -439,7 +440,7 @@ content:
     type: string_textarea
     region: content
   field_prj_gen_location:
-    weight: 25
+    weight: 7
     settings:
       force_deepest: '1'
       parent: '0'
@@ -455,7 +456,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_gen_story:
-    weight: 16
+    weight: 5
     settings:
       rows: 5
       placeholder: ''
@@ -683,7 +684,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 23
+    weight: 5
     region: content
     settings:
       size: 60

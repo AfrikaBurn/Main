@@ -4,11 +4,17 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_prj_sup_address
-    - field.storage.node.field_prj_sup_details
+    - field.storage.node.field_sup_comment
+    - field.storage.node.field_sup_review
+    - node.type.art
+    - node.type.collective
+    - node.type.mutant_vehicles
+    - node.type.performances
+    - node.type.theme_camps
   module:
-    - entity_reference_revisions
     - node
     - user
+    - views_field_view
 id: suppliers
 label: Suppliers
 module: views
@@ -55,10 +61,80 @@ display:
           items_per_page: null
           offset: 0
       style:
-        type: table
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
       row:
         type: fields
       fields:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
         title:
           id: title
           table: node_field_data
@@ -169,14 +245,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_prj_sup_details:
-          id: field_prj_sup_details
-          table: node__field_prj_sup_details
-          field: field_prj_sup_details
+        view:
+          id: view
+          table: views
+          field: view
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Supplier details'
+          label: View
           exclude: false
           alter:
             alter_text: false
@@ -217,11 +293,62 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_revisions_entity_view
-          settings:
-            view_mode: default
-          group_column: ''
+          view: suppliers_paragraph_pretty
+          display: default
+          arguments: '{{ raw_fields.nid }} '
+          plugin_id: view
+        field_sup_comment:
+          id: field_sup_comment
+          table: node__field_sup_comment
+          field: field_sup_comment
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Suppliers review comment'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -232,11 +359,76 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        delta:
-          id: delta
-          table: node__field_prj_sup_details
-          field: delta
-          plugin_id: numeric
+        field_sup_review:
+          id: field_sup_review
+          table: node__field_sup_review
+          field: field_sup_review
+          plugin_id: field
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: type
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -285,6 +477,50 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            art: art
+            collective: collective
+            mutant_vehicles: mutant_vehicles
+            performances: performances
+            theme_camps: theme_camps
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
       sorts:
         created:
           id: created
@@ -309,7 +545,7 @@ display:
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -317,7 +553,8 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_prj_sup_address'
-        - 'config:field.storage.node.field_prj_sup_details'
+        - 'config:field.storage.node.field_sup_comment'
+        - 'config:field.storage.node.field_sup_review'
   page_1:
     display_plugin: page
     id: page_1
@@ -325,9 +562,9 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: suppliers
+      path: wranglers/suppliers
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -335,4 +572,5 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_prj_sup_address'
-        - 'config:field.storage.node.field_prj_sup_details'
+        - 'config:field.storage.node.field_sup_comment'
+        - 'config:field.storage.node.field_sup_review'
