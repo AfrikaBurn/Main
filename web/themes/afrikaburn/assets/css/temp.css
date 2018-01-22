@@ -39,7 +39,7 @@
 
 /* 17 Nov Collective page -   */
 
-.sidebar .view-collective-registrations .views-field-nothing{
+.sidebar .view-collective-registrations .views-field-nothing a{
   padding-left: 36px;
   list-style-type: disc;
   list-style-position: inside;
