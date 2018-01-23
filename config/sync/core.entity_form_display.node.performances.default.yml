@@ -96,6 +96,7 @@ dependencies:
     - field.field.node.performances.field_prj_stc_weight
     - field.field.node.performances.field_prj_sup_address
     - field.field.node.performances.field_prj_sup_details
+    - field.field.node.performances.field_prj_sup_details_view
     - field.field.node.performances.field_prj_sup_h1
     - field.field.node.performances.field_prj_total_cost
     - field.field.node.performances.field_prj_wtf_categories
@@ -107,6 +108,8 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
     - field.field.node.performances.field_prj_wtf_website
+    - field.field.node.performances.field_sup_comment
+    - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - image.style.thumbnail
     - node.type.performances
@@ -383,7 +386,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_form_mode:
-    weight: 67
+    weight: 9
     settings:
       size: 60
       placeholder: ''
@@ -1074,7 +1077,7 @@ content:
     type: number
     region: content
   field_prj_total_cost:
-    weight: 122
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: computed_number_widget
@@ -1109,9 +1112,26 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  field_sup_comment:
+    weight: 70
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_sup_review:
+    weight: 69
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 10
     settings: {  }
     region: content
     third_party_settings: {  }
@@ -1132,7 +1152,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 121
+    weight: 11
     third_party_settings: {  }
     region: content
   sticky:
@@ -1160,7 +1180,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -1207,6 +1227,7 @@ hidden:
   field_prj_snd_person: true
   field_prj_sup_address: true
   field_prj_sup_details: true
+  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_wtf_categories: true
   field_prj_wtf_long: true
