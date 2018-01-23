@@ -125,6 +125,7 @@ dependencies:
     - field.field.node.art.field_prj_stg_type
     - field.field.node.art.field_prj_sup_address
     - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_details_view
     - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
@@ -151,6 +152,7 @@ dependencies:
     - link
     - markup
     - path
+    - viewfield
 third_party_settings:
   field_group:
     group_overview:
@@ -1393,6 +1395,12 @@ content:
           entity_type: node
           bundle: art
     type: options_buttons
+    region: content
+  field_prj_sup_details_view:
+    weight: 117
+    settings: {  }
+    third_party_settings: {  }
+    type: viewfield_select
     region: content
   field_prj_wtf_area:
     weight: 67

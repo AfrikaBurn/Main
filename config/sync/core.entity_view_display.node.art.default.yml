@@ -126,6 +126,7 @@ dependencies:
     - field.field.node.art.field_prj_stg_type
     - field.field.node.art.field_prj_sup_address
     - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_details_view
     - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
@@ -154,6 +155,7 @@ dependencies:
     - markup
     - panelizer
     - user
+    - viewfield
 third_party_settings:
   field_group:
     group_overview:
@@ -1307,6 +1309,16 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+  field_prj_sup_details_view:
+    weight: 196
+    label: above
+    settings:
+      view_title: hidden
+      always_build_output: 0
+      empty_view_title: hidden
+    third_party_settings: {  }
+    type: viewfield_default
+    region: content
   field_prj_wtf_image:
     type: image
     weight: 97

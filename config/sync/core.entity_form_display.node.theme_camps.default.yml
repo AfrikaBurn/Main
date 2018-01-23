@@ -118,6 +118,7 @@ dependencies:
     - field.field.node.theme_camps.field_prj_stg_type
     - field.field.node.theme_camps.field_prj_sup_address
     - field.field.node.theme_camps.field_prj_sup_details
+    - field.field.node.theme_camps.field_prj_sup_details_view
     - field.field.node.theme_camps.field_prj_sup_h1
     - field.field.node.theme_camps.field_prj_wtf_categories
     - field.field.node.theme_camps.field_prj_wtf_image
@@ -142,6 +143,7 @@ dependencies:
     - link
     - markup
     - path
+    - viewfield
 third_party_settings:
   field_group:
     group_overview_new:
@@ -622,6 +624,12 @@ content:
           entity_type: node
           bundle: theme_camps
     type: options_buttons
+    region: content
+  field_prj_sup_details_view:
+    weight: 36
+    settings: {  }
+    third_party_settings: {  }
+    type: viewfield_select
     region: content
   field_prj_wtf_image:
     weight: 24

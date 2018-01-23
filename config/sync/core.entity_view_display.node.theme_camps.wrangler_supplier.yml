@@ -132,6 +132,7 @@ dependencies:
     - field.field.node.theme_camps.field_sup_review
     - node.type.theme_camps
   module:
+    - empty_fields
     - panelizer
     - paragraphs
     - taxonomy
@@ -150,7 +151,7 @@ bundle: theme_camps
 mode: wrangler_supplier
 content:
   field_prj_sup_address:
-    weight: 40
+    weight: 0
     label: above
     settings:
       link_to_entity: false
@@ -159,25 +160,29 @@ content:
     region: content
   field_prj_sup_details:
     type: paragraph_summary
-    weight: 30
+    weight: 3
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_sup_comment:
     type: basic_string
-    weight: 10
+    weight: 2
     region: content
     label: above
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
   field_sup_review:
     type: entity_reference_rss_category
-    weight: 20
+    weight: 1
     region: content
     label: above
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
 hidden:
   field_collective: true
   field_field_prj_adm_form_3: true
