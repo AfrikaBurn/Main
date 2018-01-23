@@ -119,6 +119,7 @@ dependencies:
     - field.field.node.theme_camps.field_prj_stg_type
     - field.field.node.theme_camps.field_prj_sup_address
     - field.field.node.theme_camps.field_prj_sup_details
+    - field.field.node.theme_camps.field_prj_sup_details_view
     - field.field.node.theme_camps.field_prj_sup_h1
     - field.field.node.theme_camps.field_prj_wtf_categories
     - field.field.node.theme_camps.field_prj_wtf_image
@@ -134,9 +135,9 @@ dependencies:
   module:
     - empty_fields
     - panelizer
-    - paragraphs
     - taxonomy
     - user
+    - viewfield
 third_party_settings:
   panelizer:
     enable: false
@@ -158,12 +159,15 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_prj_sup_details:
-    type: paragraph_summary
+  field_prj_sup_details_view:
+    type: viewfield_default
     weight: 3
     region: content
     label: above
-    settings: {  }
+    settings:
+      view_title: hidden
+      always_build_output: 0
+      empty_view_title: hidden
     third_party_settings: {  }
   field_sup_comment:
     type: basic_string
@@ -297,6 +301,7 @@ hidden:
   field_prj_stg_stage: true
   field_prj_stg_tread: true
   field_prj_stg_type: true
+  field_prj_sup_details: true
   field_prj_sup_h1: true
   field_prj_wtf_categories: true
   field_prj_wtf_image: true

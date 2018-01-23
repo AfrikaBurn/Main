@@ -152,7 +152,6 @@ dependencies:
     - link
     - markup
     - path
-    - viewfield
 third_party_settings:
   field_group:
     group_overview:
@@ -482,7 +481,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 112
+    weight: 11
     settings:
       display_label: true
     type: boolean_checkbox
@@ -527,7 +526,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 111
+    weight: 10
     settings:
       rows: 5
       placeholder: ''
@@ -625,7 +624,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 113
+    weight: 12
     settings:
       placeholder: ''
     type: number
@@ -663,7 +662,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 114
+    weight: 13
     settings:
       match_operator: CONTAINS
       size: 60
@@ -703,7 +702,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 116
+    weight: 15
     settings:
       rows: 5
       placeholder: ''
@@ -727,7 +726,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 115
+    weight: 14
     settings: {  }
     type: datetime_default
     region: content
@@ -1100,7 +1099,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 108
+    weight: 7
     settings:
       display_label: true
     type: boolean_checkbox
@@ -1144,7 +1143,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 109
+    weight: 8
     settings:
       rows: 5
       placeholder: ''
@@ -1227,7 +1226,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 110
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60
@@ -1396,12 +1395,6 @@ content:
           bundle: art
     type: options_buttons
     region: content
-  field_prj_sup_details_view:
-    weight: 117
-    settings: {  }
-    third_party_settings: {  }
-    type: viewfield_select
-    region: content
   field_prj_wtf_area:
     weight: 67
     settings: {  }
@@ -1535,6 +1528,7 @@ hidden:
   field_prj_snd_comment: true
   field_prj_sup_address: true
   field_prj_sup_details: true
+  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true

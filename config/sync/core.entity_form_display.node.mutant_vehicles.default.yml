@@ -90,6 +90,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_type
     - field.field.node.mutant_vehicles.field_prj_sup_address
     - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_details_view
     - field.field.node.mutant_vehicles.field_prj_sup_h1
     - field.field.node.mutant_vehicles.field_prj_trl_area
     - field.field.node.mutant_vehicles.field_prj_trl_capasity
@@ -105,6 +106,8 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_short
     - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
     - field.field.node.mutant_vehicles.field_prj_wtf_website
+    - field.field.node.mutant_vehicles.field_sup_comment
+    - field.field.node.mutant_vehicles.field_sup_review
     - image.style.thumbnail
     - node.type.mutant_vehicles
   module:
@@ -381,14 +384,14 @@ content:
     region: content
   field_prj_adm_notes:
     type: string_textarea
-    weight: 10
+    weight: 9
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_prj_adm_registration:
-    weight: 132
+    weight: 11
     settings:
       size: 60
       placeholder: ''
@@ -397,7 +400,7 @@ content:
     region: content
   field_prj_adm_review:
     type: options_select
-    weight: 9
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -1681,6 +1684,23 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  field_sup_comment:
+    weight: 133
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_sup_review:
+    weight: 132
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   path:
     type: path
     weight: 1
@@ -1718,6 +1738,11 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
+  url_redirects:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_form_mode: true
   field_grt_art_comment: true
@@ -1747,6 +1772,7 @@ hidden:
   field_prj_stg_tread: true
   field_prj_sup_address: true
   field_prj_sup_details: true
+  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_wtf_short_copy: true
   moderation_state: true

@@ -143,7 +143,6 @@ dependencies:
     - link
     - markup
     - path
-    - viewfield
 third_party_settings:
   field_group:
     group_overview_new:
@@ -625,12 +624,6 @@ content:
           bundle: theme_camps
     type: options_buttons
     region: content
-  field_prj_sup_details_view:
-    weight: 36
-    settings: {  }
-    third_party_settings: {  }
-    type: viewfield_select
-    region: content
   field_prj_wtf_image:
     weight: 24
     settings:
@@ -792,6 +785,7 @@ hidden:
   field_prj_stg_tread: true
   field_prj_sup_address: true
   field_prj_sup_details: true
+  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_wtf_categories: true
   field_prj_wtf_long: true
