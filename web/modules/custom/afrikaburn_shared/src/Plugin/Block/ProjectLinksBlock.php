@@ -26,23 +26,17 @@ class ProjectLinksBlock extends BlockBase {
       ? $collective->id()
       : FALSE;
 
-    return $cid && \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.admin', ['cid' => $cid], $user)
-      ? [
-        '#type' => 'view',
-        '#name' => 'collective_registrations',
-        '#display_id' => \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.admin', ['cid' => $collective->id()], $user)
-          ? 'registration_edit_block'
-          : 'registration_view_block',
+    return[
+      '#type' => 'view',
+      '#name' => 'collective_registrations',
+      '#display_id' => \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.admin', ['cid' => $collective->id()], $user)
+        ? 'registration_edit_block'
+        : 'registration_view_block',
 
-        '#cache' => [
-          'max-age' => 0,
-        ]
+      '#cache' => [
+        'max-age' => 0,
       ]
-      : [
-        '#cache' => [
-          'max-age' => 0,
-        ]
-      ];
+    ];
   }
 
 }
