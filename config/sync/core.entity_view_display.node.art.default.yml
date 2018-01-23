@@ -155,7 +155,6 @@ dependencies:
     - markup
     - panelizer
     - user
-    - viewfield
 third_party_settings:
   field_group:
     group_overview:
@@ -174,7 +173,7 @@ third_party_settings:
         - group_grant
         - group_admin
       parent_name: ''
-      weight: 2
+      weight: 27
       format_type: accordion
       format_settings:
         effect: none
@@ -194,6 +193,7 @@ third_party_settings:
         - field_prj_gen_bio
         - field_prj_gen_history
         - field_prj_gen_external
+        - field_prj_sup_details_view
       parent_name: group_overview
       weight: 20
       format_type: accordion_item
@@ -1309,16 +1309,6 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-  field_prj_sup_details_view:
-    weight: 196
-    label: above
-    settings:
-      view_title: hidden
-      always_build_output: 0
-      empty_view_title: hidden
-    third_party_settings: {  }
-    type: viewfield_default
-    region: content
   field_prj_wtf_image:
     type: image
     weight: 97
@@ -1398,6 +1388,7 @@ hidden:
   field_prj_oth_unregistered: true
   field_prj_sup_address: true
   field_prj_sup_details: true
+  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true
