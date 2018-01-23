@@ -128,6 +128,8 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_short_copy
     - field.field.node.theme_camps.field_prj_wtf_website
     - field.field.node.theme_camps.field_stretch_tent_dimen
+    - field.field.node.theme_camps.field_sup_comment
+    - field.field.node.theme_camps.field_sup_review
     - node.type.theme_camps
   module:
     - comment
@@ -152,7 +154,7 @@ bundle: theme_camps
 mode: default
 content:
   field_field_prj_adm_form_3:
-    weight: 113
+    weight: 108
     label: above
     settings:
       format: default
@@ -162,7 +164,7 @@ content:
     type: boolean
     region: content
   field_field_prj_plc_marquis:
-    weight: 124
+    weight: 119
     label: above
     settings:
       format: default
@@ -172,7 +174,7 @@ content:
     type: boolean
     region: content
   field_field_prj_plc_stretch_m:
-    weight: 125
+    weight: 120
     label: above
     settings:
       cache_unit: -1
@@ -185,7 +187,7 @@ content:
     type: computed_decimal
     region: content
   field_prj_adm_comms:
-    weight: 88
+    weight: 86
     label: above
     settings:
       view_mode: default
@@ -194,7 +196,7 @@ content:
     type: comment_default
     region: content
   field_prj_adm_form_2:
-    weight: 105
+    weight: 101
     label: above
     settings:
       format: default
@@ -204,7 +206,7 @@ content:
     type: boolean
     region: content
   field_prj_adm_form_3:
-    weight: 114
+    weight: 109
     label: above
     settings:
       format: default
@@ -214,7 +216,7 @@ content:
     type: boolean
     region: content
   field_prj_adm_form_wtf:
-    weight: 106
+    weight: 102
     label: above
     settings:
       format: default
@@ -224,7 +226,7 @@ content:
     type: boolean
     region: content
   field_prj_adm_latitude:
-    weight: 76
+    weight: 74
     label: above
     settings:
       thousand_separator: ''
@@ -235,7 +237,7 @@ content:
     type: number_decimal
     region: content
   field_prj_adm_longitude:
-    weight: 77
+    weight: 75
     label: above
     settings:
       thousand_separator: ''
@@ -246,21 +248,21 @@ content:
     type: number_decimal
     region: content
   field_prj_adm_notes:
-    weight: 74
+    weight: 72
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_adm_ranger_comment:
-    weight: 87
+    weight: 85
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_adm_review:
-    weight: 75
+    weight: 73
     label: above
     settings:
       link: true
@@ -268,7 +270,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_adm_wrangler:
-    weight: 78
+    weight: 76
     label: above
     settings:
       link: true
@@ -301,7 +303,7 @@ content:
     type: basic_string
     region: content
   field_prj_cll_thread:
-    weight: 89
+    weight: 87
     label: above
     settings:
       view_mode: default
@@ -376,14 +378,14 @@ content:
     type: markup
     region: content
   field_prj_gen_header2:
-    weight: 111
+    weight: 106
     label: above
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_prj_gen_header3:
-    weight: 112
+    weight: 107
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -422,7 +424,7 @@ content:
     type: basic_string
     region: content
   field_prj_lgh_agree:
-    weight: 108
+    weight: 104
     label: above
     settings:
       format: default
@@ -432,42 +434,42 @@ content:
     type: boolean
     region: content
   field_prj_lgh_description:
-    weight: 54
+    weight: 52
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_lgh_policy:
-    weight: 107
+    weight: 103
     label: above
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_prj_lgh_power:
-    weight: 55
+    weight: 53
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_lnt_comments:
-    weight: 81
+    weight: 79
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_lnt_handled:
-    weight: 63
+    weight: 61
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_lnt_historic:
-    weight: 79
+    weight: 77
     label: above
     settings:
       link: true
@@ -475,7 +477,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_lnt_images:
-    weight: 83
+    weight: 81
     label: above
     settings:
       image_style: ''
@@ -484,14 +486,14 @@ content:
     type: image
     region: content
   field_prj_lnt_publish:
-    weight: 92
+    weight: 90
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_lnt_representative:
-    weight: 64
+    weight: 62
     label: above
     settings:
       link: true
@@ -499,7 +501,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_lnt_score:
-    weight: 82
+    weight: 80
     label: above
     settings:
       link: true
@@ -507,7 +509,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_lnt_signoff:
-    weight: 80
+    weight: 78
     label: above
     settings:
       format: default
@@ -517,7 +519,7 @@ content:
     type: boolean
     region: content
   field_prj_lnt_type:
-    weight: 91
+    weight: 89
     label: above
     settings:
       link: true
@@ -525,14 +527,14 @@ content:
     type: entity_reference_label
     region: content
   field_prj_ons_issues:
-    weight: 104
+    weight: 100
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_ons_monday_b:
-    weight: 94
+    weight: 92
     label: above
     settings:
       format: default
@@ -542,61 +544,20 @@ content:
     type: boolean
     region: content
   field_prj_ons_monday_d:
-    weight: 95
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_ons_rating:
     weight: 93
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
+  field_prj_ons_rating:
+    weight: 91
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
   field_prj_ons_rest_b:
-    weight: 102
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_ons_rest_d:
-    weight: 103
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_ons_tuesday_b:
-    weight: 100
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_prj_ons_tuesday_d:
-    weight: 101
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_ons_wednesay_d:
-    weight: 99
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_ons_wednesday_b:
     weight: 98
     label: above
     settings:
@@ -606,8 +567,49 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
+  field_prj_ons_rest_d:
+    weight: 99
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_ons_tuesday_b:
+    weight: 96
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_ons_tuesday_d:
+    weight: 97
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_ons_wednesay_d:
+    weight: 95
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_ons_wednesday_b:
+    weight: 94
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_prj_oth_associated:
-    weight: 71
+    weight: 69
     label: above
     settings:
       link: true
@@ -615,7 +617,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_oth_move:
-    weight: 72
+    weight: 70
     label: above
     settings:
       format: default
@@ -625,14 +627,14 @@ content:
     type: boolean
     region: content
   field_prj_oth_mv:
-    weight: 73
+    weight: 71
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_plc_artwork:
-    weight: 119
+    weight: 114
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -676,7 +678,7 @@ content:
     type: number_integer
     region: content
   field_prj_plc_camp_w:
-    weight: 120
+    weight: 115
     label: above
     settings:
       thousand_separator: ''
@@ -685,7 +687,7 @@ content:
     type: number_integer
     region: content
   field_prj_plc_caravan:
-    weight: 43
+    weight: 41
     label: above
     settings:
       thousand_separator: ''
@@ -694,7 +696,7 @@ content:
     type: number_integer
     region: content
   field_prj_plc_cars:
-    weight: 40
+    weight: 38
     label: above
     settings:
       thousand_separator: ''
@@ -739,7 +741,7 @@ content:
     type: number_integer
     region: content
   field_prj_plc_large:
-    weight: 47
+    weight: 45
     label: above
     settings:
       thousand_separator: ''
@@ -748,7 +750,7 @@ content:
     type: number_integer
     region: content
   field_prj_plc_layout:
-    weight: 53
+    weight: 51
     label: above
     settings:
       image_style: ''
@@ -757,7 +759,7 @@ content:
     type: image
     region: content
   field_prj_plc_location:
-    weight: 50
+    weight: 48
     label: above
     settings:
       link: true
@@ -765,14 +767,14 @@ content:
     type: entity_reference_label
     region: content
   field_prj_plc_location_extra:
-    weight: 52
+    weight: 50
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_plc_map:
-    weight: 51
+    weight: 49
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -795,7 +797,7 @@ content:
     type: number_integer
     region: content
   field_prj_plc_portaloos:
-    weight: 48
+    weight: 46
     label: above
     settings:
       thousand_separator: ''
@@ -813,7 +815,7 @@ content:
     type: number_integer
     region: content
   field_prj_plc_recreational:
-    weight: 42
+    weight: 40
     label: above
     settings:
       thousand_separator: ''
@@ -822,7 +824,7 @@ content:
     type: number_integer
     region: content
   field_prj_plc_showers:
-    weight: 49
+    weight: 47
     label: above
     settings:
       thousand_separator: ''
@@ -831,7 +833,7 @@ content:
     type: number_integer
     region: content
   field_prj_plc_sleep:
-    weight: 44
+    weight: 42
     label: above
     settings:
       thousand_separator: ''
@@ -840,7 +842,7 @@ content:
     type: number_integer
     region: content
   field_prj_plc_stretch_d:
-    weight: 46
+    weight: 44
     label: above
     settings:
       thousand_separator: ''
@@ -849,7 +851,7 @@ content:
     type: number_integer
     region: content
   field_prj_plc_stretch_w:
-    weight: 45
+    weight: 43
     label: above
     settings:
       thousand_separator: ''
@@ -858,7 +860,7 @@ content:
     type: number_integer
     region: content
   field_prj_plc_tanks:
-    weight: 110
+    weight: 105
     label: above
     settings:
       thousand_separator: ''
@@ -885,7 +887,7 @@ content:
     type: number_integer
     region: content
   field_prj_plc_trailers:
-    weight: 41
+    weight: 39
     label: above
     settings:
       thousand_separator: ''
@@ -901,7 +903,7 @@ content:
     type: basic_string
     region: content
   field_prj_saf_cage:
-    weight: 123
+    weight: 118
     label: above
     settings:
       format: default
@@ -911,7 +913,7 @@ content:
     type: boolean
     region: content
   field_prj_saf_comment:
-    weight: 85
+    weight: 83
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -927,7 +929,7 @@ content:
     type: number_integer
     region: content
   field_prj_saf_gas:
-    weight: 122
+    weight: 117
     label: above
     settings:
       format: default
@@ -944,7 +946,7 @@ content:
     type: basic_string
     region: content
   field_prj_saf_mark:
-    weight: 121
+    weight: 116
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -967,7 +969,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_snd_agree:
-    weight: 61
+    weight: 59
     label: above
     settings:
       format: default
@@ -977,21 +979,21 @@ content:
     type: boolean
     region: content
   field_prj_snd_comment:
-    weight: 84
+    weight: 82
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_snd_description:
-    weight: 59
+    weight: 57
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_snd_genre:
-    weight: 58
+    weight: 56
     label: above
     settings:
       link_to_entity: false
@@ -999,7 +1001,7 @@ content:
     type: string
     region: content
   field_prj_snd_level:
-    weight: 57
+    weight: 55
     label: above
     settings:
       link: true
@@ -1007,7 +1009,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_snd_person:
-    weight: 62
+    weight: 60
     label: above
     settings:
       link: true
@@ -1015,14 +1017,14 @@ content:
     type: entity_reference_label
     region: content
   field_prj_snd_soop:
-    weight: 60
+    weight: 58
     label: above
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_prj_snd_sound:
-    weight: 56
+    weight: 54
     label: above
     settings:
       format: default
@@ -1057,7 +1059,7 @@ content:
     type: boolean
     region: content
   field_prj_stg_tread:
-    weight: 90
+    weight: 88
     label: above
     settings:
       view_mode: default
@@ -1074,7 +1076,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_sup_address:
-    weight: 116
+    weight: 111
     label: above
     settings:
       link_to_entity: false
@@ -1083,7 +1085,7 @@ content:
     region: content
   field_prj_sup_details:
     type: entity_reference_revisions_entity_view
-    weight: 117
+    weight: 112
     label: above
     settings:
       view_mode: default
@@ -1091,14 +1093,14 @@ content:
     third_party_settings: {  }
     region: content
   field_prj_sup_h1:
-    weight: 115
+    weight: 110
     label: above
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_prj_wtf_categories:
-    weight: 69
+    weight: 67
     label: above
     settings:
       link: true
@@ -1106,7 +1108,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_wtf_image:
-    weight: 67
+    weight: 65
     label: above
     settings:
       image_style: ''
@@ -1115,14 +1117,14 @@ content:
     type: image
     region: content
   field_prj_wtf_long:
-    weight: 66
+    weight: 64
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_wtf_planned:
-    weight: 68
+    weight: 66
     label: above
     settings:
       link: true
@@ -1130,21 +1132,21 @@ content:
     type: entity_reference_label
     region: content
   field_prj_wtf_short:
-    weight: 65
+    weight: 63
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_wtf_short_copy:
-    weight: 86
+    weight: 84
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_wtf_website:
-    weight: 70
+    weight: 68
     label: above
     settings:
       trim_length: 80
@@ -1156,7 +1158,7 @@ content:
     type: link
     region: content
   field_stretch_tent_dimen:
-    weight: 118
+    weight: 113
     label: above
     settings:
       cache_unit: -1
@@ -1178,3 +1180,5 @@ hidden:
   field_form_mode: true
   field_prj_gen_year: true
   field_prj_oth_unregistered: true
+  field_sup_comment: true
+  field_sup_review: true

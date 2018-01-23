@@ -6,6 +6,21 @@
   cursor: pointer;
 }
 
+.view-display-id-my_collectives_block .view-display-id-invites .views-row{
+  float: none !important;
+  width: 100% !important;
+}
+
+.view-display-id-my_collectives_block .view-display-id-invites .view-content{
+  width: 50%; 
+  float: left;
+}
+
+.view-display-id-my_collectives_block .view-display-id-invites .view-footer{
+  width: 50%; 
+  float: right;
+}
+
 /* 12 Feb Community Grants */
 #edit-applicants-items .form-type-textfield{
   width: 100px;
