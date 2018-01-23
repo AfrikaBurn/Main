@@ -42,4 +42,7 @@ settings:
       supplier_details:
         weight: 8
         enabled: false
+      outreach_grant_applicant:
+        weight: 9
+        enabled: false
 field_type: entity_reference_revisions

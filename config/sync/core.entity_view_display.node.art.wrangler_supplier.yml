@@ -126,6 +126,7 @@ dependencies:
     - field.field.node.art.field_prj_stg_type
     - field.field.node.art.field_prj_sup_address
     - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_details_view
     - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
@@ -142,17 +143,17 @@ dependencies:
     - node.type.art
   module:
     - empty_fields
-    - entity_reference_revisions
     - field_group
     - panelizer
     - user
+    - viewfield
 third_party_settings:
   field_group:
     group_overview:
       children:
         - group_wrangler_1
       parent_name: ''
-      weight: 7
+      weight: 30
       format_type: accordion
       format_settings:
         effect: none
@@ -230,7 +231,7 @@ third_party_settings:
         - field_prj_saf_comment
         - group_wrangler_4
       parent_name: ''
-      weight: 25
+      weight: 31
       format_type: accordion_item
       format_settings:
         label: Safety
@@ -404,18 +405,18 @@ third_party_settings:
       region: hidden
     group_grant:
       children:
-        - field_prj_gen_concept
         - field_grt_art_comment
-        - field_grt_tec_comment
+        - field_prj_adm_form_2
         - field_prj_wtf_scheduled
         - field_prj_total_cost
+        - field_prj_gen_concept
         - field_prj_adm_ranger_comment
         - field_prj_adm_form_wtf
         - field_prj_adm_form_grant
         - field_prj_adm_form_3
-        - field_prj_adm_form_2
-        - field_grt_short_desc
+        - field_grt_tec_comment
         - field_grt_art_total
+        - field_grt_short_desc
         - field_grt_short
         - field_grt_other_description
         - field_grt_other
@@ -447,24 +448,25 @@ bundle: art
 mode: wrangler_supplier
 content:
   field_prj_sup_address:
-    weight: 3
+    weight: 0
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_prj_sup_details:
-    weight: 4
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
+  field_prj_sup_details_view:
+    type: viewfield_default
+    weight: 3
     region: content
+    label: hidden
+    settings:
+      view_title: hidden
+      always_build_output: 0
+      empty_view_title: hidden
+    third_party_settings: {  }
   field_sup_comment:
-    weight: 6
+    weight: 2
     label: above
     settings: {  }
     third_party_settings:
@@ -473,7 +475,7 @@ content:
     type: basic_string
     region: content
   field_sup_review:
-    weight: 5
+    weight: 1
     label: above
     settings:
       link: true
@@ -603,6 +605,7 @@ hidden:
   field_prj_stg_stage: true
   field_prj_stg_tread: true
   field_prj_stg_type: true
+  field_prj_sup_details: true
   field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true

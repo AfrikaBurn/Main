@@ -1,30 +1,25 @@
-uuid: 47d47e2a-512f-4cef-8cbf-d0878c168381
+uuid: 8605746f-e1b5-4614-9a91-f28eb00044af
 langcode: en
 status: true
 dependencies:
-  config:
-    - views.view.collective_members
   module:
+    - afrikaburn_shared
     - ctools
     - node
     - system
-    - user
-    - views
   theme:
     - afrikaburn
-id: views_block__collective_members_invites
+id: projectlinksblock
 theme: afrikaburn
 region: sidebar
-weight: -20
+weight: -22
 provider: null
-plugin: 'views_block:collective_members-invites'
+plugin: project_links_block
 settings:
-  id: 'views_block:collective_members-invites'
-  label: ''
-  provider: views
-  label_display: visible
-  views_label: ''
-  items_per_page: none
+  id: project_links_block
+  label: Projects
+  provider: afrikaburn_shared
+  label_display: '0'
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
@@ -42,13 +37,6 @@ visibility:
       node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: '/collective/*'
+    pages: '/node/*/edit'
     negate: true
     context_mapping: {  }
-  user_role:
-    id: user_role
-    roles:
-      authenticated: authenticated
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
