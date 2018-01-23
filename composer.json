@@ -61,6 +61,7 @@
         "drupal/token": "^1.0",
         "drupal/token_filter": "^1.0@beta",
         "drupal/typed_data": "^1.0@alpha",
+        "drupal/viewfield": "^3.0@alpha",
         "drupal/xls_serialization": "^1.0@beta",
         "drush/drush": "~8.0",
         "webflo/drupal-finder": "^0.3.0",

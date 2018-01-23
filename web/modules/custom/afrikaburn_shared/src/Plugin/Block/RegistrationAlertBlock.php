@@ -25,7 +25,7 @@ class RegistrationAlertBlock extends BlockBase {
     $user = \Drupal::currentUser();
     $collective = \Drupal::routeMatch()->getParameter('node');
     $view = Views::getView('collective_registrations');
-    $view->execute('block_1');
+    $view->execute('registration_view_block');
     $rows = $view->total_rows;
 
     return [
