@@ -1684,23 +1684,6 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
-  field_sup_comment:
-    weight: 133
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content
-  field_sup_review:
-    weight: 132
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   path:
     type: path
     weight: 1
@@ -1775,5 +1758,7 @@ hidden:
   field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_wtf_short_copy: true
+  field_sup_comment: true
+  field_sup_review: true
   moderation_state: true
   status: true

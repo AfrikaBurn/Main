@@ -126,6 +126,7 @@ dependencies:
     - field.field.node.art.field_prj_stg_type
     - field.field.node.art.field_prj_sup_address
     - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_details_view
     - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
@@ -136,6 +137,8 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
+    - field.field.node.art.field_sup_comment
+    - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - image.style.medium
     - node.type.art
@@ -159,6 +162,7 @@ third_party_settings:
         classes: ''
         direction: horizontal
       label: 'Project Overview'
+      region: hidden
     group_overview:
       children:
         - group_wrangler_1
@@ -174,6 +178,7 @@ third_party_settings:
         formatter: open
         description: ''
       label: Overview
+      region: hidden
     group_wrangler_1:
       children:
         - field_prj_gen_concept
@@ -191,6 +196,7 @@ third_party_settings:
         id: ''
         classes: wrangler_ovr_1
       label: 1_Image
+      region: hidden
     group_wrangler_2:
       children:
         - field_collective
@@ -214,6 +220,7 @@ third_party_settings:
         id: ''
         classes: wrangler_ovr_2
       label: '2 Title and Details'
+      region: hidden
     group_wrangler_4:
       children:
         - field_prj_adm_wrangler
@@ -233,9 +240,11 @@ third_party_settings:
         id: ''
         classes: wrangler_ovr_4
       label: '4 Wrangler and Comments'
+      region: hidden
     group_wrangler_5:
       children:
         - field_prj_gen_description
+        - field_prj_cll_collaborate
         - field_grt_art_apply
         - field_prj_lnt_score
         - field_prj_prp_erection
@@ -332,7 +341,6 @@ third_party_settings:
         - field_prj_gen_bio
         - field_prj_cll_thread
         - field_prj_cll_description
-        - field_prj_cll_collaborate
         - field_prj_adm_longitude
         - field_prj_brn_time_adm
         - field_prj_brn_time
@@ -360,6 +368,7 @@ third_party_settings:
         id: ''
         classes: wrangler_ovr_5
       label: '5 Project Description'
+      region: hidden
   panelizer:
     enable: false
     custom: false
@@ -391,7 +400,7 @@ content:
     region: content
   field_prj_adm_notes:
     type: basic_string
-    weight: 190
+    weight: 8
     region: content
     label: above
     settings: {  }
@@ -400,7 +409,7 @@ content:
         handler: nbsp
   field_prj_adm_review:
     type: entity_reference_label
-    weight: 191
+    weight: 9
     region: content
     label: above
     settings:
@@ -409,7 +418,7 @@ content:
       empty_fields:
         handler: nbsp
   field_prj_adm_wrangler:
-    weight: 189
+    weight: 7
     label: above
     settings:
       link: true
@@ -428,8 +437,18 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
+  field_prj_cll_collaborate:
+    type: boolean
+    weight: 12
+    region: content
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
   field_prj_gen_concept:
-    weight: 116
+    weight: 10
     label: above
     settings:
       image_style: medium
@@ -442,7 +461,7 @@ content:
     type: image
     region: content
   field_prj_gen_description:
-    weight: 190
+    weight: 11
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -528,7 +547,6 @@ hidden:
   field_prj_brn_plan: true
   field_prj_brn_time: true
   field_prj_brn_time_adm: true
-  field_prj_cll_collaborate: true
   field_prj_cll_contact: true
   field_prj_cll_description: true
   field_prj_cll_thread: true
@@ -593,6 +611,7 @@ hidden:
   field_prj_stg_type: true
   field_prj_sup_address: true
   field_prj_sup_details: true
+  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true
