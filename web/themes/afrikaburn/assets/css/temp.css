@@ -1,4 +1,9 @@
 /* 19 Feb collectives  */
+
+#block-inviteblock input.form-text{
+  max-width: 100%;
+}
+
 .node-collective-edit-form details summary{
   padding: 30px 0;
   color: #f26c55;
