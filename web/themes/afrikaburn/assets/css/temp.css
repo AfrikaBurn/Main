@@ -11,6 +11,7 @@
   width: 100% !important;
 }
 
+.view-display-id-my_collectives_block .view-display-id-invites .view-empty,
 .view-display-id-my_collectives_block .view-display-id-invites .view-content{
   width: 50%; 
   float: left;
@@ -178,6 +179,8 @@ form.node-collective-form .clearfix{
 .view-display-id-my_collectives_block > .view-content{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 60px;
 }
 
 .view-display-id-my_collectives_block .attachment-before{

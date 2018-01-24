@@ -109,12 +109,15 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
     - field.field.node.performances.field_prj_wtf_website
+    - field.field.node.performances.field_sup_comment
+    - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - node.type.performances
   module:
-    - entity_reference_revisions
+    - empty_fields
     - field_group
     - panelizer
+    - taxonomy
     - user
     - viewfield
 third_party_settings:
@@ -134,7 +137,7 @@ third_party_settings:
         - group_grant
         - group_admin
       parent_name: ''
-      weight: 20
+      weight: 22
       format_type: tabs
       format_settings:
         id: ''
@@ -145,18 +148,17 @@ third_party_settings:
       region: hidden
     group_overview:
       children:
-        - field_prj_gen_year
         - field_collective
-        - field_prj_gen_contact
-        - field_prj_gen_lead
-        - field_prj_gen_manager
-        - field_prj_gen_fundraising
-        - field_prj_gen_fundraiser
-        - field_prj_gen_location
         - field_prj_gen_bio
-        - field_prj_gen_history
+        - field_prj_gen_contact
         - field_prj_gen_external
-        - field_prj_sup_details_view
+        - field_prj_gen_fundraiser
+        - field_prj_gen_fundraising
+        - field_prj_gen_history
+        - field_prj_gen_lead
+        - field_prj_gen_location
+        - field_prj_gen_manager
+        - field_prj_gen_year
       parent_name: group_project_registration
       weight: 1
       format_type: tab
@@ -169,10 +171,10 @@ third_party_settings:
       region: hidden
     group_the_project:
       children:
-        - field_prj_gen_description
-        - field_prj_gen_story
         - field_prj_gen_concept
+        - field_prj_gen_description
         - field_prj_gen_doc
+        - field_prj_gen_story
       parent_name: group_project_registration
       weight: 2
       format_type: tab
@@ -199,13 +201,13 @@ third_party_settings:
       region: hidden
     group_dimensions:
       children:
-        - field_prj_stc_height
-        - field_prj_stc_footprint
-        - field_prj_stc_weight
         - field_prj_stc_attributes
+        - field_prj_stc_footprint
+        - field_prj_stc_height
         - field_prj_stc_materials
         - field_prj_stc_safety
         - field_prj_stc_structural
+        - field_prj_stc_weight
         - group_off
         - group_ons
       parent_name: group_the_s
@@ -219,11 +221,11 @@ third_party_settings:
       region: hidden
     group_sound:
       children:
-        - field_prj_snd_sound
-        - field_prj_snd_level
         - field_prj_snd_agree
         - field_prj_snd_description
+        - field_prj_snd_level
         - field_prj_snd_person
+        - field_prj_snd_sound
       parent_name: group_project_registration
       weight: 5
       format_type: tab
@@ -236,10 +238,10 @@ third_party_settings:
       region: hidden
     group_burn:
       children:
+        - field_prj_brn_agree
         - field_prj_brn_burning
         - field_prj_brn_f2
         - field_prj_brn_motivation
-        - field_prj_brn_agree
         - field_prj_brn_person
         - field_prj_brn_plan
       parent_name: group_project_registration
@@ -254,18 +256,18 @@ third_party_settings:
       region: hidden
     group_wtf_guide_and_activities:
       children:
-        - field_prj_wtf_image
-        - field_prj_wtf_planned
-        - field_prj_wtf_scheduled
-        - field_prj_wtf_categories
-        - field_prj_wtf_website
         - field_prj_cll_collaborate
-        - field_prj_cll_description
         - field_prj_cll_contact
+        - field_prj_cll_description
         - field_prj_cll_thread
         - field_prj_oth_unregistered
+        - field_prj_wtf_categories
+        - field_prj_wtf_image
         - field_prj_wtf_long
+        - field_prj_wtf_planned
+        - field_prj_wtf_scheduled
         - field_prj_wtf_short
+        - field_prj_wtf_website
       parent_name: group_project_registration
       weight: 8
       format_type: tab
@@ -278,8 +280,8 @@ third_party_settings:
       region: hidden
     group_admin:
       children:
-        - field_prj_adm_wrangler
         - field_prj_adm_review
+        - field_prj_adm_wrangler
         - field_prj_lnt_comments
         - field_prj_lnt_images
         - field_prj_lnt_score
@@ -298,12 +300,12 @@ third_party_settings:
       region: hidden
     group_moop:
       children:
+        - field_prj_lnt_duration
         - field_prj_lnt_handled
         - field_prj_lnt_helpers
         - field_prj_lnt_historic
-        - field_prj_lnt_representative
-        - field_prj_lnt_duration
         - field_prj_lnt_publish
+        - field_prj_lnt_representative
       parent_name: group_project_registration
       weight: 7
       format_type: accordion_item
@@ -357,11 +359,11 @@ third_party_settings:
       region: hidden
     group_other:
       children:
+        - field_prj_oth_associated
+        - field_prj_oth_grant
+        - field_prj_oth_mv
         - field_prj_oth_other
         - field_prj_oth_relationship
-        - field_prj_oth_associated
-        - field_prj_oth_mv
-        - field_prj_oth_grant
       parent_name: group_project_registration
       weight: 9
       format_type: accordion_item
@@ -374,20 +376,20 @@ third_party_settings:
       region: hidden
     group_grant:
       children:
-        - field_grt_f1
-        - field_grt_breakdown
-        - field_grt_total
-        - field_grt_contribution
-        - field_this_is_the_amount_of_mone
-        - field_prj_total_cost
         - field_grt_art_total
+        - field_grt_breakdown
+        - field_grt_contribution
+        - field_grt_f1
+        - field_grt_location
+        - field_grt_more
+        - field_grt_pyrotechnics
         - field_grt_short
         - field_grt_short_desc
-        - field_grt_more
-        - field_grt_location
-        - field_grt_pyrotechnics
         - field_grt_specify
+        - field_grt_total
         - field_grt_transport
+        - field_prj_total_cost
+        - field_this_is_the_amount_of_mone
       parent_name: group_project_registration
       weight: 20
       format_type: accordion_item
@@ -411,32 +413,41 @@ bundle: performances
 mode: wrangler_supplier
 content:
   field_prj_sup_address:
-    weight: 1
+    weight: 0
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_prj_sup_details:
-    weight: 2
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: content
   field_prj_sup_details_view:
     type: viewfield_default
-    weight: 0
+    weight: 3
     region: content
-    label: above
+    label: hidden
     settings:
       view_title: hidden
       always_build_output: 0
       empty_view_title: hidden
     third_party_settings: {  }
+  field_sup_comment:
+    type: basic_string
+    weight: 2
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+  field_sup_review:
+    type: entity_reference_rss_category
+    weight: 1
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
 hidden:
   field_collective: true
   field_form_mode: true
@@ -529,6 +540,7 @@ hidden:
   field_prj_stc_safety: true
   field_prj_stc_structural: true
   field_prj_stc_weight: true
+  field_prj_sup_details: true
   field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true
