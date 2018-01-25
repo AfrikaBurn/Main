@@ -24,8 +24,10 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_adm_form_wtf
     - field.field.node.mutant_vehicles.field_prj_adm_notes
     - field.field.node.mutant_vehicles.field_prj_adm_ranger_comment
+    - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
+    - field.field.node.mutant_vehicles.field_prj_brn_agree
     - field.field.node.mutant_vehicles.field_prj_brn_burning
     - field.field.node.mutant_vehicles.field_prj_brn_desc
     - field.field.node.mutant_vehicles.field_prj_brn_person
@@ -67,6 +69,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_oth_associated
     - field.field.node.mutant_vehicles.field_prj_oth_grant
     - field.field.node.mutant_vehicles.field_prj_oth_other
+    - field.field.node.mutant_vehicles.field_prj_oth_unregistered
     - field.field.node.mutant_vehicles.field_prj_saf_access
     - field.field.node.mutant_vehicles.field_prj_saf_comment
     - field.field.node.mutant_vehicles.field_prj_saf_guide
@@ -88,6 +91,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_type
     - field.field.node.mutant_vehicles.field_prj_sup_address
     - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_details_view
     - field.field.node.mutant_vehicles.field_prj_sup_h1
     - field.field.node.mutant_vehicles.field_prj_trl_area
     - field.field.node.mutant_vehicles.field_prj_trl_capasity
@@ -103,38 +107,12 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_short
     - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
     - field.field.node.mutant_vehicles.field_prj_wtf_website
+    - field.field.node.mutant_vehicles.field_sup_comment
+    - field.field.node.mutant_vehicles.field_sup_review
     - node.type.mutant_vehicles
   module:
     - content_moderation
-    - field_group
     - paragraphs
-third_party_settings:
-  field_group:
-    group_grants:
-      children:
-        - field_grt_dmv_budget
-        - field_grt_contribution
-        - field_grt_services
-        - field_grt_materials
-        - field_grt_transport
-        - field_grt_total
-        - field_grt_other
-        - field_grt_other_description
-        - field_grt_art_comment
-        - field_grt_awarded
-        - field_grt_status
-        - field_prj_wtf_short_copy
-      parent_name: ''
-      weight: 6
-      format_type: tab
-      format_settings:
-        label: Grants
-        formatter: open
-        description: ''
-        required_fields: true
-        id: ''
-        classes: ''
-      label: Grants
 _core:
   default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
 id: node.mutant_vehicles.grant
@@ -144,20 +122,27 @@ mode: grant
 content:
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_grt_art_total:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_grt_contribution:
     type: number
-    weight: 8
+    weight: 0
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_dmv_budget:
     type: entity_reference_paragraphs
-    weight: 7
+    weight: -1
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -169,21 +154,21 @@ content:
     region: content
   field_grt_materials:
     type: number
-    weight: 10
+    weight: 2
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_other:
     type: boolean_checkbox
-    weight: 13
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_grt_other_description:
     type: string_textarea
-    weight: 14
+    weight: 8
     region: content
     settings:
       rows: 5
@@ -191,28 +176,28 @@ content:
     third_party_settings: {  }
   field_grt_services:
     type: number
-    weight: 9
+    weight: 1
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_total:
     type: number
-    weight: 12
+    weight: 4
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_transport:
     type: number
-    weight: 11
+    weight: 3
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 15
     settings: {  }
     region: content
     third_party_settings: {  }
@@ -220,26 +205,26 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 12
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 121
+    weight: 16
     third_party_settings: {  }
     region: content
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 13
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 1
+    weight: 9
     region: content
     settings:
       size: 60
@@ -247,18 +232,22 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 10
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     region: content
     third_party_settings: {  }
+  url_redirects:
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_collective: true
   field_form_mode: true
   field_grt_art_comment: true
-  field_grt_art_total: true
   field_grt_awarded: true
   field_grt_status: true
   field_mutant_drivers: true
@@ -267,8 +256,10 @@ hidden:
   field_prj_adm_form_wtf: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
+  field_prj_adm_registration: true
   field_prj_adm_review: true
   field_prj_adm_wrangler: true
+  field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_desc: true
   field_prj_brn_person: true
@@ -310,6 +301,7 @@ hidden:
   field_prj_oth_associated: true
   field_prj_oth_grant: true
   field_prj_oth_other: true
+  field_prj_oth_unregistered: true
   field_prj_saf_access: true
   field_prj_saf_comment: true
   field_prj_saf_guide: true
@@ -331,6 +323,7 @@ hidden:
   field_prj_stg_type: true
   field_prj_sup_address: true
   field_prj_sup_details: true
+  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_trl_area: true
   field_prj_trl_capasity: true
@@ -346,4 +339,6 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_sup_comment: true
+  field_sup_review: true
   path: true
