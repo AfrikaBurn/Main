@@ -27,7 +27,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
-    - field.field.node.mutant_vehicles.field_prj_brn_agree
     - field.field.node.mutant_vehicles.field_prj_brn_burning
     - field.field.node.mutant_vehicles.field_prj_brn_desc
     - field.field.node.mutant_vehicles.field_prj_brn_person
@@ -69,7 +68,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_oth_associated
     - field.field.node.mutant_vehicles.field_prj_oth_grant
     - field.field.node.mutant_vehicles.field_prj_oth_other
-    - field.field.node.mutant_vehicles.field_prj_oth_unregistered
     - field.field.node.mutant_vehicles.field_prj_saf_access
     - field.field.node.mutant_vehicles.field_prj_saf_comment
     - field.field.node.mutant_vehicles.field_prj_saf_guide
@@ -91,7 +89,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_type
     - field.field.node.mutant_vehicles.field_prj_sup_address
     - field.field.node.mutant_vehicles.field_prj_sup_details
-    - field.field.node.mutant_vehicles.field_prj_sup_details_view
     - field.field.node.mutant_vehicles.field_prj_sup_h1
     - field.field.node.mutant_vehicles.field_prj_trl_area
     - field.field.node.mutant_vehicles.field_prj_trl_capasity
@@ -107,8 +104,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_short
     - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
     - field.field.node.mutant_vehicles.field_prj_wtf_website
-    - field.field.node.mutant_vehicles.field_sup_comment
-    - field.field.node.mutant_vehicles.field_sup_review
     - node.type.mutant_vehicles
   module:
     - comment
@@ -250,7 +245,6 @@ third_party_settings:
         - field_prj_brn_plan
         - field_prj_brn_person
         - field_prj_brn_desc
-        - field_prj_brn_agree
       parent_name: group_project_overview
       weight: 60
       format_type: accordion_item
@@ -358,14 +352,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_grt_art_comment:
-    weight: 43
+    weight: 187
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_grt_art_total:
-    weight: 50
+    weight: 198
     label: above
     settings:
       thousand_separator: ''
@@ -374,7 +368,7 @@ content:
     type: number_integer
     region: content
   field_grt_awarded:
-    weight: 44
+    weight: 188
     label: above
     settings:
       thousand_separator: ''
@@ -383,7 +377,7 @@ content:
     type: number_integer
     region: content
   field_grt_contribution:
-    weight: 40
+    weight: 184
     label: above
     settings:
       thousand_separator: ''
@@ -393,7 +387,7 @@ content:
     region: content
   field_grt_dmv_budget:
     type: entity_reference_revisions_entity_view
-    weight: 35
+    weight: 179
     label: above
     settings:
       view_mode: default
@@ -401,7 +395,7 @@ content:
     third_party_settings: {  }
     region: content
   field_grt_materials:
-    weight: 36
+    weight: 180
     label: above
     settings:
       thousand_separator: ''
@@ -410,7 +404,7 @@ content:
     type: number_integer
     region: content
   field_grt_other:
-    weight: 41
+    weight: 185
     label: above
     settings:
       format: default
@@ -420,14 +414,14 @@ content:
     type: boolean
     region: content
   field_grt_other_description:
-    weight: 42
+    weight: 186
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_grt_services:
-    weight: 37
+    weight: 181
     label: above
     settings:
       thousand_separator: ''
@@ -436,7 +430,7 @@ content:
     type: number_integer
     region: content
   field_grt_status:
-    weight: 45
+    weight: 189
     label: above
     settings:
       link: true
@@ -444,7 +438,7 @@ content:
     type: entity_reference_label
     region: content
   field_grt_total:
-    weight: 39
+    weight: 183
     label: above
     settings:
       thousand_separator: ''
@@ -453,7 +447,7 @@ content:
     type: number_integer
     region: content
   field_grt_transport:
-    weight: 38
+    weight: 182
     label: above
     settings:
       thousand_separator: ''
@@ -470,7 +464,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_adm_comms:
-    weight: 32
+    weight: 176
     label: above
     settings:
       view_mode: default
@@ -479,7 +473,7 @@ content:
     type: comment_default
     region: content
   field_prj_adm_form_grant:
-    weight: 33
+    weight: 177
     label: above
     settings:
       format: default
@@ -489,7 +483,7 @@ content:
     type: boolean
     region: content
   field_prj_adm_form_wtf:
-    weight: 34
+    weight: 178
     label: above
     settings:
       format: default
@@ -499,21 +493,21 @@ content:
     type: boolean
     region: content
   field_prj_adm_notes:
-    weight: 28
+    weight: 171
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_adm_ranger_comment:
-    weight: 31
+    weight: 175
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_adm_registration:
-    weight: 52
+    weight: 200
     label: above
     settings:
       link_to_entity: false
@@ -521,7 +515,7 @@ content:
     type: string
     region: content
   field_prj_adm_review:
-    weight: 29
+    weight: 172
     label: above
     settings:
       link: true
@@ -529,22 +523,12 @@ content:
     type: entity_reference_label
     region: content
   field_prj_adm_wrangler:
-    weight: 30
+    weight: 173
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_prj_brn_agree:
-    weight: 135
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
     region: content
   field_prj_brn_burning:
     weight: 131
@@ -579,7 +563,7 @@ content:
     type: basic_string
     region: content
   field_prj_cll_collaborate:
-    weight: 15
+    weight: 158
     label: above
     settings:
       format: default
@@ -589,7 +573,7 @@ content:
     type: boolean
     region: content
   field_prj_cll_contact:
-    weight: 17
+    weight: 160
     label: above
     settings:
       link: true
@@ -597,14 +581,14 @@ content:
     type: entity_reference_label
     region: content
   field_prj_cll_description:
-    weight: 16
+    weight: 159
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_cll_thread:
-    weight: 18
+    weight: 161
     label: above
     settings:
       view_mode: default
@@ -756,7 +740,7 @@ content:
     type: basic_string
     region: content
   field_prj_lnt_agree:
-    weight: 51
+    weight: 199
     label: above
     settings:
       format: default
@@ -766,14 +750,14 @@ content:
     type: boolean
     region: content
   field_prj_lnt_comments:
-    weight: 4
+    weight: 147
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_lnt_f1:
-    weight: 49
+    weight: 197
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -787,7 +771,7 @@ content:
     type: basic_string
     region: content
   field_prj_lnt_historic:
-    weight: 1
+    weight: 144
     label: above
     settings:
       link: true
@@ -795,7 +779,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_lnt_images:
-    weight: 5
+    weight: 148
     label: above
     settings:
       image_style: ''
@@ -804,14 +788,14 @@ content:
     type: image
     region: content
   field_prj_lnt_publish:
-    weight: 7
+    weight: 150
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_lnt_representative:
-    weight: 8
+    weight: 151
     label: above
     settings:
       link: true
@@ -819,7 +803,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_lnt_score:
-    weight: 3
+    weight: 146
     label: above
     settings:
       link: true
@@ -827,7 +811,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_lnt_signoff:
-    weight: 2
+    weight: 145
     label: above
     settings:
       format: default
@@ -837,7 +821,7 @@ content:
     type: boolean
     region: content
   field_prj_lnt_type:
-    weight: 6
+    weight: 149
     label: above
     settings:
       link: true
@@ -845,7 +829,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_oth_agree:
-    weight: 26
+    weight: 169
     label: above
     settings:
       format: default
@@ -855,7 +839,7 @@ content:
     type: boolean
     region: content
   field_prj_oth_associated:
-    weight: 25
+    weight: 168
     label: above
     settings:
       link: true
@@ -863,7 +847,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_oth_grant:
-    weight: 27
+    weight: 170
     label: above
     settings:
       format: default
@@ -873,19 +857,11 @@ content:
     type: boolean
     region: content
   field_prj_oth_other:
-    weight: 24
+    weight: 167
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-    region: content
-  field_prj_oth_unregistered:
-    weight: 53
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
     region: content
   field_prj_saf_access:
     weight: 115
@@ -994,7 +970,7 @@ content:
     type: boolean
     region: content
   field_prj_stg_contact:
-    weight: 22
+    weight: 165
     label: above
     settings:
       link: true
@@ -1002,14 +978,14 @@ content:
     type: entity_reference_label
     region: content
   field_prj_stg_description:
-    weight: 21
+    weight: 164
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_stg_stage:
-    weight: 19
+    weight: 162
     label: above
     settings:
       format: default
@@ -1019,7 +995,7 @@ content:
     type: boolean
     region: content
   field_prj_stg_tread:
-    weight: 23
+    weight: 166
     label: above
     settings:
       view_mode: default
@@ -1028,7 +1004,7 @@ content:
     type: comment_default
     region: content
   field_prj_stg_type:
-    weight: 20
+    weight: 163
     label: above
     settings:
       link: true
@@ -1036,7 +1012,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_sup_address:
-    weight: 47
+    weight: 193
     label: above
     settings:
       link_to_entity: false
@@ -1044,7 +1020,7 @@ content:
     type: string
     region: content
   field_prj_sup_details:
-    weight: 48
+    weight: 194
     label: above
     settings:
       view_mode: default
@@ -1053,7 +1029,7 @@ content:
     type: entity_reference_revisions_entity_view
     region: content
   field_prj_sup_h1:
-    weight: 46
+    weight: 192
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -1124,7 +1100,7 @@ content:
     type: boolean
     region: content
   field_prj_wtf_categories:
-    weight: 13
+    weight: 156
     label: above
     settings:
       link: true
@@ -1132,7 +1108,7 @@ content:
     type: entity_reference_label
     region: content
   field_prj_wtf_image:
-    weight: 12
+    weight: 155
     label: above
     settings:
       image_style: ''
@@ -1141,28 +1117,28 @@ content:
     type: image
     region: content
   field_prj_wtf_long:
-    weight: 11
+    weight: 154
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_wtf_short:
-    weight: 9
+    weight: 152
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_wtf_short_copy:
-    weight: 10
+    weight: 153
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_wtf_website:
-    weight: 14
+    weight: 157
     label: above
     settings:
       trim_length: 80
@@ -1173,22 +1149,11 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  field_sup_comment:
-    weight: 145
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_sup_review:
-    weight: 144
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
 hidden:
   field_form_mode: true
+  field_prj_brn_agree: true
+  field_prj_oth_unregistered: true
   field_prj_sup_details_view: true
+  field_sup_comment: true
+  field_sup_review: true
   links: true
