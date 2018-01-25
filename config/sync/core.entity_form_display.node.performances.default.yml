@@ -714,7 +714,7 @@ content:
           dependee: field_prj_lgh_night
           settings:
             state: required
-            condition: value
+            condition: checked
             grouping: AND
             values_set: 1
             value: ''
