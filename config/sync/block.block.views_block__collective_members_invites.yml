@@ -42,7 +42,7 @@ visibility:
       node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: '/collective/*'
+    pages: "/collective/*\r\n/node/add/*"
     negate: true
     context_mapping: {  }
   user_role:
