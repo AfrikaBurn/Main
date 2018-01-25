@@ -1,9 +1,30 @@
 /* 19 Feb collectives  */
+
+#block-inviteblock input.form-text{
+  max-width: 100%;
+}
+
 .node-collective-edit-form details summary{
   padding: 30px 0;
   color: #f26c55;
   font-size: 130%;
   cursor: pointer;
+}
+
+.view-display-id-my_collectives_block .view-display-id-invites .views-row{
+  float: none !important;
+  width: 100% !important;
+}
+
+.view-display-id-my_collectives_block .view-display-id-invites .view-empty,
+.view-display-id-my_collectives_block .view-display-id-invites .view-content{
+  width: 50%; 
+  float: left;
+}
+
+.view-display-id-my_collectives_block .view-display-id-invites .view-footer{
+  width: 50%; 
+  float: right;
 }
 
 /* 12 Feb Community Grants */
@@ -39,7 +60,7 @@
 
 /* 17 Nov Collective page -   */
 
-.sidebar .view-collective-registrations .views-field-nothing{
+.sidebar .view-collective-registrations .views-field-nothing a{
   padding-left: 36px;
   list-style-type: disc;
   list-style-position: inside;
@@ -163,6 +184,8 @@ form.node-collective-form .clearfix{
 .view-display-id-my_collectives_block > .view-content{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 60px;
 }
 
 .view-display-id-my_collectives_block .attachment-before{
@@ -333,3 +356,6 @@ body.path-frontpage .main-block{
     font-size: 110%;
 }
 
+#edit-field-prj-saf-gas div:first-child {
+    display: none;
+}

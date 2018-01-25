@@ -44,7 +44,7 @@ function _get_collective($registration){
 
     if (isset($cid[0])) {
       $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid[0]);
-      $collective_title = '<div class="subtitle">by the ' . $collective->getTitle() . ' collective</div>';
+      $collective_title = ' <div class="subtitle">by the ' . $collective->getTitle() . ' collective</div>';
     }
   }
 

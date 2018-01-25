@@ -126,6 +126,7 @@ dependencies:
     - field.field.node.art.field_prj_stg_type
     - field.field.node.art.field_prj_sup_address
     - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_details_view
     - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
@@ -172,7 +173,7 @@ third_party_settings:
         - group_grant
         - group_admin
       parent_name: ''
-      weight: 2
+      weight: 27
       format_type: accordion
       format_settings:
         effect: none
@@ -192,6 +193,7 @@ third_party_settings:
         - field_prj_gen_bio
         - field_prj_gen_history
         - field_prj_gen_external
+        - field_prj_sup_details_view
       parent_name: group_overview
       weight: 20
       format_type: accordion_item
@@ -1386,6 +1388,7 @@ hidden:
   field_prj_oth_unregistered: true
   field_prj_sup_address: true
   field_prj_sup_details: true
+  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true

@@ -114,6 +114,7 @@ module:
   typed_data: 0
   update: 0
   user: 0
+  viewfield: 0
   views_data_export: 0
   views_field_view: 0
   views_slideshow: 0

@@ -126,6 +126,7 @@ dependencies:
     - field.field.node.art.field_prj_stg_type
     - field.field.node.art.field_prj_sup_address
     - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_details_view
     - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
@@ -139,30 +140,27 @@ dependencies:
     - field.field.node.art.field_sup_comment
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
-    - image.style.medium
     - node.type.art
   module:
-    - ds
     - empty_fields
-    - entity_reference_revisions
     - field_group
-    - image
-    - markup
     - panelizer
     - user
+    - viewfield
 third_party_settings:
   field_group:
     group_overview:
       children:
         - group_wrangler_1
       parent_name: ''
-      weight: 0
+      weight: 30
       format_type: accordion
       format_settings:
         effect: none
         classes: ''
         id: ''
       label: Overview
+      region: hidden
     group_wrangler_1:
       children:
         - group_wrangler_2
@@ -177,23 +175,21 @@ third_party_settings:
         id: ''
         classes: ''
       label: Overview
+      region: hidden
     group_wrangler_2:
       children:
-        - field_prj_gen_contact
-        - field_prj_gen_concept
-        - field_prj_gen_description
         - field_collective
+        - field_prj_gen_bio
+        - field_prj_gen_doc
+        - field_prj_gen_external
+        - field_prj_gen_fundraiser
         - field_prj_gen_fundraising
         - field_prj_gen_history
-        - field_prj_gen_manager
+        - field_prj_gen_immortal
         - field_prj_gen_lead
         - field_prj_gen_location
-        - field_prj_gen_fundraiser
-        - field_prj_gen_bio
+        - field_prj_gen_manager
         - field_prj_gen_story
-        - field_prj_gen_external
-        - field_prj_gen_doc
-        - field_prj_gen_immortal
       parent_name: group_wrangler_1
       weight: 3
       format_type: accordion_item
@@ -203,22 +199,23 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'The Project'
+      region: hidden
     group_wrangler_4:
       children:
-        - group_placement
-        - field_prj_stc_size
-        - field_prj_stc_height
-        - field_prj_stc_footprint
-        - field_prj_stc_weight
-        - field_prj_stc_attributes
-        - field_prj_stc_materials
-        - field_prj_stc_safety
-        - field_prj_stc_structural
         - field_muncipal_district
+        - field_prj_prp_duration
+        - field_prj_prp_erection
         - field_prj_prp_start
         - field_prj_prp_transport
-        - field_prj_prp_erection
-        - field_prj_prp_duration
+        - field_prj_stc_attributes
+        - field_prj_stc_footprint
+        - field_prj_stc_height
+        - field_prj_stc_materials
+        - field_prj_stc_safety
+        - field_prj_stc_size
+        - field_prj_stc_structural
+        - field_prj_stc_weight
+        - group_placement
       parent_name: group_wrangler_5
       weight: 26
       format_type: accordion_item
@@ -228,12 +225,13 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'The Structure'
+      region: hidden
     group_wrangler_5:
       children:
-        - group_wrangler_4
         - field_prj_saf_comment
+        - group_wrangler_4
       parent_name: ''
-      weight: 8
+      weight: 31
       format_type: accordion_item
       format_settings:
         label: Safety
@@ -241,13 +239,14 @@ third_party_settings:
         id: ''
         classes: ''
       label: Safety
+      region: hidden
     group_placement:
       children:
-        - group_lighting
-        - field_prj_plc_f1
-        - field_prj_plc_location_extra
         - field_prj_adm_longitude
         - field_prj_adm_latitude
+        - field_prj_plc_f1
+        - field_prj_plc_location_extra
+        - group_lighting
       parent_name: group_wrangler_4
       weight: 37
       format_type: accordion_item
@@ -257,17 +256,18 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Placement
+      region: hidden
     group_lighting:
       children:
-        - group_burn
+        - field_prj_lgh_agree
+        - field_prj_lgh_description
         - field_prj_lgh_f1
         - field_prj_lgh_f2
-        - field_prj_lgh_description
-        - field_prj_lgh_power
-        - field_prj_lgh_projection
         - field_prj_lgh_lighter
         - field_prj_lgh_policy
-        - field_prj_lgh_agree
+        - field_prj_lgh_power
+        - field_prj_lgh_projection
+        - group_burn
       parent_name: group_placement
       weight: 106
       format_type: accordion_item
@@ -277,16 +277,17 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Lighting
+      region: hidden
     group_sound:
       children:
-        - group_moop
-        - field_prj_snd_f1
-        - field_prj_snd_sound
-        - field_prj_snd_level
-        - field_prj_snd_description
         - field_prj_snd_agree
-        - field_prj_snd_person
         - field_prj_snd_comment
+        - field_prj_snd_description
+        - field_prj_snd_f1
+        - field_prj_snd_level
+        - field_prj_snd_person
+        - field_prj_snd_sound
+        - group_moop
       parent_name: group_burn
       weight: 53
       format_type: accordion_item
@@ -296,20 +297,21 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Sound
+      region: hidden
     group_burn:
       children:
-        - group_sound
-        - field_prj_brn_f2
-        - field_prj_brn_f1
-        - field_prj_brn_burning
-        - field_prj_brn_motivation
-        - field_prj_brn_plan
-        - field_prj_brn_person
-        - field_prj_brn_perimeter
-        - field_prj_brn_time
-        - field_prj_brn_desc
         - field_prj_brn_agree
+        - field_prj_brn_burning
+        - field_prj_brn_desc
+        - field_prj_brn_f1
+        - field_prj_brn_f2
+        - field_prj_brn_motivation
+        - field_prj_brn_perimeter
+        - field_prj_brn_person
+        - field_prj_brn_plan
+        - field_prj_brn_time
         - field_prj_brn_time_adm
+        - group_sound
       parent_name: group_lighting
       weight: 9
       format_type: accordion_item
@@ -319,20 +321,21 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Burn
+      region: hidden
     group_moop:
       children:
-        - group_wtf_guide_and_community
+        - field_prj_lnt_comments
+        - field_prj_lnt_duration
         - field_prj_lnt_handled
         - field_prj_lnt_helpers
-        - field_prj_lnt_duration
         - field_prj_lnt_historic
-        - field_prj_lnt_signoff
-        - field_prj_lnt_score
-        - field_prj_lnt_type
-        - field_prj_lnt_representative
         - field_prj_lnt_images
-        - field_prj_lnt_comments
         - field_prj_lnt_publish
+        - field_prj_lnt_representative
+        - field_prj_lnt_score
+        - field_prj_lnt_signoff
+        - field_prj_lnt_type
+        - group_wtf_guide_and_community
       parent_name: group_sound
       weight: 119
       format_type: accordion_item
@@ -342,24 +345,25 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Leave No Trace'
+      region: hidden
     group_wtf_guide_and_community:
       children:
-        - group_grant
+        - field_prj_cll_collaborate
+        - field_prj_cll_contact
+        - field_prj_cll_description
+        - field_prj_cll_thread
+        - field_prj_stg_contact
+        - field_prj_stg_description
+        - field_prj_stg_stage
+        - field_prj_stg_tread
+        - field_prj_stg_type
+        - field_prj_wtf_image
+        - field_prj_wtf_long
+        - field_prj_wtf_planned
         - field_prj_wtf_short
         - field_prj_wtf_short_copy
-        - field_prj_wtf_long
-        - field_prj_wtf_image
-        - field_prj_wtf_planned
         - field_prj_wtf_website
-        - field_prj_cll_collaborate
-        - field_prj_cll_description
-        - field_prj_cll_contact
-        - field_prj_cll_thread
-        - field_prj_stg_stage
-        - field_prj_stg_type
-        - field_prj_stg_description
-        - field_prj_stg_contact
-        - field_prj_stg_tread
+        - group_grant
       parent_name: group_moop
       weight: 85
       format_type: accordion_item
@@ -369,18 +373,14 @@ third_party_settings:
         formatter: closed
         description: ''
       label: 'WTF Guide and Community'
+      region: hidden
     group_other:
       children:
-        - field_prj_sup_h1
-        - field_prj_sup_address
-        - field_prj_sup_details
-        - field_sup_review
-        - field_sup_comment
-        - field_prj_oth_other
-        - field_prj_oth_associated
-        - field_prj_oth_relationship
-        - field_prj_oth_grant
         - field_grt_art_apply
+        - field_prj_oth_associated
+        - field_prj_oth_grant
+        - field_prj_oth_other
+        - field_prj_oth_relationship
       parent_name: group_wrangler_1
       weight: 4
       format_type: accordion_item
@@ -390,11 +390,9 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Other
+      region: hidden
     group_admin:
-      children:
-        - field_prj_adm_wrangler
-        - field_prj_adm_review
-        - field_prj_adm_notes
+      children: {  }
       parent_name: group_wrangler_1
       weight: 5
       format_type: accordion_item
@@ -404,27 +402,29 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Admin
+      region: hidden
     group_grant:
       children:
-        - field_grt_f1
-        - field_grt_breakdown
-        - field_grt_contribution
-        - field_this_is_the_amount_of_mone
-        - field_grt_art_total
-        - field_grt_short
-        - field_grt_short_desc
-        - field_grt_more
-        - field_grt_other
-        - field_grt_other_description
-        - field_prj_adm_form_grant
         - field_grt_art_comment
-        - field_grt_tec_comment
         - field_prj_adm_form_2
-        - field_prj_adm_form_3
-        - field_prj_adm_ranger_comment
-        - field_prj_adm_form_wtf
         - field_prj_wtf_scheduled
         - field_prj_total_cost
+        - field_prj_gen_concept
+        - field_prj_adm_ranger_comment
+        - field_prj_adm_form_wtf
+        - field_prj_adm_form_grant
+        - field_prj_adm_form_3
+        - field_grt_tec_comment
+        - field_grt_art_total
+        - field_grt_short_desc
+        - field_grt_short
+        - field_grt_other_description
+        - field_grt_other
+        - field_grt_more
+        - field_grt_f1
+        - field_grt_contribution
+        - field_grt_breakdown
+        - field_this_is_the_amount_of_mone
       parent_name: group_wtf_guide_and_community
       weight: 88
       format_type: accordion_item
@@ -434,6 +434,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Grant
+      region: hidden
   panelizer:
     enable: false
     custom: false
@@ -446,83 +447,26 @@ targetEntityType: node
 bundle: art
 mode: wrangler_supplier
 content:
-  field_prj_adm_notes:
-    type: basic_string
-    weight: 191
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_adm_review:
-    type: entity_reference_label
-    weight: 190
-    region: content
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-  field_prj_adm_wrangler:
-    weight: 189
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_prj_gen_concept:
-    weight: 5
-    label: above
-    settings:
-      image_style: medium
-      image_link: file
-    third_party_settings:
-      empty_fields:
-        handler: ''
-      ds:
-        ds_limit: ''
-    type: image
-    region: content
-  field_prj_gen_contact:
-    type: entity_reference_label
-    weight: 4
-    region: content
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-  field_prj_gen_description:
-    weight: 6
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
   field_prj_sup_address:
-    weight: 3
+    weight: 0
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_prj_sup_details:
-    weight: 4
-    label: above
+  field_prj_sup_details_view:
+    type: viewfield_default
+    weight: 3
+    region: content
+    label: hidden
     settings:
-      view_mode: default
-      link: ''
+      view_title: hidden
+      always_build_output: 0
+      empty_view_title: hidden
     third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: content
-  field_prj_sup_h1:
-    weight: 2
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
   field_sup_comment:
-    weight: 6
+    weight: 2
     label: above
     settings: {  }
     third_party_settings:
@@ -531,7 +475,7 @@ content:
     type: basic_string
     region: content
   field_sup_review:
-    weight: 5
+    weight: 1
     label: above
     settings:
       link: true
@@ -577,7 +521,10 @@ hidden:
   field_prj_adm_form_wtf: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
+  field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
+  field_prj_adm_review: true
+  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_desc: true
@@ -594,6 +541,9 @@ hidden:
   field_prj_cll_description: true
   field_prj_cll_thread: true
   field_prj_gen_bio: true
+  field_prj_gen_concept: true
+  field_prj_gen_contact: true
+  field_prj_gen_description: true
   field_prj_gen_doc: true
   field_prj_gen_external: true
   field_prj_gen_fundraiser: true
@@ -655,6 +605,8 @@ hidden:
   field_prj_stg_stage: true
   field_prj_stg_tread: true
   field_prj_stg_type: true
+  field_prj_sup_details: true
+  field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true
   field_prj_wtf_image: true
