@@ -60,6 +60,7 @@ dependencies:
     - field.storage.node.field_prj_gen_history
     - field.storage.node.field_prj_gen_immortal
     - field.storage.node.field_prj_gen_location
+    - field.storage.node.field_prj_gen_mutating
     - field.storage.node.field_prj_gen_profit
     - field.storage.node.field_prj_gen_story
     - field.storage.node.field_prj_gen_year
@@ -11167,7 +11168,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          default_action: default
+          default_action: empty
           exception:
             value: all
             title_enable: false
@@ -15338,6 +15339,68 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_prj_gen_mutating:
+          id: field_prj_gen_mutating
+          table: node__field_prj_gen_mutating
+          field: field_prj_gen_mutating
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -15584,6 +15647,7 @@ display:
         - 'config:field.storage.node.field_prj_gen_description'
         - 'config:field.storage.node.field_prj_gen_doc'
         - 'config:field.storage.node.field_prj_gen_immortal'
+        - 'config:field.storage.node.field_prj_gen_mutating'
         - 'config:field.storage.node.field_prj_gen_story'
         - 'config:field.storage.node.field_prj_oth_other'
         - 'config:field.storage.node.field_prj_snd_sound'
@@ -26994,6 +27058,68 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_prj_gen_mutating:
+          id: field_prj_gen_mutating
+          table: node__field_prj_gen_mutating
+          field: field_prj_gen_mutating
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
     cache_metadata:
       max-age: -1
       contexts:
@@ -27061,6 +27187,7 @@ display:
         - 'config:field.storage.node.field_prj_gen_history'
         - 'config:field.storage.node.field_prj_gen_immortal'
         - 'config:field.storage.node.field_prj_gen_location'
+        - 'config:field.storage.node.field_prj_gen_mutating'
         - 'config:field.storage.node.field_prj_gen_profit'
         - 'config:field.storage.node.field_prj_gen_story'
         - 'config:field.storage.node.field_prj_gen_year'
@@ -28495,6 +28622,7 @@ display:
         - 'config:core.entity_view_display.node.mutant_vehicles.notification'
         - 'config:core.entity_view_display.node.mutant_vehicles.teaser'
         - 'config:core.entity_view_display.node.mutant_vehicles.wrangler_overview'
+        - 'config:core.entity_view_display.node.mutant_vehicles.wrangler_supplier'
         - 'config:core.entity_view_display.node.page.default'
         - 'config:core.entity_view_display.node.page.teaser'
         - 'config:core.entity_view_display.node.performances.default'
@@ -28502,6 +28630,7 @@ display:
         - 'config:core.entity_view_display.node.performances.print'
         - 'config:core.entity_view_display.node.performances.teaser'
         - 'config:core.entity_view_display.node.performances.wrangler_overview'
+        - 'config:core.entity_view_display.node.performances.wrangler_supplier'
         - 'config:core.entity_view_display.node.subsidised_ticket.default'
         - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
         - 'config:core.entity_view_display.node.theme_camps.default'
@@ -30087,6 +30216,7 @@ display:
         - 'config:core.entity_view_display.node.mutant_vehicles.notification'
         - 'config:core.entity_view_display.node.mutant_vehicles.teaser'
         - 'config:core.entity_view_display.node.mutant_vehicles.wrangler_overview'
+        - 'config:core.entity_view_display.node.mutant_vehicles.wrangler_supplier'
         - 'config:core.entity_view_display.node.page.default'
         - 'config:core.entity_view_display.node.page.teaser'
         - 'config:core.entity_view_display.node.performances.default'
@@ -30094,6 +30224,7 @@ display:
         - 'config:core.entity_view_display.node.performances.print'
         - 'config:core.entity_view_display.node.performances.teaser'
         - 'config:core.entity_view_display.node.performances.wrangler_overview'
+        - 'config:core.entity_view_display.node.performances.wrangler_supplier'
         - 'config:core.entity_view_display.node.subsidised_ticket.default'
         - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
         - 'config:core.entity_view_display.node.theme_camps.default'
@@ -31295,6 +31426,7 @@ display:
         - 'config:core.entity_view_display.node.mutant_vehicles.notification'
         - 'config:core.entity_view_display.node.mutant_vehicles.teaser'
         - 'config:core.entity_view_display.node.mutant_vehicles.wrangler_overview'
+        - 'config:core.entity_view_display.node.mutant_vehicles.wrangler_supplier'
         - 'config:core.entity_view_display.node.page.default'
         - 'config:core.entity_view_display.node.page.teaser'
         - 'config:core.entity_view_display.node.performances.default'
@@ -31302,6 +31434,7 @@ display:
         - 'config:core.entity_view_display.node.performances.print'
         - 'config:core.entity_view_display.node.performances.teaser'
         - 'config:core.entity_view_display.node.performances.wrangler_overview'
+        - 'config:core.entity_view_display.node.performances.wrangler_supplier'
         - 'config:core.entity_view_display.node.subsidised_ticket.default'
         - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
         - 'config:core.entity_view_display.node.theme_camps.default'
