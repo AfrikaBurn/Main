@@ -684,6 +684,53 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_prj_lgh_agree:
+    third_party_settings:
+      conditional_fields: {  }
+    weight: 70
+    settings:
+      display_label: true
+    type: boolean_checkbox
+    region: content
+  field_prj_lgh_description:
+    third_party_settings:
+      conditional_fields:
+        87f30335-11bd-410b-ac20-17985d35ce98:
+          dependee: field_prj_lgh_night
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+        2416c1bd-32b2-46da-bf02-499f7eddce33:
+          dependee: field_prj_lgh_night
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: null
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+    weight: 69
+    settings:
+      rows: 5
+      placeholder: ''
+    type: string_textarea
+    region: content
   field_prj_lgh_f1:
     type: markup
     weight: 0
@@ -695,6 +742,46 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: markup
+    region: content
+  field_prj_lgh_lighter:
+    third_party_settings:
+      conditional_fields:
+        737f476c-3eb3-4efa-a74d-e2ef023085ca:
+          dependee: field_prj_lgh_night
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+        29fb8601-6178-4a9c-a2dc-0684ccbade8e:
+          dependee: field_prj_lgh_night
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+    weight: 71
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    type: entity_reference_autocomplete
     region: content
   field_prj_lnt_duration:
     type: number
@@ -861,6 +948,83 @@ content:
           bundle: performances
     type: string_textarea
     region: content
+  field_prj_snd_agree:
+    third_party_settings:
+      conditional_fields:
+        b3bccfb7-1099-4520-b9e4-a0c908c1a1e5:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+        96a4fc7d-e056-44cf-aafd-bc1178b49614:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+    weight: 72
+    settings:
+      display_label: true
+    type: boolean_checkbox
+    region: content
+  field_prj_snd_description:
+    third_party_settings:
+      conditional_fields:
+        4a645640-103f-4a14-adfb-9ad403bb310c:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+        223fd845-e04c-47b8-a6c6-1b1434456ca3:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+    weight: 73
+    settings:
+      rows: 5
+      placeholder: ''
+    type: string_textarea
+    region: content
   field_prj_snd_level:
     weight: 44
     settings: {  }
@@ -898,6 +1062,46 @@ content:
           entity_type: node
           bundle: performances
     type: options_select
+    region: content
+  field_prj_snd_person:
+    third_party_settings:
+      conditional_fields:
+        c7bac145-daf5-44de-a59a-c6bc53078ea7:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+        57a289ba-249d-4be2-98b9-b3d85dd1914a:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: performances
+    weight: 74
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    type: entity_reference_autocomplete
     region: content
   field_prj_snd_sound:
     weight: 43
@@ -1191,9 +1395,6 @@ hidden:
   field_prj_brn_person: true
   field_prj_brn_plan: true
   field_prj_gen_year: true
-  field_prj_lgh_agree: true
-  field_prj_lgh_description: true
-  field_prj_lgh_lighter: true
   field_prj_lgh_night: true
   field_prj_lgh_policy: true
   field_prj_lnt_comments: true
@@ -1204,10 +1405,7 @@ hidden:
   field_prj_lnt_type: true
   field_prj_oth_unregistered: true
   field_prj_saf_comment: true
-  field_prj_snd_agree: true
   field_prj_snd_comment: true
-  field_prj_snd_description: true
-  field_prj_snd_person: true
   field_prj_sup_address: true
   field_prj_sup_details: true
   field_prj_sup_details_view: true
