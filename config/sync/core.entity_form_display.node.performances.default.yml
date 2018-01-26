@@ -704,7 +704,8 @@ content:
             values_set: 1
             value: ''
             values: {  }
-            value_form: {  }
+            value_form:
+              value: 1
             effect: show
             effect_options: {  }
             selector: ''
@@ -718,7 +719,8 @@ content:
             grouping: AND
             values_set: 1
             value: ''
-            values: {  }
+            values:
+              value: '1'
             value_form: null
             effect: show
             effect_options: {  }
