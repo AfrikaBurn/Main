@@ -112,8 +112,9 @@ function _set_registration_form_defaults(&$form, $form_state, $form_id, $user, $
   ])[$form_id] || 'Theme';
 
   dpm($form);
-  $form['field_tc_type']['#access'] = $user->hasRole('administrator');
-  $form['field_tc_type']['widget'][0]['value'] = $type;
+  dpm($type);
+  // $form['field_tc_type']['#access'] = $user->hasRole('administrator');
+  // $form['field_tc_type']['widget'][0]['value'] = $type;
 
 }
 
