@@ -112,28 +112,7 @@ dependencies:
     - node.type.mutant_vehicles
   module:
     - content_moderation
-    - field_group
     - paragraphs
-third_party_settings:
-  field_group:
-    group_grants:
-      children:
-        - field_grt_art_comment
-        - field_grt_awarded
-        - field_grt_status
-        - field_prj_wtf_short_copy
-      parent_name: ''
-      weight: 110
-      format_type: tab
-      format_settings:
-        label: Grants
-        formatter: open
-        description: ''
-        required_fields: true
-        id: ''
-        classes: ''
-      label: Grants
-      region: hidden
 _core:
   default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
 id: node.mutant_vehicles.grant
@@ -149,21 +128,21 @@ content:
     third_party_settings: {  }
   field_grt_art_total:
     type: number
-    weight: 6
+    weight: 5
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_contribution:
     type: number
-    weight: 1
+    weight: 0
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_dmv_budget:
     type: entity_reference_paragraphs
-    weight: 0
+    weight: -1
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -175,7 +154,7 @@ content:
     region: content
   field_grt_materials:
     type: number
-    weight: 3
+    weight: 2
     region: content
     settings:
       placeholder: ''
@@ -197,21 +176,21 @@ content:
     third_party_settings: {  }
   field_grt_services:
     type: number
-    weight: 2
+    weight: 1
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_total:
     type: number
-    weight: 5
+    weight: 4
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_transport:
     type: number
-    weight: 4
+    weight: 3
     region: content
     settings:
       placeholder: ''
