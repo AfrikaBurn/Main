@@ -130,6 +130,7 @@ dependencies:
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_comment
     - field.field.node.theme_camps.field_sup_review
+    - field.field.node.theme_camps.field_tc_type
     - image.style.thumbnail
     - node.type.theme_camps
   module:
@@ -645,6 +646,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: computed_number_widget
+    region: content
+  field_tc_type:
+    weight: 36
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   moderation_state:
     type: moderation_state_default

@@ -33,12 +33,12 @@ class ProjectBlock extends BlockBase {
           <h2>Register</h2>
           <ul>
             <li><a href="/node/add/art?field_collective=' . $cid . '" class="button">An artwork</a></li>
-            <li><a href="/node/add/performances?field_collective=' . $cid . '" class="button">A Performance</a></li>
-            <li><a href="/node/add/theme_camps?field_collective=' . $cid . '" class="button">A Theme camp</a></li>' . '
             <li><a href="/node/add/mutant_vehicles?field_collective=' . $cid . '" class="button">A Mutant Vehicle</a></li>' . '
+            <li><a href="/node/add/performances?field_collective=' . $cid . '" class="button">A Performance</a></li>
             <li><a href="/node/add/theme_camps/support_camps?field_collective=' . $cid . '" class="button">A support camp</a></li>' . '
+            <li><a href="/node/add/theme_camps?field_collective=' . $cid . '" class="button">A Theme camp</a></li>' . '
           </ul>
-          <h2>You may also</h2>
+          <h2>Get project support</h2>
           <ul>
             <li><a href="/grant-application/select-project" class="button">Apply for a grant</a></li>
           </ul>
