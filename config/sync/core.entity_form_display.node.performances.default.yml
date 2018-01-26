@@ -704,21 +704,23 @@ content:
             values_set: 1
             value: ''
             values: {  }
-            value_form: {  }
+            value_form:
+              value: 1
             effect: show
             effect_options: {  }
             selector: ''
           entity_type: node
           bundle: performances
-        2416c1bd-32b2-46da-bf02-499f7eddce33:
+        5fa2ce78-2fad-48e5-9725-6186d81a8852:
           dependee: field_prj_lgh_night
           settings:
             state: required
-            condition: checked
+            condition: value
             grouping: AND
             values_set: 1
             value: ''
-            values: {  }
+            values:
+              value: '1'
             value_form: null
             effect: show
             effect_options: {  }
