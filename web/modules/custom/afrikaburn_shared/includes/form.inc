@@ -111,9 +111,9 @@ function _set_registration_form_defaults(&$form, $form_state, $form_id, $user, $
     'node_theme_camps_support_camps_form' => 'Support',
   ];
   $type = isset($type[$form_id]) ? $type[$form_id] : 'Theme';
-
+dpm($type);dpm($form['field_tc_type']); 
   $form['field_tc_type']['#access'] = $user->hasRole('administrator');
-  $form['field_tc_type']['widget'][0]['#default_value'] = $type;
+  $form['field_tc_type']['widget']['#default_value'] = $type;
 
 }
 

@@ -131,6 +131,7 @@ dependencies:
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_comment
     - field.field.node.theme_camps.field_sup_review
+    - field.field.node.theme_camps.field_tc_type
     - node.type.theme_camps
   module:
     - comment
@@ -139,6 +140,7 @@ dependencies:
     - image
     - link
     - markup
+    - options
     - panelizer
     - user
 third_party_settings:
@@ -1170,6 +1172,13 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: computed_decimal
+    region: content
+  field_tc_type:
+    weight: 121
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   links:
     weight: 0

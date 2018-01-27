@@ -17,7 +17,7 @@ id: node.performances.field_prj_oth_relationship
 field_name: field_prj_oth_relationship
 entity_type: node
 bundle: performances
-label: 'What''s the name of the project that this performance is associated with and how is it related?'
+label: 'Is there any other project associated with this artwork, what is the name and and how is it related?'
 description: "Don’t forget to tell us what type of project it is (theme camp, performance, mutant vehicle, another artwork). Have you registered it or are you planning to register it? </br>\r\nHow do they relate and/or depend on each other? Sharing resources? Do they need to be placed nearby?"
 required: false
 translatable: true
