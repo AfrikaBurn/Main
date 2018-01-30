@@ -1,24 +1,27 @@
-uuid: 9577f483-3ac3-436e-8af8-3933ee0619ef
+uuid: 7984a69d-6154-4c0e-bb0e-1775cb8d23f6
 langcode: en
 status: true
 dependencies:
+  config:
+    - system.menu.wranglers
   module:
-    - afrikaburn_shared
     - system
     - user
   theme:
     - afrikaburn
-id: ticketblock
+id: wranglers
 theme: afrikaburn
 region: status_messages
-weight: -20
+weight: 0
 provider: null
-plugin: ticket_block
+plugin: 'system_menu_block:wranglers'
 settings:
-  id: ticket_block
-  label: 'Ticket Block'
-  provider: afrikaburn_shared
-  label_display: '0'
+  id: 'system_menu_block:wranglers'
+  label: Wranglers
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
 visibility:
   user_role:
     id: user_role
@@ -27,8 +30,3 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
-  request_path:
-    id: request_path
-    pages: '/wranglers/*'
-    negate: true
-    context_mapping: {  }
