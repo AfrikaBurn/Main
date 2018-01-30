@@ -1,0 +1,26 @@
+uuid: 105cd3d8-a8cc-4755-9405-90d8ea6aacd3
+langcode: en
+status: true
+dependencies:
+  module:
+    - afrikaburn_shared
+    - php
+  theme:
+    - afrikaburn
+id: projectblock
+theme: afrikaburn
+region: sidebar
+weight: -21
+provider: null
+plugin: project_block
+settings:
+  id: project_block
+  label: 'Project Block'
+  provider: afrikaburn_shared
+  label_display: '0'
+visibility:
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
+    context_mapping: {  }

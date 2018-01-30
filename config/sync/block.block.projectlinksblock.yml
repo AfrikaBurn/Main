@@ -1,0 +1,42 @@
+uuid: 8605746f-e1b5-4614-9a91-f28eb00044af
+langcode: en
+status: true
+dependencies:
+  module:
+    - afrikaburn_shared
+    - ctools
+    - node
+    - system
+  theme:
+    - afrikaburn
+id: projectlinksblock
+theme: afrikaburn
+region: sidebar
+weight: -22
+provider: null
+plugin: project_links_block
+settings:
+  id: project_links_block
+  label: Projects
+  provider: afrikaburn_shared
+  label_display: '0'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "/node/*/edit\r\n/node/add/*"
+    negate: true
+    context_mapping: {  }

@@ -1,0 +1,34 @@
+uuid: 9ba9b693-91a2-449a-8fda-9fcdce210cc4
+langcode: en
+status: true
+dependencies:
+  module:
+    - afrikaburn_shared
+    - ctools
+    - system
+  theme:
+    - afrikaburn
+id: registrationalertblock
+theme: afrikaburn
+region: content
+weight: -21
+provider: null
+plugin: registration_alert_block
+settings:
+  id: registration_alert_block
+  label: 'Registration Alert Block'
+  provider: afrikaburn_shared
+  label_display: '0'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: /node/add/collective
+    negate: true
+    context_mapping: {  }

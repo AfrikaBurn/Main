@@ -164,6 +164,7 @@ permissions:
   - 'view own field_consent_form'
   - 'view own field_date_of_birth'
   - 'view own field_department'
+  - 'view own field_email'
   - 'view own field_eml_adm_desc'
   - 'view own field_emr_email'
   - 'view own field_emr_name'
