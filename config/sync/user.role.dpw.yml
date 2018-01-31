@@ -9,8 +9,11 @@ is_admin: null
 permissions:
   - 'access contextual links'
   - 'access in-place editing'
+  - 'create field_sup_review'
   - 'edit field_agreements'
   - 'edit field_date_of_birth'
+  - 'edit field_sup_review'
+  - 'edit own field_sup_review'
   - 'view field_agreements'
   - 'view field_date_of_birth'
   - 'view field_email'
@@ -24,3 +27,5 @@ permissions:
   - 'view field_location'
   - 'view field_mobile'
   - 'view field_secondary_mail'
+  - 'view field_sup_review'
+  - 'view own field_sup_review'
