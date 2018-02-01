@@ -15,7 +15,7 @@ id: node.subsidised_ticket.field_sub_motivation
 field_name: field_sub_motivation
 entity_type: node
 bundle: subsidised_ticket
-label: 'Motivation: In the Box below, please motivate why you need a Subsidised ticket.'
+label: 'Motivation: In the box below, please motivate why you need a Subsidised ticket.'
 description: ''
 required: true
 translatable: false
