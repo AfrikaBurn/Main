@@ -119,6 +119,7 @@ dependencies:
     - field.field.node.theme_camps.field_prj_stg_type
     - field.field.node.theme_camps.field_prj_sup_address
     - field.field.node.theme_camps.field_prj_sup_details
+    - field.field.node.theme_camps.field_prj_sup_details_view
     - field.field.node.theme_camps.field_prj_sup_h1
     - field.field.node.theme_camps.field_prj_wtf_categories
     - field.field.node.theme_camps.field_prj_wtf_image
@@ -128,6 +129,8 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_short_copy
     - field.field.node.theme_camps.field_prj_wtf_website
     - field.field.node.theme_camps.field_stretch_tent_dimen
+    - field.field.node.theme_camps.field_sup_comment
+    - field.field.node.theme_camps.field_sup_review
     - image.style.thumbnail
     - node.type.theme_camps
   module:
@@ -341,6 +344,14 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_prj_gen_concept:
     type: image_image
@@ -1001,7 +1012,6 @@ content:
 hidden:
   field_field_prj_adm_form_3: true
   field_field_prj_plc_stretch_m: true
-  field_form_mode: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
   field_prj_adm_form_3: true
@@ -1055,9 +1065,12 @@ hidden:
   field_prj_stg_type: true
   field_prj_sup_address: true
   field_prj_sup_details: true
+  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_wtf_categories: true
   field_prj_wtf_long: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_sup_comment: true
+  field_sup_review: true

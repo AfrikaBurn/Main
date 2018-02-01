@@ -97,16 +97,8 @@ access:
     permissions: {  }
   view_any:
     roles:
-      - art_admin
-      - communications_admin
-      - leave_no_trace_moop
-      - mutant_vehicle_admin
-      - outreach_admin
       - administrator
-      - support_wrangler
       - support_admin
-      - theme
-      - supplier
       - dpw
     users: {  }
     permissions: {  }

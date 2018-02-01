@@ -130,7 +130,6 @@ dependencies:
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_comment
     - field.field.node.theme_camps.field_sup_review
-    - field.field.node.theme_camps.field_tc_type
     - image.style.thumbnail
     - node.type.theme_camps
   module:
@@ -302,6 +301,14 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_prj_adm_notes:
+    type: string_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_adm_wrangler:
     type: options_select
     weight: 8
@@ -647,12 +654,6 @@ content:
     third_party_settings: {  }
     type: computed_number_widget
     region: content
-  field_tc_type:
-    weight: 36
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
   moderation_state:
     type: moderation_state_default
     weight: 10
@@ -718,7 +719,6 @@ hidden:
   field_prj_adm_form_wtf: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
-  field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
   field_prj_gen_header2: true
