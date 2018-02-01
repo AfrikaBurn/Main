@@ -8,6 +8,7 @@ dependencies:
     - field.storage.user.field_email
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
+    - node.type.collective
   module:
     - computed_field
     - node
@@ -744,9 +745,10 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
+          value:
+            collective: collective
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: type_op
             label: 'Content type'
@@ -760,7 +762,23 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              art_wrangler: '0'
+              art_admin: '0'
+              communications_wrangler: '0'
+              communications_admin: '0'
+              leave_no_trace_moop: '0'
+              mutant_vehicle_viewer: '0'
+              mutant_vehicle_wrangler: '0'
+              mutant_vehicle_admin: '0'
+              outreach_wrangler: '0'
+              outreach_admin: '0'
               administrator: '0'
+              support_wrangler: '0'
+              support_admin: '0'
+              theme_camp_wrangler: '0'
+              theme: '0'
+              supplier: '0'
+              dpw: '0'
             reduce: false
           is_grouped: false
           group_info:
