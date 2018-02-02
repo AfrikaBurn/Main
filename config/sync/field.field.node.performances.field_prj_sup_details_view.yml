@@ -1,4 +1,4 @@
-uuid: acb841d4-714b-4fe4-ade4-482c2978a446
+uuid: 56f430b7-a607-4940-bbf0-9c9b0635f313
 langcode: en
 status: true
 dependencies:
@@ -31,7 +31,7 @@ default_value_callback: ''
 settings:
   force_default: 1
   allowed_views:
-    wrangler_supplier: wrangler_supplier
+    suppliers_paragraph_pretty: suppliers_paragraph_pretty
     collective_members: 0
     collective_registrations: 0
     collectives: 0
@@ -55,7 +55,6 @@ settings:
     redirect: 0
     subsidised_ticket_wrangler: 0
     suppliers: 0
-    suppliers_paragraph_pretty: 0
     support: 0
     taxonomy_term: 0
     temp: 0
@@ -67,14 +66,15 @@ settings:
     who_s_online: 0
     wrangler_members: 0
     wrangler_registrations: 0
+    wrangler_supplier: 0
   allowed_display_types:
     block: block
-    default: default
     attachment: 0
     data_export: 0
     embed: 0
     entity_reference: 0
     feed: 0
+    default: 0
     page: 0
     rest_export: 0
   handler: 'default:view'

@@ -129,7 +129,6 @@ third_party_settings:
   field_group:
     group_project_registration:
       children:
-        - links
         - group_overview
         - group_the_project
         - group_the_s
@@ -141,6 +140,7 @@ third_party_settings:
         - group_other
         - group_grant
         - group_admin
+        - links
       parent_name: ''
       weight: 20
       format_type: tabs
@@ -150,7 +150,7 @@ third_party_settings:
         direction: horizontal
         effect: none
       label: 'Project Registration'
-      region: hidden
+      region: content
     group_overview:
       children:
         - field_prj_gen_year
@@ -174,7 +174,7 @@ third_party_settings:
         formatter: open
         description: ''
       label: Overview
-      region: hidden
+      region: content
     group_the_project:
       children:
         - field_prj_gen_description
@@ -190,7 +190,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: 'The Project'
-      region: hidden
+      region: content
     group_the_s:
       children:
         - field_prj_stc_physical
@@ -204,7 +204,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: 'The Structure'
-      region: hidden
+      region: content
     group_dimensions:
       children:
         - field_prj_stc_height
@@ -224,14 +224,14 @@ third_party_settings:
         classes: ''
         description: ''
       label: Dimensions
-      region: hidden
+      region: content
     group_sound:
       children:
         - field_prj_snd_sound
         - field_prj_snd_level
         - field_prj_snd_agree
-        - field_prj_snd_description
         - field_prj_snd_person
+        - field_prj_snd_description
       parent_name: group_project_registration
       weight: 5
       format_type: tab
@@ -241,7 +241,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Sound
-      region: hidden
+      region: content
     group_burn:
       children:
         - field_prj_brn_burning
@@ -259,7 +259,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Burn
-      region: hidden
+      region: content
     group_wtf_guide_and_activities:
       children:
         - field_prj_wtf_image
@@ -283,7 +283,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: 'WTF Guide and Activities'
-      region: hidden
+      region: content
     group_admin:
       children:
         - field_prj_adm_wrangler
@@ -303,7 +303,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Admin
-      region: hidden
+      region: content
     group_moop:
       children:
         - field_prj_lnt_handled
@@ -321,7 +321,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: 'Leave No Trace'
-      region: hidden
+      region: content
     group_off:
       children:
         - field_muncipal_district
@@ -335,7 +335,7 @@ third_party_settings:
         classes: ''
         description: ''
       label: 'Offsite building'
-      region: hidden
+      region: content
     group_ons:
       children:
         - field_prj_prp_duration
@@ -348,7 +348,7 @@ third_party_settings:
         classes: ''
         description: ''
       label: 'Onsite building'
-      region: hidden
+      region: content
     group_lighting:
       children:
         - field_prj_lgh_f1
@@ -362,7 +362,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Lighting
-      region: hidden
+      region: content
     group_other:
       children:
         - field_prj_oth_other
@@ -379,7 +379,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Other
-      region: hidden
+      region: content
     group_grant:
       children:
         - field_grt_f1
@@ -405,7 +405,7 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Grant
-      region: hidden
+      region: content
   panelizer:
     enable: false
     custom: false
@@ -998,7 +998,7 @@ content:
     type: basic_string
     region: content
   field_sup_review:
-    weight: 111
+    weight: 113
     label: above
     settings:
       link: true
