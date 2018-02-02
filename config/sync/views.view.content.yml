@@ -8,7 +8,6 @@ dependencies:
     - field.storage.user.field_email
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
-    - node.type.collective
   module:
     - computed_field
     - node
@@ -745,10 +744,9 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value:
-            collective: collective
+          value: {  }
           group: 1
-          exposed: false
+          exposed: true
           expose:
             operator_id: type_op
             label: 'Content type'

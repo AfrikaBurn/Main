@@ -3,7 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.wrangler_overview
     - node.type.subsidised_ticket
+    - user.role.administrator
+    - user.role.supplier
+    - user.role.support_admin
   module:
     - node
     - user
@@ -23,9 +27,12 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            administrator: administrator
+            support_admin: support_admin
+            supplier: supplier
       cache:
         type: tag
         options: {  }
@@ -53,9 +60,16 @@ display:
           items_per_page: 20
           offset: 0
       style:
-        type: table
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
       row:
-        type: fields
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: wrangler_overview
       fields:
         title:
           id: title
@@ -147,13 +161,14 @@ display:
       empty: {  }
       relationships: {  }
       arguments: {  }
+      display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags: {  }
   page_1:
     display_plugin: page
@@ -164,10 +179,10 @@ display:
       display_extenders: {  }
       path: wranglers/subsidised-ticket
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags: {  }
