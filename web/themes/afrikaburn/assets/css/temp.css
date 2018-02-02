@@ -1,8 +1,8 @@
 /* 19 Feb collectives  */
 
-#block-projectlinksblock .view-display-id-registration_edit_block .view-grouping-header,
-#block-projectlinksblock .view-display-id-registration_edit_block .view-grouping-content h3,
-#block-projectlinksblock .view-display-id-registration_edit_block h5{
+.view-collective-registrations .view-grouping-header,
+.view-collective-registrations .view-grouping-content h3,
+.view-collective-registrations h5{
   color: #fff;
   text-transform: uppercase;
   text-align: left;
@@ -15,12 +15,12 @@
   padding: 0;
 }
 
-#block-projectlinksblock .view-display-id-registration_edit_block .view-grouping-content h3{
+.view-collective-registrations .view-grouping-content h3{
   font-size: 1.2em;
   color: #999;
 }
 
-#block-projectlinksblock .view-display-id-registration_edit_block h5{
+.view-collective-registrations h5{
   font-size: 1.1em;
 }
 
