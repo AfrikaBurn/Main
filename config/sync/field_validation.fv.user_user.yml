@@ -1,9 +1,0 @@
-uuid: 25af48c4-7901-41e1-b7ca-0a40da4e4875
-langcode: en
-status: true
-dependencies: {  }
-name: user_user
-label: 'user user validation'
-entity_type: user
-bundle: user
-field_validation_rules: {  }
