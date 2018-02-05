@@ -1972,8 +1972,8 @@
                     "homepage": "https://www.drupal.org/user/2802285"
                 },
                 {
-                    "name": "purushotam.rai",
-                    "homepage": "https://www.drupal.org/user/3193859"
+                    "name": "jkempff",
+                    "homepage": "https://www.drupal.org/user/1394922"
                 },
                 {
                     "name": "valderama",
@@ -2834,10 +2834,6 @@
                 "GPL-2.0+"
             ],
             "authors": [
-                {
-                    "name": "Idriss.BS",
-                    "homepage": "https://www.drupal.org/user/3156165"
-                },
                 {
                     "name": "eme",
                     "homepage": "https://www.drupal.org/user/542492"
@@ -4154,7 +4150,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/taxonomy_manager",
-                "reference": "b17a32134f110c5f942a391e97db95d5f8c08207"
+                "reference": "d71c2e3b3cc8c15a34b841314edb29c234b37e59"
             },
             "require": {
                 "drupal/core": "*"
@@ -4166,7 +4162,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.x-dev",
-                    "datestamp": "1512151684",
+                    "datestamp": "1516390684",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -4201,7 +4197,8 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/taxonomy_manager",
                 "issues": "https://drupal.org/project/issues/taxonomy_manager"
-            }
+            },
+            "time": "2018-01-26T17:02:50+00:00"
         },
         {
             "name": "drupal/term_csv_export_import",
@@ -5476,6 +5473,7 @@
                 "xls",
                 "xlsx"
             ],
+            "abandoned": "phpoffice/phpspreadsheet",
             "time": "2015-05-01T07:00:55+00:00"
         },
         {
