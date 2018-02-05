@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.wrangler_overview
     - node.type.subsidised_ticket
+    - user.role.administrator
+    - user.role.supplier
+    - user.role.support_admin
   module:
     - node
     - user
@@ -24,9 +27,12 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            administrator: administrator
+            support_admin: support_admin
+            supplier: supplier
       cache:
         type: tag
         options: {  }
@@ -162,7 +168,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags: {  }
   page_1:
     display_plugin: page
@@ -178,5 +184,5 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags: {  }

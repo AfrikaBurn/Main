@@ -131,6 +131,7 @@ dependencies:
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_comment
     - field.field.node.theme_camps.field_sup_review
+    - field.field.node.theme_camps.field_tc_type
     - image.style.thumbnail
     - node.type.theme_camps
   module:
@@ -1074,3 +1075,4 @@ hidden:
   field_prj_wtf_website: true
   field_sup_comment: true
   field_sup_review: true
+  field_tc_type: true

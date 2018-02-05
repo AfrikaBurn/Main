@@ -1199,7 +1199,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view: collective_registrations
-          display: registrations
+          display: registration_view_block
           arguments: '{{ fields.nid }}'
           plugin_id: view
       footer:
@@ -1599,7 +1599,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view: collective_registrations
-          display: registrations
+          display: registration_view_block
           arguments: '{{ fields.nid }}'
           plugin_id: view
       footer:
