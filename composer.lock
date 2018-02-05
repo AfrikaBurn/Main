@@ -4201,7 +4201,8 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/taxonomy_manager",
                 "issues": "https://drupal.org/project/issues/taxonomy_manager"
-            }
+            },
+            "time": "2018-01-19 19:35:36"
         },
         {
             "name": "drupal/term_csv_export_import",
@@ -5476,6 +5477,7 @@
                 "xls",
                 "xlsx"
             ],
+            "abandoned": "phpoffice/phpspreadsheet",
             "time": "2015-05-01T07:00:55+00:00"
         },
         {
