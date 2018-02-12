@@ -92,16 +92,17 @@ settings:
 access:
   create:
     roles:
-      - anonymous
       - authenticated
     users: {  }
     permissions: {  }
   view_any:
-    roles: {  }
+    roles:
+      - volunteer_admin
     users: {  }
     permissions: {  }
   update_any:
-    roles: {  }
+    roles:
+      - volunteer_admin
     users: {  }
     permissions: {  }
   delete_any:
@@ -128,4 +129,36 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers: {  }
+handlers:
+  volunteers:
+    id: email
+    label: volunteers
+    handler_id: volunteers
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: volcore@afrikaburn.com
+      to_options: {  }
+      cc_mail: shared@afrikaburn.com
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: default
+      from_options: {  }
+      from_name: default
+      subject: default
+      body: default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
