@@ -96,7 +96,9 @@ access:
     users: {  }
     permissions: {  }
   view_any:
-    roles: {  }
+    roles:
+      - outreach_wrangler
+      - outreach_admin
     users: {  }
     permissions: {  }
   update_any:
@@ -152,7 +154,7 @@ handlers:
       excluded_elements: {  }
       ignore_access: true
       exclude_empty: true
-      html: true
+      html: false
       attachments: false
       twig: false
       debug: false
