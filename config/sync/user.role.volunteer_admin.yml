@@ -1,0 +1,9 @@
+uuid: 09b3d0a0-7b03-4bbe-82cc-031de2e509bc
+langcode: en
+status: true
+dependencies: {  }
+id: volunteer_admin
+label: 'Volunteer admin'
+weight: 8
+is_admin: null
+permissions: {  }
