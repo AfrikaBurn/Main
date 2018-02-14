@@ -283,13 +283,22 @@ display:
           required: true
           entity_type: user
           plugin_id: entity_reverse
-      arguments: {  }
+      arguments:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          entity_type: node
+          entity_field: nid
+          plugin_id: node_nid
+          relationship: reverse__node__field_col_members
       display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user.roles
       tags:
@@ -1502,6 +1511,7 @@ display:
       defaults:
         title: false
         fields: false
+        arguments: false
       fields:
         field_col_invitee:
           id: field_col_invitee
@@ -1565,11 +1575,49 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+      arguments:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: reverse__node__field_col_members
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: node
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+          entity_type: node
+          entity_field: nid
+          plugin_id: node_nid
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user.roles
       tags:

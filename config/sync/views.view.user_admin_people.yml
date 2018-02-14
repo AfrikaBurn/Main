@@ -7,6 +7,7 @@ dependencies:
     - field.storage.user.field_id_number
     - field.storage.user.field_last_name
     - field.storage.user.field_mobile
+    - field.storage.user.field_secondary_mail
     - field.storage.user.user_picture
     - image.style.medium
   module:
@@ -74,11 +75,13 @@ display:
           summary: ''
           description: ''
           columns:
+            user_picture: user_picture
             user_bulk_form: user_bulk_form
             name: name
             field_first_name: field_first_name
             field_last_name: field_last_name
             mail: mail
+            field_secondary_mail: mail
             field_mobile: field_mobile
             field_id_number: field_id_number
             status: status
@@ -87,6 +90,13 @@ display:
             access: access
             operations: operations
           info:
+            user_picture:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             user_bulk_form:
               align: ''
               separator: ''
@@ -115,6 +125,13 @@ display:
               responsive: ''
             mail:
               sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: '<br>'
+              empty_column: false
+              responsive: ''
+            field_secondary_mail:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -528,6 +545,68 @@ display:
           plugin_id: field
           entity_type: user
           entity_field: mail
+        field_secondary_mail:
+          id: field_secondary_mail
+          table: user__field_secondary_mail
+          field: field_secondary_mail
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Secondary Email Address'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_mobile:
           id: field_mobile
           table: user__field_mobile
@@ -965,6 +1044,8 @@ display:
               theme_camp_wrangler: '0'
               theme: '0'
               supplier: '0'
+              dpw: '0'
+              volunteer_admin: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -982,6 +1063,7 @@ display:
             field_first_name: field_first_name
             field_last_name: field_last_name
             mail: mail
+            field_secondary_mail: field_secondary_mail
             field_mobile: field_mobile
             field_id_number: field_id_number
           plugin_id: combine
@@ -1261,6 +1343,7 @@ display:
         - 'config:field.storage.user.field_id_number'
         - 'config:field.storage.user.field_last_name'
         - 'config:field.storage.user.field_mobile'
+        - 'config:field.storage.user.field_secondary_mail'
         - 'config:field.storage.user.user_picture'
   data_export:
     display_plugin: data_export
@@ -1742,4 +1825,5 @@ display:
         - 'config:field.storage.user.field_id_number'
         - 'config:field.storage.user.field_last_name'
         - 'config:field.storage.user.field_mobile'
+        - 'config:field.storage.user.field_secondary_mail'
         - 'config:field.storage.user.user_picture'

@@ -44,7 +44,7 @@ function _get_collective($registration){
 
     if (isset($cid[0])) {
       $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid[0]);
-      $collective_title = ' <div class="subtitle">by the ' . $collective->getTitle() . ' collective</div>';
+      $collective_title = ' <div class="subtitle">the ' . $collective->getTitle() . ' collective</div>';
     }
   }
 
@@ -72,7 +72,12 @@ function _set_registration_form_title(&$form, $form_id, $collective_title, $regi
     'node_performances_supplier_form' => t('Register a supplier for %title', ['%title' => $registration_title]) . $collective_title,
     'node_mutant_vehicles_supplier_form' => t('Register a supplier for %title', ['%title' => $registration_title]) . $collective_title,
 
-    'node_theme_camps_support_camps_form' => t('Register a Support Camp', ['%title' => $registration_title]) . $collective_title,
+    'node_theme_camps_support_camps_form' => t('Register a Support Camp for %title', ['%title' => $registration_title]) . $collective_title,
+
+    'node_theme_camps_early_access_and_vehicle_passes_form' => t('Early Access and Vehicle Passes for %title', ['%title' => $registration_title]) . $collective_title,
+    'node_art_early_access_and_vehicle_passes_form' => t('Early Access and Vehicle Passes for %title', ['%title' => $registration_title]) . $collective_title,
+    'node_performances_early_access_and_vehicle_passes_form' => t('Early Access and Vehicle Passes for %title', ['%title' => $registration_title]) . $collective_title,
+    'node_mutant_vehicles_early_access_and_vehicle_passes_form' => t('Early Access and Vehicle Passes for %title', ['%title' => $registration_title]) . $collective_title,
 
     'node_art_grant_form' => t('Grant application for %title', ['%title' => $registration_title]) . $collective_title,
     'node_performances_grant_form' => t('Grant application for %title', ['%title' => $registration_title]) . $collective_title,

@@ -27,6 +27,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
+    - field.field.node.mutant_vehicles.field_prj_brn_agree
     - field.field.node.mutant_vehicles.field_prj_brn_burning
     - field.field.node.mutant_vehicles.field_prj_brn_desc
     - field.field.node.mutant_vehicles.field_prj_brn_person
@@ -68,6 +69,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_oth_associated
     - field.field.node.mutant_vehicles.field_prj_oth_grant
     - field.field.node.mutant_vehicles.field_prj_oth_other
+    - field.field.node.mutant_vehicles.field_prj_oth_unregistered
     - field.field.node.mutant_vehicles.field_prj_saf_access
     - field.field.node.mutant_vehicles.field_prj_saf_comment
     - field.field.node.mutant_vehicles.field_prj_saf_guide
@@ -89,6 +91,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_type
     - field.field.node.mutant_vehicles.field_prj_sup_address
     - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_details_view
     - field.field.node.mutant_vehicles.field_prj_sup_h1
     - field.field.node.mutant_vehicles.field_prj_trl_area
     - field.field.node.mutant_vehicles.field_prj_trl_capasity
@@ -104,6 +107,9 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_short
     - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
     - field.field.node.mutant_vehicles.field_prj_wtf_website
+    - field.field.node.mutant_vehicles.field_sup_comment
+    - field.field.node.mutant_vehicles.field_sup_review
+    - field.field.node.mutant_vehicles.field_vp_ea
     - node.type.mutant_vehicles
   module:
     - comment
@@ -1148,6 +1154,15 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
+  field_vp_ea:
+    weight: 201
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
     region: content
 hidden:
   field_form_mode: true

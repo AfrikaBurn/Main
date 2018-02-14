@@ -96,11 +96,13 @@ access:
     users: {  }
     permissions: {  }
   view_any:
-    roles: {  }
+    roles:
+      - ranger_admin
     users: {  }
     permissions: {  }
   update_any:
-    roles: {  }
+    roles:
+      - ranger_admin
     users: {  }
     permissions: {  }
   delete_any:
@@ -112,11 +114,13 @@ access:
     users: {  }
     permissions: {  }
   view_own:
-    roles: {  }
+    roles:
+      - authenticated
     users: {  }
     permissions: {  }
   update_own:
-    roles: {  }
+    roles:
+      - authenticated
     users: {  }
     permissions: {  }
   delete_own:
