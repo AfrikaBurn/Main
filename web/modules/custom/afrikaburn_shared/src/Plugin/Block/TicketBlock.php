@@ -40,7 +40,14 @@ class TicketBlock extends BlockBase {
               NOTE:
               <ul>
               <li>General ticket sales are presently closed.</li>
-              <li>Only Mayday and tickets for kids/minors are currently available. </li>
+              <li>
+                <a href="https://www.afrikaburn.com/the-event/tickets#7" target="_blank">Subsidised</a> and
+                <a href="https://www.afrikaburn.com/the-event/tickets#8" target="_blank">Community</a> ticket applications are now open.
+              </li>
+              <li>
+                <a href="https://www.afrikaburn.com/the-event/tickets#10" target="_blank">Mayday tickets</a> and 
+                <a href="https://www.afrikaburn.com/the-event/tickets#6" target="_blank">tickets for kids/minors</a> are currently available for purchase.
+              </li>
               <li>The next round of general ticket sales is on Feb 28 until Friday 2nd March 2018. (or until sold out)</li>
               </ul>
             </div>'
