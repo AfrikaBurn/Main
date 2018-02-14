@@ -1,3 +1,14 @@
+/* 13 Feb 2018 */
+
+div.body-content table.field-multiple-table td input.form-checkbox {
+  float: none; 
+  width: 20px;
+}
+
+#field-vp-ea-values .paragraphs-subform{
+  display: flexbox;
+}
+
 /* 19 Feb collectives  */
 
 .view-collective-registrations .view-grouping-header,

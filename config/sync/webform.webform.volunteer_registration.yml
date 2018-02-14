@@ -154,7 +154,7 @@ handlers:
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
-      html: true
+      html: false
       attachments: false
       twig: false
       debug: false

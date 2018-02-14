@@ -132,6 +132,7 @@ dependencies:
     - field.field.node.theme_camps.field_sup_comment
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_tc_type
+    - field.field.node.theme_camps.field_vp_ea
     - node.type.theme_camps
   module:
     - comment
@@ -1179,6 +1180,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
+  field_vp_ea:
+    weight: 122
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
     region: content
   links:
     weight: 0

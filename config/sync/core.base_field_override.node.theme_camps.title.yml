@@ -10,7 +10,7 @@ id: node.theme_camps.title
 field_name: title
 entity_type: node
 bundle: theme_camps
-label: 'Name of the Theme Camp'
+label: 'Camp Name'
 description: ''
 required: true
 translatable: true
