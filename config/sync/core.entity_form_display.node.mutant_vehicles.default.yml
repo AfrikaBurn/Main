@@ -1760,5 +1760,6 @@ hidden:
   field_prj_wtf_short_copy: true
   field_sup_comment: true
   field_sup_review: true
+  field_vp_ea: true
   moderation_state: true
   status: true

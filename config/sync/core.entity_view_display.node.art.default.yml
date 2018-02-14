@@ -140,12 +140,12 @@ dependencies:
     - field.field.node.art.field_sup_comment
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
+    - field.field.node.art.field_vp_ea
     - image.style.medium
     - node.type.art
   module:
     - comment
     - datetime
-    - ds
     - empty_fields
     - entity_reference_revisions
     - field_group
@@ -1368,6 +1368,15 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
+  field_vp_ea:
+    weight: 196
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
 hidden:
   field_col_members: true
   field_form_mode: true

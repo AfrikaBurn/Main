@@ -131,6 +131,7 @@ dependencies:
     - field.field.node.theme_camps.field_sup_comment
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_tc_type
+    - field.field.node.theme_camps.field_vp_ea
     - image.style.thumbnail
     - node.type.theme_camps
   module:
@@ -813,3 +814,4 @@ hidden:
   field_prj_wtf_planned: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
+  field_vp_ea: true
