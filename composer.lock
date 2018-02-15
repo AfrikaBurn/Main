@@ -4198,11 +4198,7 @@
                 "source": "http://cgit.drupalcode.org/taxonomy_manager",
                 "issues": "https://drupal.org/project/issues/taxonomy_manager"
             },
-<<<<<<< HEAD
             "time": "2018-01-26T17:02:50+00:00"
-=======
-            "time": "2018-01-19 19:35:36"
->>>>>>> 1dee3062a905b8082822ca11749fc4d0be85f4a9
         },
         {
             "name": "drupal/term_csv_export_import",
