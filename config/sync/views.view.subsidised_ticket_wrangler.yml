@@ -1799,26 +1799,9 @@ display:
       path: wranglers/subsidised-ticket/subsidised.xlsx
       filename: 'Subsidised Applications.xlsx'
       pager:
-        type: full
+        type: none
         options:
-          items_per_page: 10
           offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          quantity: 9
       style:
         type: data_export
         options:
@@ -1851,7 +1834,6 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
-        - url.query_args
         - user
         - 'user.node_grants:view'
         - user.roles
@@ -1885,26 +1867,9 @@ display:
       path: wranglers/subsidised-ticket/subsidised_granted.xlsx
       filename: Subsidised_Granted.xlsx
       pager:
-        type: full
+        type: none
         options:
-          items_per_page: 10
           offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          quantity: 9
       style:
         type: data_export
         options:
@@ -2413,7 +2378,6 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
-        - url.query_args
         - user
         - 'user.node_grants:view'
         - user.roles
@@ -2434,26 +2398,9 @@ display:
       path: wranglers/subsidised-ticket/subsidised_Regected.xlsx
       filename: Subsidised_Regected.xlsx
       pager:
-        type: full
+        type: none
         options:
-          items_per_page: 10
           offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          quantity: 9
       style:
         type: data_export
         options:
@@ -2962,7 +2909,6 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
-        - url.query_args
         - user
         - 'user.node_grants:view'
         - user.roles
