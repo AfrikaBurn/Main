@@ -638,4 +638,5 @@ hidden:
   field_prj_trl_walkers: true
   field_sup_comment: true
   field_sup_review: true
+  field_vp_ea: true
   path: true

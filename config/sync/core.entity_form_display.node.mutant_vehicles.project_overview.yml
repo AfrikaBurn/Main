@@ -1146,3 +1146,4 @@ hidden:
   field_prj_sup_h1: true
   field_sup_comment: true
   field_sup_review: true
+  field_vp_ea: true

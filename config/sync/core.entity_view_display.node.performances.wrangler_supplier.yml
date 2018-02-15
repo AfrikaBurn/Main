@@ -542,4 +542,5 @@ hidden:
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
   field_this_is_the_amount_of_mone: true
+  field_vp_ea: true
   links: true
