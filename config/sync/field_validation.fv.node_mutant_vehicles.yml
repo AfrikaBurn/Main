@@ -1,16 +1,14 @@
-uuid: 8d3eb3f6-8785-4403-b37d-c21200f5f0fd
+uuid: 04cc9e25-40dc-4e62-a495-30841255508a
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: ZdXs2w2VgcBDSNvfHyc7bOT7cju3BWoY5fgvd4kFbus
-name: node_theme_camps
-label: 'node theme_camps validation'
+name: node_mutant_vehicles
+label: 'node mutant_vehicles validation'
 entity_type: node
-bundle: theme_camps
+bundle: mutant_vehicles
 field_validation_rules:
-  e9b0b1e3-47c8-4092-ba10-675e811fe03a:
-    uuid: e9b0b1e3-47c8-4092-ba10-675e811fe03a
+  c6c31997-88d4-4b33-98a1-6ba38806f41e:
+    uuid: c6c31997-88d4-4b33-98a1-6ba38806f41e
     id: words_field_validation_rule
     title: 'Word limit'
     weight: 1
