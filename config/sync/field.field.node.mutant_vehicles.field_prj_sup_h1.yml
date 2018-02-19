@@ -25,6 +25,6 @@ default_value:
 default_value_callback: ''
 settings:
   markup:
-    value: "<p>Have you read the supplier stuff.. at link</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Map of Afrikaburn:</p>\r\n\r\n<p><img alt=\"Theme camp map\" data-entity-type=\"file\" data-entity-uuid=\"35ae0e2d-7b6e-4787-8d4c-2fc3447c82a5\" src=\"/sites/default/files/inline-images/Tankwa-Town-Theme%20Camping_2017.png\" /></p>\r\n\r\n<p>Street names are labelled alphabetical outwards from the Buiterkring road. Actual names are only assigned in March for each event.</p>\r\n"
+    value: "<p>Have you read the supplier stuff <a href=\"https://www.afrikaburn.com/the-event/suppliers\" title=\"here\">here</a>.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Map of Afrikaburn:</p>\r\n\r\n<p><img src=\"https://tribe.afrikaburn.com/system/files/consent/2017-12/AB-2018-Map-Switch-w-Sound-Zones-610x431.png\" /></p>\r\n\r\n<p>Street names are labelled alphabetical outwards from the Buiterkring road. Actual names are only assigned in March for each event.</p>\r\n"
     format: full_html
 field_type: markup
