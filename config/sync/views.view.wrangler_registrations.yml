@@ -27314,22 +27314,26 @@ display:
           summary: ''
           description: ''
           columns:
+            field_prj_gen_description: field_first_name
             rendered_entity: rendered_entity
             field_first_name: field_first_name
             field_last_name: field_first_name
-            field_email: field_first_name
             name: field_first_name
+            field_email: field_first_name
+            field_mobile: field_first_name
             field_first_name_1: field_first_name
             field_last_name_1: field_first_name
-            field_email_1: field_first_name
             name_1: field_first_name
-            field_prj_gen_description: field_first_name
-            title: field_first_name
-            mail: field_first_name
-            field_mobile: field_first_name
-            mail_1: field_first_name
+            field_email_1: field_first_name
             field_mobile_1: field_first_name
+            title: field_first_name
+            created: created
           info:
+            field_prj_gen_description:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             rendered_entity:
               sortable: false
               default_sort_order: asc
@@ -27351,6 +27355,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             field_email:
               sortable: false
               default_sort_order: asc
@@ -27358,7 +27369,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            name:
+            field_mobile:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -27379,13 +27390,6 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_email_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             name_1:
               sortable: false
               default_sort_order: asc
@@ -27393,7 +27397,16 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_prj_gen_description:
+            field_email_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_mobile_1:
+              sortable: false
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -27405,28 +27418,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            mail:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_mobile:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            mail_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_mobile_1:
+            created:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -28633,6 +28625,7 @@ display:
         - 'config:core.entity_view_display.node.performances.wrangler_supplier'
         - 'config:core.entity_view_display.node.subsidised_ticket.default'
         - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
+        - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'
         - 'config:core.entity_view_display.node.theme_camps.default'
         - 'config:core.entity_view_display.node.theme_camps.notification'
         - 'config:core.entity_view_display.node.theme_camps.teaser'
@@ -30227,6 +30220,7 @@ display:
         - 'config:core.entity_view_display.node.performances.wrangler_supplier'
         - 'config:core.entity_view_display.node.subsidised_ticket.default'
         - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
+        - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'
         - 'config:core.entity_view_display.node.theme_camps.default'
         - 'config:core.entity_view_display.node.theme_camps.notification'
         - 'config:core.entity_view_display.node.theme_camps.teaser'
@@ -31437,6 +31431,7 @@ display:
         - 'config:core.entity_view_display.node.performances.wrangler_supplier'
         - 'config:core.entity_view_display.node.subsidised_ticket.default'
         - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
+        - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'
         - 'config:core.entity_view_display.node.theme_camps.default'
         - 'config:core.entity_view_display.node.theme_camps.notification'
         - 'config:core.entity_view_display.node.theme_camps.teaser'
