@@ -245,7 +245,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_total_cost:
-    type: computed_number_integer_widget
+    type: number_integer
     weight: 0
     region: content
     settings: {  }

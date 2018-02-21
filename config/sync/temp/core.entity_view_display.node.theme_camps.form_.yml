@@ -421,13 +421,13 @@ content:
     weight: 17
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_lnt_representative:
     weight: 18
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_oth_move:
     type: boolean
@@ -538,7 +538,7 @@ content:
     weight: 47
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_plc_location_extra:
     weight: 49
@@ -692,10 +692,10 @@ content:
     weight: 8
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_saf_person:
-    type: options_select
+    type: basic_string
     weight: 9
     region: content
     settings: {  }
@@ -851,7 +851,7 @@ content:
             selector: ''
           entity_type: node
           bundle: theme_camps
-    type: options_select
+    type: basic_string
     region: content
   field_prj_snd_person:
     weight: 20
@@ -888,7 +888,7 @@ content:
             selector: ''
           entity_type: node
           bundle: theme_camps
-    type: options_select
+    type: basic_string
     region: content
   field_prj_snd_soop:
     weight: 18
@@ -949,7 +949,7 @@ content:
     type: basic_string
     region: content
   field_stretch_tent_dimen:
-    type: computed_number_integer_widget
+    type: number_integer
     weight: 0
     region: content
     settings: {  }

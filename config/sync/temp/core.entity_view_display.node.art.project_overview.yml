@@ -315,7 +315,7 @@ content:
     type: markup
     region: content
   field_prj_stc_size:
-    type: options_select
+    type: basic_string
     weight: 5
     region: content
     settings: {  }

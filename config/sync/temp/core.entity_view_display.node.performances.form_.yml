@@ -279,7 +279,7 @@ content:
     weight: 50
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_brn_plan:
     weight: 49
@@ -300,7 +300,7 @@ content:
     weight: 15
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_cll_description:
     weight: 14
@@ -341,7 +341,7 @@ content:
     weight: 75
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_lgh_night:
     weight: 73
@@ -382,10 +382,10 @@ content:
     weight: 53
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_lnt_representative:
-    type: options_select
+    type: basic_string
     weight: 61
     region: content
     settings: {  }
@@ -409,13 +409,13 @@ content:
     weight: 44
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_snd_person:
     weight: 46
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_snd_sound:
     weight: 43
