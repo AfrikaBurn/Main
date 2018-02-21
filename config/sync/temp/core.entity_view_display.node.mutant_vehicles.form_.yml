@@ -107,7 +107,7 @@ dependencies:
   module:
     - basic_string
     - content_moderation
-    - cshs
+    - basic_string
     - field_group
     - file
     - image
@@ -492,7 +492,7 @@ content:
       parent: '0'
       level_labels: ''
     third_party_settings: {  }
-    type: cshs
+    type: basic_string
     region: content
   field_prj_gen_mutating:
     weight: 30
