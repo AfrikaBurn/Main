@@ -306,14 +306,14 @@ content:
     type: markup
     region: content
   field_prj_brn_agree:
-    type: boolean_checkbox
+    type: boolean
     weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_prj_brn_burning:
-    type: boolean_checkbox
+    type: boolean
     weight: 2
     region: content
     settings:
@@ -381,7 +381,7 @@ content:
     type: markup
     region: content
   field_prj_lgh_agree:
-    type: boolean_checkbox
+    type: boolean
     weight: 61
     region: content
     settings:
@@ -486,7 +486,7 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
+    type: boolean
     region: content
   field_prj_oth_other:
     weight: 17
@@ -543,7 +543,7 @@ content:
     type: markup
     region: content
   field_prj_snd_agree:
-    type: boolean_checkbox
+    type: boolean
     weight: 35
     region: content
     settings:
@@ -586,7 +586,7 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
+    type: boolean
     region: content
   field_prj_stc_dimensions:
     weight: 18
@@ -619,14 +619,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   promote:
-    type: boolean_checkbox
+    type: boolean
     settings:
       display_label: true
     weight: 4
     region: content
     third_party_settings: {  }
   sticky:
-    type: boolean_checkbox
+    type: boolean
     settings:
       display_label: true
     weight: 5
