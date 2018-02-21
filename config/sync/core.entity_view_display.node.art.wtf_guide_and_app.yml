@@ -301,7 +301,7 @@ content:
     weight: 2
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
+    type: basic_string
     region: content
   field_prj_wtf_image:
     weight: 1
@@ -323,7 +323,7 @@ content:
     weight: 3
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
+    type: basic_string
     region: content
   field_prj_wtf_short:
     weight: 5
