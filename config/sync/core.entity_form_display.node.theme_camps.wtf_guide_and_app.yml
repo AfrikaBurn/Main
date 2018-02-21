@@ -188,6 +188,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_wtf_categories:
     weight: 22
     settings: {  }
@@ -292,7 +300,6 @@ hidden:
   field_field_prj_adm_form_3: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
-  field_form_mode: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
   field_prj_adm_form_3: true

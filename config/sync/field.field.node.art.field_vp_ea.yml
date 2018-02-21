@@ -17,7 +17,7 @@ id: node.art.field_vp_ea
 field_name: field_vp_ea
 entity_type: node
 bundle: art
-label: 'Please add one for each participant that requires early access or a vehicle pass'
+label: 'Please add one for each participant that requires work access or a vehicle pass'
 description: ''
 required: false
 translatable: true
