@@ -320,7 +320,7 @@ content:
       display_label: true
     third_party_settings: {  }
   field_prj_brn_desc:
-    type: string_textarea
+    type: basic_string
     weight: 8
     region: content
     settings:
@@ -340,7 +340,7 @@ content:
     type: markup
     region: content
   field_prj_brn_motivation:
-    type: string_textarea
+    type: basic_string
     weight: 3
     region: content
     settings:
@@ -361,7 +361,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_brn_plan:
-    type: string_textarea
+    type: basic_string
     weight: 4
     region: content
     settings:
@@ -394,7 +394,7 @@ content:
     type: markup
     region: content
   field_prj_lgh_description:
-    type: string_textarea
+    type: basic_string
     weight: 56
     region: content
     settings:
@@ -420,7 +420,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_lgh_power:
-    type: string_textarea
+    type: basic_string
     weight: 57
     region: content
     settings:
@@ -428,7 +428,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_lgh_projection:
-    type: string_textarea
+    type: basic_string
     weight: 58
     region: content
     settings:
@@ -449,7 +449,7 @@ content:
     type: number
     region: content
   field_prj_lnt_handled:
-    type: string_textarea
+    type: basic_string
     weight: 7
     region: content
     settings:
@@ -494,7 +494,7 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
+    type: basic_string
     region: content
   field_prj_oth_relationship:
     weight: 16
@@ -502,7 +502,7 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
+    type: basic_string
     region: content
   field_prj_plc_area:
     weight: 35
@@ -517,7 +517,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_plc_location_extra:
-    type: string_textarea
+    type: basic_string
     weight: 12
     region: content
     settings:
@@ -556,7 +556,7 @@ content:
     type: markup
     region: content
   field_prj_snd_description:
-    type: string_textarea
+    type: basic_string
     weight: 34
     region: content
     settings:
