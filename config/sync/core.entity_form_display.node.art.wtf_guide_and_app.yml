@@ -166,22 +166,22 @@ third_party_settings:
       region: content
     group_wtf_guide_and_community:
       children:
-        - field_prj_wtf_short
-        - field_prj_wtf_short_copy
-        - field_prj_wtf_long
         - field_prj_wtf_image
-        - field_prj_wtf_planned
         - field_prj_wtf_categories
+        - field_prj_wtf_planned
         - field_prj_wtf_website
+        - field_prj_wtf_short
+        - field_prj_wtf_long
         - field_prj_cll_collaborate
-        - field_prj_cll_description
         - field_prj_cll_contact
+        - field_prj_cll_description
         - field_prj_cll_thread
-        - field_prj_stg_stage
-        - field_prj_stg_type
-        - field_prj_stg_description
         - field_prj_stg_contact
+        - field_prj_stg_description
+        - field_prj_stg_stage
         - field_prj_stg_tread
+        - field_prj_stg_type
+        - field_prj_wtf_short_copy
       parent_name: group_project_registration
       weight: 11
       format_type: accordion_item
@@ -205,6 +205,14 @@ content:
     weight: 1
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_prj_adm_area:
     weight: 78
@@ -384,7 +392,6 @@ content:
 hidden:
   field_col_members: true
   field_collective: true
-  field_form_mode: true
   field_grt_art_apply: true
   field_grt_art_comment: true
   field_grt_art_reason: true

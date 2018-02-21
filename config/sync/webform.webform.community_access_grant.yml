@@ -102,7 +102,9 @@ access:
     users: {  }
     permissions: {  }
   update_any:
-    roles: {  }
+    roles:
+      - outreach_wrangler
+      - outreach_admin
     users: {  }
     permissions: {  }
   delete_any:
@@ -114,11 +116,13 @@ access:
     users: {  }
     permissions: {  }
   view_own:
-    roles: {  }
+    roles:
+      - authenticated
     users: {  }
     permissions: {  }
   update_own:
-    roles: {  }
+    roles:
+      - authenticated
     users: {  }
     permissions: {  }
   delete_own:
