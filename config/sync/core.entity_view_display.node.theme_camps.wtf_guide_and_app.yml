@@ -1,3 +1,4 @@
+uuid: 5c2bb917-00b8-45d3-b495-c48365be5ad8
 langcode: en
 status: true
 dependencies:
@@ -181,12 +182,6 @@ targetEntityType: node
 bundle: theme_camps
 mode: wtf_guide_and_app
 content:
-  created:
-    type: datetime_timestamp
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_form_mode:
     type: basic_string
     weight: 0
@@ -239,12 +234,9 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  moderation_state:
-    type: basic_string
-    weight: 8
-    settings: {  }
+  links:
+    weight: 100
     region: content
-    third_party_settings: {  }
   path:
     type: path
     weight: 6
@@ -270,23 +262,6 @@ content:
     settings:
       display_label: true
     weight: 5
-    region: content
-    third_party_settings: {  }
-  title:
-    type: basic_string
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: basic_string
-    weight: 2
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
     region: content
     third_party_settings: {  }
   url_redirects:

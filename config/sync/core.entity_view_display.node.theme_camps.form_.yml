@@ -1,3 +1,4 @@
+uuid: 8041f5cb-5d7e-43dc-b125-aa22eb7c1ab9
 langcode: en
 status: true
 dependencies:
@@ -323,12 +324,6 @@ targetEntityType: node
 bundle: theme_camps
 mode: form_
 content:
-  created:
-    type: datetime_timestamp
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_collective:
     type: basic_string
     weight: 1
@@ -954,12 +949,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  moderation_state:
-    type: basic_string
-    weight: 13
-    settings: {  }
+  links:
+    weight: 100
     region: content
-    third_party_settings: {  }
   path:
     type: path
     weight: 7
@@ -985,23 +977,6 @@ content:
     settings:
       display_label: true
     weight: 6
-    region: content
-    third_party_settings: {  }
-  title:
-    type: basic_string
-    weight: 2
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: basic_string
-    weight: 3
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
     region: content
     third_party_settings: {  }
   url_redirects:
@@ -1075,3 +1050,4 @@ hidden:
   field_sup_comment: true
   field_sup_review: true
   field_tc_type: true
+  field_vp_ea: true

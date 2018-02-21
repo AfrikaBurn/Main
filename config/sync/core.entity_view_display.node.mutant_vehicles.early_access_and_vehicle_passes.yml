@@ -1,3 +1,4 @@
+uuid: c327b395-3b3f-470e-bab3-f5cb9e306291
 langcode: en
 status: true
 dependencies:
@@ -354,8 +355,10 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
+  links:
+    weight: 100
+    region: content
 hidden:
-  created: true
   field_collective: true
   field_form_mode: true
   field_grt_art_comment: true
@@ -461,11 +464,8 @@ hidden:
   field_prj_wtf_website: true
   field_sup_comment: true
   field_sup_review: true
-  moderation_state: true
   path: true
   promote: true
   status: true
   sticky: true
-  title: true
-  uid: true
   url_redirects: true

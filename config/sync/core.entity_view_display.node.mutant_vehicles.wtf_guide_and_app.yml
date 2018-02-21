@@ -1,3 +1,4 @@
+uuid: 41ff7296-7725-4778-b5ce-3483de38c4d2
 langcode: en
 status: true
 dependencies:
@@ -166,12 +167,6 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: wtf_guide_and_app
 content:
-  created:
-    type: datetime_timestamp
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_form_mode:
     type: basic_string
     weight: 0
@@ -218,12 +213,9 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  moderation_state:
-    type: basic_string
+  links:
     weight: 100
-    settings: {  }
     region: content
-    third_party_settings: {  }
   promote:
     type: boolean
     settings:
@@ -243,23 +235,6 @@ content:
     settings:
       display_label: true
     weight: 4
-    region: content
-    third_party_settings: {  }
-  title:
-    type: basic_string
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: basic_string
-    weight: 1
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
     region: content
     third_party_settings: {  }
   url_redirects:

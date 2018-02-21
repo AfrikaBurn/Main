@@ -1,3 +1,4 @@
+uuid: f235acf6-eea2-40e2-b502-f9fc0b79ba28
 langcode: en
 status: true
 dependencies:
@@ -163,12 +164,6 @@ targetEntityType: node
 bundle: theme_camps
 mode: supplier
 content:
-  created:
-    type: datetime_timestamp
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_form_mode:
     type: basic_string
     weight: 0
@@ -203,6 +198,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  links:
+    weight: 100
+    region: content
   path:
     type: path
     weight: 4
@@ -354,7 +352,4 @@ hidden:
   field_sup_review: true
   field_tc_type: true
   field_vp_ea: true
-  moderation_state: true
   status: true
-  title: true
-  uid: true

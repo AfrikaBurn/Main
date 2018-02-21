@@ -1,3 +1,4 @@
+uuid: 80c8840d-7944-4869-a53e-a1dd32c7713c
 langcode: en
 status: true
 dependencies:
@@ -481,8 +482,10 @@ content:
       form_display_mode: default
       default_paragraph_type: early_access_and_vehicle_passes
     third_party_settings: {  }
+  links:
+    weight: 100
+    region: content
 hidden:
-  created: true
   field_col_members: true
   field_collective: true
   field_form_mode: true
@@ -619,11 +622,8 @@ hidden:
   field_sup_comment: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
-  moderation_state: true
   path: true
   promote: true
   status: true
   sticky: true
-  title: true
-  uid: true
   url_redirects: true

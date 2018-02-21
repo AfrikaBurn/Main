@@ -1,3 +1,4 @@
+uuid: 3de9ebf3-bf78-4f4e-8223-ad0d72a86d72
 langcode: en
 status: true
 dependencies:
@@ -283,8 +284,10 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
+  links:
+    weight: 100
+    region: content
 hidden:
-  created: true
   field_collective: true
   field_field_prj_adm_form_3: true
   field_field_prj_plc_marquis: true
@@ -413,11 +416,8 @@ hidden:
   field_sup_comment: true
   field_sup_review: true
   field_tc_type: true
-  moderation_state: true
   path: true
   promote: true
   status: true
   sticky: true
-  title: true
-  uid: true
   url_redirects: true

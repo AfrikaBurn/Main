@@ -1,3 +1,4 @@
+uuid: 62963eba-d5c6-453f-9082-e58a16649d4c
 langcode: en
 status: true
 dependencies:
@@ -166,12 +167,6 @@ targetEntityType: node
 bundle: performances
 mode: wtf_guide_and_app
 content:
-  created:
-    type: datetime_timestamp
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_form_mode:
     type: basic_string
     weight: 0
@@ -224,12 +219,9 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  moderation_state:
-    type: basic_string
-    weight: 7
-    settings: {  }
+  links:
+    weight: 100
     region: content
-    third_party_settings: {  }
   path:
     type: path
     weight: 5
@@ -255,23 +247,6 @@ content:
     settings:
       display_label: true
     weight: 4
-    region: content
-    third_party_settings: {  }
-  title:
-    type: basic_string
-    weight: -1
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: basic_string
-    weight: 1
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
     region: content
     third_party_settings: {  }
   url_redirects:

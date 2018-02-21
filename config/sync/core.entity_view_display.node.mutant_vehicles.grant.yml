@@ -1,3 +1,4 @@
+uuid: 61e85d1c-c7df-4ebf-b64d-ba4bb7816bf1
 langcode: en
 status: true
 dependencies:
@@ -119,12 +120,6 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: grant
 content:
-  created:
-    type: datetime_timestamp
-    weight: 11
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_grt_art_total:
     type: number_integer
     weight: 5
@@ -194,12 +189,9 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  moderation_state:
-    type: basic_string
-    weight: 15
-    settings: {  }
+  links:
+    weight: 100
     region: content
-    third_party_settings: {  }
   promote:
     type: boolean
     settings:
@@ -219,23 +211,6 @@ content:
     settings:
       display_label: true
     weight: 13
-    region: content
-    third_party_settings: {  }
-  title:
-    type: basic_string
-    weight: 9
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: basic_string
-    weight: 10
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
     region: content
     third_party_settings: {  }
   url_redirects:
@@ -340,4 +315,5 @@ hidden:
   field_prj_wtf_website: true
   field_sup_comment: true
   field_sup_review: true
+  field_vp_ea: true
   path: true

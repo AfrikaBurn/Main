@@ -1,3 +1,4 @@
+uuid: a82a503a-d910-4e03-8c20-503e779262b3
 langcode: en
 status: true
 dependencies:
@@ -379,12 +380,6 @@ targetEntityType: node
 bundle: art
 mode: supplier
 content:
-  created:
-    type: datetime_timestamp
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_form_mode:
     weight: 7
     settings:
@@ -503,12 +498,9 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  moderation_state:
-    type: basic_string
-    weight: 8
-    settings: {  }
+  links:
+    weight: 100
     region: content
-    third_party_settings: {  }
   path:
     type: path
     weight: 4
@@ -534,23 +526,6 @@ content:
     settings:
       display_label: true
     weight: 3
-    region: content
-    third_party_settings: {  }
-  title:
-    type: basic_string
-    weight: 5
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: basic_string
-    weight: 0
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
     region: content
     third_party_settings: {  }
   url_redirects:

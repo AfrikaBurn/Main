@@ -1,3 +1,4 @@
+uuid: cf57e3b5-5624-4435-8296-cf3cff9af946
 langcode: en
 status: true
 dependencies:
@@ -177,12 +178,6 @@ targetEntityType: node
 bundle: performances
 mode: grant
 content:
-  created:
-    type: datetime_timestamp
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_grt_art_total:
     type: number_integer
     weight: 7
@@ -258,12 +253,9 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  moderation_state:
-    type: basic_string
+  links:
     weight: 100
-    settings: {  }
     region: content
-    third_party_settings: {  }
   path:
     type: path
     weight: 4
@@ -289,23 +281,6 @@ content:
     settings:
       display_label: true
     weight: 3
-    region: content
-    third_party_settings: {  }
-  title:
-    type: basic_string
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: basic_string
-    weight: 0
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
     region: content
     third_party_settings: {  }
 hidden:
@@ -392,6 +367,10 @@ hidden:
   field_prj_stc_safety: true
   field_prj_stc_structural: true
   field_prj_stc_weight: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_details_view: true
+  field_prj_sup_h1: true
   field_prj_wtf_categories: true
   field_prj_wtf_image: true
   field_prj_wtf_long: true
@@ -401,3 +380,6 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_sup_comment: true
+  field_sup_review: true
+  field_vp_ea: true
