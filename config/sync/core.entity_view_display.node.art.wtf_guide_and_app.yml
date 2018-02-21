@@ -339,7 +339,7 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
+    type: link
     region: content
   moderation_state:
     type: basic_string
