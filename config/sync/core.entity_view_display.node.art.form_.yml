@@ -1,4 +1,3 @@
-uuid: cc4f78ef-b6f5-49e1-8657-251555f267be
 langcode: en
 status: true
 dependencies:
@@ -285,6 +284,12 @@ targetEntityType: node
 bundle: art
 mode: form_
 content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_form_mode:
     type: basic_string
     weight: 1
@@ -600,9 +605,12 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  links:
-    weight: 100
+  moderation_state:
+    type: basic_string
+    weight: 7
+    settings: {  }
     region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 6
@@ -621,6 +629,20 @@ content:
     settings:
       display_label: true
     weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: basic_string
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: basic_string
+    weight: 2
+    settings: {  }
     region: content
     third_party_settings: {  }
   url_redirects:
@@ -718,7 +740,6 @@ hidden:
   field_prj_stg_type: true
   field_prj_sup_address: true
   field_prj_sup_details: true
-  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true
@@ -732,5 +753,4 @@ hidden:
   field_sup_comment: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
-  field_vp_ea: true
   status: true
