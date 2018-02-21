@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.wtf_guide_and_app
+    - core.entity_form_mode.node.project_overview
     - field.field.node.performances.field_collective
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
@@ -94,11 +94,6 @@ dependencies:
     - field.field.node.performances.field_prj_stc_safety
     - field.field.node.performances.field_prj_stc_structural
     - field.field.node.performances.field_prj_stc_weight
-    - field.field.node.performances.field_prj_sup_address
-    - field.field.node.performances.field_prj_sup_details
-    - field.field.node.performances.field_prj_sup_details_view
-    - field.field.node.performances.field_prj_sup_h1
-    - field.field.node.performances.field_prj_total_cost
     - field.field.node.performances.field_prj_wtf_categories
     - field.field.node.performances.field_prj_wtf_image
     - field.field.node.performances.field_prj_wtf_long
@@ -108,13 +103,11 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
     - field.field.node.performances.field_prj_wtf_website
-    - field.field.node.performances.field_sup_comment
-    - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
-    - field.field.node.performances.field_vp_ea
     - image.style.thumbnail
     - node.type.performances
   module:
+    - comment
     - content_moderation
     - field_group
     - image
@@ -125,31 +118,30 @@ third_party_settings:
     group_project:
       children:
         - group_wtf
+        - group_other
       parent_name: ''
-      weight: 0
+      weight: 5
       format_type: accordion
       format_settings:
-        label: 'WTF Guide and Community update'
-        effect: none
+        label: 'Project Registration'
+        direction: horizontal
         id: ''
         classes: js-wizard
-      label: 'WTF Guide and Community update'
-      region: content
+      label: 'Project Registration'
     group_wtf:
       children:
-        - field_prj_wtf_image
-        - field_prj_wtf_categories
-        - field_prj_wtf_planned
-        - field_prj_wtf_website
         - field_prj_wtf_short
         - field_prj_wtf_long
+        - field_prj_wtf_image
+        - field_prj_wtf_planned
+        - field_prj_wtf_categories
+        - field_prj_wtf_website
         - field_prj_cll_collaborate
-        - field_prj_cll_contact
         - field_prj_cll_description
+        - field_prj_cll_contact
         - field_prj_cll_thread
-        - field_prj_wtf_plan
       parent_name: group_project
-      weight: 21
+      weight: 27
       format_type: accordion_item
       format_settings:
         id: ''
@@ -158,36 +150,57 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'WTF Guide and Community'
-      region: content
 _core:
   default_config_hash: GszY5o7FPcrv2Z8_LMFChqNpGZCA9kaS3WAz3lVtB0o
-id: node.performances.wtf_guide_and_app
+id: node.performances.project_overview
 targetEntityType: node
 bundle: performances
-mode: wtf_guide_and_app
+mode: project_overview
 content:
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_form_mode:
-    type: basic_string
-    weight: 0
-    region: content
+  field_prj_cll_collaborate:
+    weight: 13
     settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_cll_contact:
+    weight: 15
+    settings:
+      match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_prj_cll_description:
+    weight: 14
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_cll_thread:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_prj_wtf_categories:
-    weight: 2
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_wtf_image:
-    weight: 1
+    weight: 9
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -195,7 +208,7 @@ content:
     type: image
     region: content
   field_prj_wtf_long:
-    weight: 6
+    weight: 8
     settings:
       rows: 5
       placeholder: ''
@@ -203,13 +216,13 @@ content:
     type: basic_string
     region: content
   field_prj_wtf_planned:
-    weight: 3
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_prj_wtf_short:
-    weight: 5
+    weight: 6
     settings:
       rows: 5
       placeholder: ''
@@ -217,7 +230,7 @@ content:
     type: basic_string
     region: content
   field_prj_wtf_website:
-    weight: 4
+    weight: 12
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -226,13 +239,13 @@ content:
     region: content
   moderation_state:
     type: basic_string
-    weight: 7
+    weight: 100
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -240,47 +253,35 @@ content:
     type: boolean
     settings:
       display_label: true
-    weight: 3
+    weight: 2
     region: content
     third_party_settings: {  }
   status:
     type: boolean
     settings:
       display_label: true
-    weight: 8
+    weight: 121
     third_party_settings: {  }
     region: content
   sticky:
     type: boolean
     settings:
       display_label: true
-    weight: 4
+    weight: 3
     region: content
-    third_party_settings: {  }
-  title:
-    type: basic_string
-    weight: -1
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 0
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     region: content
     third_party_settings: {  }
-  url_redirects:
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_collective: true
+  field_form_mode: true
   field_grt_art_total: true
   field_grt_breakdown: true
   field_grt_contribution: true
@@ -309,10 +310,6 @@ hidden:
   field_prj_brn_motivation: true
   field_prj_brn_person: true
   field_prj_brn_plan: true
-  field_prj_cll_collaborate: true
-  field_prj_cll_contact: true
-  field_prj_cll_description: true
-  field_prj_cll_thread: true
   field_prj_gen_bio: true
   field_prj_gen_concept: true
   field_prj_gen_contact: true
@@ -370,15 +367,8 @@ hidden:
   field_prj_stc_safety: true
   field_prj_stc_structural: true
   field_prj_stc_weight: true
-  field_prj_sup_address: true
-  field_prj_sup_details: true
-  field_prj_sup_details_view: true
-  field_prj_sup_h1: true
-  field_prj_total_cost: true
   field_prj_wtf_plan: true
   field_prj_wtf_scheduled: true
   field_prj_wtf_short_copy: true
-  field_sup_comment: true
-  field_sup_review: true
   field_this_is_the_amount_of_mone: true
-  field_vp_ea: true
+  title: true

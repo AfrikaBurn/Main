@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.wtf_guide_and_app
+    - core.entity_form_mode.node.supplier
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
@@ -140,37 +140,148 @@ dependencies:
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
-    - image.style.thumbnail
     - node.type.art
   module:
     - content_moderation
     - field_group
-    - image
-    - link
+    - markup
+    - paragraphs
     - path
 third_party_settings:
   field_group:
-    group_project_registration:
+    group_the_project:
       children:
-        - group_wtf_guide_and_community
+        - field_prj_gen_concept
+        - field_prj_gen_description
+        - field_prj_gen_doc
+        - field_prj_gen_immortal
+        - field_prj_gen_story
       parent_name: ''
-      weight: 5
-      format_type: accordion
+      weight: 12
+      format_type: accordion_item
       format_settings:
-        label: 'Project Registration'
-        direction: vertical
         id: ''
-        classes: js-wizard
-      label: 'Project Registration'
-      region: content
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'The Project'
+      region: hidden
+    group_dimensions:
+      children:
+        - field_prj_stc_attributes
+        - field_prj_stc_footprint
+        - field_prj_stc_height
+        - field_prj_stc_materials
+        - field_prj_stc_safety
+        - field_prj_stc_size
+        - field_prj_stc_structural
+        - field_prj_stc_weight
+      parent_name: ''
+      weight: 80
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Dimensions
+      region: hidden
+    group_building_transport_install:
+      children:
+        - group_offsite_building
+        - group_onsite_building
+      parent_name: ''
+      weight: 82
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Building, Transport, Installation'
+      region: hidden
+    group_offsite_building:
+      children:
+        - field_muncipal_district
+        - field_prj_prp_start
+        - field_prj_prp_transport
+      parent_name: group_building_transport_install
+      weight: 11
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Offsite building'
+      region: hidden
+    group_onsite_building:
+      children:
+        - field_prj_prp_duration
+        - field_prj_prp_erection
+      parent_name: group_building_transport_install
+      weight: 12
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Onsite building'
+      region: hidden
+    group_lighting:
+      children:
+        - field_prj_lgh_f1
+        - field_prj_lgh_f2
+      parent_name: ''
+      weight: 14
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Lighting
+      region: hidden
+    group_sound:
+      children:
+        - field_prj_snd_f1
+        - field_prj_snd_level
+        - field_prj_snd_sound
+      parent_name: ''
+      weight: 16
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Sound
+      region: hidden
+    group_moop:
+      children:
+        - field_prj_lnt_duration
+        - field_prj_lnt_handled
+        - field_prj_lnt_helpers
+        - field_prj_lnt_historic
+        - field_prj_lnt_representative
+      parent_name: ''
+      weight: 17
+      format_type: accordion_item
+      format_settings:
+        label: 'Leave No Trace'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Leave No Trace'
+      region: hidden
     group_wtf_guide_and_community:
       children:
-        - field_prj_wtf_image
-        - field_prj_wtf_categories
-        - field_prj_wtf_planned
-        - field_prj_wtf_website
-        - field_prj_wtf_short
-        - field_prj_wtf_long
         - field_prj_cll_collaborate
         - field_prj_cll_contact
         - field_prj_cll_description
@@ -180,24 +291,93 @@ third_party_settings:
         - field_prj_stg_stage
         - field_prj_stg_tread
         - field_prj_stg_type
-        - field_prj_wtf_short_copy
-      parent_name: group_project_registration
-      weight: 11
+        - field_prj_wtf_image
+        - field_prj_wtf_planned
+        - field_prj_wtf_scheduled
+        - field_prj_wtf_website
+      parent_name: ''
+      weight: 18
       format_type: accordion_item
       format_settings:
-        label: 'WTF Guide and Community'
-        formatter: open
-        required_fields: true
         id: ''
         classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
       label: 'WTF Guide and Community'
-      region: content
+      region: hidden
+    group_other:
+      children:
+        - field_grt_breakdown
+        - field_prj_oth_associated
+        - field_prj_oth_grant
+        - field_prj_oth_other
+        - field_prj_oth_relationship
+        - field_prj_oth_unregistered
+        - field_prj_total_cost
+      parent_name: ''
+      weight: 19
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Other
+      region: hidden
+    group_burn:
+      children:
+        - field_prj_brn_burning
+        - field_prj_brn_f1
+        - field_prj_brn_f2
+        - field_prj_brn_motivation
+      parent_name: ''
+      weight: 15
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Burn
+      region: hidden
+    group_project_registration:
+      children:
+        - group_supplier
+      parent_name: ''
+      weight: 6
+      format_type: accordion
+      format_settings:
+        id: ''
+        classes: ''
+        effect: none
+      label: 'Project Registration'
+      region: hidden
+    group_supplier:
+      children:
+        - title
+        - field_prj_sup_h1
+        - field_prj_sup_address
+        - field_prj_sup_details
+      parent_name: group_project_registration
+      weight: 20
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        required_fields: true
+        description: ''
+      label: Supplier
+      region: hidden
 _core:
   default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
-id: node.art.wtf_guide_and_app
+id: node.art.supplier
 targetEntityType: node
 bundle: art
-mode: wtf_guide_and_app
+mode: supplier
 content:
   created:
     type: datetime_timestamp
@@ -206,13 +386,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_form_mode:
-    type: basic_string
-    weight: 0
-    region: content
+    weight: 7
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    type: basic_string
+    region: content
   field_prj_adm_area:
     weight: 78
     settings: {  }
@@ -291,59 +471,41 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_sup_address:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_sup_details:
+    weight: 8
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_prj_sup_h1:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_wtf_area:
     weight: 67
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_wtf_categories:
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_image:
-    weight: 1
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_prj_wtf_long:
-    weight: 6
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_planned:
-    weight: 3
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_short:
-    weight: 5
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_website:
-    weight: 4
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link
-    region: content
   moderation_state:
     type: basic_string
-    weight: 100
+    weight: 8
     settings: {  }
     region: content
     third_party_settings: {  }
@@ -364,7 +526,7 @@ content:
     type: boolean
     settings:
       display_label: true
-    weight: 121
+    weight: 9
     third_party_settings: {  }
     region: content
   sticky:
@@ -373,6 +535,14 @@ content:
       display_label: true
     weight: 3
     region: content
+    third_party_settings: {  }
+  title:
+    type: basic_string
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
@@ -508,15 +678,17 @@ hidden:
   field_prj_stg_stage: true
   field_prj_stg_tread: true
   field_prj_stg_type: true
-  field_prj_sup_address: true
-  field_prj_sup_details: true
   field_prj_sup_details_view: true
-  field_prj_sup_h1: true
   field_prj_total_cost: true
+  field_prj_wtf_categories: true
+  field_prj_wtf_image: true
+  field_prj_wtf_long: true
+  field_prj_wtf_planned: true
   field_prj_wtf_scheduled: true
+  field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
+  field_prj_wtf_website: true
   field_sup_comment: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
-  title: true

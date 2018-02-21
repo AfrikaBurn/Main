@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.wtf_guide_and_app
+    - core.entity_form_mode.node.grant
     - field.field.node.performances.field_collective
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
@@ -94,10 +94,6 @@ dependencies:
     - field.field.node.performances.field_prj_stc_safety
     - field.field.node.performances.field_prj_stc_structural
     - field.field.node.performances.field_prj_stc_weight
-    - field.field.node.performances.field_prj_sup_address
-    - field.field.node.performances.field_prj_sup_details
-    - field.field.node.performances.field_prj_sup_details_view
-    - field.field.node.performances.field_prj_sup_h1
     - field.field.node.performances.field_prj_total_cost
     - field.field.node.performances.field_prj_wtf_categories
     - field.field.node.performances.field_prj_wtf_image
@@ -108,131 +104,169 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
     - field.field.node.performances.field_prj_wtf_website
-    - field.field.node.performances.field_sup_comment
-    - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
-    - field.field.node.performances.field_vp_ea
-    - image.style.thumbnail
     - node.type.performances
   module:
+    - computed_field
     - content_moderation
     - field_group
-    - image
-    - link
+    - markup
+    - paragraphs
     - path
 third_party_settings:
   field_group:
     group_project:
       children:
-        - group_wtf
+        - group_grant
       parent_name: ''
-      weight: 0
+      weight: 5
       format_type: accordion
       format_settings:
-        label: 'WTF Guide and Community update'
+        label: 'Project Registration'
         effect: none
         id: ''
-        classes: js-wizard
-      label: 'WTF Guide and Community update'
-      region: content
-    group_wtf:
+        classes: ''
+      label: 'Project Registration'
+    group_grant:
       children:
-        - field_prj_wtf_image
-        - field_prj_wtf_categories
-        - field_prj_wtf_planned
-        - field_prj_wtf_website
-        - field_prj_wtf_short
-        - field_prj_wtf_long
-        - field_prj_cll_collaborate
-        - field_prj_cll_contact
-        - field_prj_cll_description
-        - field_prj_cll_thread
-        - field_prj_wtf_plan
+        - title
+        - field_grt_f1
+        - field_grt_breakdown
+        - field_grt_total
+        - field_grt_contribution
+        - field_this_is_the_amount_of_mone
+        - group_expense_totals_by_type
+        - field_grt_art_total
+        - field_grt_short
+        - field_grt_short_desc
+        - field_grt_more
       parent_name: group_project
-      weight: 21
+      weight: 20
       format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
-        formatter: closed
+        formatter: open
+        required_fields: true
+        description: ''
+      label: Grant
+    group_expense_totals_by_type:
+      children:
+        - field_grt_lighting
+        - field_grt_location
+        - field_grt_materials
+        - field_grt_pyrotechnics
+        - field_grt_services
+        - field_grt_specify
+        - field_grt_tool
+        - field_grt_transport
+      parent_name: group_grant
+      weight: 6
+      format_type: fieldset
+      format_settings:
+        label: 'Expense totals by type'
         description: ''
         required_fields: true
-      label: 'WTF Guide and Community'
-      region: content
+        id: ''
+        classes: hidden
+      label: 'Expense totals by type'
 _core:
   default_config_hash: GszY5o7FPcrv2Z8_LMFChqNpGZCA9kaS3WAz3lVtB0o
-id: node.performances.wtf_guide_and_app
+id: node.performances.grant
 targetEntityType: node
 bundle: performances
-mode: wtf_guide_and_app
+mode: grant
 content:
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_form_mode:
+  field_grt_art_total:
+    type: number_integer
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_grt_breakdown:
+    type: entity_reference_paragraphs
+    weight: 2
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_grt_contribution:
+    type: number_integer
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_grt_f1:
+    type: markup
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_grt_more:
     type: basic_string
+    weight: 10
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_grt_short:
+    type: basic_string
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_grt_short_desc:
+    type: basic_string
+    weight: 9
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_grt_total:
+    type: number_integer
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_total_cost:
+    type: computed_number_integer_widget
     weight: 0
     region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_wtf_categories:
-    weight: 2
     settings: {  }
     third_party_settings: {  }
+  field_this_is_the_amount_of_mone:
     type: basic_string
-    region: content
-  field_prj_wtf_image:
-    weight: 1
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_prj_wtf_long:
-    weight: 6
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_planned:
-    weight: 3
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_short:
     weight: 5
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_website:
-    weight: 4
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link
-    region: content
   moderation_state:
     type: basic_string
-    weight: 7
+    weight: 100
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -240,26 +274,26 @@ content:
     type: boolean
     settings:
       display_label: true
-    weight: 3
+    weight: 2
     region: content
     third_party_settings: {  }
   status:
     type: boolean
     settings:
       display_label: true
-    weight: 8
+    weight: 121
     third_party_settings: {  }
     region: content
   sticky:
     type: boolean
     settings:
       display_label: true
-    weight: 4
+    weight: 3
     region: content
     third_party_settings: {  }
   title:
     type: basic_string
-    weight: -1
+    weight: 0
     region: content
     settings:
       size: 60
@@ -267,35 +301,23 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 0
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     region: content
     third_party_settings: {  }
-  url_redirects:
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_collective: true
-  field_grt_art_total: true
-  field_grt_breakdown: true
-  field_grt_contribution: true
-  field_grt_f1: true
+  field_form_mode: true
   field_grt_lighting: true
   field_grt_location: true
   field_grt_materials: true
-  field_grt_more: true
   field_grt_pyrotechnics: true
   field_grt_services: true
-  field_grt_short: true
-  field_grt_short_desc: true
   field_grt_specify: true
   field_grt_tool: true
-  field_grt_total: true
   field_grt_transport: true
   field_muncipal_district: true
   field_prj_adm_comms: true
@@ -370,15 +392,12 @@ hidden:
   field_prj_stc_safety: true
   field_prj_stc_structural: true
   field_prj_stc_weight: true
-  field_prj_sup_address: true
-  field_prj_sup_details: true
-  field_prj_sup_details_view: true
-  field_prj_sup_h1: true
-  field_prj_total_cost: true
+  field_prj_wtf_categories: true
+  field_prj_wtf_image: true
+  field_prj_wtf_long: true
   field_prj_wtf_plan: true
+  field_prj_wtf_planned: true
   field_prj_wtf_scheduled: true
+  field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
-  field_sup_comment: true
-  field_sup_review: true
-  field_this_is_the_amount_of_mone: true
-  field_vp_ea: true
+  field_prj_wtf_website: true

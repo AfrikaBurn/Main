@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.wtf_guide_and_app
+    - core.entity_form_mode.node.grant
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_comment
@@ -108,119 +108,95 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_website
     - field.field.node.mutant_vehicles.field_sup_comment
     - field.field.node.mutant_vehicles.field_sup_review
-    - field.field.node.mutant_vehicles.field_vp_ea
-    - image.style.thumbnail
     - node.type.mutant_vehicles
   module:
     - content_moderation
-    - field_group
-    - image
-    - link
-third_party_settings:
-  field_group:
-    group_project_overview:
-      children:
-        - group_wtf_guide_and_activities
-      parent_name: ''
-      weight: 5
-      format_type: accordion
-      format_settings:
-        label: 'WTF Guide and Community update'
-        effect: none
-        id: ''
-        classes: ''
-      label: 'WTF Guide and Community update'
-      region: content
-    group_wtf_guide_and_activities:
-      children:
-        - field_prj_wtf_image
-        - field_prj_wtf_categories
-        - field_prj_wtf_website
-        - field_prj_wtf_short
-        - field_prj_wtf_long
-        - field_prj_cll_collaborate
-        - field_prj_cll_contact
-        - field_prj_cll_description
-        - field_prj_cll_thread
-        - field_prj_stg_contact
-        - field_prj_stg_description
-        - field_prj_stg_stage
-        - field_prj_stg_tread
-        - field_prj_stg_type
-        - field_prj_wtf_short_copy
-      parent_name: group_project_overview
-      weight: 1
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: 'WTF Guide and Activities'
-      region: content
+    - paragraphs
 _core:
   default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
-id: node.mutant_vehicles.wtf_guide_and_app
+id: node.mutant_vehicles.grant
 targetEntityType: node
 bundle: mutant_vehicles
-mode: wtf_guide_and_app
+mode: grant
 content:
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_form_mode:
-    type: basic_string
+  field_grt_art_total:
+    type: number_integer
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_grt_contribution:
+    type: number_integer
     weight: 0
     region: content
     settings:
-      size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_prj_wtf_categories:
+  field_grt_dmv_budget:
+    type: entity_reference_paragraphs
+    weight: -1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_grt_materials:
+    type: number_integer
     weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
     region: content
-  field_prj_wtf_image:
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_grt_other:
+    type: boolean
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_grt_other_description:
+    type: basic_string
+    weight: 8
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_grt_services:
+    type: number_integer
     weight: 1
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image
     region: content
-  field_prj_wtf_long:
-    weight: 6
     settings:
-      rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: basic_string
+  field_grt_total:
+    type: number_integer
+    weight: 4
     region: content
-  field_prj_wtf_short:
-    weight: 5
     settings:
-      rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_website:
+  field_grt_transport:
+    type: number_integer
     weight: 3
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link
     region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   moderation_state:
     type: basic_string
-    weight: 100
+    weight: 15
     settings: {  }
     region: content
     third_party_settings: {  }
@@ -228,26 +204,26 @@ content:
     type: boolean
     settings:
       display_label: true
-    weight: 3
+    weight: 12
     region: content
     third_party_settings: {  }
   status:
     type: boolean
     settings:
       display_label: true
-    weight: 121
+    weight: 16
     third_party_settings: {  }
     region: content
   sticky:
     type: boolean
     settings:
       display_label: true
-    weight: 4
+    weight: 13
     region: content
     third_party_settings: {  }
   title:
     type: basic_string
-    weight: 0
+    weight: 9
     region: content
     settings:
       size: 60
@@ -255,7 +231,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 10
     settings:
       match_operator: CONTAINS
       size: 60
@@ -263,24 +239,16 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_collective: true
+  field_form_mode: true
   field_grt_art_comment: true
-  field_grt_art_total: true
   field_grt_awarded: true
-  field_grt_contribution: true
-  field_grt_dmv_budget: true
-  field_grt_materials: true
-  field_grt_other: true
-  field_grt_other_description: true
-  field_grt_services: true
   field_grt_status: true
-  field_grt_total: true
-  field_grt_transport: true
   field_mutant_drivers: true
   field_prj_adm_comms: true
   field_prj_adm_form_grant: true
@@ -364,8 +332,12 @@ hidden:
   field_prj_trl_passengers: true
   field_prj_trl_size: true
   field_prj_trl_walkers: true
+  field_prj_wtf_categories: true
+  field_prj_wtf_image: true
+  field_prj_wtf_long: true
+  field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
+  field_prj_wtf_website: true
   field_sup_comment: true
   field_sup_review: true
-  field_vp_ea: true
   path: true

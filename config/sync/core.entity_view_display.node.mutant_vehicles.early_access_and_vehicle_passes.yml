@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.wtf_guide_and_app
+    - core.entity_form_mode.node.early_access_and_vehicle_passes
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_comment
@@ -109,166 +109,255 @@ dependencies:
     - field.field.node.mutant_vehicles.field_sup_comment
     - field.field.node.mutant_vehicles.field_sup_review
     - field.field.node.mutant_vehicles.field_vp_ea
-    - image.style.thumbnail
     - node.type.mutant_vehicles
   module:
-    - content_moderation
     - field_group
-    - image
-    - link
+    - paragraphs
 third_party_settings:
   field_group:
-    group_project_overview:
+    group_acc_project_overview:
       children:
-        - group_wtf_guide_and_activities
+        - group_the_overview
+        - group_acc_the_project
+        - group_acc_safety
+        - group_acc_night_driving
+        - group_acc_sound
+        - group_acc_flame_effects
+        - group_acc_trailer
+        - group_acc_moop
+        - group_acc_wtf_guide
+        - group_acc_almost_done
       parent_name: ''
       weight: 5
       format_type: accordion
       format_settings:
-        label: 'WTF Guide and Community update'
+        label: 'Project Overview'
         effect: none
         id: ''
         classes: ''
-      label: 'WTF Guide and Community update'
-      region: content
-    group_wtf_guide_and_activities:
+      label: 'Project Overview'
+      region: hidden
+    group_acc_the_project:
       children:
-        - field_prj_wtf_image
-        - field_prj_wtf_categories
-        - field_prj_wtf_website
-        - field_prj_wtf_short
-        - field_prj_wtf_long
-        - field_prj_cll_collaborate
-        - field_prj_cll_contact
-        - field_prj_cll_description
-        - field_prj_cll_thread
-        - field_prj_stg_contact
-        - field_prj_stg_description
-        - field_prj_stg_stage
-        - field_prj_stg_tread
-        - field_prj_stg_type
-        - field_prj_wtf_short_copy
-      parent_name: group_project_overview
-      weight: 1
+        - field_prj_gen_base
+        - field_prj_gen_concept
+        - field_prj_gen_description
+        - field_prj_gen_doc
+        - field_prj_gen_mutating
+        - field_prj_gen_story
+      parent_name: group_acc_project_overview
+      weight: 4
+      format_type: accordion_item
+      format_settings:
+        label: 'The Project'
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'The Project'
+      region: hidden
+    group_acc_safety:
+      children:
+        - field_prj_saf_access
+        - field_prj_saf_guide
+        - field_prj_saf_mark
+        - field_prj_saf_other
+        - field_prj_saf_passengers
+      parent_name: group_acc_project_overview
+      weight: 5
       format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
         formatter: closed
-        description: ''
         required_fields: true
+        description: ''
+      label: Safety
+      region: hidden
+    group_acc_night_driving:
+      children:
+        - field_prj_lgh_description
+        - field_prj_lgh_f1
+        - field_prj_lgh_lighter
+        - field_prj_lgh_night
+      parent_name: group_acc_project_overview
+      weight: 6
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Night Driving'
+      region: hidden
+    group_acc_sound:
+      children:
+        - field_prj_snd_agree
+        - field_prj_snd_description
+        - field_prj_snd_level
+        - field_prj_snd_person
+        - field_prj_snd_safety
+        - field_prj_snd_soop
+        - field_prj_snd_sound
+      parent_name: group_acc_project_overview
+      weight: 7
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Sound
+      region: hidden
+    group_acc_flame_effects:
+      children:
+        - field_prj_brn_agree
+        - field_prj_brn_burning
+        - field_prj_brn_desc
+        - field_prj_brn_person
+        - field_prj_brn_plan
+      parent_name: group_acc_project_overview
+      weight: 8
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Flame effects'
+      region: hidden
+    group_acc_trailer:
+      children:
+        - field_prj_lgh_projection
+        - field_prj_trl_area
+        - field_prj_trl_capasity
+        - field_prj_trl_communicate
+        - field_prj_trl_describe
+        - field_prj_trl_markup
+        - field_prj_trl_passengers
+        - field_prj_trl_size
+        - field_prj_trl_walkers
+      parent_name: group_acc_project_overview
+      weight: 9
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Trailer
+      region: hidden
+    group_acc_moop:
+      children:
+        - field_prj_lnt_agree
+        - field_prj_lnt_f1
+        - field_prj_lnt_handled
+        - field_prj_lnt_historic
+        - field_prj_lnt_representative
+      parent_name: group_acc_project_overview
+      weight: 10
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Moop
+      region: hidden
+    group_acc_wtf_guide:
+      children:
+        - field_prj_cll_collaborate
+        - field_prj_cll_contact
+        - field_prj_cll_description
+        - field_prj_stg_contact
+        - field_prj_stg_description
+        - field_prj_stg_stage
+        - field_prj_stg_type
+        - field_prj_wtf_categories
+        - field_prj_wtf_image
+        - field_prj_wtf_long
+        - field_prj_wtf_short
+        - field_prj_wtf_website
+      parent_name: group_acc_project_overview
+      weight: 11
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
       label: 'WTF Guide and Activities'
-      region: content
+      region: hidden
+    group_acc_almost_done:
+      children:
+        - field_prj_oth_agree
+        - field_prj_oth_associated
+        - field_prj_oth_grant
+        - field_prj_oth_other
+        - field_prj_oth_unregistered
+      parent_name: group_acc_project_overview
+      weight: 12
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Almost done!'
+      region: hidden
+    group_the_overview:
+      children:
+        - title
+        - promote
+        - sticky
+        - field_mutant_drivers
+        - field_prj_gen_contact
+        - field_prj_gen_fundraiser
+        - field_prj_gen_fundraising
+        - field_prj_gen_lead
+        - field_prj_gen_location
+        - field_prj_gen_owner
+      parent_name: group_acc_project_overview
+      weight: 1
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        required_fields: true
+        description: ''
+      label: 'The overview'
+      region: hidden
 _core:
   default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
-id: node.mutant_vehicles.wtf_guide_and_app
+id: node.mutant_vehicles.early_access_and_vehicle_passes
 targetEntityType: node
 bundle: mutant_vehicles
-mode: wtf_guide_and_app
+mode: early_access_and_vehicle_passes
 content:
-  created:
-    type: datetime_timestamp
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_form_mode:
-    type: basic_string
+  field_vp_ea:
     weight: 0
-    region: content
     settings:
-      size: 60
-      placeholder: ''
+      title: 'Early access and/or Vehicle Pass '
+      title_plural: 'Early access and/or Vehicle Passes'
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: early_access_and_vehicle_passes
     third_party_settings: {  }
-  field_prj_wtf_categories:
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
+    type: entity_reference_paragraphs
     region: content
-  field_prj_wtf_image:
-    weight: 1
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_prj_wtf_long:
-    weight: 6
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_short:
-    weight: 5
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_prj_wtf_website:
-    weight: 3
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link
-    region: content
-  moderation_state:
-    type: basic_string
-    weight: 100
-    settings: {  }
-    region: content
-    third_party_settings: {  }
-  promote:
-    type: boolean
-    settings:
-      display_label: true
-    weight: 3
-    region: content
-    third_party_settings: {  }
-  status:
-    type: boolean
-    settings:
-      display_label: true
-    weight: 121
-    third_party_settings: {  }
-    region: content
-  sticky:
-    type: boolean
-    settings:
-      display_label: true
-    weight: 4
-    region: content
-    third_party_settings: {  }
-  title:
-    type: basic_string
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 1
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    region: content
-    third_party_settings: {  }
-  url_redirects:
-    weight: 50
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
+  created: true
   field_collective: true
+  field_form_mode: true
   field_grt_art_comment: true
   field_grt_art_total: true
   field_grt_awarded: true
@@ -364,8 +453,19 @@ hidden:
   field_prj_trl_passengers: true
   field_prj_trl_size: true
   field_prj_trl_walkers: true
+  field_prj_wtf_categories: true
+  field_prj_wtf_image: true
+  field_prj_wtf_long: true
+  field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
+  field_prj_wtf_website: true
   field_sup_comment: true
   field_sup_review: true
-  field_vp_ea: true
+  moderation_state: true
   path: true
+  promote: true
+  status: true
+  sticky: true
+  title: true
+  uid: true
+  url_redirects: true
