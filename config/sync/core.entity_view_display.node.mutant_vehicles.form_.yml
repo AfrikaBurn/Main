@@ -442,7 +442,7 @@ content:
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
-    type: file_generic
+    type: basic_string
     region: content
   field_prj_gen_fundraiser:
     weight: 20
