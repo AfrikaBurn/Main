@@ -186,7 +186,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_sup_details:
-    type: entity_reference_paragraphs
+    type: basic_string
     weight: 30
     region: content
     settings:

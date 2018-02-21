@@ -352,7 +352,7 @@ content:
       form_display_mode: default
       default_paragraph_type: early_access_and_vehicle_passes
     third_party_settings: {  }
-    type: entity_reference_paragraphs
+    type: basic_string
     region: content
 hidden:
   created: true

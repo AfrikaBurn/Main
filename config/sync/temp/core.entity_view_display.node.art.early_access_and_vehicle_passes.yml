@@ -470,7 +470,7 @@ content:
     type: markup
     region: content
   field_vp_ea:
-    type: entity_reference_paragraphs
+    type: basic_string
     weight: 0
     region: content
     settings:

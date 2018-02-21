@@ -227,7 +227,7 @@ content:
     type: number_integer
     region: content
   field_grt_breakdown:
-    type: entity_reference_paragraphs
+    type: basic_string
     weight: 2
     region: content
     settings:
@@ -413,7 +413,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   uid:
-    type: entity_reference_autocomplete
+    type: basic_string
     weight: 0
     settings:
       match_operator: CONTAINS

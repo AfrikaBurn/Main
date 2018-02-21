@@ -197,7 +197,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_collective:
-    type: entity_reference_autocomplete
+    type: basic_string
     weight: 2
     region: content
     settings:
@@ -233,7 +233,7 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
   field_prj_gen_location:
-    type: entity_reference_autocomplete
+    type: basic_string
     weight: 6
     region: content
     settings:
@@ -368,7 +368,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   uid:
-    type: entity_reference_autocomplete
+    type: basic_string
     weight: 0
     settings:
       match_operator: CONTAINS

@@ -266,7 +266,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   uid:
-    type: entity_reference_autocomplete
+    type: basic_string
     weight: 1
     settings:
       match_operator: CONTAINS

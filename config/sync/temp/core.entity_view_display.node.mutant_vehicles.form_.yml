@@ -105,7 +105,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.mutant_vehicles
   module:
-    - autocomplete_deluxe
+    - basic_string
     - content_moderation
     - cshs
     - field_group
@@ -346,7 +346,7 @@ content:
     settings:
       match_operator: CONTAINS
       size: 60
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      autocomplete_route_name: basic_string.autocomplete
       target_type: taxonomy_term
       selection_handler: default
       limit: 10
@@ -356,7 +356,7 @@ content:
       not_found_message: 'The term ''@term'' will be added'
       new_terms: false
     third_party_settings: {  }
-    type: autocomplete_deluxe
+    type: basic_string
     region: content
   field_prj_brn_plan:
     weight: 10
@@ -378,7 +378,7 @@ content:
     settings:
       match_operator: CONTAINS
       size: 60
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      autocomplete_route_name: basic_string.autocomplete
       target_type: taxonomy_term
       selection_handler: default
       limit: 10
@@ -388,7 +388,7 @@ content:
       not_found_message: 'The term ''@term'' will be added'
       new_terms: false
     third_party_settings: {  }
-    type: autocomplete_deluxe
+    type: basic_string
     region: content
   field_prj_cll_description:
     weight: 13
@@ -417,7 +417,7 @@ content:
     settings:
       match_operator: CONTAINS
       size: 60
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      autocomplete_route_name: basic_string.autocomplete
       target_type: taxonomy_term
       selection_handler: default
       limit: 10
@@ -427,7 +427,7 @@ content:
       not_found_message: 'The term ''@term'' will be added'
       new_terms: false
     third_party_settings: {  }
-    type: autocomplete_deluxe
+    type: basic_string
     region: content
   field_prj_gen_description:
     weight: 27
@@ -449,7 +449,7 @@ content:
     settings:
       match_operator: CONTAINS
       size: 60
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      autocomplete_route_name: basic_string.autocomplete
       target_type: taxonomy_term
       selection_handler: default
       limit: 10
@@ -459,7 +459,7 @@ content:
       not_found_message: 'The term ''@term'' will be added'
       new_terms: false
     third_party_settings: {  }
-    type: autocomplete_deluxe
+    type: basic_string
     region: content
   field_prj_gen_fundraising:
     weight: 19
@@ -473,7 +473,7 @@ content:
     settings:
       match_operator: CONTAINS
       size: 60
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      autocomplete_route_name: basic_string.autocomplete
       target_type: taxonomy_term
       selection_handler: default
       limit: 10
@@ -483,7 +483,7 @@ content:
       not_found_message: 'The term ''@term'' will be added'
       new_terms: false
     third_party_settings: {  }
-    type: autocomplete_deluxe
+    type: basic_string
     region: content
   field_prj_gen_location:
     weight: 21
@@ -530,7 +530,7 @@ content:
     settings:
       match_operator: CONTAINS
       size: 60
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      autocomplete_route_name: basic_string.autocomplete
       target_type: taxonomy_term
       selection_handler: default
       limit: 10
@@ -540,7 +540,7 @@ content:
       not_found_message: 'The term ''@term'' will be added'
       new_terms: false
     third_party_settings: {  }
-    type: autocomplete_deluxe
+    type: basic_string
     region: content
   field_prj_lgh_night:
     weight: 61
@@ -576,7 +576,7 @@ content:
     settings:
       match_operator: CONTAINS
       size: 60
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      autocomplete_route_name: basic_string.autocomplete
       target_type: taxonomy_term
       selection_handler: default
       limit: 10
@@ -586,7 +586,7 @@ content:
       not_found_message: 'The term ''@term'' will be added'
       new_terms: false
     third_party_settings: {  }
-    type: autocomplete_deluxe
+    type: basic_string
     region: content
   field_prj_oth_agree:
     weight: 24
@@ -602,7 +602,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete_tags
+    type: basic_string_tags
     region: content
   field_prj_oth_grant:
     weight: 25
@@ -683,7 +683,7 @@ content:
     settings:
       match_operator: CONTAINS
       size: 60
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      autocomplete_route_name: basic_string.autocomplete
       target_type: taxonomy_term
       selection_handler: default
       limit: 10
@@ -693,14 +693,14 @@ content:
       not_found_message: 'The term ''@term'' will be added'
       new_terms: false
     third_party_settings: {  }
-    type: autocomplete_deluxe
+    type: basic_string
     region: content
   field_prj_snd_person:
     weight: 14
     settings:
       match_operator: CONTAINS
       size: 60
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      autocomplete_route_name: basic_string.autocomplete
       target_type: taxonomy_term
       selection_handler: default
       limit: 10
@@ -710,7 +710,7 @@ content:
       not_found_message: 'The term ''@term'' will be added'
       new_terms: false
     third_party_settings: {  }
-    type: autocomplete_deluxe
+    type: basic_string
     region: content
   field_prj_snd_safety:
     weight: 11
@@ -738,7 +738,7 @@ content:
     settings:
       match_operator: CONTAINS
       size: 60
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      autocomplete_route_name: basic_string.autocomplete
       target_type: taxonomy_term
       selection_handler: default
       limit: 10
@@ -748,7 +748,7 @@ content:
       not_found_message: 'The term ''@term'' will be added'
       new_terms: false
     third_party_settings: {  }
-    type: autocomplete_deluxe
+    type: basic_string
     region: content
   field_prj_stg_description:
     weight: 17
@@ -892,7 +892,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   uid:
-    type: entity_reference_autocomplete
+    type: basic_string
     weight: 1
     settings:
       match_operator: CONTAINS

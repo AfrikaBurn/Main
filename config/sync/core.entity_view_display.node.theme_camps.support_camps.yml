@@ -366,7 +366,7 @@ bundle: theme_camps
 mode: support_camps
 content:
   field_collective:
-    type: entity_reference_autocomplete
+    type: basic_string
     weight: 4
     region: content
     settings:

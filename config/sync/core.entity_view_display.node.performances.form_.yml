@@ -473,7 +473,7 @@ content:
     region: content
     third_party_settings: {  }
   uid:
-    type: entity_reference_autocomplete
+    type: basic_string
     weight: 0
     settings:
       match_operator: CONTAINS

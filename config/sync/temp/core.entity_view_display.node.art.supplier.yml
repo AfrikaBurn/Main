@@ -489,7 +489,7 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
-    type: entity_reference_paragraphs
+    type: basic_string
     region: content
   field_prj_sup_h1:
     weight: 6
@@ -545,7 +545,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   uid:
-    type: entity_reference_autocomplete
+    type: basic_string
     weight: 0
     settings:
       match_operator: CONTAINS
