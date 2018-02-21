@@ -108,6 +108,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_website
     - field.field.node.mutant_vehicles.field_sup_comment
     - field.field.node.mutant_vehicles.field_sup_review
+    - field.field.node.mutant_vehicles.field_vp_ea
     - image.style.thumbnail
     - node.type.mutant_vehicles
   module:
@@ -361,6 +362,14 @@ content:
     region: content
     settings:
       match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
@@ -1727,7 +1736,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_form_mode: true
   field_grt_art_comment: true
   field_grt_art_total: true
   field_grt_awarded: true
@@ -1760,5 +1768,6 @@ hidden:
   field_prj_wtf_short_copy: true
   field_sup_comment: true
   field_sup_review: true
+  field_vp_ea: true
   moderation_state: true
   status: true

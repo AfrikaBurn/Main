@@ -29,6 +29,6 @@ visibility:
       user: '@user.current_user_context:current_user'
   request_path:
     id: request_path
-    pages: '/wranglers/*'
+    pages: "/wranglers/*\r\n/form/introduction\r\n/form/terms-conditions\r\n/form/update"
     negate: true
     context_mapping: {  }

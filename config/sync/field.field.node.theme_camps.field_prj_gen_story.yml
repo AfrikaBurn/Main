@@ -17,7 +17,7 @@ id: node.theme_camps.field_prj_gen_story
 field_name: field_prj_gen_story
 entity_type: node
 bundle: theme_camps
-label: 'What motivates you to be involved in a Theme Camp?'
+label: 'What motivates you to be involved in a Camp?'
 description: 'What makes you want to go through all this trouble and pull this Theme Camp together?'
 required: false
 translatable: false

@@ -112,6 +112,7 @@ dependencies:
     - field.field.node.performances.field_sup_comment
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
+    - field.field.node.performances.field_vp_ea
     - node.type.performances
   module:
     - comment
@@ -1011,6 +1012,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
+  field_vp_ea:
+    weight: 114
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
     region: content
 hidden:
   field_form_mode: true

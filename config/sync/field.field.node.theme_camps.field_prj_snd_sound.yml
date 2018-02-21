@@ -17,7 +17,7 @@ id: node.theme_camps.field_prj_snd_sound
 field_name: field_prj_snd_sound
 entity_type: node
 bundle: theme_camps
-label: 'Does your theme camp have a sound component?'
+label: 'Does your camp have a sound component?'
 description: ''
 required: false
 translatable: false

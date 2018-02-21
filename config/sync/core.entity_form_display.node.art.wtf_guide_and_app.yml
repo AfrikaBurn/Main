@@ -124,6 +124,10 @@ dependencies:
     - field.field.node.art.field_prj_stg_stage
     - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
+    - field.field.node.art.field_prj_sup_address
+    - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_details_view
+    - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
@@ -133,11 +137,13 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
+    - field.field.node.art.field_sup_comment
+    - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
+    - field.field.node.art.field_vp_ea
     - image.style.thumbnail
     - node.type.art
   module:
-    - comment
     - content_moderation
     - field_group
     - image
@@ -157,24 +163,25 @@ third_party_settings:
         id: ''
         classes: js-wizard
       label: 'Project Registration'
+      region: content
     group_wtf_guide_and_community:
       children:
-        - field_prj_wtf_short
-        - field_prj_wtf_short_copy
-        - field_prj_wtf_long
         - field_prj_wtf_image
-        - field_prj_wtf_planned
         - field_prj_wtf_categories
+        - field_prj_wtf_planned
         - field_prj_wtf_website
+        - field_prj_wtf_short
+        - field_prj_wtf_long
         - field_prj_cll_collaborate
-        - field_prj_cll_description
         - field_prj_cll_contact
+        - field_prj_cll_description
         - field_prj_cll_thread
-        - field_prj_stg_stage
-        - field_prj_stg_type
-        - field_prj_stg_description
         - field_prj_stg_contact
+        - field_prj_stg_description
+        - field_prj_stg_stage
         - field_prj_stg_tread
+        - field_prj_stg_type
+        - field_prj_wtf_short_copy
       parent_name: group_project_registration
       weight: 11
       format_type: accordion_item
@@ -185,6 +192,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'WTF Guide and Community'
+      region: content
 _core:
   default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
 id: node.art.wtf_guide_and_app
@@ -198,6 +206,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_adm_area:
     weight: 78
     settings: {  }
@@ -209,35 +225,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: markup
-    region: content
-  field_prj_cll_collaborate:
-    weight: 32
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
-  field_prj_cll_contact:
-    weight: 34
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_prj_cll_description:
-    weight: 33
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content
-  field_prj_cll_thread:
-    weight: 35
-    settings: {  }
-    third_party_settings: {  }
-    type: comment_default
     region: content
   field_prj_hed_project:
     weight: 6
@@ -305,41 +292,6 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_stg_contact:
-    weight: 39
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_prj_stg_description:
-    weight: 38
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content
-  field_prj_stg_stage:
-    weight: 36
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
-  field_prj_stg_tread:
-    weight: 41
-    settings: {  }
-    third_party_settings: {  }
-    type: comment_default
-    region: content
-  field_prj_stg_type:
-    weight: 37
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_prj_wtf_area:
     weight: 67
     settings: {  }
@@ -347,13 +299,13 @@ content:
     type: markup
     region: content
   field_prj_wtf_categories:
-    weight: 30
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_prj_wtf_image:
-    weight: 28
+    weight: 1
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -361,7 +313,7 @@ content:
     type: image_image
     region: content
   field_prj_wtf_long:
-    weight: 27
+    weight: 6
     settings:
       rows: 5
       placeholder: ''
@@ -369,21 +321,13 @@ content:
     type: string_textarea
     region: content
   field_prj_wtf_planned:
-    weight: 29
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_prj_wtf_short:
-    weight: 25
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content
-  field_prj_wtf_short_copy:
-    weight: 26
+    weight: 5
     settings:
       rows: 5
       placeholder: ''
@@ -391,7 +335,7 @@ content:
     type: string_textarea
     region: content
   field_prj_wtf_website:
-    weight: 31
+    weight: 4
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -440,10 +384,14 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_col_members: true
   field_collective: true
-  field_form_mode: true
   field_grt_art_apply: true
   field_grt_art_comment: true
   field_grt_art_reason: true
@@ -492,6 +440,10 @@ hidden:
   field_prj_brn_plan: true
   field_prj_brn_time: true
   field_prj_brn_time_adm: true
+  field_prj_cll_collaborate: true
+  field_prj_cll_contact: true
+  field_prj_cll_description: true
+  field_prj_cll_thread: true
   field_prj_gen_bio: true
   field_prj_gen_concept: true
   field_prj_gen_contact: true
@@ -552,7 +504,20 @@ hidden:
   field_prj_stc_size: true
   field_prj_stc_structural: true
   field_prj_stc_weight: true
+  field_prj_stg_contact: true
+  field_prj_stg_description: true
+  field_prj_stg_stage: true
+  field_prj_stg_tread: true
+  field_prj_stg_type: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_details_view: true
+  field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_scheduled: true
+  field_prj_wtf_short_copy: true
+  field_sup_comment: true
+  field_sup_review: true
   field_this_is_the_amount_of_mone: true
+  field_vp_ea: true
   title: true

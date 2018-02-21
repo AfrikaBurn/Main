@@ -93,3 +93,4 @@ permissions:
   - 'view own field_prj_wtf_short_copy'
   - 'view own field_sup_comment'
   - 'view own field_sup_review'
+  - 'view the administration theme'
