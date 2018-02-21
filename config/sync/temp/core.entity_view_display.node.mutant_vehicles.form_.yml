@@ -602,7 +602,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: basic_string_tags
+    type: basic_string
     region: content
   field_prj_oth_grant:
     weight: 25
