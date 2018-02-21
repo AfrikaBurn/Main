@@ -425,6 +425,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_muncipal_district:
     weight: 12
     settings:
@@ -1138,7 +1146,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_col_members: true
-  field_form_mode: true
   field_grt_art_apply: true
   field_grt_art_comment: true
   field_grt_art_reason: true

@@ -91,6 +91,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_type
     - field.field.node.mutant_vehicles.field_prj_sup_address
     - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_details_view
     - field.field.node.mutant_vehicles.field_prj_sup_h1
     - field.field.node.mutant_vehicles.field_prj_trl_area
     - field.field.node.mutant_vehicles.field_prj_trl_capasity
@@ -106,6 +107,9 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_short
     - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
     - field.field.node.mutant_vehicles.field_prj_wtf_website
+    - field.field.node.mutant_vehicles.field_sup_comment
+    - field.field.node.mutant_vehicles.field_sup_review
+    - field.field.node.mutant_vehicles.field_vp_ea
     - node.type.mutant_vehicles
   module:
     - content_moderation
@@ -126,6 +130,7 @@ third_party_settings:
         classes: ''
         effect: none
       label: 'Project Overview'
+      region: hidden
     group_acc_the_project:
       children:
         - field_prj_gen_base
@@ -134,7 +139,7 @@ third_party_settings:
         - field_prj_gen_doc
         - field_prj_gen_mutating
         - field_prj_gen_story
-      parent_name: group_acc_overview
+      parent_name: ''
       weight: 15
       format_type: accordion_item
       format_settings:
@@ -144,6 +149,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: 'The Project'
+      region: hidden
     group_acc_safety:
       children:
         - field_prj_saf_access
@@ -151,7 +157,7 @@ third_party_settings:
         - field_prj_saf_mark
         - field_prj_saf_other
         - field_prj_saf_passengers
-      parent_name: group_acc_overview
+      parent_name: ''
       weight: 16
       format_type: accordion_item
       format_settings:
@@ -161,13 +167,14 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Safety
+      region: hidden
     group_acc_night_driving:
       children:
         - field_prj_lgh_description
         - field_prj_lgh_lighter
         - field_prj_lgh_night
         - field_prj_lgh_projection
-      parent_name: group_acc_overview
+      parent_name: ''
       weight: 17
       format_type: accordion_item
       format_settings:
@@ -177,6 +184,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: 'Night Driving'
+      region: hidden
     group_acc_sound:
       children:
         - field_prj_snd_agree
@@ -186,7 +194,7 @@ third_party_settings:
         - field_prj_snd_safety
         - field_prj_snd_soop
         - field_prj_snd_sound
-      parent_name: group_acc_overview
+      parent_name: ''
       weight: 18
       format_type: accordion_item
       format_settings:
@@ -196,13 +204,14 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Sound
+      region: hidden
     group_acc_flame_effects:
       children:
         - field_prj_brn_burning
         - field_prj_brn_desc
         - field_prj_brn_person
         - field_prj_brn_plan
-      parent_name: group_acc_overview
+      parent_name: ''
       weight: 19
       format_type: accordion_item
       format_settings:
@@ -212,6 +221,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: 'Flame effects'
+      region: hidden
     group_acc_trailer:
       children:
         - field_prj_trl_area
@@ -222,7 +232,7 @@ third_party_settings:
         - field_prj_trl_passengers
         - field_prj_trl_size
         - field_prj_trl_walkers
-      parent_name: group_acc_overview
+      parent_name: ''
       weight: 20
       format_type: accordion_item
       format_settings:
@@ -232,12 +242,13 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Trailer
+      region: hidden
     group_acc_moop:
       children:
         - field_prj_lnt_handled
         - field_prj_lnt_historic
         - field_prj_lnt_representative
-      parent_name: group_acc_overview
+      parent_name: ''
       weight: 21
       format_type: accordion_item
       format_settings:
@@ -247,6 +258,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Moop
+      region: hidden
     group_acc_wtf_guide:
       children:
         - field_prj_cll_collaborate
@@ -259,7 +271,7 @@ third_party_settings:
         - field_prj_wtf_categories
         - field_prj_wtf_image
         - field_prj_wtf_website
-      parent_name: group_acc_overview
+      parent_name: ''
       weight: 22
       format_type: accordion_item
       format_settings:
@@ -269,13 +281,14 @@ third_party_settings:
         required_fields: true
         description: ''
       label: 'WTF Guide and Activities'
+      region: hidden
     group_acc_almost_done:
       children:
         - field_prj_oth_agree
         - field_prj_oth_associated
         - field_prj_oth_grant
         - field_prj_oth_other
-      parent_name: group_acc_overview
+      parent_name: ''
       weight: 23
       format_type: accordion_item
       format_settings:
@@ -285,6 +298,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: 'Almost done!'
+      region: hidden
     group_supplier:
       children:
         - title
@@ -301,6 +315,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Supplier
+      region: hidden
 _core:
   default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
 id: node.mutant_vehicles.supplier
@@ -398,6 +413,11 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_collective: true
   field_grt_art_comment: true
@@ -483,6 +503,7 @@ hidden:
   field_prj_stg_stage: true
   field_prj_stg_tread: true
   field_prj_stg_type: true
+  field_prj_sup_details_view: true
   field_prj_trl_area: true
   field_prj_trl_capasity: true
   field_prj_trl_communicate: true
@@ -497,3 +518,6 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_sup_comment: true
+  field_sup_review: true
+  field_vp_ea: true

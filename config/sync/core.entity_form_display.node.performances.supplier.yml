@@ -97,6 +97,7 @@ dependencies:
     - field.field.node.performances.field_prj_stc_weight
     - field.field.node.performances.field_prj_sup_address
     - field.field.node.performances.field_prj_sup_details
+    - field.field.node.performances.field_prj_sup_details_view
     - field.field.node.performances.field_prj_sup_h1
     - field.field.node.performances.field_prj_total_cost
     - field.field.node.performances.field_prj_wtf_categories
@@ -108,7 +109,10 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
     - field.field.node.performances.field_prj_wtf_website
+    - field.field.node.performances.field_sup_comment
+    - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
+    - field.field.node.performances.field_vp_ea
     - node.type.performances
   module:
     - content_moderation
@@ -130,13 +134,14 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Project Registration'
+      region: hidden
     group_the_:
       children:
         - field_prj_gen_concept
         - field_prj_gen_description
         - field_prj_gen_doc
         - field_prj_gen_story
-      parent_name: group_overview
+      parent_name: ''
       weight: 11
       format_type: accordion_item
       format_settings:
@@ -146,11 +151,12 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'The Project'
+      region: hidden
     group_sound:
       children:
         - field_prj_snd_level
         - field_prj_snd_sound
-      parent_name: group_overview
+      parent_name: ''
       weight: 14
       format_type: accordion_item
       format_settings:
@@ -160,6 +166,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Sound
+      region: hidden
     group_moop:
       children:
         - field_prj_lnt_duration
@@ -167,7 +174,7 @@ third_party_settings:
         - field_prj_lnt_helpers
         - field_prj_lnt_historic
         - field_prj_lnt_representative
-      parent_name: group_overview
+      parent_name: ''
       weight: 16
       format_type: accordion_item
       format_settings:
@@ -177,6 +184,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Leave No Trace'
+      region: hidden
     group_wtf:
       children:
         - field_prj_cll_collaborate
@@ -187,7 +195,7 @@ third_party_settings:
         - field_prj_wtf_planned
         - field_prj_wtf_scheduled
         - field_prj_wtf_website
-      parent_name: group_overview
+      parent_name: ''
       weight: 17
       format_type: accordion_item
       format_settings:
@@ -197,6 +205,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'WTF Guide and Community'
+      region: hidden
     group_other:
       children:
         - field_grt_breakdown
@@ -208,7 +217,7 @@ third_party_settings:
         - field_prj_oth_relationship
         - field_prj_oth_unregistered
         - field_prj_total_cost
-      parent_name: group_overview
+      parent_name: ''
       weight: 18
       format_type: accordion_item
       format_settings:
@@ -218,6 +227,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Other
+      region: hidden
     group_onsite_building:
       children:
         - field_prj_prp_duration
@@ -231,10 +241,9 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Onsite building'
+      region: hidden
     group_dimensions:
       children:
-        - group_offsite_building
-        - group_onsite_building
         - field_prj_stc_attributes
         - field_prj_stc_footprint
         - field_prj_stc_height
@@ -242,7 +251,9 @@ third_party_settings:
         - field_prj_stc_safety
         - field_prj_stc_structural
         - field_prj_stc_weight
-      parent_name: group_the_st
+        - group_offsite_building
+        - group_onsite_building
+      parent_name: ''
       weight: 29
       format_type: fieldset
       format_settings:
@@ -252,6 +263,7 @@ third_party_settings:
         id: ''
         classes: wizard-dimensions
       label: Dimensions
+      region: hidden
     group_offsite_building:
       children:
         - field_muncipal_district
@@ -268,11 +280,12 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Offsite building'
+      region: hidden
     group_lighting:
       children:
         - field_prj_lgh_f1
         - field_prj_lgh_f2
-      parent_name: group_overview
+      parent_name: ''
       weight: 13
       format_type: accordion_item
       format_settings:
@@ -282,12 +295,13 @@ third_party_settings:
         id: ''
         classes: ''
       label: Lighting
+      region: hidden
     group_burn:
       children:
         - field_prj_brn_burning
         - field_prj_brn_f2
         - field_prj_brn_motivation
-      parent_name: group_overview
+      parent_name: ''
       weight: 15
       format_type: accordion_item
       format_settings:
@@ -297,6 +311,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Burn
+      region: hidden
     group_supplier:
       children:
         - title
@@ -313,6 +328,7 @@ third_party_settings:
         required_fields: true
         description: ''
       label: Supplier
+      region: hidden
 _core:
   default_config_hash: GszY5o7FPcrv2Z8_LMFChqNpGZCA9kaS3WAz3lVtB0o
 id: node.performances.supplier
@@ -410,6 +426,11 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_collective: true
   field_grt_art_total: true
@@ -501,6 +522,7 @@ hidden:
   field_prj_stc_safety: true
   field_prj_stc_structural: true
   field_prj_stc_weight: true
+  field_prj_sup_details_view: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true
   field_prj_wtf_image: true
@@ -511,4 +533,7 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_sup_comment: true
+  field_sup_review: true
   field_this_is_the_amount_of_mone: true
+  field_vp_ea: true
