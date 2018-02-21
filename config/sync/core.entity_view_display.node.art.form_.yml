@@ -348,7 +348,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_brn_perimeter:
-    type: number
+    type: number_integer
     weight: 6
     region: content
     settings:
@@ -446,7 +446,7 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
+    type: number_integer
     region: content
   field_prj_lnt_handled:
     type: basic_string
@@ -461,7 +461,7 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
+    type: number_integer
     region: content
   field_prj_lnt_historic:
     type: options_select
