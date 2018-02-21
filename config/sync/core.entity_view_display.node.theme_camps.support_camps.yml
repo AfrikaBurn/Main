@@ -382,7 +382,7 @@ content:
       display_label: true
     third_party_settings: {  }
   field_field_prj_plc_stretch_m:
-    type: computed_number_integer_widget
+    type: number_integer
     weight: 6
     region: content
     settings: {  }
@@ -396,7 +396,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_adm_wrangler:
-    type: options_select
+    type: basic_string
     weight: 0
     region: content
     settings: {  }
@@ -405,7 +405,7 @@ content:
     weight: 6
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_gen_profit:
     weight: 8
@@ -455,19 +455,19 @@ content:
     weight: 2
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_lnt_representative:
     weight: 4
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_oth_associated:
     weight: 10
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_plc_camp_d:
     type: number_integer
@@ -513,7 +513,7 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
   field_prj_plc_location:
-    type: options_select
+    type: basic_string
     weight: 1
     region: content
     settings: {  }
@@ -639,13 +639,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_saf_markup:
-    type: options_select
+    type: basic_string
     weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_saf_person:
-    type: options_select
+    type: basic_string
     weight: 5
     region: content
     settings: {  }
@@ -661,10 +661,10 @@ content:
     weight: 12
     settings: {  }
     third_party_settings: {  }
-    type: computed_number_integer_widget
+    type: number_integer
     region: content
   field_tc_type:
-    type: options_select
+    type: basic_string
     weight: 0
     region: content
     settings: {  }

@@ -354,7 +354,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_brn_person:
-    type: options_select
+    type: basic_string
     weight: 5
     region: content
     settings: {  }
@@ -407,7 +407,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_lgh_lighter:
-    type: options_select
+    type: basic_string
     weight: 59
     region: content
     settings: {  }
@@ -463,7 +463,7 @@ content:
     type: number_integer
     region: content
   field_prj_lnt_historic:
-    type: options_select
+    type: basic_string
     weight: 9
     region: content
     settings: {  }
@@ -472,7 +472,7 @@ content:
     weight: 10
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_oth_area:
     weight: 74
@@ -572,13 +572,13 @@ content:
     weight: 33
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_snd_person:
     weight: 36
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: basic_string
     region: content
   field_prj_snd_sound:
     weight: 32
@@ -640,7 +640,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   uid:
-    type: options_select
+    type: basic_string
     weight: 2
     settings: {  }
     region: content
