@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: early_access_and_vehicle_passes
-label: 'Early Access and Vehicle Pass'
+label: 'Work Access and Vehicle Pass'
 icon_uuid: null
 description: ''
 behavior_plugins: {  }

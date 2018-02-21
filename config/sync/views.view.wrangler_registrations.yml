@@ -27431,7 +27431,7 @@ display:
               sortable: false
               default_sort_order: asc
               align: ''
-              separator: ''
+              separator: '<br />'
               empty_column: false
               responsive: ''
             field_prj_wtf_long:

@@ -173,6 +173,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_wtf_categories:
     weight: 2
     settings: {  }
@@ -262,7 +270,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_collective: true
-  field_form_mode: true
   field_grt_art_comment: true
   field_grt_art_total: true
   field_grt_awarded: true
