@@ -144,7 +144,6 @@ dependencies:
   module:
     - comment
     - conditional_fields
-    - basic_string
     - datetime
     - field_group
     - file

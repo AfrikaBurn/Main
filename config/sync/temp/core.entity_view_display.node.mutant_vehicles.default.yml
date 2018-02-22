@@ -112,7 +112,6 @@ dependencies:
     - node.type.mutant_vehicles
   module:
     - conditional_fields
-    - basic_string
     - field_group
     - file
     - image

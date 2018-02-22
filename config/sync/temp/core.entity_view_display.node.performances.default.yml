@@ -117,7 +117,6 @@ dependencies:
     - comment
     - conditional_fields
     - content_moderation
-    - basic_string
     - datetime
     - field_group
     - file

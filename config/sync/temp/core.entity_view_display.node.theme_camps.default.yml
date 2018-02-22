@@ -138,7 +138,6 @@ dependencies:
     - computed_field
     - conditional_fields
     - content_moderation
-    - basic_string
     - field_group
     - image
     - link
