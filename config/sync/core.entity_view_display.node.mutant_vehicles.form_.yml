@@ -106,9 +106,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.mutant_vehicles
   module:
-    - basic_string
     - content_moderation
-    - basic_string
     - field_group
     - file
     - image
