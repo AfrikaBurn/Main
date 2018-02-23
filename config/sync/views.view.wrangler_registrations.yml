@@ -28446,7 +28446,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"/node/{{ nid }}/edit\">Form 1</a><br />\n{% if field_prj_plc_location %}<a href=\"/node/{{ nid }}/edit/form_\">Form 2</a>{% endif %}"
+            text: "<a href=\"/node/{{ nid }}/edit\">Form 1</a><br />\n{% if field_prj_plc_location %}<a href=\"/registration/{{ nid }}/form_2\">Form 2</a>{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -28509,7 +28509,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{% if field_prj_wtf_long %}<a href="/node/{{ nid }}/edit/wtf_guide_and_app">Form 3</a>{% endif %}'
+            text: '{% if field_prj_wtf_long %}<a href="/registration/{{ nid }}/form_3">Form 3</a>{% endif %}'
             make_link: false
             path: ''
             absolute: false
