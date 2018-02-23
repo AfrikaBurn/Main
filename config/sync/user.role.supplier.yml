@@ -14,6 +14,8 @@ permissions:
   - 'create field_sub_review'
   - 'create field_sup_comment'
   - 'create field_sup_review'
+  - 'delete own subsidised_ticket content'
+  - 'edit any subsidised_ticket content'
   - 'edit field_agreements'
   - 'edit field_date_of_birth'
   - 'edit field_field_consent_form'
@@ -77,3 +79,4 @@ permissions:
   - 'view own field_sub_review'
   - 'view own field_sup_comment'
   - 'view own field_sup_review'
+  - 'view subsidised_ticket revisions'
