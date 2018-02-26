@@ -36,13 +36,10 @@ abstract class WebformManagedFileBase extends WebformElementBase {
    * {@inheritdoc}
    */
   public function getDefaultProperties() {
-    $max_filesize = \Drupal::config('webform.settings')->get('file.default_max_filesize') ?: file_upload_max_size();
-    $max_filesize = Bytes::toInt($max_filesize);
-    $max_filesize = ($max_filesize / 1024 / 1024);
     $file_extensions = $this->getFileExtensions();
     $properties = parent::getDefaultProperties() + [
       'multiple' => FALSE,
-      'max_filesize' => $max_filesize,
+      'max_filesize' => '',
       'file_extensions' => $file_extensions,
       'uri_scheme' => 'private',
       'sanitize' => FALSE,
@@ -353,7 +350,7 @@ abstract class WebformManagedFileBase extends WebformElementBase {
       $source_filename = $file->getFileName();
 
       $destination_uri = $source_uri;
-      $destination_filename = $source_filename ;
+      $destination_filename = $source_filename;
 
       // Replace /_sid_/ token with the submission id.
       if (strpos($source_uri, '/_sid_/')) {
@@ -380,7 +377,7 @@ abstract class WebformManagedFileBase extends WebformElementBase {
         }
 
         $destination_filename = $destination_basename . '.' . $destination_extension;
-        $destination_uri = $file_system->dirname($destination_uri) . $destination_filename;
+        $destination_uri = $file_system->dirname($destination_uri) . '/' . $destination_filename;
       }
 
       // Save file if there is a new destination URI.
@@ -624,12 +621,17 @@ abstract class WebformManagedFileBase extends WebformElementBase {
       ];
     }
 
+    $max_filesize = \Drupal::config('webform.settings')->get('file.default_max_filesize') ?: file_upload_max_size();
+    $max_filesize = Bytes::toInt($max_filesize);
+    $max_filesize = ($max_filesize / 1024 / 1024);
     $form['file']['max_filesize'] = [
       '#type' => 'number',
       '#title' => $this->t('Maximum file size'),
-      '#field_suffix' => $this->t('MB'),
+      '#field_suffix' => $this->t('MB (Max: @filesize MB)', ['@filesize' => $max_filesize]),
+      '#placeholder' => $max_filesize,
       '#description' => $this->t('Enter the max file size a user may upload.'),
       '#min' => 1,
+      '#max' => $max_filesize,
     ];
     $form['file']['file_extensions'] = [
       '#type' => 'textfield',
