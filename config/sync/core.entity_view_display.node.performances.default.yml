@@ -231,8 +231,8 @@ third_party_settings:
         - field_prj_snd_sound
         - field_prj_snd_level
         - field_prj_snd_agree
-        - field_prj_snd_description
         - field_prj_snd_person
+        - field_prj_snd_description
       parent_name: group_project_registration
       weight: 5
       format_type: tab
