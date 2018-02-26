@@ -49,3 +49,4 @@ afrikaburn_shared.admin:
     cid: '^[0-9]+'
     uid: '^[0-9]+'
     _is_collective_admin: 'TRUE'
+
