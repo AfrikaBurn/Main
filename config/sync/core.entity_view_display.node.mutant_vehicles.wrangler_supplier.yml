@@ -109,20 +109,15 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_website
     - field.field.node.mutant_vehicles.field_sup_comment
     - field.field.node.mutant_vehicles.field_sup_review
+    - field.field.node.mutant_vehicles.field_vp_ea
     - node.type.mutant_vehicles
   module:
     - empty_fields
     - field_group
-    - panelizer
     - taxonomy
     - user
     - viewfield
 third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   field_group:
     group_project_overview:
       children:
@@ -535,4 +530,5 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_vp_ea: true
   links: true

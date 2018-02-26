@@ -19,14 +19,7 @@ dependencies:
     - node.type.subsidised_ticket
   module:
     - file
-    - panelizer
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.subsidised_ticket.default
 targetEntityType: node
 bundle: subsidised_ticket

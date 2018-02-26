@@ -22,14 +22,8 @@ dependencies:
     - empty_fields
     - field_group
     - file
-    - panelizer
     - user
 third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   field_group:
     group_application:
       children:
