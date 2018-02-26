@@ -124,6 +124,10 @@ dependencies:
     - field.field.node.art.field_prj_stg_stage
     - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
+    - field.field.node.art.field_prj_sup_address
+    - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_details_view
+    - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
@@ -133,7 +137,10 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
+    - field.field.node.art.field_sup_comment
+    - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
+    - field.field.node.art.field_vp_ea
     - node.type.art
   module:
     - computed_field
@@ -142,7 +149,6 @@ dependencies:
     - entity_reference_revisions
     - field_group
     - image
-    - panelizer
     - user
 third_party_settings:
   field_group:
@@ -403,11 +409,6 @@ third_party_settings:
         formatter: closed
         description: ''
       label: Grant
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 _core:
   default_config_hash: F2XD_eUMlwsnh64FXbom-cxJT8e3efAGLdsgfXOFMac
 id: node.art.print
@@ -758,10 +759,17 @@ hidden:
   field_prj_stg_description: true
   field_prj_stg_tread: true
   field_prj_stg_type: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_details_view: true
+  field_prj_sup_h1: true
   field_prj_wtf_categories: true
   field_prj_wtf_image: true
   field_prj_wtf_long: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_sup_comment: true
+  field_sup_review: true
+  field_vp_ea: true
   links: true

@@ -15,6 +15,7 @@ dependencies:
     - field.field.user.user.field_first_name
     - field.field.user.user.field_gender
     - field.field.user.user.field_id_number
+    - field.field.user.user.field_kids_and_teens
     - field.field.user.user.field_last_name
     - field.field.user.user.field_links
     - field.field.user.user.field_location
@@ -33,15 +34,9 @@ dependencies:
     - empty_fields
     - field_group
     - image
-    - panelizer
     - telephone
     - user
 third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   field_group:
     group_overview:
       children:
@@ -223,6 +218,7 @@ hidden:
   field_emr_email: true
   field_emr_name: true
   field_gender: true
+  field_kids_and_teens: true
   field_links: true
   field_location: true
   field_newsletter: true
