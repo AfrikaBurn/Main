@@ -41,33 +41,57 @@ all the machine names from the content type
 
 The file should be CSV file.
 
+Please give write permission for your sites/default/files/ folder 
+to write the log file.
+
 If the content type having image fields, upload all the images 
 in public://<content_type>/images/ folder before importing 
 the CSV file(IMCE module will be helpful for this)
 
 Put the image name in the respective image column.
 
+Mandatory Columns is CSV:
+=========================
+
+title - Title of the node
+langcode - By default it should be 'en' for english and 
+		you can define the langcode created by you.
+
 Field Mapping:
 =============
 
-For Image field - upload all the images 
-	in public://<content_type>/images/ folder before importing 
+For Image field - upload all the images
+	in public://<content_type>/images/ folder before importing
 	the CSV file(IMCE module will be helpful for this).
 
 For Entity Reference field(Taxonomy) - put the data as Vocabulary: term1, term2
 	If the Vocabulary or Term is not exists it will create automatically.
+	Eg: fruits:apple:orange
 
 For Entity Reference field(Users) - put the user's email address 
-	comma separated
+	comma separated 
 	If the User is not exists it will create automatically.
+	Eg: user1@d8.com,user2@d8.com
 
-For Boolean field - Put On/Yes to check the field and Off/No to uncheck the 
-	field.
+For Entity Reference field(Content) - put the title of the node 
+	colon separated 
+	Eg: title1:title2:title3	
 
-For Date field - Put the data in m/d/Y h:m:i format
+For Boolean field - Put On/on/Yes/yes to check the field and Off/No to uncheck 
+	the	field.
+
+For Date field - Put the data in m/d/Y h:m:i format or if you want the date only
+	please put the data in m/d/y format.
 
 For Timestamp field - Put the timestamp, the system will convert and store 
 	the date.
+
+For Geolocation field - Put the latitude and longitude values with , separated
+	If the field having mulitple values, put the data with ; as delimiter
+	Eg: lat1,long1
+		lat2,long2;lat3,long3
+		lat4,long4;lat5,long5;lat6,long6
+		lat7,long7
 
 Check the attached CSV file for Sample.
 
