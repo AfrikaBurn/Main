@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
     - field.field.node.collective.field_picture
-    - field.field.node.collective.panelizer
     - node.type.collective
   module:
     - content_moderation
@@ -126,7 +125,9 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
 hidden:
   field_col_posts: true
   field_picture: true
-  panelizer: true
