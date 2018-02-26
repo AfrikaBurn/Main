@@ -1212,7 +1212,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: '<a href="/node/add/collective" class="button">Create a new Collective</a>'
+          content: "<a href=\"/node/add/collective\" class=\"button\">Create a new Collective</a>\n<a href=\"/form/volunteer-registration\" class=\"button\">Sign up to Volunteer</a>"
           plugin_id: text_custom
       title: 'My Collectives'
       pager:
@@ -1612,7 +1612,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: '<a href="/node/add/collective" class="button">Create a new Collective</a>'
+          content: "<a href=\"/node/add/collective\" class=\"button\">Create a new Collective</a>\n<a href=\"/form/volunteer-registration\" class=\"button\">Sign up to Volunteer</a>"
           plugin_id: text_custom
       title: 'My Collectives'
       pager:

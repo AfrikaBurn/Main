@@ -124,6 +124,7 @@ module:
   webform_ui: 0
   workflows: 0
   xls_serialization: 0
+  contribute: 1
   ds: 1
   menu_link_content: 1
   views: 10
