@@ -1193,22 +1193,14 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-  url_redirects:
-    weight: 50
-    region: content
 hidden:
   field_collective: true
   field_form_mode: true
   field_grt_art_total: true
   field_mutant_drivers: true
-  field_prj_brn_agree: true
   field_prj_lgh_f1: true
   field_prj_lnt_agree: true
   field_prj_lnt_f1: true
-  field_prj_oth_unregistered: true
   field_prj_sup_address: true
   field_prj_sup_details: true
-  field_prj_sup_details_view: true
   field_prj_sup_h1: true
-  field_sup_comment: true
-  field_sup_review: true

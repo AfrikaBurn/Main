@@ -403,7 +403,6 @@ hidden:
   field_prj_adm_form_grant: true
   field_prj_adm_form_wtf: true
   field_prj_adm_ranger_comment: true
-  field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_desc: true
   field_prj_brn_person: true
@@ -443,7 +442,6 @@ hidden:
   field_prj_oth_associated: true
   field_prj_oth_grant: true
   field_prj_oth_other: true
-  field_prj_oth_unregistered: true
   field_prj_saf_access: true
   field_prj_saf_comment: true
   field_prj_saf_guide: true
@@ -465,7 +463,6 @@ hidden:
   field_prj_stg_type: true
   field_prj_sup_address: true
   field_prj_sup_details: true
-  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_trl_area: true
   field_prj_trl_capasity: true
@@ -481,6 +478,4 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
-  field_sup_comment: true
-  field_sup_review: true
   links: true

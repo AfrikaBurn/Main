@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
     - field.field.node.collective.field_picture
+    - field.field.node.collective.panelizer
     - image.style.medium
     - node.type.collective
   module:
@@ -178,3 +179,4 @@ hidden:
   field_col_invitee: true
   field_col_members: true
   links: true
+  panelizer: true
