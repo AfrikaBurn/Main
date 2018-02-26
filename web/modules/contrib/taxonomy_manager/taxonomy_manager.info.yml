@@ -4,12 +4,12 @@ description: 'Tool for administrating taxonomy terms.'
 dependencies:
   - taxonomy
 package: Taxonomy
-# version: 8.x-1.0
 # project: taxonomy_manager
 type: module
 configure: taxonomy_manager.settings
-# Information added by Drupal.org packaging script on 2018-01-19
+
+# Information added by Drupal.org packaging script on 2018-02-09
 version: '8.x-1.x-dev'
 core: '8.x'
 project: 'taxonomy_manager'
-datestamp: 1516390693
+datestamp: 1518187685
