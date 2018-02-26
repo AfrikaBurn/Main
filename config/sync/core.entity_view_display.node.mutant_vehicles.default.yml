@@ -120,14 +120,8 @@ dependencies:
     - link
     - markup
     - options
-    - panelizer
     - user
 third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   field_group:
     group_project_overview:
       children:

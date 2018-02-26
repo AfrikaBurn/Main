@@ -97,6 +97,7 @@ dependencies:
     - field.field.node.performances.field_prj_stc_weight
     - field.field.node.performances.field_prj_sup_address
     - field.field.node.performances.field_prj_sup_details
+    - field.field.node.performances.field_prj_sup_details_view
     - field.field.node.performances.field_prj_sup_h1
     - field.field.node.performances.field_prj_total_cost
     - field.field.node.performances.field_prj_wtf_categories
@@ -111,11 +112,11 @@ dependencies:
     - field.field.node.performances.field_sup_comment
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
+    - field.field.node.performances.field_vp_ea
     - node.type.performances
   module:
     - empty_fields
     - field_group
-    - panelizer
     - taxonomy
     - user
 third_party_settings:
@@ -398,11 +399,6 @@ third_party_settings:
         description: ''
       label: Grant
       region: hidden
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 _core:
   default_config_hash: V_qwvPFePM2PgrUSCA_TfMxvFLMYvQ8aK--ZQPca2FY
 id: node.performances.wrangler_supplier
@@ -529,6 +525,7 @@ hidden:
   field_prj_stc_structural: true
   field_prj_stc_weight: true
   field_prj_sup_details: true
+  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true

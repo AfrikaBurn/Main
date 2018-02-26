@@ -140,11 +140,11 @@ dependencies:
     - field.field.node.art.field_sup_comment
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
+    - field.field.node.art.field_vp_ea
     - node.type.art
   module:
     - empty_fields
     - field_group
-    - panelizer
     - user
     - viewfield
 third_party_settings:
@@ -435,11 +435,6 @@ third_party_settings:
         description: ''
       label: Grant
       region: hidden
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 _core:
   default_config_hash: F2XD_eUMlwsnh64FXbom-cxJT8e3efAGLdsgfXOFMac
 id: node.art.wrangler_supplier
@@ -617,4 +612,5 @@ hidden:
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
   field_this_is_the_amount_of_mone: true
+  field_vp_ea: true
   links: true

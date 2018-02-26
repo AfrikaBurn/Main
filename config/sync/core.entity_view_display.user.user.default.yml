@@ -34,7 +34,6 @@ dependencies:
     - image
     - link
     - options
-    - panelizer
     - taxonomy
     - user
 third_party_settings:
@@ -145,11 +144,6 @@ third_party_settings:
         description: ''
       label: 'Emergency Medical Information'
       region: content
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
 id: user.user.default
