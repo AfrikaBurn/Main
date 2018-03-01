@@ -40,7 +40,7 @@ class TicketBlock extends BlockBase {
               NOTE:
               <ul>
 ' . '
-              <li>General ticket sales are open.</li>
+              <li>General ticket sales are open until Friday 2nd March 2018. (or sold out)</li>
 ' ./* '
               <li>General ticket sales are presently closed.</li>
 ' ./* '
@@ -61,8 +61,8 @@ class TicketBlock extends BlockBase {
               <li>
                 <a href="https://www.afrikaburn.com/the-event/tickets#6" target="_blank">Tickets for kids/minors</a> are currently available for purchase.
               </li>
-' . '              <li>The next round of general ticket sales is on Feb 28 until Friday 2nd March 2018. (or until sold out)</li>
-' . '
+' ./* '              <li>The next round of general ticket sales is on Feb 28 until Friday 2nd March 2018. (or until sold out)</li>
+' .*/ '
               </ul>
             </div>'
           : '<div class="messages messages--warning">
