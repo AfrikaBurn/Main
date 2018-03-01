@@ -167,3 +167,35 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+  volunteer:
+    id: email
+    label: volunteer
+    handler_id: volunteer
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:user:mail]'
+      to_options: {  }
+      cc_mail: shared@afrikaburn.com
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: default
+      from_options: {  }
+      from_name: default
+      subject: 'Thanks for signing up!'
+      body: "Hi [webform_submission:user]\n\nThanks for signing up as a volunteer! Our wranglers will be in contact soon.\n\nAfrikaBurn Volunteers,\nvolcore@afrikaburn.com"
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      html: false
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
