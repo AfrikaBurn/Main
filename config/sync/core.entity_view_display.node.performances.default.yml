@@ -124,7 +124,6 @@ dependencies:
     - image
     - link
     - markup
-    - panelizer
     - user
 third_party_settings:
   field_group:
@@ -407,11 +406,6 @@ third_party_settings:
         description: ''
       label: Grant
       region: content
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 _core:
   default_config_hash: V_qwvPFePM2PgrUSCA_TfMxvFLMYvQ8aK--ZQPca2FY
 id: node.performances.default

@@ -126,6 +126,7 @@ dependencies:
     - field.field.node.art.field_prj_stg_type
     - field.field.node.art.field_prj_sup_address
     - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_details_view
     - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
@@ -139,16 +140,10 @@ dependencies:
     - field.field.node.art.field_sup_comment
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
+    - field.field.node.art.field_vp_ea
     - node.type.art
   module:
-    - panelizer
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 _core:
   default_config_hash: hEUz6PjyYfKDKe0yzjU9WWcT6HEenmMNtTw0gU5VaQQ
 id: node.art.teaser
@@ -292,6 +287,7 @@ hidden:
   field_prj_stg_type: true
   field_prj_sup_address: true
   field_prj_sup_details: true
+  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true
@@ -305,4 +301,5 @@ hidden:
   field_sup_comment: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
+  field_vp_ea: true
   links: true

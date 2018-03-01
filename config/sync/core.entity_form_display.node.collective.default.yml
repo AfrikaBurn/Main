@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
     - field.field.node.collective.field_picture
-    - field.field.node.collective.panelizer
     - image.style.thumbnail
     - node.type.collective
   module:
@@ -102,10 +101,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
 hidden:
   created: true
   field_col_posts: true
-  panelizer: true
   path: true
   promote: true
   sticky: true

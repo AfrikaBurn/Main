@@ -131,19 +131,14 @@ dependencies:
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_comment
     - field.field.node.theme_camps.field_sup_review
+    - field.field.node.theme_camps.field_tc_type
+    - field.field.node.theme_camps.field_vp_ea
     - node.type.theme_camps
   module:
     - empty_fields
-    - panelizer
     - taxonomy
     - user
     - viewfield
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 _core:
   default_config_hash: 6_2DUknVZ0gXB6FTp65wNggLYmjyC6QCKXZBoCPjIpU
 id: node.theme_camps.wrangler_supplier
@@ -311,4 +306,6 @@ hidden:
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
   field_stretch_tent_dimen: true
+  field_tc_type: true
+  field_vp_ea: true
   links: true
