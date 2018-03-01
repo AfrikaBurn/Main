@@ -39,6 +39,7 @@ class TicketBlock extends BlockBase {
               <p><a href="https://www.quicket.co.za/events/' . $settings['event_id'].'-#/?dc=' . $quicket_code . '" target="_blank" class="button">BUY TICKETS</a></p>
               NOTE:
               <ul>
+' ./* '
               <li>General ticket sales are presently closed.</li>
 ' ./* '
               <li>
