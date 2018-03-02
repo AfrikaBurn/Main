@@ -40,29 +40,14 @@ class TicketBlock extends BlockBase {
               NOTE:
               <ul>
 ' . '
-              <li>General ticket sales are open until Friday 2nd March 2018. (or sold out)</li>
-' ./* '
-              <li>General ticket sales are presently closed.</li>
-' ./* '
-              <li>
-                <a href="https://www.afrikaburn.com/the-event/tickets#7" target="_blank">Subsidised</a> and
-                <a href="https://www.afrikaburn.com/the-event/tickets#8" target="_blank">Community</a> ticket applications are open.
-              </li>
-' .*/ '
+              <li>General ticket sales are now closed - but <a href="https://www.afrikaburn.com/the-event/tickets#14">STEP</a> is open!</li>
+              <li><a href="https://www.afrikaburn.com/the-event/tickets#14">Buy or sell resold tickets safely & securely on STEP</a></li>
               <li>
                 <a href="https://www.afrikaburn.com/the-event/tickets#7" target="_blank">Subsidised</a> ticket applications are open.
               </li>
-' ./* '
-              <li>
-                <a href="https://www.afrikaburn.com/the-event/tickets#10" target="_blank">Mayday tickets</a> and 
-                <a href="https://www.afrikaburn.com/the-event/tickets#6" target="_blank">tickets for kids/minors</a> are currently available for purchase.
-              </li>
-' .*/ '
               <li>
                 <a href="https://www.afrikaburn.com/the-event/tickets#6" target="_blank">Tickets for kids/minors</a> are currently available for purchase.
               </li>
-' ./* '              <li>The next round of general ticket sales is on Feb 28 until Friday 2nd March 2018. (or until sold out)</li>
-' .*/ '
               </ul>
             </div>'
           : '<div class="messages messages--warning">
