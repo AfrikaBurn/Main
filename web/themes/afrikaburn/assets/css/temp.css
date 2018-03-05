@@ -412,3 +412,21 @@ body.path-frontpage .main-block{
     min-width: 100%;
 }
 
+
+/* print layout images */
+.wranglers-theme_camps-print #top-bar,
+.wranglers-theme_camps-print #header,
+.wranglers-theme_camps-print div#social-media-links-bar,
+.wranglers-theme_camps-print div#mobile-menu-bar {
+    display: none;
+}
+.wranglers-theme_camps-print .body-content {
+    background: #fff;
+    max-width: 100%;
+    min-width: 100%;
+    left: 0;
+}
+.wranglers-theme_camps-print .item-list li {
+    page-break-before: always;
+}
+
