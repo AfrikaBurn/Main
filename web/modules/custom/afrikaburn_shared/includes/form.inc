@@ -73,6 +73,7 @@ function _set_registration_form_title(&$form, $form_id, $collective_title, $regi
     'node_mutant_vehicles_supplier_form' => t('Register a supplier for %title', ['%title' => $registration_title]) . $collective_title,
 
     'node_theme_camps_support_camps_form' => t('Register a Support Camp for %title', ['%title' => $registration_title]) . $collective_title,
+    'node_theme_camps_open_camps_form' => t('Register an Open Camp for %title', ['%title' => $registration_title]) . $collective_title,
 
     'node_theme_camps_early_access_and_vehicle_passes_form' => t('Early Access and Vehicle Passes for %title', ['%title' => $registration_title]) . $collective_title,
     'node_art_early_access_and_vehicle_passes_form' => t('Early Access and Vehicle Passes for %title', ['%title' => $registration_title]) . $collective_title,
@@ -114,6 +115,7 @@ function _set_registration_form_defaults(&$form, $form_state, $form_id, $user, $
 
   $type = [
     'node_theme_camps_support_camps_form' => 'Support',
+    'node_theme_camps_open_camps_form' => 'Open',
   ];
   $type = isset($type[$form_id]) ? $type[$form_id] : 'Theme';
   $form['field_tc_type']['#access'] = $user->hasRole('administrator');
