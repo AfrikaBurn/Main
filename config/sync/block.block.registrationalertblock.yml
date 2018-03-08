@@ -11,7 +11,7 @@ dependencies:
 id: registrationalertblock
 theme: afrikaburn
 region: content
-weight: -21
+weight: -22
 provider: null
 plugin: registration_alert_block
 settings:

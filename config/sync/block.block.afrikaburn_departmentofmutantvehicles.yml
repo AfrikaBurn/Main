@@ -11,7 +11,7 @@ dependencies:
 id: afrikaburn_departmentofmutantvehicles
 theme: afrikaburn
 region: status_messages
-weight: -18
+weight: -17
 provider: null
 plugin: 'block_content:3dbfbbc4-a747-4939-a38a-099f8d1fe791'
 settings:

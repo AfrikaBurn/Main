@@ -223,7 +223,7 @@ content:
     type: boolean
     region: content
   field_prj_adm_latitude:
-    weight: 74
+    weight: 123
     label: above
     settings:
       thousand_separator: ''
@@ -234,7 +234,7 @@ content:
     type: number_decimal
     region: content
   field_prj_adm_longitude:
-    weight: 75
+    weight: 124
     label: above
     settings:
       thousand_separator: ''

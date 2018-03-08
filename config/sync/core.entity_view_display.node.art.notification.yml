@@ -38,8 +38,6 @@ dependencies:
     - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_form_grant
     - field.field.node.art.field_prj_adm_form_wtf
-    - field.field.node.art.field_prj_adm_latitude
-    - field.field.node.art.field_prj_adm_longitude
     - field.field.node.art.field_prj_adm_notes
     - field.field.node.art.field_prj_adm_ranger_comment
     - field.field.node.art.field_prj_adm_review
@@ -568,28 +566,6 @@ content:
       format: default
       format_custom_false: ''
       format_custom_true: ''
-    third_party_settings: {  }
-  field_prj_adm_latitude:
-    type: number_decimal
-    weight: 105
-    region: content
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-  field_prj_adm_longitude:
-    type: number_decimal
-    weight: 104
-    region: content
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
     third_party_settings: {  }
   field_prj_adm_review:
     type: entity_reference_label

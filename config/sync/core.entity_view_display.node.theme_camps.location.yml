@@ -1,9 +1,9 @@
-uuid: b1e4bac8-2920-4506-a010-f08fb97ee0d1
+uuid: 42f9fe7f-c704-4066-9a0d-3981afcbd055
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.location
+    - core.entity_view_mode.node.location
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_adm_form_3
     - field.field.node.theme_camps.field_field_prj_plc_marquis
@@ -135,284 +135,42 @@ dependencies:
     - field.field.node.theme_camps.field_vp_ea
     - node.type.theme_camps
   module:
-    - computed_field
-    - content_moderation
-    - field_group
-    - markup
-    - path
-third_party_settings:
-  field_group:
-    group_overview_new:
-      children:
-        - field_collective
-        - field_prj_gen_bio
-        - field_prj_gen_contact
-        - field_prj_gen_fundraiser
-        - field_prj_gen_fundraising
-        - field_prj_gen_history
-        - field_prj_gen_location
-      parent_name: group_overview_registrationew
-      weight: 1
-      format_type: accordion_item
-      format_settings:
-        label: Overview
-        formatter: open
-        required_fields: true
-        id: ''
-        classes: ''
-      label: Overview
-      region: hidden
-    group_sound_new:
-      children:
-        - field_prj_snd_level
-        - field_prj_snd_sound
-      parent_name: group_overview_registrationew
-      weight: 3
-      format_type: accordion_item
-      format_settings:
-        label: Sound
-        formatter: closed
-        required_fields: true
-        id: ''
-        classes: ''
-      label: Sound
-      region: hidden
-    group_leave_no_trace_new:
-      children:
-        - field_prj_lnt_handled
-        - field_prj_lnt_historic
-        - field_prj_lnt_representative
-      parent_name: group_overview_registrationew
-      weight: 4
-      format_type: accordion_item
-      format_settings:
-        label: 'Leave No Trace'
-        formatter: closed
-        required_fields: true
-        id: ''
-        classes: ''
-      label: 'Leave No Trace'
-      region: hidden
-    group_wtf_guide_and_community_ne:
-      children:
-        - field_prj_cll_collaborate
-        - field_prj_cll_contact
-        - field_prj_cll_description
-        - field_prj_cll_thread
-        - field_prj_stg_contact
-        - field_prj_stg_description
-        - field_prj_stg_stage
-        - field_prj_stg_type
-        - field_prj_wtf_image
-        - field_prj_wtf_website
-      parent_name: group_overview_registrationew
-      weight: 5
-      format_type: accordion_item
-      format_settings:
-        label: 'WTF Guide and Community'
-        formatter: closed
-        required_fields: true
-        id: ''
-        classes: ''
-      label: 'WTF Guide and Community'
-      region: hidden
-    group_almost_done_new:
-      children:
-        - field_prj_oth_associated
-        - field_prj_oth_move
-        - field_prj_oth_mv
-      parent_name: group_overview_registrationew
-      weight: 6
-      format_type: accordion_item
-      format_settings:
-        label: 'Almost done!'
-        formatter: closed
-        required_fields: true
-        id: ''
-        classes: ''
-      label: 'Almost done!'
-      region: hidden
-    group_the_project_new:
-      children:
-        - field_prj_gen_commodification
-        - field_prj_gen_concept
-        - field_prj_gen_description
-        - field_prj_gen_story
-      parent_name: group_overview_registrationew
-      weight: 2
-      format_type: accordion_item
-      format_settings:
-        label: 'The Project'
-        formatter: closed
-        required_fields: true
-        id: ''
-        classes: ''
-      label: 'The Project'
-      region: hidden
-    group_overview_registrationew:
-      children:
-        - group_overview_new
-        - group_the_project_new
-        - group_sound_new
-        - group_leave_no_trace_new
-        - group_wtf_guide_and_community_ne
-        - group_almost_done_new
-      parent_name: ''
-      weight: 109
-      format_type: accordion
-      format_settings:
-        label: 'Overview registration'
-        effect: none
-        id: ''
-        classes: ''
-      label: 'Overview registration'
-      region: hidden
+    - user
 _core:
-  default_config_hash: eK-XnXl0Ey4pkRcWQtChSHR8xHGuez-kSqbaS81-qXg
+  default_config_hash: 6_2DUknVZ0gXB6FTp65wNggLYmjyC6QCKXZBoCPjIpU
 id: node.theme_camps.location
 targetEntityType: node
 bundle: theme_camps
 mode: location
 content:
-  created:
-    type: datetime_timestamp
+  field_prj_adm_latitude:
+    type: number_decimal
     weight: 1
     region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_form_mode:
-    weight: 10
+    label: above
     settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_prj_adm_latitude:
-    type: number
-    weight: 19
-    region: content
-    settings:
-      placeholder: ''
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
     third_party_settings: {  }
   field_prj_adm_longitude:
-    type: number
-    weight: 18
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_adm_wrangler:
-    type: options_select
-    weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_gen_header1:
-    weight: 5
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_gen_header3:
-    weight: 6
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_gen_profit:
-    weight: 7
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_stretch_tent_dimen:
-    weight: 14
-    settings: {  }
-    third_party_settings: {  }
-    type: computed_number_widget
-    region: content
-  field_sup_comment:
-    type: string_textarea
-    weight: 16
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_sup_review:
-    type: options_select
-    weight: 17
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_tc_type:
-    weight: 15
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  moderation_state:
-    type: moderation_state_default
-    weight: 11
-    settings: {  }
-    region: content
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 2
-    region: content
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 12
-    third_party_settings: {  }
-    region: content
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 3
-    region: content
-    third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: 9
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
+    type: number_decimal
     weight: 0
+    region: content
+    label: above
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    region: content
-    third_party_settings: {  }
-  url_redirects:
-    weight: 13
-    region: content
-    settings: {  }
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
     third_party_settings: {  }
 hidden:
   field_collective: true
   field_field_prj_adm_form_3: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
+  field_form_mode: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
   field_prj_adm_form_3: true
@@ -420,6 +178,7 @@ hidden:
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
+  field_prj_adm_wrangler: true
   field_prj_cll_collaborate: true
   field_prj_cll_contact: true
   field_prj_cll_description: true
@@ -431,9 +190,12 @@ hidden:
   field_prj_gen_description: true
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
+  field_prj_gen_header1: true
   field_prj_gen_header2: true
+  field_prj_gen_header3: true
   field_prj_gen_history: true
   field_prj_gen_location: true
+  field_prj_gen_profit: true
   field_prj_gen_story: true
   field_prj_gen_year: true
   field_prj_lgh_agree: true
@@ -526,4 +288,9 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_stretch_tent_dimen: true
+  field_sup_comment: true
+  field_sup_review: true
+  field_tc_type: true
   field_vp_ea: true
+  links: true

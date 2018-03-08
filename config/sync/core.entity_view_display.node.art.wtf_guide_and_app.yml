@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.wtf_guide_and_app
+    - core.entity_view_mode.node.wtf_guide_and_app
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
@@ -38,8 +38,6 @@ dependencies:
     - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_form_grant
     - field.field.node.art.field_prj_adm_form_wtf
-    - field.field.node.art.field_prj_adm_latitude
-    - field.field.node.art.field_prj_adm_longitude
     - field.field.node.art.field_prj_adm_notes
     - field.field.node.art.field_prj_adm_ranger_comment
     - field.field.node.art.field_prj_adm_review
@@ -141,14 +139,12 @@ dependencies:
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
-    - image.style.thumbnail
     - node.type.art
   module:
-    - content_moderation
     - field_group
     - image
     - link
-    - path
+    - user
 third_party_settings:
   field_group:
     group_project_registration:
@@ -405,8 +401,6 @@ hidden:
   field_prj_adm_form_3: true
   field_prj_adm_form_grant: true
   field_prj_adm_form_wtf: true
-  field_prj_adm_latitude: true
-  field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
