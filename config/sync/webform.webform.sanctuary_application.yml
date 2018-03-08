@@ -1,3 +1,4 @@
+uuid: 0c326090-6f71-4529-b8da-061ca183c1d0
 langcode: en
 status: open
 dependencies: {  }
@@ -131,5 +132,36 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers: {  }
-uuid: 0c326090-6f71-4529-b8da-061ca183c1d0
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:user:mail]'
+      to_options: {  }
+      cc_mail: shared@afrikaburn.com
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: default
+      from_options: {  }
+      from_name: default
+      subject: 'Sanctuary application received'
+      body: "Hi {{ webform_token('[webform_submission:user]', webform_submission) }}\n\nThank you for your Sanctuary application, our wranglers will be in contact soon.\n\nSanctuary Crew"
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      html: false
+      attachments: false
+      twig: true
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''

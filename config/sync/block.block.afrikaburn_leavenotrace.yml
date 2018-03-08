@@ -11,7 +11,7 @@ dependencies:
 id: afrikaburn_leavenotrace
 theme: afrikaburn
 region: status_messages
-weight: -11
+weight: -10
 provider: null
 plugin: 'block_content:14d2c42c-cffe-469c-81ae-fbd4732bfd5d'
 settings:

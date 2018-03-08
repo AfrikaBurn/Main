@@ -1711,6 +1711,72 @@ display:
           level_labels: ''
           force_deepest: 0
           plugin_id: taxonomy_index_tid
+        field_sub_review_target_id_1:
+          id: field_sub_review_target_id_1
+          table: node__field_sub_review
+          field: field_sub_review_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: not
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_sub_review_target_id_1_op
+            label: Exclude
+            description: ''
+            use_operator: false
+            operator: field_sub_review_target_id_1_op
+            identifier: field_sub_review_target_id_1
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              art_wrangler: '0'
+              art_admin: '0'
+              communications_wrangler: '0'
+              communications_admin: '0'
+              leave_no_trace_moop: '0'
+              mutant_vehicle_viewer: '0'
+              mutant_vehicle_wrangler: '0'
+              mutant_vehicle_admin: '0'
+              outreach_wrangler: '0'
+              outreach_admin: '0'
+              administrator: '0'
+              support_wrangler: '0'
+              support_admin: '0'
+              theme_camp_wrangler: '0'
+              theme: '0'
+              supplier: '0'
+              dpw: '0'
+              volunteer_admin: '0'
+              ranger_admin: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: subsidised_tickets_status
+          hierarchy: false
+          error_message: true
+          parent: '0'
+          level_labels: ''
+          force_deepest: 0
+          plugin_id: taxonomy_index_tid
       sorts:
         created:
           id: created
@@ -4058,11 +4124,17 @@ display:
         - 'config:core.entity_view_display.node.agreement.default'
         - 'config:core.entity_view_display.node.agreement.teaser'
         - 'config:core.entity_view_display.node.art.default'
+        - 'config:core.entity_view_display.node.art.early_access_and_vehicle_passes'
+        - 'config:core.entity_view_display.node.art.grant'
+        - 'config:core.entity_view_display.node.art.location'
         - 'config:core.entity_view_display.node.art.notification'
         - 'config:core.entity_view_display.node.art.print'
+        - 'config:core.entity_view_display.node.art.project_overview'
+        - 'config:core.entity_view_display.node.art.supplier'
         - 'config:core.entity_view_display.node.art.teaser'
         - 'config:core.entity_view_display.node.art.wrangler_overview'
         - 'config:core.entity_view_display.node.art.wrangler_supplier'
+        - 'config:core.entity_view_display.node.art.wtf_guide_and_app'
         - 'config:core.entity_view_display.node.article.default'
         - 'config:core.entity_view_display.node.article.notification'
         - 'config:core.entity_view_display.node.article.rss'
@@ -4071,26 +4143,45 @@ display:
         - 'config:core.entity_view_display.node.collective.full'
         - 'config:core.entity_view_display.node.collective.teaser'
         - 'config:core.entity_view_display.node.mutant_vehicles.default'
+        - 'config:core.entity_view_display.node.mutant_vehicles.early_access_and_vehicle_passes'
+        - 'config:core.entity_view_display.node.mutant_vehicles.form_'
+        - 'config:core.entity_view_display.node.mutant_vehicles.grant'
         - 'config:core.entity_view_display.node.mutant_vehicles.notification'
+        - 'config:core.entity_view_display.node.mutant_vehicles.supplier'
         - 'config:core.entity_view_display.node.mutant_vehicles.teaser'
         - 'config:core.entity_view_display.node.mutant_vehicles.wrangler_overview'
         - 'config:core.entity_view_display.node.mutant_vehicles.wrangler_supplier'
+        - 'config:core.entity_view_display.node.mutant_vehicles.wtf_guide_and_app'
         - 'config:core.entity_view_display.node.page.default'
         - 'config:core.entity_view_display.node.page.teaser'
         - 'config:core.entity_view_display.node.performances.default'
+        - 'config:core.entity_view_display.node.performances.early_access_and_vehicle_passes'
+        - 'config:core.entity_view_display.node.performances.form_'
+        - 'config:core.entity_view_display.node.performances.grant'
         - 'config:core.entity_view_display.node.performances.notification'
         - 'config:core.entity_view_display.node.performances.print'
+        - 'config:core.entity_view_display.node.performances.project_overview'
+        - 'config:core.entity_view_display.node.performances.supplier'
         - 'config:core.entity_view_display.node.performances.teaser'
         - 'config:core.entity_view_display.node.performances.wrangler_overview'
         - 'config:core.entity_view_display.node.performances.wrangler_supplier'
+        - 'config:core.entity_view_display.node.performances.wtf_guide_and_app'
         - 'config:core.entity_view_display.node.subsidised_ticket.default'
         - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
         - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'
         - 'config:core.entity_view_display.node.theme_camps.default'
+        - 'config:core.entity_view_display.node.theme_camps.early_access_and_vehicle_passes'
+        - 'config:core.entity_view_display.node.theme_camps.form_'
+        - 'config:core.entity_view_display.node.theme_camps.location'
         - 'config:core.entity_view_display.node.theme_camps.notification'
+        - 'config:core.entity_view_display.node.theme_camps.open_camps'
+        - 'config:core.entity_view_display.node.theme_camps.project_overview'
+        - 'config:core.entity_view_display.node.theme_camps.supplier'
+        - 'config:core.entity_view_display.node.theme_camps.support_camps'
         - 'config:core.entity_view_display.node.theme_camps.teaser'
         - 'config:core.entity_view_display.node.theme_camps.wrangler_overview'
         - 'config:core.entity_view_display.node.theme_camps.wrangler_supplier'
+        - 'config:core.entity_view_display.node.theme_camps.wtf_guide_and_app'
         - 'config:field.storage.user.field_email'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_id_number'

@@ -1,4 +1,4 @@
-uuid: f6e8f7f2-a7a9-4e06-9fbf-692cb8672d4a
+uuid: 51c09c91-ccfc-40b2-b161-53545bd41565
 langcode: en
 status: true
 dependencies:
@@ -11,8 +11,6 @@ third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-_core:
-  default_config_hash: WwyngttVZHY4ZnvB3myuN11q6yRrQ3u-CZIBSmUvC38
 id: node.art.field_prj_adm_longitude
 field_name: field_prj_adm_longitude
 entity_type: node

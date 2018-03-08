@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.wtf_guide_and_app
+    - core.entity_view_mode.node.wtf_guide_and_app
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_adm_form_3
     - field.field.node.theme_camps.field_field_prj_plc_marquis
@@ -13,8 +13,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_adm_form_2
     - field.field.node.theme_camps.field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_form_wtf
-    - field.field.node.theme_camps.field_prj_adm_latitude
-    - field.field.node.theme_camps.field_prj_adm_longitude
     - field.field.node.theme_camps.field_prj_adm_notes
     - field.field.node.theme_camps.field_prj_adm_ranger_comment
     - field.field.node.theme_camps.field_prj_adm_review
@@ -133,14 +131,12 @@ dependencies:
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
-    - image.style.thumbnail
     - node.type.theme_camps
   module:
-    - content_moderation
     - field_group
     - image
     - link
-    - path
+    - user
 third_party_settings:
   field_group:
     group_wtf_guide_and_community_up:
@@ -278,8 +274,6 @@ hidden:
   field_prj_adm_form_2: true
   field_prj_adm_form_3: true
   field_prj_adm_form_wtf: true
-  field_prj_adm_latitude: true
-  field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true

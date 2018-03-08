@@ -124,6 +124,10 @@ dependencies:
     - field.field.node.art.field_prj_stg_stage
     - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
+    - field.field.node.art.field_prj_sup_address
+    - field.field.node.art.field_prj_sup_details
+    - field.field.node.art.field_prj_sup_details_view
+    - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
@@ -133,13 +137,19 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
+    - field.field.node.art.field_sup_comment
+    - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
+    - field.field.node.art.field_vp_ea
     - image.style.thumbnail
     - node.type.art
   module:
+    - autocomplete_deluxe
     - content_moderation
+    - datetime
     - field_group
     - image
+    - link
     - path
 third_party_settings:
   field_group:
@@ -154,6 +164,7 @@ third_party_settings:
         classes: ''
         direction: horizontal
       label: 'Project Overview'
+      region: content
     group_overview:
       children:
         - group_1_image
@@ -168,8 +179,10 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Overview
+      region: content
     group_1_image:
       children:
+        - field_prj_wtf_image
         - field_prj_gen_concept
       parent_name: group_overview
       weight: 20
@@ -185,14 +198,29 @@ third_party_settings:
         effect: none
         speed: fast
       label: 1_Image
+      region: content
     group_2_title_and_details:
       children:
         - title
+        - field_collective
+        - field_prj_wtf_short_copy
+        - field_prj_wtf_short
+        - field_prj_wtf_long
+        - field_prj_wtf_planned
+        - field_prj_wtf_scheduled
+        - field_prj_gen_history
+        - field_prj_wtf_website
+        - field_prj_oth_relationship
+        - field_prj_oth_associated
         - field_prj_brn_burning
-        - field_prj_stc_size
+        - field_prj_brn_time_adm
         - field_prj_snd_sound
-        - field_prj_plc_location_extra
+        - field_prj_snd_level
+        - field_prj_adm_latitude
+        - field_prj_adm_longitude
         - field_prj_gen_location
+        - field_prj_plc_location_extra
+        - field_prj_stc_size
       parent_name: group_overview
       weight: 21
       format_type: html_element
@@ -207,6 +235,7 @@ third_party_settings:
         effect: none
         speed: fast
       label: '2 Title and Details'
+      region: content
 _core:
   default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
 id: node.art.wangler_overview
@@ -220,15 +249,46 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_collective:
+    type: autocomplete_deluxe
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      size: 60
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
   field_prj_adm_area:
     weight: 78
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_adm_latitude:
+    type: number
+    weight: 16
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_adm_longitude:
+    type: number
+    weight: 17
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_brn_burning:
     type: boolean_checkbox
-    weight: 1
+    weight: 12
     region: content
     settings:
       display_label: true
@@ -239,19 +299,22 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_gen_concept:
-    type: image_image
-    weight: 0
+  field_prj_brn_time_adm:
+    type: datetime_datelist
+    weight: 13
     region: content
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      increment: 15
+      date_order: YMD
+      time_type: '24'
     third_party_settings: {  }
-  field_prj_gen_location:
-    type: options_select
-    weight: 5
+  field_prj_gen_history:
+    type: string_textarea
+    weight: 8
     region: content
-    settings: {  }
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   field_prj_hed_project:
     weight: 6
@@ -277,20 +340,37 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_oth_associated:
+    type: autocomplete_deluxe
+    weight: 11
+    region: content
+    settings:
+      match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      size: 60
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
+  field_prj_oth_relationship:
+    type: string_textarea
+    weight: 10
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_plc_area:
     weight: 35
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_plc_location_extra:
-    type: string_textarea
-    weight: 4
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   field_prj_prp_area:
     weight: 27
     settings: {  }
@@ -315,9 +395,26 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_snd_level:
+    type: autocomplete_deluxe
+    weight: 15
+    region: content
+    settings:
+      match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      size: 60
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
   field_prj_snd_sound:
     type: boolean_checkbox
-    weight: 3
+    weight: 14
     region: content
     settings:
       display_label: true
@@ -334,18 +431,77 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_stc_size:
-    type: options_select
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_prj_wtf_area:
     weight: 67
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_wtf_image:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_prj_wtf_long:
+    type: string_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_wtf_planned:
+    type: autocomplete_deluxe
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
+      size: 60
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
+  field_prj_wtf_scheduled:
+    type: string_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_wtf_short:
+    type: string_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_wtf_short_copy:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_wtf_website:
+    type: link_default
+    weight: 9
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
     weight: 100
@@ -381,7 +537,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
@@ -396,9 +552,13 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_col_members: true
-  field_collective: true
   field_form_mode: true
   field_grt_art_apply: true
   field_grt_art_comment: true
@@ -431,8 +591,6 @@ hidden:
   field_prj_adm_form_3: true
   field_prj_adm_form_grant: true
   field_prj_adm_form_wtf: true
-  field_prj_adm_latitude: true
-  field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
@@ -446,21 +604,21 @@ hidden:
   field_prj_brn_person: true
   field_prj_brn_plan: true
   field_prj_brn_time: true
-  field_prj_brn_time_adm: true
   field_prj_cll_collaborate: true
   field_prj_cll_contact: true
   field_prj_cll_description: true
   field_prj_cll_thread: true
   field_prj_gen_bio: true
+  field_prj_gen_concept: true
   field_prj_gen_contact: true
   field_prj_gen_description: true
   field_prj_gen_doc: true
   field_prj_gen_external: true
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
-  field_prj_gen_history: true
   field_prj_gen_immortal: true
   field_prj_gen_lead: true
+  field_prj_gen_location: true
   field_prj_gen_manager: true
   field_prj_gen_story: true
   field_prj_lgh_agree: true
@@ -482,12 +640,11 @@ hidden:
   field_prj_lnt_score: true
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
-  field_prj_oth_associated: true
   field_prj_oth_grant: true
   field_prj_oth_other: true
-  field_prj_oth_relationship: true
   field_prj_oth_unregistered: true
   field_prj_plc_f1: true
+  field_prj_plc_location_extra: true
   field_prj_prp_duration: true
   field_prj_prp_erection: true
   field_prj_prp_start: true
@@ -497,13 +654,13 @@ hidden:
   field_prj_snd_comment: true
   field_prj_snd_description: true
   field_prj_snd_f1: true
-  field_prj_snd_level: true
   field_prj_snd_person: true
   field_prj_stc_attributes: true
   field_prj_stc_footprint: true
   field_prj_stc_height: true
   field_prj_stc_materials: true
   field_prj_stc_safety: true
+  field_prj_stc_size: true
   field_prj_stc_structural: true
   field_prj_stc_weight: true
   field_prj_stg_contact: true
@@ -511,13 +668,13 @@ hidden:
   field_prj_stg_stage: true
   field_prj_stg_tread: true
   field_prj_stg_type: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_details_view: true
+  field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true
-  field_prj_wtf_image: true
-  field_prj_wtf_long: true
-  field_prj_wtf_planned: true
-  field_prj_wtf_scheduled: true
-  field_prj_wtf_short: true
-  field_prj_wtf_short_copy: true
-  field_prj_wtf_website: true
+  field_sup_comment: true
+  field_sup_review: true
   field_this_is_the_amount_of_mone: true
+  field_vp_ea: true

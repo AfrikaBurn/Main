@@ -7,12 +7,13 @@ dependencies:
     - core.entity_view_mode.node.notification
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_adm_form_3
+    - field.field.node.theme_camps.field_field_prj_plc_marquis
+    - field.field.node.theme_camps.field_field_prj_plc_stretch_m
+    - field.field.node.theme_camps.field_form_mode
     - field.field.node.theme_camps.field_prj_adm_comms
     - field.field.node.theme_camps.field_prj_adm_form_2
     - field.field.node.theme_camps.field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_form_wtf
-    - field.field.node.theme_camps.field_prj_adm_latitude
-    - field.field.node.theme_camps.field_prj_adm_longitude
     - field.field.node.theme_camps.field_prj_adm_notes
     - field.field.node.theme_camps.field_prj_adm_ranger_comment
     - field.field.node.theme_camps.field_prj_adm_review
@@ -63,10 +64,12 @@ dependencies:
     - field.field.node.theme_camps.field_prj_oth_move
     - field.field.node.theme_camps.field_prj_oth_mv
     - field.field.node.theme_camps.field_prj_oth_unregistered
+    - field.field.node.theme_camps.field_prj_plc_artwork
     - field.field.node.theme_camps.field_prj_plc_artwork_d
     - field.field.node.theme_camps.field_prj_plc_artwork_w
     - field.field.node.theme_camps.field_prj_plc_binnekring
     - field.field.node.theme_camps.field_prj_plc_camp_d
+    - field.field.node.theme_camps.field_prj_plc_camp_w
     - field.field.node.theme_camps.field_prj_plc_caravan
     - field.field.node.theme_camps.field_prj_plc_cars
     - field.field.node.theme_camps.field_prj_plc_fire
@@ -92,9 +95,12 @@ dependencies:
     - field.field.node.theme_camps.field_prj_plc_tent_w
     - field.field.node.theme_camps.field_prj_plc_trailers
     - field.field.node.theme_camps.field_prj_saf_access
+    - field.field.node.theme_camps.field_prj_saf_cage
     - field.field.node.theme_camps.field_prj_saf_comment
     - field.field.node.theme_camps.field_prj_saf_extinguish
+    - field.field.node.theme_camps.field_prj_saf_gas
     - field.field.node.theme_camps.field_prj_saf_guide
+    - field.field.node.theme_camps.field_prj_saf_mark
     - field.field.node.theme_camps.field_prj_saf_markup
     - field.field.node.theme_camps.field_prj_saf_person
     - field.field.node.theme_camps.field_prj_snd_agree
@@ -110,6 +116,10 @@ dependencies:
     - field.field.node.theme_camps.field_prj_stg_stage
     - field.field.node.theme_camps.field_prj_stg_tread
     - field.field.node.theme_camps.field_prj_stg_type
+    - field.field.node.theme_camps.field_prj_sup_address
+    - field.field.node.theme_camps.field_prj_sup_details
+    - field.field.node.theme_camps.field_prj_sup_details_view
+    - field.field.node.theme_camps.field_prj_sup_h1
     - field.field.node.theme_camps.field_prj_wtf_categories
     - field.field.node.theme_camps.field_prj_wtf_image
     - field.field.node.theme_camps.field_prj_wtf_long
@@ -117,6 +127,11 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_short
     - field.field.node.theme_camps.field_prj_wtf_short_copy
     - field.field.node.theme_camps.field_prj_wtf_website
+    - field.field.node.theme_camps.field_stretch_tent_dimen
+    - field.field.node.theme_camps.field_sup_comment
+    - field.field.node.theme_camps.field_sup_review
+    - field.field.node.theme_camps.field_tc_type
+    - field.field.node.theme_camps.field_vp_ea
     - node.type.theme_camps
   module:
     - comment
@@ -179,28 +194,6 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
-    region: content
-  field_prj_adm_latitude:
-    weight: 76
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_decimal
-    region: content
-  field_prj_adm_longitude:
-    weight: 77
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_decimal
     region: content
   field_prj_adm_notes:
     weight: 74
@@ -1052,5 +1045,22 @@ content:
     third_party_settings: {  }
 hidden:
   field_collective: true
+  field_field_prj_plc_marquis: true
+  field_field_prj_plc_stretch_m: true
+  field_form_mode: true
   field_prj_gen_year: true
   field_prj_oth_unregistered: true
+  field_prj_plc_artwork: true
+  field_prj_plc_camp_w: true
+  field_prj_saf_cage: true
+  field_prj_saf_gas: true
+  field_prj_saf_mark: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_details_view: true
+  field_prj_sup_h1: true
+  field_stretch_tent_dimen: true
+  field_sup_comment: true
+  field_sup_review: true
+  field_tc_type: true
+  field_vp_ea: true

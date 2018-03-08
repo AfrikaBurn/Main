@@ -11,7 +11,7 @@ dependencies:
 id: afrikaburn_communications
 theme: afrikaburn
 region: status_messages
-weight: -13
+weight: -12
 provider: null
 plugin: 'block_content:9c70a8bb-808d-4743-a42f-64a52e66a1c9'
 settings:
