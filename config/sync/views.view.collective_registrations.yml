@@ -2041,7 +2041,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if 'Support Camps' != field_tc_type %}\n  {% if 'theme_camps' != type_1 %}<a href=\"/node/{{ nid }}/edit\">Edit form 1</a>{% endif %}\n  {% if 'theme_camps' == type_1 or 'performances' == type_1 %}<a href=\"/node/{{ nid }}/edit/form_\">Edit form 2</a><a href=\"/node/{{ nid }}/edit/wtf_guide_and_app\">Edit form 3</a>{% endif %}\n  {% if type_1 == \"mutant_vehicles\" %}<a href=\"/node/{{ nid }}/edit/grant\">Edit grant application</a><a href=\"/node/{{ nid }}/edit/wtf_guide_and_app\">Edit WTF guide info</a>{% endif %}\n{% else %}\n  <a href=\"/node/{{ nid }}/edit/support_camps\">Edit registration</a>\n{% endif %}\n<a href=\"/node/{{ nid }}/edit/supplier\">Register suppliers</a>\n<a href=\"/node/{{ nid }}/edit/early_access_and_vehicle_passes\">Work access and Vehicle passes</a>"
+            text: "{% if 'Support Camps' != field_tc_type %}\n  {% if 'theme_camps' != type_1 %}<a href=\"/node/{{ nid }}/edit\">Edit form 1</a>{% endif %}\n  {% if 'theme_camps' == type_1 %}<a href=\"/node/{{ nid }}/edit/form_\">Edit form 2</a><a href=\"/node/{{ nid }}/edit/wtf_guide_and_app\">Edit form 3</a>{% endif %}\n  {% if type_1 == \"mutant_vehicles\" %}<a href=\"/node/{{ nid }}/edit/grant\">Edit grant application</a><a href=\"/node/{{ nid }}/edit/wtf_guide_and_app\">Edit WTF guide info</a>{% endif %}\n{% else %}\n  <a href=\"/node/{{ nid }}/edit/support_camps\">Edit registration</a>\n{% endif %}\n<a href=\"/node/{{ nid }}/edit/supplier\">Register suppliers</a>\n<a href=\"/node/{{ nid }}/edit/early_access_and_vehicle_passes\">Work access and Vehicle passes</a>"
             make_link: false
             path: ''
             absolute: false
