@@ -1,4 +1,4 @@
-uuid: 8d135bdd-f1f5-4d17-99d0-3fc67d9f13cb
+uuid: 720b1ea7-d398-4c81-a408-2872bac083c9
 langcode: en
 status: true
 dependencies:
@@ -11,8 +11,6 @@ third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-_core:
-  default_config_hash: uHgmeRO3O3hoenD12ESLnYDXEBDCGmbXSSu-YnGLe2A
 id: node.theme_camps.field_prj_adm_latitude
 field_name: field_prj_adm_latitude
 entity_type: node
@@ -28,4 +26,4 @@ settings:
   max: null
   prefix: ''
   suffix: ''
-field_type: decimal
+field_type: float

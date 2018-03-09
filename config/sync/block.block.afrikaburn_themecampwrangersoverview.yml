@@ -11,7 +11,7 @@ dependencies:
 id: afrikaburn_themecampwrangersoverview
 theme: afrikaburn
 region: status_messages
-weight: -16
+weight: -15
 provider: null
 plugin: 'block_content:da31640e-ffc1-4f97-8c0d-59e2a99188c9'
 settings:

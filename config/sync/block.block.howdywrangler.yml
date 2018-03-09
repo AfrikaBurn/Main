@@ -1,6 +1,6 @@
 uuid: b8f85c61-48fc-4ae7-aae0-f5a4b5bc9bc9
 langcode: en
-status: false
+status: true
 dependencies:
   content:
     - 'block_content:basic:baf6fb35-b984-4a2e-b2aa-9a5ede91d5dc'
@@ -12,8 +12,8 @@ dependencies:
     - afrikaburn
 id: howdywrangler
 theme: afrikaburn
-region: content
-weight: -14
+region: status_messages
+weight: -19
 provider: null
 plugin: 'block_content:baf6fb35-b984-4a2e-b2aa-9a5ede91d5dc'
 settings:
@@ -48,6 +48,10 @@ visibility:
       support_admin: support_admin
       theme_camp_wrangler: theme_camp_wrangler
       theme: theme
+      supplier: supplier
+      dpw: dpw
+      volunteer_admin: volunteer_admin
+      ranger_admin: ranger_admin
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'

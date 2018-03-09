@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.early_access_and_vehicle_passes
+    - core.entity_view_mode.node.early_access_and_vehicle_passes
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
@@ -38,8 +38,6 @@ dependencies:
     - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_form_grant
     - field.field.node.art.field_prj_adm_form_wtf
-    - field.field.node.art.field_prj_adm_latitude
-    - field.field.node.art.field_prj_adm_longitude
     - field.field.node.art.field_prj_adm_notes
     - field.field.node.art.field_prj_adm_ranger_comment
     - field.field.node.art.field_prj_adm_review
@@ -144,7 +142,7 @@ dependencies:
     - node.type.art
   module:
     - field_group
-    - paragraphs
+    - user
 third_party_settings:
   field_group:
     group_overview:
@@ -520,8 +518,6 @@ hidden:
   field_prj_adm_form_3: true
   field_prj_adm_form_grant: true
   field_prj_adm_form_wtf: true
-  field_prj_adm_latitude: true
-  field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true

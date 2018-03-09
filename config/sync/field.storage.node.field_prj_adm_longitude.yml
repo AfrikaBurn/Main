@@ -1,4 +1,4 @@
-uuid: 3b73d6ca-5f12-44a2-9206-2ca5c4fccadf
+uuid: 05dd0c4f-e01a-453d-8d4f-eb8e4eca596f
 langcode: en
 status: true
 dependencies:
@@ -7,9 +7,7 @@ dependencies:
     - node
 third_party_settings:
   field_permissions:
-    permission_type: custom
-_core:
-  default_config_hash: eYM_QISdFQQhZMsasxh9Cw7gv2I_6OdPDnZ5N1Mk_8g
+    permission_type: public
 id: node.field_prj_adm_longitude
 field_name: field_prj_adm_longitude
 entity_type: node

@@ -150,15 +150,15 @@ third_party_settings:
     group_overview:
       children:
         - field_collective
-        - field_prj_gen_contact
-        - field_prj_gen_lead
-        - field_prj_gen_manager
-        - field_prj_gen_fundraising
-        - field_prj_gen_fundraiser
-        - field_prj_gen_location
         - field_prj_gen_bio
-        - field_prj_gen_history
+        - field_prj_gen_contact
         - field_prj_gen_external
+        - field_prj_gen_fundraiser
+        - field_prj_gen_fundraising
+        - field_prj_gen_history
+        - field_prj_gen_lead
+        - field_prj_gen_location
+        - field_prj_gen_manager
       parent_name: group_project_registration
       weight: 7
       format_type: accordion_item
@@ -172,11 +172,11 @@ third_party_settings:
       region: hidden
     group_the_project:
       children:
-        - field_prj_gen_description
-        - field_prj_gen_story
         - field_prj_gen_concept
+        - field_prj_gen_description
         - field_prj_gen_doc
         - field_prj_gen_immortal
+        - field_prj_gen_story
       parent_name: group_project_registration
       weight: 8
       format_type: accordion_item
@@ -205,14 +205,14 @@ third_party_settings:
       region: hidden
     group_dimensions:
       children:
-        - field_prj_stc_size
-        - field_prj_stc_height
-        - field_prj_stc_footprint
-        - field_prj_stc_weight
         - field_prj_stc_attributes
+        - field_prj_stc_footprint
+        - field_prj_stc_height
         - field_prj_stc_materials
         - field_prj_stc_safety
+        - field_prj_stc_size
         - field_prj_stc_structural
+        - field_prj_stc_weight
       parent_name: group_the_structure
       weight: 80
       format_type: fieldset
@@ -254,8 +254,8 @@ third_party_settings:
       region: hidden
     group_onsite_building:
       children:
-        - field_prj_prp_erection
         - field_prj_prp_duration
+        - field_prj_prp_erection
       parent_name: group_building_transport_install
       weight: 12
       format_type: fieldset
@@ -284,8 +284,8 @@ third_party_settings:
     group_sound:
       children:
         - field_prj_snd_f1
-        - field_prj_snd_sound
         - field_prj_snd_level
+        - field_prj_snd_sound
       parent_name: group_project_registration
       weight: 12
       format_type: accordion_item
@@ -299,9 +299,9 @@ third_party_settings:
       region: hidden
     group_moop:
       children:
+        - field_prj_lnt_duration
         - field_prj_lnt_handled
         - field_prj_lnt_helpers
-        - field_prj_lnt_duration
         - field_prj_lnt_historic
         - field_prj_lnt_representative
       parent_name: group_project_registration
@@ -318,19 +318,19 @@ third_party_settings:
       region: hidden
     group_wtf_guide_and_community:
       children:
+        - field_prj_cll_collaborate
+        - field_prj_cll_contact
+        - field_prj_cll_description
+        - field_prj_cll_thread
+        - field_prj_stg_contact
+        - field_prj_stg_description
+        - field_prj_stg_stage
+        - field_prj_stg_tread
+        - field_prj_stg_type
         - field_prj_wtf_image
         - field_prj_wtf_planned
         - field_prj_wtf_scheduled
         - field_prj_wtf_website
-        - field_prj_cll_collaborate
-        - field_prj_cll_description
-        - field_prj_cll_contact
-        - field_prj_cll_thread
-        - field_prj_stg_stage
-        - field_prj_stg_type
-        - field_prj_stg_description
-        - field_prj_stg_contact
-        - field_prj_stg_tread
       parent_name: group_project_registration
       weight: 14
       format_type: accordion_item
@@ -359,9 +359,9 @@ third_party_settings:
       region: hidden
     group_burn:
       children:
-        - field_prj_brn_f2
-        - field_prj_brn_f1
         - field_prj_brn_burning
+        - field_prj_brn_f1
+        - field_prj_brn_f2
         - field_prj_brn_motivation
       parent_name: group_project_registration
       weight: 11
@@ -386,7 +386,7 @@ third_party_settings:
         - group_wtf_guide_and_community
         - group_other
       parent_name: ''
-      weight: 43
+      weight: 89
       format_type: accordion
       format_settings:
         id: ''
@@ -423,25 +423,16 @@ content:
     region: content
   field_prj_adm_latitude:
     type: number
-    weight: 9
+    weight: 8
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_prj_adm_longitude:
     type: number
-    weight: 8
+    weight: 7
     region: content
     settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_adm_wrangler:
-    type: entity_reference_autocomplete
-    weight: 6
-    region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_prj_brn_head:
@@ -544,7 +535,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 7
+    weight: 6
     region: content
     settings:
       size: 60
@@ -596,6 +587,7 @@ hidden:
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
+  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_desc: true

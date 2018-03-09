@@ -11,7 +11,7 @@ dependencies:
 id: howzit
 theme: afrikaburn
 region: status_messages
-weight: -5
+weight: -4
 provider: null
 plugin: 'block_content:7171e6af-8d3c-4413-a495-894fa39c939b'
 settings:
