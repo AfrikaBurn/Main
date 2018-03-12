@@ -15,7 +15,11 @@ dependencies:
   module:
     - datetime
     - paragraphs
+    - rest
+    - serialization
     - user
+    - views_data_export
+    - xls_serialization
 id: work_access_vehicle_passes
 label: 'Work Access & Vehicle Passes'
 module: views
@@ -87,6 +91,7 @@ display:
           columns:
             uid: uid
             field_member: field_member
+            field_id_number: field_id_number
             field_motivation: field_motivation
             field_arrival_date: field_arrival_date
             field_early_access: field_early_access
@@ -95,7 +100,6 @@ display:
             field_last_name: uid
             field_first_name_1: field_member
             field_last_name_1: field_member
-            field_id_number: field_id_number
           info:
             uid:
               sortable: false
@@ -105,6 +109,13 @@ display:
               empty_column: false
               responsive: ''
             field_member:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ' '
+              empty_column: false
+              responsive: ''
+            field_id_number:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -161,13 +172,6 @@ display:
               empty_column: false
               responsive: ''
             field_last_name_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_id_number:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -919,6 +923,77 @@ display:
           plugin_id: standard
       arguments: {  }
       display_extenders: {  }
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+      tags:
+        - 'config:field.storage.paragraph.field_arrival_date'
+        - 'config:field.storage.paragraph.field_early_access'
+        - 'config:field.storage.paragraph.field_member'
+        - 'config:field.storage.paragraph.field_motivation'
+        - 'config:field.storage.paragraph.field_vehicle_pass'
+        - 'config:field.storage.user.field_first_name'
+        - 'config:field.storage.user.field_id_number'
+        - 'config:field.storage.user.field_last_name'
+  data_export_1:
+    display_plugin: data_export
+    id: data_export_1
+    display_title: 'Data export'
+    position: 2
+    display_options:
+      display_extenders: {  }
+      style:
+        type: data_export
+        options:
+          formats:
+            xls: xls
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
+      path: wranglers/wap-vp/download
+      filename: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+      tags:
+        - 'config:field.storage.paragraph.field_arrival_date'
+        - 'config:field.storage.paragraph.field_early_access'
+        - 'config:field.storage.paragraph.field_member'
+        - 'config:field.storage.paragraph.field_motivation'
+        - 'config:field.storage.paragraph.field_vehicle_pass'
+        - 'config:field.storage.user.field_first_name'
+        - 'config:field.storage.user.field_id_number'
+        - 'config:field.storage.user.field_last_name'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: wranglers/wap-vp
     cache_metadata:
       max-age: 0
       contexts:
