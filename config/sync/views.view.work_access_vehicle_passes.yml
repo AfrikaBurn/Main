@@ -12,6 +12,7 @@ dependencies:
     - field.storage.user.field_id_number
     - field.storage.user.field_last_name
     - paragraphs.paragraphs_type.early_access_and_vehicle_passes
+    - user.role.supplier
   module:
     - datetime
     - paragraphs
@@ -36,8 +37,10 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            supplier: supplier
       cache:
         type: tag
         options: {  }
@@ -929,6 +932,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - user.roles
       tags:
         - 'config:field.storage.paragraph.field_arrival_date'
         - 'config:field.storage.paragraph.field_early_access'
@@ -977,6 +981,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
+        - user.roles
       tags:
         - 'config:field.storage.paragraph.field_arrival_date'
         - 'config:field.storage.paragraph.field_early_access'
@@ -1000,6 +1005,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - user.roles
       tags:
         - 'config:field.storage.paragraph.field_arrival_date'
         - 'config:field.storage.paragraph.field_early_access'
