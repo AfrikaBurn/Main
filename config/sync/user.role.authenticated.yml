@@ -139,6 +139,7 @@ permissions:
   - 'use node.early_access_and_vehicle_passes form mode'
   - 'use node.form_ form mode'
   - 'use node.grant form mode'
+  - 'use node.open_camps form mode'
   - 'use node.project_overview form mode'
   - 'use node.supplier form mode'
   - 'use node.support_camps form mode'
