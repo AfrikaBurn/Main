@@ -1,4 +1,4 @@
-uuid: 05dd0c4f-e01a-453d-8d4f-eb8e4eca596f
+uuid: 7d22a8b4-8988-44cb-97e1-1239aa1c6640
 langcode: en
 status: true
 dependencies:
@@ -11,8 +11,11 @@ third_party_settings:
 id: node.field_prj_adm_longitude
 field_name: field_prj_adm_longitude
 entity_type: node
-type: float
-settings: {  }
+type: string
+settings:
+  max_length: 15
+  is_ascii: false
+  case_sensitive: false
 module: core
 locked: false
 cardinality: 1
