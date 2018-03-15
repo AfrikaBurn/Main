@@ -1,4 +1,4 @@
-uuid: 94549907-4168-40cb-93d1-bf9b7d419236
+uuid: cc1efc9a-d077-4b72-b5e6-d8b7bd08f8d8
 langcode: en
 status: true
 dependencies:
@@ -11,8 +11,11 @@ third_party_settings:
 id: node.field_prj_adm_latitude
 field_name: field_prj_adm_latitude
 entity_type: node
-type: float
-settings: {  }
+type: string
+settings:
+  max_length: 15
+  is_ascii: false
+  case_sensitive: false
 module: core
 locked: false
 cardinality: 1

@@ -13,8 +13,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_adm_form_2
     - field.field.node.theme_camps.field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_form_wtf
-    - field.field.node.theme_camps.field_prj_adm_latitude
-    - field.field.node.theme_camps.field_prj_adm_longitude
     - field.field.node.theme_camps.field_prj_adm_notes
     - field.field.node.theme_camps.field_prj_adm_ranger_comment
     - field.field.node.theme_camps.field_prj_adm_review
@@ -288,20 +286,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_prj_adm_latitude:
-    type: number
-    weight: 19
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_adm_longitude:
-    type: number
-    weight: 18
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
   field_prj_adm_wrangler:
     type: options_select
     weight: 8

@@ -619,23 +619,17 @@ content:
     weight: 197
     label: above
     settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
+      link_to_entity: false
     third_party_settings: {  }
-    type: number_decimal
+    type: string
     region: content
   field_prj_adm_longitude:
     weight: 198
     label: above
     settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
+      link_to_entity: false
     third_party_settings: {  }
-    type: number_decimal
+    type: string
     region: content
   field_prj_adm_notes:
     type: basic_string
