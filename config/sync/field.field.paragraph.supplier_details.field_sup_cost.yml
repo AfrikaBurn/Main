@@ -15,7 +15,7 @@ id: paragraph.supplier_details.field_sup_cost
 field_name: field_sup_cost
 entity_type: paragraph
 bundle: supplier_details
-label: 'Please state how much your Supplier is charging you in total. This is to regulate costs and ensure suppliers are being charged t'
+label: 'Please state how much your Supplier is charging you in total.'
 description: ''
 required: true
 translatable: false
