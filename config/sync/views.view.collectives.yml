@@ -11,6 +11,7 @@ dependencies:
     - user.role.administrator
     - user.role.art_admin
     - user.role.art_wrangler
+    - user.role.authenticated
     - user.role.mutant_vehicle_admin
     - user.role.mutant_vehicle_wrangler
     - user.role.support_admin
@@ -957,6 +958,7 @@ display:
         filter_groups: false
         style: false
         row: false
+        access: false
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1290,6 +1292,20 @@ display:
           inline: {  }
           separator: ''
           hide_empty: false
+      access:
+        type: role
+        options:
+          role:
+            authenticated: authenticated
+            art_wrangler: art_wrangler
+            art_admin: art_admin
+            mutant_vehicle_wrangler: mutant_vehicle_wrangler
+            mutant_vehicle_admin: mutant_vehicle_admin
+            administrator: administrator
+            support_wrangler: support_wrangler
+            support_admin: support_admin
+            theme_camp_wrangler: theme_camp_wrangler
+            theme: theme
     cache_metadata:
       max-age: -1
       contexts:
@@ -1357,6 +1373,7 @@ display:
         filter_groups: false
         style: false
         row: false
+        access: false
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1692,6 +1709,20 @@ display:
             title: title
           separator: ''
           hide_empty: false
+      access:
+        type: role
+        options:
+          role:
+            authenticated: authenticated
+            art_wrangler: art_wrangler
+            art_admin: art_admin
+            mutant_vehicle_wrangler: mutant_vehicle_wrangler
+            mutant_vehicle_admin: mutant_vehicle_admin
+            administrator: administrator
+            support_wrangler: support_wrangler
+            support_admin: support_admin
+            theme_camp_wrangler: theme_camp_wrangler
+            theme: theme
     cache_metadata:
       max-age: -1
       contexts:
