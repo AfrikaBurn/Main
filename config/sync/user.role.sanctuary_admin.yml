@@ -1,0 +1,9 @@
+uuid: aeda7d3f-d1e5-4831-bebe-5cd207f64cfc
+langcode: en
+status: true
+dependencies: {  }
+id: sanctuary_admin
+label: 'Sanctuary Admin'
+weight: 10
+is_admin: null
+permissions: {  }
