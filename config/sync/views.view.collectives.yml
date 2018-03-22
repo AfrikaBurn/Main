@@ -633,7 +633,7 @@ display:
           title: ''
           default_argument_type: php
           default_argument_options:
-            code: 'return \Drupal::currentUser()->getEmail();'
+            code: 'return strtolower(\Drupal::currentUser()->getEmail());'
           default_argument_skip_url: false
           summary_options:
             base_path: ''
@@ -663,6 +663,7 @@ display:
         header: false
         title: false
         footer: false
+        access: false
       empty:
         area_text_custom:
           id: area_text_custom
@@ -894,6 +895,20 @@ display:
         type: none
         options:
           offset: 0
+      access:
+        type: role
+        options:
+          role:
+            authenticated: authenticated
+            art_wrangler: art_wrangler
+            art_admin: art_admin
+            mutant_vehicle_wrangler: mutant_vehicle_wrangler
+            mutant_vehicle_admin: mutant_vehicle_admin
+            administrator: administrator
+            support_wrangler: support_wrangler
+            support_admin: support_admin
+            theme_camp_wrangler: theme_camp_wrangler
+            theme: theme
     cache_metadata:
       max-age: -1
       contexts:
