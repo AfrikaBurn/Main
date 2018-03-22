@@ -295,3 +295,4 @@ function afrikaburn_shared_agreement_submit($form, $form_state){
   $user->field_quicket_id = $quicket['id'];
   $user->save();
 }
+

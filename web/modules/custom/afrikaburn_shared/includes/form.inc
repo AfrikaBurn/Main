@@ -111,8 +111,6 @@ function _set_registration_form_defaults(&$form, $form_state, $form_id, $user, $
         }
       }
     }
-
-
   }
 
   $type = [
@@ -124,8 +122,8 @@ function _set_registration_form_defaults(&$form, $form_state, $form_id, $user, $
   $form['field_tc_type']['widget']['#default_value'] = $type;
 
   if ($form_id == 'node_theme_camps_open_camps_form'){
-    $form['field_title']['#access'] = false;
-    $form['field_title']['widget']['#default_value'] = $collective->getTitle() . ' open camp';
+    $form['title']['#access'] = false;
+    $form['title']['widget'][0]['#default_value'] = $collective->getTitle() . ' open camp';
   }
 
 }
