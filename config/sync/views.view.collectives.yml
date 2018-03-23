@@ -1802,6 +1802,7 @@ display:
         title: false
         style: false
         row: false
+        access: false
       empty:
         area_text_custom:
           id: area_text_custom
@@ -2097,6 +2098,19 @@ display:
             title: title
           separator: ''
           hide_empty: false
+      access:
+        type: role
+        options:
+          role:
+            art_wrangler: art_wrangler
+            art_admin: art_admin
+            mutant_vehicle_wrangler: mutant_vehicle_wrangler
+            mutant_vehicle_admin: mutant_vehicle_admin
+            administrator: administrator
+            support_wrangler: support_wrangler
+            support_admin: support_admin
+            theme_camp_wrangler: theme_camp_wrangler
+            theme: theme
     cache_metadata:
       max-age: -1
       contexts:
@@ -2535,6 +2549,7 @@ display:
         title: false
         style: false
         row: false
+        access: false
       empty:
         area_text_custom:
           id: area_text_custom
@@ -2830,6 +2845,19 @@ display:
             title: title
           separator: ''
           hide_empty: false
+      access:
+        type: role
+        options:
+          role:
+            art_wrangler: art_wrangler
+            art_admin: art_admin
+            mutant_vehicle_wrangler: mutant_vehicle_wrangler
+            mutant_vehicle_admin: mutant_vehicle_admin
+            administrator: administrator
+            support_wrangler: support_wrangler
+            support_admin: support_admin
+            theme_camp_wrangler: theme_camp_wrangler
+            theme: theme
     cache_metadata:
       max-age: -1
       contexts:
