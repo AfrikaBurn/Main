@@ -31,6 +31,7 @@ dependencies:
     - serialization
     - user
     - views_data_export
+    - xls_serialization
 id: wtf_guide_and_app
 label: 'WTF Guide and App'
 module: views
@@ -651,12 +652,36 @@ display:
     position: 2
     display_options:
       display_extenders: {  }
-      path: wranglers/wtf-guide-and-app/download
+      path: export/wtf-guide-and-app/download
       filename: wtf.xls
       pager:
         type: none
         options:
           offset: 0
+      style:
+        type: data_export
+        options:
+          formats:
+            xlsx: xlsx
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -679,7 +704,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: wranglers/wtf-guide-and-app
+      path: export/wtf-guide-and-app
     cache_metadata:
       max-age: 0
       contexts:
