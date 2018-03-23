@@ -6,4 +6,13 @@ id: sanctuary_admin
 label: 'Sanctuary Admin'
 weight: 10
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access in-place editing'
+  - 'edit field_approved'
+  - 'edit field_vp_approved'
+  - 'edit field_wa_approved'
+  - 'edit own field_vp_approved'
+  - 'view field_approved'
+  - 'view field_vp_approved'
+  - 'view field_wa_approved'
+  - 'view own field_vp_approved'

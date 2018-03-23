@@ -8,9 +8,12 @@ dependencies:
     - field.field.paragraph.early_access_and_vehicle_passes.field_member
     - field.field.paragraph.early_access_and_vehicle_passes.field_motivation
     - field.field.paragraph.early_access_and_vehicle_passes.field_vehicle_pass
+    - field.field.paragraph.early_access_and_vehicle_passes.field_vp_approved
+    - field.field.paragraph.early_access_and_vehicle_passes.field_wa_approved
     - paragraphs.paragraphs_type.early_access_and_vehicle_passes
   module:
     - datetime
+    - empty_fields
 id: paragraph.early_access_and_vehicle_passes.default
 targetEntityType: paragraph
 bundle: early_access_and_vehicle_passes
@@ -59,6 +62,30 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
+    type: boolean
+    region: content
+  field_vp_approved:
+    weight: 6
+    label: above
+    settings:
+      format: default
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+    type: boolean
+    region: content
+  field_wa_approved:
+    weight: 7
+    label: above
+    settings:
+      format: default
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings:
+      empty_fields:
+        handler: ''
     type: boolean
     region: content
 hidden: {  }
