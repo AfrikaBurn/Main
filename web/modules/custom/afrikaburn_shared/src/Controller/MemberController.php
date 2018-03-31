@@ -272,10 +272,10 @@ class MemberController extends ControllerBase {
       } else {
         $primary = $user->get('mail')->getValue();
         $secondary = $user->get('field_secondary_mail')->getValue();
-        $mails = [
+        $mails = array_map('strtolower', [
           is_string($primary) ? $primary : $primary[0]['value'],
           is_string($secondary) ? $secondary : (isset($secondary[0][0]['value']) ? $secondary[0][0]['value'] : null),
-        ];
+        ]);
       }
 
       foreach($invitees as $index=>$invite){
