@@ -1,3 +1,4 @@
+uuid: fcf25997-f9c9-4918-9b98-e937d8443b4a
 langcode: en
 status: open
 dependencies: {  }
@@ -96,16 +97,17 @@ settings:
 access:
   create:
     roles:
-      - anonymous
       - authenticated
     users: {  }
     permissions: {  }
   view_any:
-    roles: {  }
+    roles:
+      - supplier
     users: {  }
     permissions: {  }
   update_any:
-    roles: {  }
+    roles:
+      - supplier
     users: {  }
     permissions: {  }
   delete_any:
@@ -117,11 +119,13 @@ access:
     users: {  }
     permissions: {  }
   view_own:
-    roles: {  }
+    roles:
+      - authenticated
     users: {  }
     permissions: {  }
   update_own:
-    roles: {  }
+    roles:
+      - authenticated
     users: {  }
     permissions: {  }
   delete_own:
@@ -152,12 +156,12 @@ handlers:
       from_mail: default
       from_options: {  }
       from_name: default
-      subject: default
+      subject: 'Shift lead applications received'
       body: default
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
-      html: true
+      html: false
       attachments: false
       twig: false
       debug: false
@@ -165,4 +169,3 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
-uuid: fcf25997-f9c9-4918-9b98-e937d8443b4a
