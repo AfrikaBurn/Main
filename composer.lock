@@ -2029,8 +2029,8 @@
                     "homepage": "https://www.drupal.org/user/2802285"
                 },
                 {
-                    "name": "jkempff",
-                    "homepage": "https://www.drupal.org/user/1394922"
+                    "name": "purushotam.rai",
+                    "homepage": "https://www.drupal.org/user/3193859"
                 },
                 {
                     "name": "valderama",
@@ -2068,7 +2068,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.2",
-                    "datestamp": "1515376984",
+                    "datestamp": "1519740785",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2891,6 +2891,10 @@
                 "GPL-2.0+"
             ],
             "authors": [
+                {
+                    "name": "Idriss.BS",
+                    "homepage": "https://www.drupal.org/user/3156165"
+                },
                 {
                     "name": "eme",
                     "homepage": "https://www.drupal.org/user/542492"
@@ -4254,7 +4258,8 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/taxonomy_manager",
                 "issues": "https://drupal.org/project/issues/taxonomy_manager"
-            }
+            },
+            "time": "2018-02-09 14:47:11"
         },
         {
             "name": "drupal/term_csv_export_import",
@@ -4562,7 +4567,7 @@
                 },
                 "drupal": {
                     "version": "8.x-5.0-rc3",
-                    "datestamp": "1517746080",
+                    "datestamp": "1520034400",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
