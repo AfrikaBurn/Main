@@ -13,6 +13,8 @@ dependencies:
     - field.field.node.theme_camps.field_prj_adm_form_2
     - field.field.node.theme_camps.field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_form_wtf
+    - field.field.node.theme_camps.field_prj_adm_latitude
+    - field.field.node.theme_camps.field_prj_adm_longitude
     - field.field.node.theme_camps.field_prj_adm_notes
     - field.field.node.theme_camps.field_prj_adm_ranger_comment
     - field.field.node.theme_camps.field_prj_adm_review
@@ -446,6 +448,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
   created: true
   field_field_prj_adm_form_3: true
@@ -455,6 +465,8 @@ hidden:
   field_prj_adm_form_2: true
   field_prj_adm_form_3: true
   field_prj_adm_form_wtf: true
+  field_prj_adm_latitude: true
+  field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
@@ -568,6 +580,5 @@ hidden:
   promote: true
   status: true
   sticky: true
-  title: true
   uid: true
   url_redirects: true

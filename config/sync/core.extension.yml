@@ -71,6 +71,8 @@ module:
   markup: 0
   masquerade: 0
   menu_ui: 0
+  migrate: 0
+  migrate_source_csv: 0
   mimemail: 0
   multiple_fields_remove_button: 0
   node: 0
@@ -80,6 +82,7 @@ module:
   page_manager_ui: 0
   panels: 0
   panels_ipe: 0
+  paragraphs_edit: 0
   path: 0
   pathauto: 0
   pfdp: 0

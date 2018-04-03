@@ -1,33 +1,50 @@
-uuid: ddeeb302-97e0-4f5c-8826-fd70b3a49046
+uuid: ca801ddc-ff2e-4564-aa24-40319afe5405
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_arrival_date
-    - field.storage.paragraph.field_early_access
-    - field.storage.paragraph.field_member
-    - field.storage.paragraph.field_motivation
-    - field.storage.paragraph.field_vehicle_pass
-    - field.storage.user.field_first_name
-    - field.storage.user.field_id_number
-    - field.storage.user.field_last_name
-    - paragraphs.paragraphs_type.early_access_and_vehicle_passes
+    - field.storage.node.field_grt_location
+    - field.storage.node.field_prj_plc_location
+    - field.storage.node.field_prj_plc_location_extra
+    - field.storage.node.field_prj_wtf_categories
+    - field.storage.node.field_prj_wtf_image
+    - field.storage.node.field_prj_wtf_long
+    - field.storage.node.field_prj_wtf_planned
+    - field.storage.node.field_prj_wtf_scheduled
+    - field.storage.node.field_prj_wtf_short
+    - field.storage.node.field_prj_wtf_short_copy
+    - field.storage.node.field_prj_wtf_website
+    - node.type.art
+    - node.type.mutant_vehicles
+    - node.type.performances
+    - node.type.theme_camps
+    - user.role.administrator
+    - user.role.art_admin
+    - user.role.art_wrangler
+    - user.role.communications_admin
+    - user.role.communications_wrangler
+    - user.role.mutant_vehicle_admin
+    - user.role.mutant_vehicle_wrangler
     - user.role.supplier
+    - user.role.theme
+    - user.role.theme_camp_wrangler
   module:
-    - datetime
-    - paragraphs
+    - image
+    - link
+    - node
+    - options
     - rest
     - serialization
     - user
     - views_data_export
     - xls_serialization
-id: work_access_vehicle_passes
-label: 'Work Access & Vehicle Passes'
+id: wtf_guide_and_app
+label: 'WTF Guide and App'
 module: views
 description: ''
 tag: ''
-base_table: paragraphs_item_field_data
-base_field: id
+base_table: node_field_data
+base_field: nid
 core: 8.x
 display:
   default:
@@ -40,6 +57,15 @@ display:
         type: role
         options:
           role:
+            art_wrangler: art_wrangler
+            art_admin: art_admin
+            communications_wrangler: communications_wrangler
+            communications_admin: communications_admin
+            mutant_vehicle_wrangler: mutant_vehicle_wrangler
+            mutant_vehicle_admin: mutant_vehicle_admin
+            administrator: administrator
+            theme_camp_wrangler: theme_camp_wrangler
+            theme: theme
             supplier: supplier
       cache:
         type: tag
@@ -63,12 +89,17 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
-          items_per_page: 10
+          items_per_page: 20
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -77,130 +108,388 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
+          quantity: 9
       style:
         type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            uid: uid
-            field_member: field_member
-            field_id_number: field_id_number
-            field_motivation: field_motivation
-            field_arrival_date: field_arrival_date
-            field_early_access: field_early_access
-            field_vehicle_pass: field_vehicle_pass
-            field_first_name: uid
-            field_last_name: uid
-            field_first_name_1: field_member
-            field_last_name_1: field_member
-          info:
-            uid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_member:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ' '
-              empty_column: false
-              responsive: ''
-            field_id_number:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_motivation:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_arrival_date:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_early_access:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_vehicle_pass:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_first_name:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_last_name:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_first_name_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_last_name_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
-          empty_table: false
       row:
-        type: 'entity:paragraph'
-        options:
-          relationship: none
-          view_mode: default
+        type: fields
       fields:
-        uid:
-          id: uid
-          table: paragraphs_item_field_data
-          field: uid
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          entity_type: node
+          entity_field: title
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            trim: false
+            word_boundary: false
+            ellipsis: false
+            strip_tags: false
+            html: false
+          hide_empty: false
+          empty_zero: false
+          settings:
+            link_to_entity: true
+          plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Requested by'
+          label: Title
+          exclude: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_prj_wtf_long:
+          id: field_prj_wtf_long
+          table: node__field_prj_wtf_long
+          field: field_prj_wtf_long
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Long Blurb for website / app'
           exclude: false
           alter:
             alter_text: false
-            text: '{{ uid }}'
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_prj_wtf_image:
+          id: field_prj_wtf_image
+          table: node__field_prj_wtf_image
+          field: field_prj_wtf_image
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Public Project image'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_style: ''
+            image_link: ''
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_prj_wtf_short:
+          id: field_prj_wtf_short
+          table: node__field_prj_wtf_short
+          field: field_prj_wtf_short
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Short blurb'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_prj_wtf_website:
+          id: field_prj_wtf_website
+          table: node__field_prj_wtf_website
+          field: field_prj_wtf_website
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Website
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: uri
+          type: link
+          settings:
+            trim_length: 80
+            url_only: false
+            url_plain: false
+            rel: '0'
+            target: '0'
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_prj_wtf_short_copy:
+          id: field_prj_wtf_short_copy
+          table: node__field_prj_wtf_short_copy
+          field: field_prj_wtf_short_copy
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'WTF short blurb corrected'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_prj_wtf_categories:
+          id: field_prj_wtf_categories
+          table: node__field_prj_wtf_categories
+          field: field_prj_wtf_categories
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Activity Categories'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -251,17 +540,203 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: paragraph
-          entity_field: uid
           plugin_id: field
-        field_member:
-          id: field_member
-          table: paragraph__field_member
-          field: field_member
+        field_prj_wtf_scheduled:
+          id: field_prj_wtf_scheduled
+          table: node__field_prj_wtf_scheduled
+          field: field_prj_wtf_scheduled
           relationship: none
           group_type: group
           admin_label: ''
-          label: For
+          label: 'Describe your planned activities'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_grt_location:
+          id: field_grt_location
+          table: node__field_grt_location
+          field: field_grt_location
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Locations
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_prj_plc_location_extra:
+          id: field_prj_plc_location_extra
+          table: node__field_prj_plc_location_extra
+          field: field_prj_plc_location_extra
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Placement - where would you like to be'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_prj_wtf_planned:
+          id: field_prj_wtf_planned
+          table: node__field_prj_wtf_planned
+          field: field_prj_wtf_planned
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Planned activities'
           exclude: false
           alter:
             alter_text: false
@@ -317,14 +792,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_id_number:
-          id: field_id_number
-          table: user__field_id_number
-          field: field_id_number
-          relationship: field_member
+        field_prj_plc_location:
+          id: field_prj_plc_location
+          table: node__field_prj_plc_location
+          field: field_prj_plc_location
+          relationship: none
           group_type: group
           admin_label: ''
-          label: 'ID number'
+          label: 'Preferred location in Tankwa Town?'
           exclude: false
           alter:
             alter_text: false
@@ -365,520 +840,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
+          click_sort_column: target_id
+          type: entity_reference_label
           settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_motivation:
-          id: field_motivation
-          table: paragraph__field_motivation
-          field: field_motivation
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Motivation
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_arrival_date:
-          id: field_arrival_date
-          table: paragraph__field_arrival_date
-          field: field_arrival_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Arrival date'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_default
-          settings:
-            timezone_override: ''
-            format_type: html_date
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_early_access:
-          id: field_early_access
-          table: paragraph__field_early_access
-          field: field_early_access
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Work access'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: boolean
-          settings:
-            format: yes-no
-            format_custom_true: ''
-            format_custom_false: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_vehicle_pass:
-          id: field_vehicle_pass
-          table: paragraph__field_vehicle_pass
-          field: field_vehicle_pass
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Vehicle pass'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: boolean
-          settings:
-            format: yes-no
-            format_custom_true: ''
-            format_custom_false: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_first_name:
-          id: field_first_name
-          table: user__field_first_name
-          field: field_first_name
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: '({{ field_first_name }} '
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_last_name:
-          id: field_last_name
-          table: user__field_last_name
-          field: field_last_name
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: '{{ field_last_name }})'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_first_name_1:
-          id: field_first_name_1
-          table: user__field_first_name
-          field: field_first_name
-          relationship: field_member
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_last_name_1:
-          id: field_last_name_1
-          table: user__field_last_name
-          field: field_last_name
-          relationship: field_member
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
+            link: true
+          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -890,58 +856,184 @@ display:
           field_api_classes: false
           plugin_id: field
       filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        field_tc_type_value:
+          id: field_tc_type_value
+          table: node__field_tc_type
+          field: field_tc_type_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: not
+          value:
+            Support: Support
+            Open: Open
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
         type:
           id: type
-          table: paragraphs_item_field_data
+          table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
-            early_access_and_vehicle_passes: early_access_and_vehicle_passes
-          entity_type: paragraph
+            art: art
+            mutant_vehicles: mutant_vehicles
+            performances: performances
+            theme_camps: theme_camps
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
           entity_field: type
           plugin_id: bundle
-      sorts: {  }
+      sorts:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          order: ASC
+          entity_type: node
+          entity_field: title
+          plugin_id: standard
+          relationship: none
+          group_type: group
+          admin_label: ''
+          exposed: false
+          expose:
+            label: ''
+      title: 'WTF Guide and App'
       header: {  }
       footer: {  }
       empty: {  }
-      relationships:
-        uid:
-          id: uid
-          table: paragraphs_item_field_data
-          field: uid
+      relationships: {  }
+      arguments:
+        type:
+          id: type
+          table: node_field_data
+          field: type
           relationship: none
           group_type: group
-          admin_label: User
-          required: true
-          entity_type: paragraph
-          entity_field: uid
-          plugin_id: standard
-        field_member:
-          id: field_member
-          table: paragraph__field_member
-          field: field_member
-          relationship: none
-          group_type: group
-          admin_label: 'field_member: User'
-          required: true
-          plugin_id: standard
-      arguments: {  }
+          admin_label: ''
+          default_action: ignore
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          glossary: false
+          limit: 0
+          case: none
+          path_case: none
+          transform_dash: false
+          break_phrase: false
+          entity_type: node
+          entity_field: type
+          plugin_id: node_type
       display_extenders: {  }
     cache_metadata:
       max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.paragraph.field_arrival_date'
-        - 'config:field.storage.paragraph.field_early_access'
-        - 'config:field.storage.paragraph.field_member'
-        - 'config:field.storage.paragraph.field_motivation'
-        - 'config:field.storage.paragraph.field_vehicle_pass'
-        - 'config:field.storage.user.field_first_name'
-        - 'config:field.storage.user.field_id_number'
-        - 'config:field.storage.user.field_last_name'
+        - 'config:field.storage.node.field_grt_location'
+        - 'config:field.storage.node.field_prj_plc_location'
+        - 'config:field.storage.node.field_prj_plc_location_extra'
+        - 'config:field.storage.node.field_prj_wtf_categories'
+        - 'config:field.storage.node.field_prj_wtf_image'
+        - 'config:field.storage.node.field_prj_wtf_long'
+        - 'config:field.storage.node.field_prj_wtf_planned'
+        - 'config:field.storage.node.field_prj_wtf_scheduled'
+        - 'config:field.storage.node.field_prj_wtf_short'
+        - 'config:field.storage.node.field_prj_wtf_short_copy'
+        - 'config:field.storage.node.field_prj_wtf_website'
   data_export_1:
     display_plugin: data_export
     id: data_export_1
@@ -949,11 +1041,17 @@ display:
     position: 2
     display_options:
       display_extenders: {  }
+      path: export/wtf-guide-and-app/download
+      filename: wtf.xls
+      pager:
+        type: none
+        options:
+          offset: 0
       style:
         type: data_export
         options:
           formats:
-            xls: xls
+            xlsx: xlsx
           csv_settings:
             delimiter: ','
             enclosure: '"'
@@ -973,24 +1071,27 @@ display:
               category: ''
               manager: ''
               company: ''
-      path: wranglers/wap-vp/download
-      filename: ''
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
+        - url
+        - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.paragraph.field_arrival_date'
-        - 'config:field.storage.paragraph.field_early_access'
-        - 'config:field.storage.paragraph.field_member'
-        - 'config:field.storage.paragraph.field_motivation'
-        - 'config:field.storage.paragraph.field_vehicle_pass'
-        - 'config:field.storage.user.field_first_name'
-        - 'config:field.storage.user.field_id_number'
-        - 'config:field.storage.user.field_last_name'
+        - 'config:field.storage.node.field_grt_location'
+        - 'config:field.storage.node.field_prj_plc_location'
+        - 'config:field.storage.node.field_prj_plc_location_extra'
+        - 'config:field.storage.node.field_prj_wtf_categories'
+        - 'config:field.storage.node.field_prj_wtf_image'
+        - 'config:field.storage.node.field_prj_wtf_long'
+        - 'config:field.storage.node.field_prj_wtf_planned'
+        - 'config:field.storage.node.field_prj_wtf_scheduled'
+        - 'config:field.storage.node.field_prj_wtf_short'
+        - 'config:field.storage.node.field_prj_wtf_short_copy'
+        - 'config:field.storage.node.field_prj_wtf_website'
   page_1:
     display_plugin: page
     id: page_1
@@ -998,20 +1099,25 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: wranglers/wap-vp
+      path: export/wtf-guide-and-app
     cache_metadata:
       max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.paragraph.field_arrival_date'
-        - 'config:field.storage.paragraph.field_early_access'
-        - 'config:field.storage.paragraph.field_member'
-        - 'config:field.storage.paragraph.field_motivation'
-        - 'config:field.storage.paragraph.field_vehicle_pass'
-        - 'config:field.storage.user.field_first_name'
-        - 'config:field.storage.user.field_id_number'
-        - 'config:field.storage.user.field_last_name'
+        - 'config:field.storage.node.field_grt_location'
+        - 'config:field.storage.node.field_prj_plc_location'
+        - 'config:field.storage.node.field_prj_plc_location_extra'
+        - 'config:field.storage.node.field_prj_wtf_categories'
+        - 'config:field.storage.node.field_prj_wtf_image'
+        - 'config:field.storage.node.field_prj_wtf_long'
+        - 'config:field.storage.node.field_prj_wtf_planned'
+        - 'config:field.storage.node.field_prj_wtf_scheduled'
+        - 'config:field.storage.node.field_prj_wtf_short'
+        - 'config:field.storage.node.field_prj_wtf_short_copy'
+        - 'config:field.storage.node.field_prj_wtf_website'

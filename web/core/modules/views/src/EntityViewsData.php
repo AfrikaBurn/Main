@@ -588,6 +588,16 @@ class EntityViewsData implements EntityHandlerInterface, EntityViewsDataInterfac
         $views_field['filter']['id'] = 'string';
         $views_field['sort']['id'] = 'standard';
       }
+
+      if ($field_definition->getFieldStorageDefinition()->isMultiple()) {
+        $database_field = $field_definition->getName() . '_' . $field_definition->getFieldStorageDefinition()->getMainPropertyName();
+        $views_field['argument']['field'] = $database_field;
+        $views_field['filter']['field'] = $database_field;
+        $views_field['sort']['field'] = $database_field;
+        if (array_key_exists('relationship', $views_field)) {
+          $views_field['relationship']['relationship field'] = $database_field;
+        }
+      }
     }
 
     if ($field_definition->getName() == $this->entityType->getKey('bundle')) {

@@ -8,6 +8,8 @@ dependencies:
     - field.field.paragraph.early_access_and_vehicle_passes.field_member
     - field.field.paragraph.early_access_and_vehicle_passes.field_motivation
     - field.field.paragraph.early_access_and_vehicle_passes.field_vehicle_pass
+    - field.field.paragraph.early_access_and_vehicle_passes.field_vp_approved
+    - field.field.paragraph.early_access_and_vehicle_passes.field_wa_approved
     - paragraphs.paragraphs_type.early_access_and_vehicle_passes
   module:
     - content_moderation
@@ -46,6 +48,20 @@ content:
     region: content
   field_vehicle_pass:
     weight: 103
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_vp_approved:
+    weight: 107
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_wa_approved:
+    weight: 108
     settings:
       display_label: true
     third_party_settings: {  }

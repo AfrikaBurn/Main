@@ -35,8 +35,8 @@ class ProjectBlock extends BlockBase {
             <li><a href="/node/add/art?field_collective=' . $cid . '" class="button">An artwork</a></li>
             <li><a href="/node/add/mutant_vehicles?field_collective=' . $cid . '" class="button">A Mutant Vehicle</a></li>' . '
             <li><a href="/node/add/performances?field_collective=' . $cid . '" class="button">A Performance</a></li>
-            <li><a href="/node/add/theme_camps/open_camps?field_collective=' . $cid . '" class="button">An open camp</a></li>' . '
-            <li><a href="/node/add/theme_camps/support_camps?field_collective=' . $cid . '" class="button">A support camp</a></li>' . '
+            <li><a href="/node/add/theme_camps/open_camps?field_collective=' . $cid . '" class="button">An open camp</a></li>' . /*'
+            <li><a href="/node/add/theme_camps/support_camps?field_collective=' . $cid . '" class="button">A support camp</a></li>' .*/ '
           </ul>
           <h2>Get project support</h2>
           <ul>
