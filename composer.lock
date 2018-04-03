@@ -4567,7 +4567,7 @@
                 },
                 "drupal": {
                     "version": "8.x-5.0-rc3",
-                    "datestamp": "1520034400",
+                    "datestamp": "1520964784",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
