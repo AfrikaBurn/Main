@@ -90,7 +90,7 @@ class MemberController extends ControllerBase {
   public static function ignore($cid = FALSE) {
 
     $nid = \Drupal::routeMatch()->getParameter('nid');
-    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid ? $cid : $nid);
 
     if ($collective->bundle() == 'collective'){
 
@@ -256,22 +256,31 @@ class MemberController extends ControllerBase {
     $indexes = [];
     $field_col_invitee = $collective->get('field_col_invitee');
 
+
+
     if ($field_col_invitee){
 
-      $invitees = array_column(
-        $field_col_invitee->getValue(),
-        'value'
+      $invitees = array_map('strtolower', 
+        array_column(
+          $field_col_invitee->getValue(),
+          'value'
+        )
       );
 
-      $mails = is_string($user)
-        ? [$user]
-        : [$user->get('mail')->getValue(), $user->get('field_secondary_mail')->getValue()];
-      foreach($mails as $index=>$mail){
-        if ($mail) {
-          $value = array_values(array_column($mail, 'value'))[0];
-          if (in_array(strtolower($value), array_map('strtolower', $invitees))) {
-            $indexes[$index] = $index;
-          }
+      if (is_string($user)){
+        $mails = [$user];
+      } else {
+        $primary = $user->get('mail')->getValue();
+        $secondary = $user->get('field_secondary_mail')->getValue();
+        $mails = array_map('strtolower', [
+          is_string($primary) ? $primary : $primary[0]['value'],
+          is_string($secondary) ? $secondary : (isset($secondary[0][0]['value']) ? $secondary[0][0]['value'] : null),
+        ]);
+      }
+
+      foreach($invitees as $index=>$invite){
+        if (in_array($invite, $mails)) {
+          $indexes[$index] = $index;
         }
       }
     }
