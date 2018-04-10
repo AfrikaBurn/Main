@@ -4258,8 +4258,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/taxonomy_manager",
                 "issues": "https://drupal.org/project/issues/taxonomy_manager"
-            },
-            "time": "2018-02-09 14:47:11"
+            }
         },
         {
             "name": "drupal/term_csv_export_import",
